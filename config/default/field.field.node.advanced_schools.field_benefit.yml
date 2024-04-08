@@ -1,0 +1,40 @@
+uuid: 4b1775f9-13ac-454d-8019-edb2c64967fe
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_benefit
+    - node.type.advanced_schools
+    - paragraphs.paragraphs_type.trait_modifier
+  module:
+    - entity_reference_revisions
+id: node.advanced_schools.field_benefit
+field_name: field_benefit
+entity_type: node
+bundle: advanced_schools
+label: 'Required Rings'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      trait_modifier: trait_modifier
+    negate: 0
+    target_bundles_drag_drop:
+      mastery_abilities:
+        weight: 5
+        enabled: false
+      source:
+        weight: 6
+        enabled: false
+      techniques:
+        weight: 7
+        enabled: false
+      trait_modifier:
+        weight: 8
+        enabled: true
+field_type: entity_reference_revisions

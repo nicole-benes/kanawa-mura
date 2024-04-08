@@ -1,0 +1,18 @@
+uuid: 3e7cedc0-33b3-40e6-bee4-d8c0a86e108a
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.ancestors
+id: node.ancestors.title
+field_name: title
+entity_type: node
+bundle: ancestors
+label: Name
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

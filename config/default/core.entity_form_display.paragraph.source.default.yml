@@ -1,0 +1,33 @@
+uuid: 05071b77-e03f-4e69-aa56-08e6a666017c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.source.field_page_number
+    - field.field.paragraph.source.field_source_book
+    - paragraphs.paragraphs_type.source
+id: paragraph.source.default
+targetEntityType: paragraph
+bundle: source
+mode: default
+content:
+  field_page_number:
+    type: number
+    weight: 1
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_source_book:
+    type: entity_reference_autocomplete
+    weight: 0
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

@@ -1,0 +1,23 @@
+uuid: 08464df8-52a6-4a2d-abc5-1fa97e4f2577
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_rank
+    - paragraphs.paragraphs_type.mastery_abilities
+id: paragraph.mastery_abilities.field_rank
+field_name: field_rank
+entity_type: paragraph
+bundle: mastery_abilities
+label: Rank
+description: 'What rank the mastery ability is available at.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

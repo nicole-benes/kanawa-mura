@@ -1,0 +1,312 @@
+<head>
+	<title>Deadlands Dice Simulator</title></titlwe>
+
+	<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+	<!--
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+	-->
+
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.8.1/dist/css/foundation.min.css" crossorigin="anonymous">
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&family=Rye&display=swap" rel="stylesheet"> 
+
+	<style>
+		body {
+			font-family: 'Open Sans', sans-serif;
+			text-align: center;
+		}
+
+		h1 {
+			font-family: 'Rye', cursive;
+		}
+
+		.chart {
+			height: 55vh;
+			margin: 0 .9375rem;
+		}
+
+		.target-table {
+			margin: 0 auto;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="grid-container fluid">
+		<div class="grid-x grid-margin-x">
+	  
+			<header class="header cell small-12">
+				<h1>
+					Deadlands Dice Simulator
+				</h1>
+			</header>
+
+			<div class="form cell small-12">
+				<form id="dice-form">
+					<div class="grid-x grid-padding-x">
+						<div class="number small-4 cel">
+							<label for="number">Amount of dice:</label>
+							<input type="text" id="number" name="number" placeholder="1"/>
+						</div>
+
+						<div class="type small-4 cel">
+							<label for="type">Type of dice:</label>
+							<select id="type" name="type"/>
+								<option value="4">4</option>
+								<option value="6">6</option>
+								<option value="8">8</option>
+								<option value="10">10</option>
+								<option value="12">12</option>
+								<option value="20">20</option>
+							</select>
+						</div>
+
+						<div class="target small-4 cel">
+							<label for="target">Target:</label>
+							<input type="text" id="target" name="target" placeholder="5"/>
+						</div>
+
+						<div class="iterations small-12 cel">
+							<label for="iterations">Iterations:</label>
+							<input id="iterations" name="iterations" value="10"/>
+						</div>
+
+						<div class="buttons small-12 cel">
+							<input class="button submit" type="submit" value="Simulate">
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<div id="chart" class="chart">
+		<canvas id="myChart"></canvas>
+	</div>
+
+	<div class="grid-container fluid">
+		<div class="grid-x grid-margin-x">
+			<div id="target-table" class="target-table hide">
+				<table id="target">
+					<thead>
+						<tr>
+							<td>Bust</td>
+							<td id="target-header">Target</td>
+							<td id="one-header">+5</td>
+							<td id="two-header">+10</td>
+							<td id="three-header">+15</td>
+							<td id="four-header">+20</td>
+							<td id="five-header">+25</td>
+						</tr>
+					</thead>
+
+					<tbody>
+						<tr>
+							<td id="bust-cell"></td>
+							<td id="target-cell"></td>
+							<td id="one-cell"></td>
+							<td id="two-cell"></td>
+							<td id="three-cell"></td>
+							<td id="four-cell"></td>
+							<td id="five-cell"></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div id="stats" class="stats cell small-12"></div>
+		</div>
+	</div>
+	  
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+	<script>
+		$( document ).ready( function() {
+			$( '#dice-form' ).submit( function( e ) {
+				e.preventDefault();
+
+				$( '#chart' ).html( '');
+				$(' #chart' ).html( '<canvas id="myChart"></canvas>' );
+
+				$( this ).prop( 'disabled', true );
+
+				var num =  parseInt( $( '#number' ).val() );
+				var type = parseInt( $( '#type' ).val() );
+				var it = parseInt( $( '#iterations' ).val() );
+				var tn = parseInt( $( '#target' ).val() );
+
+				if( !$.isNumeric( num ) || num < 1 ) {
+					num = 1;
+				}
+
+				if( !$.isNumeric( tn ) || tn < 1 ) {
+					tn = 5;
+				}
+
+				if( !$.isNumeric( it ) || it < 1 ) {
+					num = 100;
+				}
+
+				var results = [];
+				var actualRolls = [];
+
+				for( var i = 0; i < it; i++ ) {
+					var rolls = [];
+
+					for( var j = 0; j < num; j++ ) {
+						rolls.push( rollExplode( type ) );
+					}
+
+					var max = 0;
+
+					for( var j = 0; j < rolls.length; j++ ) {
+						if( rolls[ j ] > max ) {
+							max = rolls[ j ];
+						}
+					}
+
+					if( wentBust( rolls ) ) {
+						max = 1;
+					}
+
+					results.push( max );
+				}
+
+				max = Math.max.apply( Math, results );
+
+				var labels = [];
+				var values = [ 0 ];
+				var borderColors = [];
+				var backgroundColors = [];
+
+				for( var i = 1; i <= max; i++ ) {
+					labels.push( i );
+					values[ i ] = 0;
+
+					var red = Math.floor( Math.random() * 215 );
+					var green = Math.floor( Math.random() * 215 );
+					var blue = Math.floor( Math.random() * 215 );
+
+					backgroundColors[ i - 1  ] = 'rgba(' + red + ',' + green + ',' + blue + ', 0.4 )';
+					borderColors[ i - 1 ] = 'rgb(' + red + ',' + green + ',' + blue + ')';
+				}
+				
+				labels[ 0 ] = 'Bust';
+
+				for( var i = 0; i < results.length; i++ ) {
+					values[ results[ i ] - 1 ]++;
+				}
+
+				const average = array => array.reduce((a, b) => a + b) / array.length;
+				
+				var mean = Math.floor( average( results ) );
+				
+				var med = Math.floor( median( results ) );
+
+				var bust = values[ 0 ] / it * 100;
+
+				var targets = calcTargets( values, tn, it );
+
+				$( '#target-header' ).html( 'Target (' + tn + ')' );
+				$( '#one-header' ).html( '+5 (' + ( tn + 5 ) + ')' );
+				$( '#two-header' ).html( '+10 (' + ( tn + 10 ) + ')' );
+				$( '#three-header' ).html( '+15 (' + ( tn + 15 ) + ')' );
+				$( '#four-header' ).html( '+20 (' + ( tn + 20 ) + ')' );
+				$( '#five-header' ).html( '+25 (' + ( tn + 25 ) + ')' );
+
+				$( '#bust-cell' ).html(  bust.toFixed( 2 ) + '%' );
+
+				$( '#target-cell' ).html( targets [ 0 ] + '%' );
+				$( '#one-cell' ).html( targets [ 1 ] + '%' );
+				$( '#two-cell' ).html( targets [ 2 ] + '%' );
+				$( '#three-cell' ).html( targets [ 3 ] + '%' );
+				$( '#four-cell' ).html( targets [ 4 ] + '%' );
+				$( '#five-cell' ).html( targets [ 5 ] + '%' );
+
+				$( '#target-table' ).removeClass( 'hide' );
+
+				$( '#stats' ).html( '<h3>Median: <em>' + med + '</em> | Mean: <em>' + mean + '</em></h3>' );
+
+				const ctx = document.getElementById('myChart');
+
+				const config = {
+					type: 'line',
+					data: values
+				}
+
+				new Chart( ctx, {
+					type: 'bar',
+					data: {
+						labels: labels,
+						datasets: [{
+							label: 'Dice Results',
+							data: values,
+							backgroundColor: backgroundColors,
+							borderColor: borderColors,
+							borderWidth: 1
+						}]
+					},
+					options: {
+						scales: {
+							y: {
+								beginAtZero: true
+							}
+						},
+						maintainAspectRatio: false
+					}
+				});	
+
+				$( this ).prop( 'disabled', false );
+			});
+
+			function rollExplode( type ) {
+				var roll = Math.floor( Math.random() * type ) + 1;
+				
+				if( roll == type ) {
+					roll += rollExplode( type );
+				}
+
+				return roll;
+			}
+
+			function wentBust( rolls ) {
+				var ones = $.grep( rolls, function (elem) {
+					return elem === 1;
+				}).length;
+
+				return ( ones / rolls.length ) > 0.5;
+			}
+
+			function calcTargets( values, tn, it ) {
+				var targets = [];
+
+				for( var i = 0; i < 6; i++ ) {
+					var thisTarget = ( tn * ( i + 1 ) );
+					var successes = 0;
+					
+					for( j = thisTarget - 1; j < values.length; j++ ) {
+						successes += values[ j ];
+					}
+
+					targets[ i ] = successes / it * 100;
+
+					targets[ i ] = targets[ i ].toFixed( 2 );
+				}
+
+				return targets;
+			}
+
+			function median(numbers) {
+				const sorted = Array.from(numbers).sort((a, b) => a - b);
+				const middle = Math.floor(sorted.length / 2);
+
+				if (sorted.length % 2 === 0) {
+					return (sorted[middle - 1] + sorted[middle]) / 2;
+				}
+
+				return sorted[middle];
+			}
+		});
+	</script>
+</body>

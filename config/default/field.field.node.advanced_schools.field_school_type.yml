@@ -1,0 +1,29 @@
+uuid: 3c43dc7e-31ab-4fc2-98bd-a1945e592d64
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_school_type
+    - node.type.advanced_schools
+    - taxonomy.vocabulary.school_type
+id: node.advanced_schools.field_school_type
+field_name: field_school_type
+entity_type: node
+bundle: advanced_schools
+label: 'School Type'
+description: 'The type(s) of school this is.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      school_type: school_type
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

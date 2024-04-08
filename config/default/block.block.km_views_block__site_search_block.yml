@@ -1,0 +1,29 @@
+uuid: acb2f6d4-2ff2-43da-85a4-235dc14a357b
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.site_search
+  module:
+    - system
+    - views
+  theme:
+    - km
+id: km_views_block__site_search_block
+theme: km
+region: content
+weight: -3
+provider: null
+plugin: 'views_block:site_search-block_1'
+settings:
+  id: 'views_block:site_search-block_1'
+  label: ''
+  label_display: visible
+  provider: views
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '<front>'

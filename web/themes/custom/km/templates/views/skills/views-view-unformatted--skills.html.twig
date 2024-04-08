@@ -1,0 +1,27 @@
+<div class="skills-group accordion">
+     <div class="accordion-item">
+          <h2 class="accordion-header">
+               <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#{{ skillType }}-accordion" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+                    {{ title }}
+               </button>
+          </h2>
+
+          <div id="{{ skillType}}-accordion" class="accordion-collapse collapse show">
+               <div class="accordion-body">
+                    {% block views_unformatted_rows %}
+                         {% for row in rows %}
+                              {% 
+                              set row_classes = [
+                                   default_row_class ? 'views-row skill ',
+                              ]|merge(row_utility_classes ? row_utility_classes : []) 
+                              %}
+                              
+                              <div{{ row.attributes.addClass(row_classes) }}>
+                                   {{- row.content -}}
+                              </div>
+                         {% endfor %}
+                    {% endblock %}     
+               </div>
+          </div>
+     </div>
+</div>

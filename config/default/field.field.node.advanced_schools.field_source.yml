@@ -1,0 +1,40 @@
+uuid: 057bec56-380b-4e7c-ac68-bddf73204e45
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_source
+    - node.type.advanced_schools
+    - paragraphs.paragraphs_type.source
+  module:
+    - entity_reference_revisions
+id: node.advanced_schools.field_source
+field_name: field_source
+entity_type: node
+bundle: advanced_schools
+label: Source
+description: 'The source this school is from.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      source: source
+    negate: 0
+    target_bundles_drag_drop:
+      mastery_abilities:
+        weight: 5
+        enabled: false
+      source:
+        weight: 3
+        enabled: true
+      techniques:
+        weight: 7
+        enabled: false
+      trait_modifier:
+        weight: 4
+        enabled: false
+field_type: entity_reference_revisions

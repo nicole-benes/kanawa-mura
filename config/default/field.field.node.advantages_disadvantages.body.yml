@@ -1,0 +1,24 @@
+uuid: cb4cd263-2f37-4806-89a8-a08f85e6a8a5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.advantages_disadvantages
+  module:
+    - text
+id: node.advantages_disadvantages.body
+field_name: body
+entity_type: node
+bundle: advantages_disadvantages
+label: Description
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: false
+  required_summary: false
+  allowed_formats: {  }
+field_type: text_with_summary

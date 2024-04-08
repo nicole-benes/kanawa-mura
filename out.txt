@@ -1,0 +1,100 @@
+
+ // Are you sure you want to delete the nodes?: yes.                                                                    
+
+----------
+Hida Bushi
+TYPE: Bushi
+|<a href="/skills#Athletics>Athletics</a>, <a href="/skills#Defense>Defense</a>, <a href="/skills#Heavy Weapons (Tetsubo)>Heavy Weapons (Tetsubo)</a>, <a href="/skills#Intimidation>Intimidation</a>, <a href="/skills#Kenjutsu>Kenjutsu</a>, <a href="/skills#Lore: Shadowlands>Lore: Shadowlands</a>, <a href="/skills#any one Bugei Skill>any one Bugei Skill</a>,|
+----------
+Hida Pragmatist
+TYPE: Bushi
+|<a href="/skills#Athletics>Athletics</a>, <a href="/skills#Defense>Defense</a>, <a href="/skills#Jiujutsu (Improvised Weapons) 2>Jiujutsu (Improvised Weapons) 2</a>, <a href="/skills#Kenjutsu>Kenjutsu</a>, <a href="/skills#Lore: Shadowlands>Lore: Shadowlands</a>, <a href="/skills#any one Bugei Skill>any one Bugei Skill</a>,|
+----------
+Hiruma Bushi
+TYPE: Bushi
+|<a href="/skills#Athletics>Athletics</a>, <a href="/skills#Hunting>Hunting</a>, <a href="/skills#Kenjutsu (Katana)>Kenjutsu (Katana)</a>, <a href="/skills#Kyujutsu>Kyujutsu</a>, <a href="/skills#Lore: Shadowlands>Lore: Shadowlands</a>, <a href="/skills#Stealth>Stealth</a>, <a href="/skills#any one Skill>any one Skill</a>,|
+----------
+Hiruma Scout
+TYPE: Bushi
+|<a href="/skills#Athletics>Athletics</a>, <a href="/skills#Hunting>Hunting</a>, <a href="/skills#Kenjutsu>Kenjutsu</a>, <a href="/skills#Kyujutsu>Kyujutsu</a>, <a href="/skills#Lore: Shadowlands>Lore: Shadowlands</a>, <a href="/skills#Stealth (Sneaking)>Stealth (Sneaking)</a>, <a href="/skills#any one Bugei Skill>any one Bugei Skill</a>,|
+----------
+Kaiu Engineer
+TYPE: Artisan
+TYPE: Bushi
+|<a href="/skills#Battle>Battle</a>, <a href="/skills#Craft: Armorsmithing>Craft: Armorsmithing</a>, <a href="/skills#Craft: Weaponsmithing>Craft: Weaponsmithing</a>, <a href="/skills#Defense>Defense</a>, <a href="/skills#Engineering (pick one Emphasis)>Engineering (pick one Emphasis)</a>, <a href="/skills#Lore: Architecture>Lore: Architecture</a>, <a href="/skills#War Fans>War Fans</a>,|
+----------
+Kuni Shugenja
+TYPE: Shugenja
+|<a href="/skills#Calligraphy (Cipher)>Calligraphy (Cipher)</a>, <a href="/skills#Defense>Defense</a>, <a href="/skills#Lore: Shadowlands 2>Lore: Shadowlands 2</a>, <a href="/skills#Lore: Theology>Lore: Theology</a>, <a href="/skills#Spellcraft>Spellcraft</a>, <a href="/skills#any one Weapon Skill>any one Weapon Skill</a>,|
+----------
+Kuni Witch-Hunter
+TYPE: Monk
+DEVOTION: 
+|<a href="/skills#Investigation>Investigation</a>, <a href="/skills#Jiujutsu>Jiujutsu</a>, <a href="/skills#Kenjutsu>Kenjutsu</a>, <a href="/skills#Lore: Shadowlands>Lore: Shadowlands</a>, <a href="/skills#Lore: Maho>Lore: Maho</a>, <a href="/skills#Mediation>Mediation</a>, <a href="/skills#any one Skill>any one Skill</a>,|
+----------
+Toritaka Bushi
+TYPE: Bushi
+|<a href="/skills#Animal Handling (Falcons)>Animal Handling (Falcons)</a>, <a href="/skills#Hunting 2>Hunting 2</a>, <a href="/skills#Kenjutsu>Kenjutsu</a>, <a href="/skills#Etiquette>Etiquette</a>, <a href="/skills#Lore: Spirit Realms>Lore: Spirit Realms</a>, <a href="/skills#Spears>Spears</a>, <a href="/skills#any one Skill>any one Skill</a>,|
+----------
+Yasuki Courtier
+TYPE: Courtier
+|<a href="/skills#Commerce (Appraisal)>Commerce (Appraisal)</a>, <a href="/skills#Courtier>Courtier</a>, <a href="/skills#Defense>Defense</a>, <a href="/skills#Etiquette>Etiquette</a>, <a href="/skills#Intimidation>Intimidation</a>, <a href="/skills#Sincerity (Deceit)>Sincerity (Deceit)</a>, <a href="/skills#any one Merchant Skill>any one Merchant Skill</a>,|
+----------
+Asahina Shugenja
+TYPE: Shugenja
+|<a href="/skills#Any one Artisan Skill>Any one Artisan Skill</a>, <a href="/skills#Calligraphy (Cipher)>Calligraphy (Cipher)</a>, <a href="/skills#Etiquette>Etiquette</a>, <a href="/skills#Lore: Theology>Lore: Theology</a>, <a href="/skills#Meditation>Meditation</a>, <a href="/skills#Spellcraft>Spellcraft</a>, <a href="/skills#any one High Skill>any one High Skill</a>,|
+----------
+Daidoji Iron Warrior
+TYPE: Bushi
+|<a href="/skills#Battle>Battle</a>, <a href="/skills#Defense 2>Defense 2</a>, <a href="/skills#Iaijutsu>Iaijutsu</a>, <a href="/skills#Kenjutsu (Katana)>Kenjutsu (Katana)</a>, <a href="/skills#Kyujutsu>Kyujutsu</a>, <a href="/skills#any one Skill>any one Skill</a>,|
+----------
+Daidoji Scout
+TYPE: Bushi
+|<a href="/skills#Athletics>Athletics</a>, <a href="/skills#Hunting (Traps)>Hunting (Traps)</a>, <a href="/skills#Kenjutsu>Kenjutsu</a>, <a href="/skills#Knivs>Knivs</a>, <a href="/skills#Kyujutsu (Yumi)>Kyujutsu (Yumi)</a>, <a href="/skills#Stealth (Sneaking) any 1 Bugei or Low Skill>Stealth (Sneaking) any 1 Bugei or Low Skill</a>,|
+----------
+Doji Courtier
+TYPE: Courtier
+|<a href="/skills#Calligraphy>Calligraphy</a>, <a href="/skills#Courtier (Manipulation)>Courtier (Manipulation)</a>, <a href="/skills#Etiquette (Courtesy)>Etiquette (Courtesy)</a>, <a href="/skills#Perform: Storytelling>Perform: Storytelling</a>, <a href="/skills#Sincerity>Sincerity</a>, <a href="/skills#Tea Ceremony>Tea Ceremony</a>, <a href="/skills#any one Artisan or Perform skill>any one Artisan or Perform skill</a>,|
+----------
+Doji Magistrate
+TYPE: Bushi
+|<a href="/skills#Defense>Defense</a>, <a href="/skills#Horsemanship>Horsemanship</a>, <a href="/skills#Jiujutsu>Jiujutsu</a>, <a href="/skills#Kenjutsu>Kenjutsu</a>, <a href="/skills#Knives (Jitte)>Knives (Jitte)</a>, <a href="/skills#Polearms>Polearms</a>, <a href="/skills#any High or Bugei Skill>any High or Bugei Skill</a>,|
+----------
+Kakita Bushi
+TYPE: Bushi
+|<a href="/skills#Etiquette>Etiquette</a>, <a href="/skills#Iaijutsu (Focus)>Iaijutsu (Focus)</a>, <a href="/skills#Kenjutsu>Kenjutsu</a>, <a href="/skills#Kyujutsu>Kyujutsu</a>, <a href="/skills#Sincerity>Sincerity</a>, <a href="/skills#Tea Ceremony>Tea Ceremony</a>, <a href="/skills#any one Bugei or High Skill>any one Bugei or High Skill</a>,|
+----------
+Kakita Artisan
+TYPE: Artisan
+|<a href="/skills#Courtier>Courtier</a>, <a href="/skills#Games: Sadane>Games: Sadane</a>, <a href="/skills#Etiquette>Etiquette</a>, <a href="/skills#Sincerity>Sincerity</a>, <a href="/skills#any 3 skills chosen from the following list: Acting>any 3 skills chosen from the following list: Acting</a>, <a href="/skills#Artisan (Gardening>Artisan (Gardening</a>, <a href="/skills#Ikebana>Ikebana</a>, <a href="/skills#Origami>Origami</a>, <a href="/skills#Painting>Painting</a>, <a href="/skills#Poetry>Poetry</a>, <a href="/skills#or Sculpture)>or Sculpture)</a>, <a href="/skills#Perform (Dance>Perform (Dance</a>, <a href="/skills#Oratory>Oratory</a>, <a href="/skills#Puppeteer>Puppeteer</a>, <a href="/skills#Song>Song</a>, <a href="/skills#Storytelling>Storytelling</a>, <a href="/skills#or any musical instrument)>or any musical instrument)</a>,|
+----------
+Kitsuki Investigator
+TYPE: Courtier
+|<a href="/skills#Courtier>Courtier</a>, <a href="/skills#Etiquette (Courtesy)>Etiquette (Courtesy)</a>, <a href="/skills#Investigation (Interrogation)>Investigation (Interrogation)</a>, <a href="/skills#Kenjutsu>Kenjutsu</a>, <a href="/skills#Meditation>Meditation</a>, <a href="/skills#Sincerity>Sincerity</a>, <a href="/skills#any one Lore Skill>any one Lore Skill</a>,|
+----------
+Mirumoto Bushi
+TYPE: Bushi
+|<a href="/skills#Defense>Defense</a>, <a href="/skills#Iaijutsu>Iaijutsu</a>, <a href="/skills#Kenjutsu (Katana)>Kenjutsu (Katana)</a>, <a href="/skills#Lore: Shugenja>Lore: Shugenja</a>, <a href="/skills#Meditation>Meditation</a>, <a href="/skills#Theology>Theology</a>, <a href="/skills#any one Bugei or High Skill>any one Bugei or High Skill</a>,|
+----------
+Mirumoto Taoist Swordsman
+TYPE: Bushi
+|<a href="/skills#Athletics>Athletics</a>, <a href="/skills#Defense>Defense</a>, <a href="/skills#Iaijutsu>Iaijutsu</a>, <a href="/skills#Kenjutsu (Katana)>Kenjutsu (Katana)</a>, <a href="/skills#Lore: Theology>Lore: Theology</a>, <a href="/skills#Meditation>Meditation</a>, <a href="/skills#any 1 Bugei or High Skill>any 1 Bugei or High Skill</a>,|
+----------
+Tamori Shugenja
+TYPE: Shugenja
+|<a href="/skills#Athletics>Athletics</a>, <a href="/skills#Calligraphy (Cipher)>Calligraphy (Cipher)</a>, <a href="/skills#Defense>Defense</a>, <a href="/skills#Divination>Divination</a>, <a href="/skills#Lore: Theology>Lore: Theology</a>, <a href="/skills#Medicine>Medicine</a>, <a href="/skills#and Spellcraft>and Spellcraft</a>,|
+----------
+The Togashi Tattooed Order
+TYPE: Monk
+DEVOTION: 
+|<a href="/skills#Athletics>Athletics</a>, <a href="/skills#Artisan: Tattooing>Artisan: Tattooing</a>, <a href="/skills#Defense>Defense</a>, <a href="/skills#Jiujutsu>Jiujutsu</a>, <a href="/skills#any one Lore Skill>any one Lore Skill</a>, <a href="/skills#Mediation>Mediation</a>, <a href="/skills#any one non-Low Skill>any one non-Low Skill</a>,|
+----------
+The Hoshi Tsurui Zumi Order
+TYPE: Monk
+DEVOTION: 
+|<a href="/skills#Athletics>Athletics</a>, <a href="/skills#Defense>Defense</a>, <a href="/skills#Etiquette>Etiquette</a>, <a href="/skills#Jiujutsu>Jiujutsu</a>, <a href="/skills#Meditation (Void Recovery)>Meditation (Void Recovery)</a>, <a href="/skills#any 2 Skills>any 2 Skills</a>,|
+----------
+The Hitomi Kikage Zumi Order
+TYPE: Monk
+DEVOTION: 
+Error: Call to a member function id() on null in last_haiku_import_term_lookup() (line 380 of /private/var/www/l5r/web/modules/custom/last_haiku_import/last_haiku_import.install).

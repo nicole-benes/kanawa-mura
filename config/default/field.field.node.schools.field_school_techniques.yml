@@ -1,0 +1,45 @@
+uuid: def3b8d4-1035-40a3-b836-4ccfc83fb9aa
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_school_techniques
+    - node.type.schools
+    - paragraphs.paragraphs_type.inline_technique
+    - paragraphs.paragraphs_type.techniques
+  module:
+    - entity_reference_revisions
+id: node.schools.field_school_techniques
+field_name: field_school_techniques
+entity_type: node
+bundle: schools
+label: 'School Techniques'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      inline_technique: inline_technique
+      techniques: techniques
+    negate: 0
+    target_bundles_drag_drop:
+      inline_technique:
+        weight: 6
+        enabled: true
+      mastery_abilities:
+        weight: 5
+        enabled: false
+      source:
+        weight: 6
+        enabled: false
+      techniques:
+        weight: 7
+        enabled: true
+      trait_modifier:
+        weight: 8
+        enabled: false
+field_type: entity_reference_revisions

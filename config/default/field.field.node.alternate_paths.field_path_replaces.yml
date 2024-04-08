@@ -1,0 +1,22 @@
+uuid: 438c9eae-ab49-46aa-af14-a754007dce28
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_path_replaces
+    - node.type.alternate_paths
+  module:
+    - text
+id: node.alternate_paths.field_path_replaces
+field_name: field_path_replaces
+entity_type: node
+bundle: alternate_paths
+label: Replaces
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

@@ -1,0 +1,109 @@
+uuid: 2b522c2d-ba3a-4ffc-b578-43475b1b7e98
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.alternate_paths.body
+    - field.field.node.alternate_paths.field_alternate_path_special
+    - field.field.node.alternate_paths.field_clan_school
+    - field.field.node.alternate_paths.field_devotion
+    - field.field.node.alternate_paths.field_path_replaces
+    - field.field.node.alternate_paths.field_path_technique_rank
+    - field.field.node.alternate_paths.field_required_other
+    - field.field.node.alternate_paths.field_school_techniques
+    - field.field.node.alternate_paths.field_school_type
+    - field.field.node.alternate_paths.field_source
+    - node.type.alternate_paths
+  module:
+    - entity_reference_revisions
+    - text
+    - user
+id: node.alternate_paths.default
+targetEntityType: node
+bundle: alternate_paths
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  field_alternate_path_special:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 111
+    region: content
+  field_clan_school:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 104
+    region: content
+  field_devotion:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 113
+    region: content
+  field_path_replaces:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 105
+    region: content
+  field_path_technique_rank:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 112
+    region: content
+  field_required_other:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 110
+    region: content
+  field_school_techniques:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 109
+    region: content
+  field_school_type:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  field_source:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 103
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  search_api_excerpt: true

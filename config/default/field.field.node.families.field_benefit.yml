@@ -1,0 +1,43 @@
+uuid: 55292d85-8629-4af9-bb1d-08c8b6184d82
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_benefit
+    - node.type.families
+    - paragraphs.paragraphs_type.trait_modifier
+  module:
+    - entity_reference_revisions
+id: node.families.field_benefit
+field_name: field_benefit
+entity_type: node
+bundle: families
+label: 'Family Trait'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      trait_modifier: trait_modifier
+    negate: 0
+    target_bundles_drag_drop:
+      inline_technique:
+        weight: 6
+        enabled: false
+      mastery_abilities:
+        weight: 5
+        enabled: false
+      source:
+        weight: 6
+        enabled: false
+      techniques:
+        weight: 7
+        enabled: false
+      trait_modifier:
+        weight: 8
+        enabled: true
+field_type: entity_reference_revisions

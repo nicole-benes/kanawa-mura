@@ -1,0 +1,20 @@
+uuid: 5c60ebb8-ff6d-4ab6-beea-eff8c17428d5
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_school_honor
+field_name: field_school_honor
+entity_type: node
+type: decimal
+settings:
+  precision: 10
+  scale: 2
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

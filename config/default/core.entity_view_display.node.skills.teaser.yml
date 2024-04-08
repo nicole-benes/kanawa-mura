@@ -1,0 +1,43 @@
+uuid: 7cac3771-4d05-4b4b-85a3-98509f4f36b3
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.skills.body
+    - field.field.node.skills.field_emphases
+    - field.field.node.skills.field_mastery
+    - field.field.node.skills.field_skill_type
+    - field.field.node.skills.field_source
+    - field.field.node.skills.field_sub_types
+    - field.field.node.skills.field_trait
+    - node.type.skills
+  module:
+    - text
+    - user
+id: node.skills.teaser
+targetEntityType: node
+bundle: skills
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_emphases: true
+  field_mastery: true
+  field_skill_type: true
+  field_source: true
+  field_sub_types: true
+  field_trait: true
+  search_api_excerpt: true

@@ -1,0 +1,39 @@
+uuid: 636b10d5-48f7-4a05-8d00-5f079f65e631
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.kiho.body
+    - field.field.node.kiho.field_keywords
+    - field.field.node.kiho.field_kiho_type
+    - field.field.node.kiho.field_rank
+    - field.field.node.kiho.field_trait
+    - node.type.kiho
+  module:
+    - text
+    - user
+id: node.kiho.teaser
+targetEntityType: node
+bundle: kiho
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_keywords: true
+  field_kiho_type: true
+  field_rank: true
+  field_trait: true
+  search_api_excerpt: true

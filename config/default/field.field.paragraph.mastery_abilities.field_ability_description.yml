@@ -1,0 +1,19 @@
+uuid: ed56105e-6c62-45a1-b4ae-3c1deb8cf035
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_ability_description
+    - paragraphs.paragraphs_type.mastery_abilities
+id: paragraph.mastery_abilities.field_ability_description
+field_name: field_ability_description
+entity_type: paragraph
+bundle: mastery_abilities
+label: 'Ability Description'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

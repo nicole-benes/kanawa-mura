@@ -1,0 +1,36 @@
+<{{ fields.title.wrapper_element }}{{ fields.title.wrapper_attributes }}>
+     <{{ fields.title.element_type }}{{ fields.title.element_attributes }}>
+          {% if row.search_result %}
+               <div class="search-result-row-header">     
+                    <div class="result-title">
+                         <a href="{{ row.link }}" title="{{ fields.title.content }}">{{ fields.title.content }}</a> ({{ fields.point_value_numeric.content }} Points){% if fields.source %} [{{ fields.source.content }}]{% endif %}
+                    </div>
+
+                    <div class="result-type">
+                         <span class="result-icon"><i class="fa-solid fa-ghost"></i></span>{{ fields.clan_term.content }} Ancestor
+                    </div>
+          {% else %}
+               <a id="{{ fields.title.content }}"></a>{{ fields.title.content }}{% if row.minorClan %}[ <a href="/families#{{ row.minorClan }}" class="anchor">{{ row.minorClan }}</a>]{% endif %} ({{ fields.point_value_numeric.content }} Points){% if fields.source %} [{{ fields.source.content }}]{% endif %}
+          {% endif %}
+     </{{ fields.title.element_type }}>
+</{{ fields.title.wrapper_element }}>
+
+{#}
+<{{ fields.title.wrapper_element }}{{ fields.title.wrapper_attributes }}>
+     <{{ fields.title.element_type }}{{ fields.title.element_attributes }}>
+          <a id="{{ fields.title.content }}"></a>{{ fields.title.content }}{% if row.minorClan %}[ <a href="/families#{{ row.minorClan }}" class="anchor">{{ row.minorClan }}</a>]{% endif %} ({{ fields.point_value_numeric.content }} Points){% if fields.source %} [{{ fields.source.content }}]{% endif %}
+     </{{ fields.title.element_type }}>
+</{{ fields.title.wrapper_element }}>
+#}
+
+{% if fields.body %}
+     <{{ fields.body.wrapper_element }}{{ fields.body.wrapper_attributes }}>
+          {{ fields.body.content }}
+     </{{ fields.body.wrapper_element }}>
+{% endif %}
+
+<div class="ancestor-demands">
+     <{{ fields.field_ancestor_demands.wrapper_element }}{{ fields.field_ancestor_demands.wrapper_attributes }}>
+          <span class="label">Demands</span><span class="inline-field-value">{{ fields.field_ancestor_demands.content }}</span>
+     </{{ fields.field_ancestor_demands.wrapper_element }}>
+</div>

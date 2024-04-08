@@ -1,0 +1,5 @@
+name: Kanawa-Mura
+type: module
+description: 'Various functions to improve the function of the site.'
+core_version_requirement: ^9 || ^10
+package: 'Custom'

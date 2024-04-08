@@ -1,0 +1,13 @@
+diff --git a/src/Feeds/Target/Paragraphs.php b/src/Feeds/Target/Paragraphs.php
+index b71cd84..5a7dd39 100644
+--- a/src/Feeds/Target/Paragraphs.php
++++ b/src/Feeds/Target/Paragraphs.php
+@@ -83,7 +83,7 @@ class Paragraphs extends Text implements ConfigurableTargetInterface {
+     ]);
+     $field_options = [];
+     foreach ($field_configs as $field_config) {
+-      if (in_array($field_config->getType(), ['text', 'text_long', 'text_with_summary'])) {
++      if (in_array($field_config->getType(), ['text', 'text_long', 'text_with_summary', 'string', 'list_string', ''])) {
+         $field_options[$field_config->getName()] = $field_config->label();
+       }
+     }

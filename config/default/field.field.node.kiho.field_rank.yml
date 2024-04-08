@@ -1,0 +1,23 @@
+uuid: 42722f27-b43b-427f-a847-a6ffa271c891
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_rank
+    - node.type.kiho
+id: node.kiho.field_rank
+field_name: field_rank
+entity_type: node
+bundle: kiho
+label: Rank
+description: 'The rank required for this Kiho.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

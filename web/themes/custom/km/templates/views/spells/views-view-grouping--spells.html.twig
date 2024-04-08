@@ -1,0 +1,41 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a single views grouping.
+ *
+ * Available variables:
+ * - view: The view object.
+ * - grouping: The grouping instruction.
+ * - grouping_level: A number indicating the hierarchical level of the grouping.
+ * - title: The group heading.
+ * - content: The content to be grouped.
+ * - rows: The rows returned from the view.
+ *
+ * @see template_preprocess_views_view_grouping()
+ *
+ * @ingroup themeable
+ */
+#}
+<div class="spell-type {{ title|lower|replace( {' ':'-'} ) }} accordion">
+     <div class="accordion-item">
+          <h2 class="accordion-header">
+               <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#{{ spellType }}" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+                    {{ title }}
+               </button>
+          </h2>
+
+          <div id="{{ spellType }}" class="accordion-collapse collapse show">
+               <div class="accordion-body">
+                    {% if description %}
+                         <div class="grouping-description">
+                              {{ description|raw }}
+                         </div>
+                    {% endif %}
+
+                    <div class="spells-ring-content">
+                         {{ content }}
+                    </div>
+               </div>
+          </div>
+     </div>
+</div>

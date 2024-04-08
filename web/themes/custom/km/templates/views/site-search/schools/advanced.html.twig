@@ -1,0 +1,67 @@
+<{{ fields.title.wrapper_element }}{{ fields.title.wrapper_attributes }}>
+     <{{ fields.title.element_type }}{{ fields.title.element_attributes }}>
+          <div class="search-result-row-header">     
+               <div class="result-title">
+                    <a href="{{ row.link }}" title="{{ fields.title.content }}">{{ fields.title.content }}</a>{% if fields.source %} [{{ fields.source.content }}]{% endif %}
+               </div>
+
+               <div class="result-type">
+                    <span class="result-icon"><i class="fa-solid fa-graduation-cap"></i></span>{{ fields.clan_school_term.content }} Advanced School
+               </div>
+          </div>
+     </{{ fields.title.element_type }}>
+</{{ fields.title.wrapper_element }}>
+
+<div class="container basic-school school-content">
+     <div class="row">
+          <div class="col">
+               <div class="school-requirements-header">
+                    <h5>Requirements:</h5>
+               </div>
+
+               <ul class="grouped-list school-requirements">
+                    {% if fields.field_benefit %}
+                         <li>
+                              <{{ fields.field_benefit.wrapper_element }}{{ fields.field_benefit.wrapper_attributes }}>
+                                   <span class="label">Rings/Traits</span><span class="inline-field-value">{{ fields.field_benefit.content }}</span>
+                              </{{ fields.field_benefit.wrapper_element }}>
+                         </li>
+                    {% endif %}
+
+                    {% if fields.field_school_skills %}
+                         <li>
+                              <{{ fields.field_school_skills.wrapper_element }}{{ fields.field_school_skills.wrapper_attributes }}>
+                                   <span class="label">Skills</span><span class="inline-field-value">{{ fields.field_school_skills.content }}</span>
+                              </{{ fields.field_school_skills.wrapper_element }}>
+                         </li>
+                    {% endif %}
+
+                    {% if fields.field_required_other %}
+                         <li>
+                              <{{ fields.field_required_other.wrapper_element }}{{ fields.field_required_other.wrapper_attributes }}>
+                                   <span class="label">Other</span><span class="inline-field-value">{{ fields.field_required_other.content }}</span>
+                              </{{ fields.field_required_other.wrapper_element }}>
+                         </li>
+                    {% endif %}
+
+                    {% if fields.required_advantage %}
+                         <li>
+                              <{{ fields.required_advantage.wrapper_element }}{{ fields.required_advantage.wrapper_attributes }}>
+                                   <span class="label">Advantages</span><span class="inline-field-value">{{ fields.required_advantage.content }}</span>
+                              </{{ fields.required_advantage.wrapper_element }}>
+                         </li>
+                    {% endif %}
+               </ul>
+          </div>
+
+          <div class="col">
+               <div class="school-techniques-header">
+                    <h5>Techniques</h5>
+               </div>
+          
+               <ul class="school-techniques">
+                    {{ fields.school_techniques.content }}
+               </ul>
+          </div>
+     </div>
+</div>

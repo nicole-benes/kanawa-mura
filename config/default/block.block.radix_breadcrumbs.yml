@@ -1,0 +1,22 @@
+uuid: 454c8cfd-63fd-477a-b981-58acbab32740
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - radix
+_core:
+  default_config_hash: NjcxOBrPOiK5-38t56DwFBDVY4yer7YSlbRWXFuHe7A
+id: radix_breadcrumbs
+theme: radix
+region: navbar_branding
+weight: 0
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Breadcrumbs
+  label_display: '0'
+  provider: system
+visibility: {  }

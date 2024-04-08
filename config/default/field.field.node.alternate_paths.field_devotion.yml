@@ -1,0 +1,22 @@
+uuid: c18f1bc4-cf91-4d16-9b78-171545f8ebb7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_devotion
+    - node.type.alternate_paths
+  module:
+    - text
+id: node.alternate_paths.field_devotion
+field_name: field_devotion
+entity_type: node
+bundle: alternate_paths
+label: Devotion
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

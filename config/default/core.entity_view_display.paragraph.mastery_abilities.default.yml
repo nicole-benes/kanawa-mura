@@ -1,0 +1,32 @@
+uuid: 6e0ded78-2c72-474e-978a-920088a4028c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.mastery_abilities.field_ability_description
+    - field.field.paragraph.mastery_abilities.field_rank
+    - paragraphs.paragraphs_type.mastery_abilities
+id: paragraph.mastery_abilities.default
+targetEntityType: paragraph
+bundle: mastery_abilities
+mode: default
+content:
+  field_ability_description:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_rank:
+    type: number_integer
+    label: inline
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  search_api_excerpt: true

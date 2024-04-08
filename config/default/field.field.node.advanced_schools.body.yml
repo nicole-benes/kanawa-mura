@@ -1,0 +1,24 @@
+uuid: ac39315d-c24b-473a-b148-e1d784f2f09c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.advanced_schools
+  module:
+    - text
+id: node.advanced_schools.body
+field_name: body
+entity_type: node
+bundle: advanced_schools
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+  allowed_formats: {  }
+field_type: text_with_summary

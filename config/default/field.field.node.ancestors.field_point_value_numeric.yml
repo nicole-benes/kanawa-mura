@@ -1,0 +1,23 @@
+uuid: 9b7348c1-4c06-4277-a501-fa9fc0894548
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_point_value_numeric
+    - node.type.ancestors
+id: node.ancestors.field_point_value_numeric
+field_name: field_point_value_numeric
+entity_type: node
+bundle: ancestors
+label: 'Point Value(s) (Numeric)'
+description: 'The numeric value of an advantage or disadvantage.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

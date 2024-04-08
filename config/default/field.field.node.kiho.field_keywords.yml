@@ -1,0 +1,29 @@
+uuid: 534379ee-7052-485c-89fd-9356c31a8fa1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_keywords
+    - node.type.kiho
+    - taxonomy.vocabulary.keywords
+id: node.kiho.field_keywords
+field_name: field_keywords
+entity_type: node
+bundle: kiho
+label: Keywords
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      keywords: keywords
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

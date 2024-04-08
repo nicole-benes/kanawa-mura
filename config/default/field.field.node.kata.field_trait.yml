@@ -1,0 +1,29 @@
+uuid: 4bda4b19-d784-48d7-9a12-c617c1853fe9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_trait
+    - node.type.kata
+    - taxonomy.vocabulary.rings_traits
+id: node.kata.field_trait
+field_name: field_trait
+entity_type: node
+bundle: kata
+label: Ring(s)
+description: 'The ring(s) this kata requires.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      rings_traits: rings_traits
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

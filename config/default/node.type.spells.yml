@@ -1,0 +1,18 @@
+uuid: 9c187dad-3209-4588-8dd3-58841d5f9f89
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: Spells
+type: spells
+description: 'The various spells in the L5R universe.'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false

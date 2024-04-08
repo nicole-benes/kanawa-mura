@@ -1,0 +1,26 @@
+uuid: cf5558ae-1c18-487e-9272-13baf0617e0b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - filter.format.full_html
+    - node.type.skills
+  module:
+    - text
+id: node.skills.body
+field_name: body
+entity_type: node
+bundle: skills
+label: Description
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: false
+  required_summary: false
+  allowed_formats:
+    - full_html
+field_type: text_with_summary

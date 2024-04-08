@@ -1,0 +1,10 @@
+uuid: 46c31638-838c-4d5b-8501-20257bfb9bcf
+langcode: en
+status: true
+dependencies: {  }
+id: trait_modifier
+label: 'Trait Modifier'
+icon_uuid: null
+icon_default: null
+description: "Used to display a trait and it's modified value, i.e. +1 Strength"
+behavior_plugins: {  }

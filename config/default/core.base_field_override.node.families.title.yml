@@ -1,0 +1,18 @@
+uuid: 99e195f7-22b5-4cd4-bd65-03b96897c5b6
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.families
+id: node.families.title
+field_name: title
+entity_type: node
+bundle: families
+label: 'Family Name'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

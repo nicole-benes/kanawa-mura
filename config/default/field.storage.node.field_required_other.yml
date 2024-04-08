@@ -1,0 +1,19 @@
+uuid: 8460527d-8f2a-47ae-bdeb-cb57ddf0bd04
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - text
+id: node.field_required_other
+field_name: field_required_other
+entity_type: node
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

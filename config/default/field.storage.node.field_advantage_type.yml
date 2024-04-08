@@ -1,0 +1,27 @@
+uuid: 90de0266-117d-4fa8-bf17-7eda3e4ab2a7
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_advantage_type
+field_name: field_advantage_type
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: advantage
+      label: Advantage
+    -
+      value: disadvantage
+      label: Disadvantage
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

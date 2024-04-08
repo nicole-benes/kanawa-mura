@@ -1,0 +1,29 @@
+uuid: 14f488e2-9467-4cac-827c-14c906794c39
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_trait
+    - node.type.kiho
+    - taxonomy.vocabulary.rings_traits
+id: node.kiho.field_trait
+field_name: field_trait
+entity_type: node
+bundle: kiho
+label: Ring
+description: 'The ring this Kiho belongs to.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      rings_traits: rings_traits
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

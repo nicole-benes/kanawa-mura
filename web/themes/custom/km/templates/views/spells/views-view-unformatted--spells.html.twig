@@ -1,0 +1,33 @@
+<div class="spells-group accordion">
+     <div class="accordion-item">
+          <h2 class="accordion-header">
+               <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#{{ mastery_grouping }}-accordion" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+                    {% if title == '11' %}
+                         Universal Multi-Element Spells
+                    {% elseif title == '12' %}
+                         Advanced Multi-Element Spells
+                    {% else %}
+                         Mastery Level {{ title }}
+                    {% endif %}
+               </button>
+          </h2>
+
+          <div id="{{ mastery_grouping }}-accordion" class="accordion-collapse collapse show">
+               <div class="accordion-body">
+                    {% block views_unformatted_rows %}
+                         {% for row in rows %}
+                              {% 
+                              set row_classes = [
+                                   default_row_class ? 'views-row spell',
+                              ]|merge(row_utility_classes ? row_utility_classes : []) 
+                              %}
+                              
+                              <div{{ row.attributes.addClass(row_classes) }}>
+                                   {{- row.content -}}
+                              </div>
+                         {% endfor %}
+                    {% endblock %}     
+               </div>
+          </div>
+     </div>
+</div>

@@ -1,0 +1,22 @@
+uuid: 5e650920-5bb1-4515-87ee-773050cdfd04
+langcode: en
+status: true
+dependencies:
+  module:
+    - taxonomy
+id: rings_traits
+label: 'Rings & Traits'
+type: 'canonical_entities:taxonomy_term'
+pattern: '[term:parent]/[term:name]'
+selection_criteria:
+  7db65959-f49c-412b-a163-e449d38b3753:
+    id: 'entity_bundle:taxonomy_term'
+    negate: false
+    uuid: 7db65959-f49c-412b-a163-e449d38b3753
+    context_mapping:
+      taxonomy_term: taxonomy_term
+    bundles:
+      rings_traits: rings_traits
+selection_logic: and
+weight: -5
+relationships: {  }

@@ -1,0 +1,23 @@
+uuid: e011699a-48a6-494e-a6d9-172c0800d6c9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_school_honor
+    - node.type.schools
+id: node.schools.field_school_honor
+field_name: field_school_honor
+entity_type: node
+bundle: schools
+label: 'School Honor'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: -10.0
+  max: 10.0
+  prefix: ''
+  suffix: ''
+field_type: decimal

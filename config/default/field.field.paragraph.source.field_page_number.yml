@@ -1,0 +1,23 @@
+uuid: d3524910-86ef-4fb3-b7e4-9b62c9f745b9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_page_number
+    - paragraphs.paragraphs_type.source
+id: paragraph.source.field_page_number
+field_name: field_page_number
+entity_type: paragraph
+bundle: source
+label: 'Page Number'
+description: 'The beginning page number in the book this content can be found.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

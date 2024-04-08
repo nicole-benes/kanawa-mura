@@ -1,0 +1,31 @@
+uuid: 449fc037-fc70-416f-b503-8d2aa085715c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_trait
+    - node.type.spells
+    - taxonomy.vocabulary.rings_traits
+    - taxonomy.vocabulary.supplemental_terms
+id: node.spells.field_trait
+field_name: field_trait
+entity_type: node
+bundle: spells
+label: Ring
+description: 'The trait(s) this skill is usually paired with.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      rings_traits: rings_traits
+      supplemental_terms: supplemental_terms
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: rings_traits
+field_type: entity_reference

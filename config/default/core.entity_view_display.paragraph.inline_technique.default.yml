@@ -1,0 +1,32 @@
+uuid: f8ea7231-b3db-45f1-b8bd-67e8c53f3deb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.inline_technique.field_description
+    - field.field.paragraph.inline_technique.field_title
+    - paragraphs.paragraphs_type.inline_technique
+  module:
+    - text
+id: paragraph.inline_technique.default
+targetEntityType: paragraph
+bundle: inline_technique
+mode: default
+content:
+  field_description:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_title:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  search_api_excerpt: true

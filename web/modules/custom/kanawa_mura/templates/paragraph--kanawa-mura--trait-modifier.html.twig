@@ -1,0 +1,14 @@
+{%
+  set classes = [
+    'paragraph',
+    'paragraph--type--' ~ paragraph.bundle|clean_class,
+    view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
+    not paragraph.isPublished() ? 'paragraph--unpublished'
+  ]
+%}
+
+{% block paragraph %}
+	{% block content %}
+		<span {{ attributes.addClass(classes) }}><a href="{{ content.field_trait_modified[ 0 ][ '#url' ] }}">{{ content.field_trait_modified[ 0 ][ '#title' ] }} {{ paragraph.field_trait_modifier.value }}</a></span>
+	{% endblock %}
+{% endblock paragraph %}

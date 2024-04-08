@@ -1,0 +1,17 @@
+name: Last Haiku Import
+type: module
+description: 'Imports content from files created manually from the wiki source of Last Haiku'
+core_version_requirement: ^9 || ^10
+package: 'Custom'
+dependencies:
+  - drupal:taxonomy
+  - drupal:views
+  - drupal:block
+  - drupal:text
+  - drupal:field
+  - drupal:editor
+  - drupal:redirect
+  - drupal:options
+  - drupal:entity_reference_revisions
+  - drupal:ckeditor5
+  - paragraphs:paragraphs

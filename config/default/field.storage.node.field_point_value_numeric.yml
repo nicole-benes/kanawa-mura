@@ -1,0 +1,20 @@
+uuid: 2834c222-8d77-41e7-9c7b-b39edcb9a6e1
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_point_value_numeric
+field_name: field_point_value_numeric
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

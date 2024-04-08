@@ -1,0 +1,148 @@
+uuid: 52954dfc-011c-484a-b68a-df18633cf7e7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.schools.body
+    - field.field.node.schools.field_affinity
+    - field.field.node.schools.field_affinity_special
+    - field.field.node.schools.field_benefit
+    - field.field.node.schools.field_clan_school
+    - field.field.node.schools.field_deficiency
+    - field.field.node.schools.field_devotion
+    - field.field.node.schools.field_school_honor
+    - field.field.node.schools.field_school_outfit
+    - field.field.node.schools.field_school_skills
+    - field.field.node.schools.field_school_techniques
+    - field.field.node.schools.field_school_type
+    - field.field.node.schools.field_source
+    - field.field.node.schools.field_spells
+    - node.type.schools
+  module:
+    - entity_reference_revisions
+    - text
+    - user
+id: node.schools.default
+targetEntityType: node
+bundle: schools
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  field_affinity:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 110
+    region: content
+  field_affinity_special:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 112
+    region: content
+  field_benefit:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 105
+    region: content
+  field_clan_school:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 104
+    region: content
+  field_deficiency:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 111
+    region: content
+  field_devotion:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 113
+    region: content
+  field_school_honor:
+    type: number_decimal
+    label: above
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 107
+    region: content
+  field_school_outfit:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 108
+    region: content
+  field_school_skills:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 106
+    region: content
+  field_school_techniques:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 109
+    region: content
+  field_school_type:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  field_source:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 103
+    region: content
+  field_spells:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 114
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  search_api_excerpt: true

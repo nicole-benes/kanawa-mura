@@ -1,0 +1,23 @@
+uuid: acbb852d-8b28-462b-ab55-29740739af8c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_rank
+    - node.type.kata
+id: node.kata.field_rank
+field_name: field_rank
+entity_type: node
+bundle: kata
+label: Rank
+description: 'The rank required in the ring of this kata.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

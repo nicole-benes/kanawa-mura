@@ -1,0 +1,28 @@
+uuid: 1d84268a-1d33-47cf-9e5f-bb4c41603ab8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_school_outfit
+    - filter.format.basic_html
+    - filter.format.full_html
+    - filter.format.restricted_html
+    - node.type.schools
+  module:
+    - text
+id: node.schools.field_school_outfit
+field_name: field_school_outfit
+entity_type: node
+bundle: schools
+label: 'School Outfit'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - basic_html
+    - restricted_html
+    - full_html
+field_type: text_long

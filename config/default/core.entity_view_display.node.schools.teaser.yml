@@ -1,0 +1,57 @@
+uuid: 47a12de8-8b19-43a7-9bf5-bc6e99be5b59
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.schools.body
+    - field.field.node.schools.field_affinity
+    - field.field.node.schools.field_affinity_special
+    - field.field.node.schools.field_benefit
+    - field.field.node.schools.field_clan_school
+    - field.field.node.schools.field_deficiency
+    - field.field.node.schools.field_devotion
+    - field.field.node.schools.field_school_honor
+    - field.field.node.schools.field_school_outfit
+    - field.field.node.schools.field_school_skills
+    - field.field.node.schools.field_school_techniques
+    - field.field.node.schools.field_school_type
+    - field.field.node.schools.field_source
+    - field.field.node.schools.field_spells
+    - node.type.schools
+  module:
+    - text
+    - user
+id: node.schools.teaser
+targetEntityType: node
+bundle: schools
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_affinity: true
+  field_affinity_special: true
+  field_benefit: true
+  field_clan_school: true
+  field_deficiency: true
+  field_devotion: true
+  field_school_honor: true
+  field_school_outfit: true
+  field_school_skills: true
+  field_school_techniques: true
+  field_school_type: true
+  field_source: true
+  field_spells: true
+  search_api_excerpt: true

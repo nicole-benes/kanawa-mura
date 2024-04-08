@@ -1,0 +1,19 @@
+uuid: 80df9905-7963-45d9-8653-cfb5e2a44746
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_point_value
+    - node.type.advantages_disadvantages
+id: node.advantages_disadvantages.field_point_value
+field_name: field_point_value
+entity_type: node
+bundle: advantages_disadvantages
+label: 'Point Value'
+description: 'The point value of the various advantages and disadvantages.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

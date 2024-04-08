@@ -1,0 +1,102 @@
+<{{ fields.title.wrapper_element }}{{ fields.title.wrapper_attributes }}>
+     <{{ fields.title.element_type }}{{ fields.title.element_attributes }}>
+          <div class="search-result-row-header">     
+               <div class="result-title">
+                    <a href="{{ row.link }}" title="{{ fields.title.content }}">{{ fields.title.content }}</a>{% if fields.source %} [{{ fields.source.content }}]{% endif %}
+               </div>
+
+               <div class="result-type">
+                    <span class="result-icon"><i class="fa-solid fa-apple-whole"></i></span>{{ fields.clan_school_term.content }} Basic School
+               </div>
+          </div>
+     </{{ fields.title.element_type }}>
+</{{ fields.title.wrapper_element }}>
+
+<div class="container basic-school school-content">
+     <div class="row">
+          <div class="col">
+               <ul class="grouped-list school-benefits">
+                    {% if row.monk and fields.field_devotion %}
+                         <li>
+                              <{{ fields.field_devotion.wrapper_element }}{{ fields.field_devotion.wrapper_attributes }}>
+                                   <span class="label">Devotion</span><span class="inline-field-value">{{ fields.field_devotion.content }}</span>
+                              </{{ fields.field_devotion.wrapper_element }}>
+                         </li>
+                    {% endif %}
+               
+                    {% if fields.trait_modifier %}
+                         <li>
+                              <{{ fields.trait_modifier.wrapper_element }}{{ fields.trait_modifier.wrapper_attributes }}>
+                                   <span class="label">Benefit</span><span class="inline-field-value"><span class="trait-modifier">+{{ fields.trait_modifier.content }}</span> <span class="trait-trait">{{ fields.trait_modified.content }}</span></span>
+                              </{{ fields.trait_modifier.wrapper_element }}>
+                         </li>
+                    {% endif %}
+               
+                    <li>
+                         <{{ fields.field_school_skills.wrapper_element }}{{ fields.field_school_skills.wrapper_attributes }}>
+                              <span class="label">Skills</span><span class="inline-field-value">{{ fields.field_school_skills.content }}</span>
+                         </{{ fields.field_school_skills.wrapper_element }}>
+                    </li>
+               
+                    {% if fields.field_school_honor %}
+                         <li>
+                              <{{ fields.field_school_honor.wrapper_element }}{{ fields.field_school_honor.wrapper_attributes }}>
+                                   <span class="label">Honor</span><span class="inline-field-value">{{ fields.field_school_honor.content }}</span>
+                              </{{ fields.field_school_honor.wrapper_element }}>
+                         </li>
+                    {% endif %}
+               
+                    {% if( not row.monk) %}
+                         <li>
+                              <{{ fields.field_school_outfit.wrapper_element }}{{ fields.field_school_outfit.wrapper_attributes }}>
+                                   <span class="label">Outfit</span><span class="inline-field-value">{{ fields.field_school_outfit.content }}</span>
+                              </{{ fields.field_school_outfit.wrapper_element }}>
+                         </li>
+                    {% endif %}
+               </ul>
+          </div>
+
+          <div class="col">
+               {% if row.monk and not row.fakeMonk %}
+                    <div class="search-inline-technique">
+                         <span class="label">Technique</span><span class="line-school-field-value">{{ fields.school_techniques.content }}</span>
+                    </div>
+               {% elseif row.shugenja %}
+                    <ul>
+                         {% if fields.field_affinity_special %}
+                              <li>
+                                   <{{ fields.field_affinity_special.wrapper_element }}{{ fields.field_affinity_special.wrapper_attributes }}>
+                                        <span class="label">Affinity/Deficiency</span><span class="inline-school-field-value">{{ fields.field_affinity_special.content }}</span>
+                                   </{{ fields.field_affinity_special.wrapper_element }}>
+                              </li>
+                         {% endif %}
+                         {% if fields.field_affinity %}
+                              <li>
+                                   <{{ fields.field_affinity.wrapper_element }}{{ fields.field_affinity.wrapper_attributes }}>
+                                        <span class="label">Affinity/Deficiency</span><span class="inline-school-field-value">{{ fields.field_affinity.content }}</span>
+                                   </{{ fields.field_affinity.wrapper_element }}>
+                              </li>
+                         {% endif %}
+
+                         <li>
+                              <span class="label">Technique</span><span class="line-school-field-value">{{ fields.school_techniques.content }}</span>
+                         </li>
+
+                         <li>
+                              <{{ fields.field_spells.wrapper_element }}{{ fields.field_spells.wrapper_attributes }}>
+                                   <span class="label">Spells</span><span class="inline-school-field-value">{{ fields.field_spells.content }}</span>
+                              </{{ fields.field_spells.wrapper_element }}>
+                         </li>
+                    </ul>
+               {% else %}
+                    <div class="school-techniques-header">
+                         <h5>Techniques</h5>
+                    </div>
+               
+                    <ul class="school-techniques">
+                         {{ fields.school_techniques.content }}
+                    </ul>               
+               {% endif %}
+          </div>
+     </div>
+</div>

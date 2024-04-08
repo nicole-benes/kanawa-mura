@@ -1,0 +1,89 @@
+{% if row.search_result %}
+     <{{ fields.title.wrapper_element }}{{ fields.title.wrapper_attributes }}>
+          <{{ fields.title.element_type }}{{ fields.title.element_attributes }}>
+               <div class="search-result-row-header">     
+                    <div class="result-title">
+                         <a href="{{ row.link }}" title="{{ fields.title.content }}">{{ fields.title.content }}</a>{% if fields.source %} [{{ fields.source.content }}]{% endif %}
+                    </div>
+
+                    <div class="result-type">
+                         <span class="result-icon"><i class="fa-solid fa-scroll"></i></span>Spells
+                    </div>
+               </div>
+          </{{ fields.title.element_type }}>
+     </{{ fields.title.wrapper_element }}>
+{% else %}
+     <{{ fields.source.wrapper_element }}{{ fields.source.wrapper_attributes }}>
+          <{{ fields.source.element_type }}{{ fields.source.element_attributes }}>
+               {{ fields.source.content }}
+          </{{ fields.source.element_type }}>
+     </{{ fields.source.wrapper_element }}>
+{% endif %}
+
+<ul class="grouped-list">
+     {% if row.isMaho %}
+          <li>
+               <{{ fields.trait.wrapper_element }}{{ fields.trait.wrapper_attributes }}>
+                    <span class="label">Ring/Mastery</span><span class="inline-field-value">{{ row.rings }} {{ fields.rank.content }}{% if fields.field_keywords %} ({{ fields.field_keywords.content }}){% endif %}</span>
+               </{{ fields.trait.wrapper_element }}>          
+          </li>
+     {% elseif row.isMulti %}
+          <li>
+               <{{ fields.trait.wrapper_element }}{{ fields.trait.wrapper_attributes }}>
+                    <span class="label">Ring/Mastery</span><span class="inline-field-value">{{ row.rings }} {{ fields.rank.content }}{% if fields.field_keywords %} ({{ fields.field_keywords.content }}){% endif %}</span>
+               </{{ fields.trait.wrapper_element }}>          
+          </li>
+     {% else %}
+          <li>
+               <{{ fields.trait.wrapper_element }}{{ fields.trait.wrapper_attributes }}>
+                    <span class="label">Ring/Mastery</span><span class="inline-field-value">{{ fields.trait.content }} {{ fields.rank.content }}{% if fields.field_keywords %} ({{ fields.field_keywords.content }}){% endif %}</span>
+               </{{ fields.trait.wrapper_element }}>          
+          </li>
+     {% endif %}     
+
+     {% if fields.field_range %}
+          <li>
+               <{{ fields.field_range.wrapper_element }}{{ fields.field_range.wrapper_attributes }}>
+                    <span class="label">Range</span><span class="inline-field-value">{{ fields.field_range.content }}</span>
+               </{{ fields.field_range.wrapper_element }}>          
+          </li> 
+     {% endif %}
+
+     {% if fields.field_area_of_effect %}
+          <li>
+               <{{ fields.field_area_of_effect.wrapper_element }}{{ fields.field_area_of_effect.wrapper_attributes }}>
+                    <span class="label">Area of Effect</span><span class="inline-field-value">{{ fields.field_area_of_effect.content }}</span>
+               </{{ fields.field_area_of_effect.wrapper_element }}>          
+          </li> 
+     {% endif %}
+
+     {% if fields.field_duration %}
+          <li>
+               <{{ fields.field_duration.wrapper_element }}{{ fields.field_duration.wrapper_attributes }}>
+                    <span class="label">Duration</span><span class="inline-field-value">{{ fields.field_duration.content }}</span>
+               </{{ fields.field_duration.wrapper_element }}>          
+          </li> 
+     {% endif %}
+
+     {% if fields.field_raises %}
+          <li>
+               <{{ fields.field_raises.wrapper_element }}{{ fields.field_raises.wrapper_attributes }}>
+                    <span class="label">Raises</span><span class="inline-field-value">{{ fields.field_raises.content }}</span>
+               </{{ fields.field_raises.wrapper_element }}>          
+          </li> 
+     {% endif %}
+
+     {% if fields.field_spell_special %}
+          <li>
+               <{{ fields.field_spell_special.wrapper_element }}{{ fields.field_spell_special.wrapper_attributes }}>
+                    <span class="label">Special</span><span class="inline-field-value">{{ fields.field_spell_special.content }}</span>
+               </{{ fields.field_spell_special.wrapper_element }}>          
+          </li> 
+     {% endif %}
+</ul>
+
+{% if fields.body %}
+     <{{ fields.body.wrapper_element }}{{ fields.body.wrapper_attributes }}>
+          {{ fields.body.content }}
+     </{{ fields.body.wrapper_element }}>
+{% endif %}

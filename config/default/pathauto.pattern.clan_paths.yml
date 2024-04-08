@@ -1,0 +1,22 @@
+uuid: 4fcd87d1-a697-4fc7-8090-f64e45f2d288
+langcode: en
+status: true
+dependencies:
+  module:
+    - taxonomy
+id: clan_paths
+label: 'Clan Paths'
+type: 'canonical_entities:taxonomy_term'
+pattern: 'clans/[term:field_clan_type:value]/[term:name]'
+selection_criteria:
+  8845ad99-17ad-4001-9d7b-4067c7a5be3a:
+    id: 'entity_bundle:taxonomy_term'
+    negate: false
+    uuid: 8845ad99-17ad-4001-9d7b-4067c7a5be3a
+    context_mapping:
+      taxonomy_term: taxonomy_term
+    bundles:
+      clans: clans
+selection_logic: and
+weight: -5
+relationships: {  }

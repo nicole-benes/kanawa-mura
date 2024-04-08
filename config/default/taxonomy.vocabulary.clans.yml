@@ -1,0 +1,8 @@
+uuid: 2964c4e1-d7a8-4578-b0d9-7b60b54563b3
+langcode: en
+status: true
+dependencies: {  }
+name: Clans
+vid: clans
+description: 'The clans of Rokugan'
+weight: 0

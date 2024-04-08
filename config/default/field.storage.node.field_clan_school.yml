@@ -1,0 +1,20 @@
+uuid: 57cf388c-273f-4326-813b-6a0e6fe54198
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+id: node.field_clan_school
+field_name: field_clan_school
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

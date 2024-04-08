@@ -1,0 +1,40 @@
+uuid: 9fd21fc1-dcbb-4de9-a389-37b7f6c63505
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_mastery
+    - node.type.skills
+    - paragraphs.paragraphs_type.mastery_abilities
+  module:
+    - entity_reference_revisions
+id: node.skills.field_mastery
+field_name: field_mastery
+entity_type: node
+bundle: skills
+label: 'Mastery Abilities'
+description: 'Any mastery abilities for the associated skill.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      mastery_abilities: mastery_abilities
+    negate: 0
+    target_bundles_drag_drop:
+      mastery_abilities:
+        weight: 5
+        enabled: true
+      source:
+        weight: 6
+        enabled: false
+      techniques:
+        weight: 7
+        enabled: false
+      trait_modifier:
+        weight: 8
+        enabled: false
+field_type: entity_reference_revisions

@@ -1,0 +1,659 @@
+uuid: 79495bb0-0d18-4df7-ba16-ef6749c47585
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_required_advantage
+    - field.storage.node.field_clan
+    - field.storage.node.field_clan_school
+    - field.storage.node.field_emphases
+    - field.storage.node.field_kiho_type
+    - field.storage.node.field_mastery
+    - field.storage.node.field_point_value
+    - field.storage.node.field_point_value_numeric
+    - field.storage.node.field_rank
+    - field.storage.node.field_benefit
+    - field.storage.paragraph.field_trait_modified
+    - field.storage.paragraph.field_trait_modifier
+    - field.storage.node.field_required_schools
+    - field.storage.node.field_school_techniques
+    - field.storage.paragraph.field_description
+    - field.storage.paragraph.field_rank
+    - field.storage.paragraph.field_title
+    - field.storage.node.field_school_type
+    - field.storage.node.field_sub_types
+    - field.storage.node.field_skill_type
+    - field.storage.node.field_source
+    - field.storage.paragraph.field_source_book
+    - field.storage.taxonomy_term.field_abbreviation
+    - field.storage.node.field_advantage_subtype
+    - field.storage.node.field_trait
+    - field.storage.node.field_advantage_type
+    - search_api.server.database_server
+  module:
+    - taxonomy
+    - node
+    - paragraphs
+    - search_api
+id: main_index
+name: 'Main Index'
+description: 'The main site index.'
+read_only: false
+field_settings:
+  advantage_subtypes:
+    label: 'Subtype (Advantages & Disadvantages)'
+    datasource_id: 'entity:node'
+    property_path: field_advantage_subtype
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_advantage_subtype
+  advantage_type:
+    label: 'Type (Advantages & Disadvantages)'
+    datasource_id: 'entity:node'
+    property_path: field_advantage_type
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_advantage_type
+  clan:
+    label: 'Clan » Taxonomy term » Name'
+    datasource_id: 'entity:node'
+    property_path: 'field_clan:entity:name'
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_clan
+      module:
+        - taxonomy
+  clan_group_name:
+    label: 'Clan » Taxonomy term » Term Parents » Taxonomy term » Name'
+    datasource_id: 'entity:node'
+    property_path: 'field_clan:entity:parent:entity:name'
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_clan
+      module:
+        - taxonomy
+  clan_group_tid:
+    label: 'Clan » Taxonomy term » Term Parents » Taxonomy term » Term ID'
+    datasource_id: 'entity:node'
+    property_path: 'field_clan:entity:parent:entity:tid'
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_clan
+      module:
+        - taxonomy
+  clan_school:
+    label: 'Clan School  » Taxonomy term » Name'
+    datasource_id: 'entity:node'
+    property_path: 'field_clan_school:entity:name'
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_clan_school
+      module:
+        - taxonomy
+  clan_school_parent:
+    label: 'Clan School  » Taxonomy term » Term Parents » Taxonomy term » Name'
+    datasource_id: 'entity:node'
+    property_path: 'field_clan_school:entity:parent:entity:name'
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_clan_school
+      module:
+        - taxonomy
+  clan_school_term:
+    label: 'Clan School '
+    datasource_id: 'entity:node'
+    property_path: field_clan_school
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_clan_school
+  clan_term:
+    label: Clan
+    datasource_id: 'entity:node'
+    property_path: field_clan
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_clan
+  clan_tid:
+    label: 'Clan » Taxonomy term » Term ID'
+    datasource_id: 'entity:node'
+    property_path: 'field_clan:entity:tid'
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_clan
+      module:
+        - taxonomy
+  description:
+    label: Description
+    datasource_id: 'entity:taxonomy_term'
+    property_path: description
+    type: text
+    dependencies:
+      module:
+        - taxonomy
+  emphases:
+    label: Emphases
+    datasource_id: 'entity:node'
+    property_path: field_emphases
+    type: text
+    boost: 2.0
+    dependencies:
+      config:
+        - field.storage.node.field_emphases
+  entity_type:
+    label: 'Entity type'
+    property_path: search_api_entity_type
+    type: string
+  field_benefit:
+    label: 'Required Rings'
+    datasource_id: 'entity:node'
+    property_path: field_benefit
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_benefit
+  field_title:
+    label: 'School Techniques » Paragraph » Title'
+    datasource_id: 'entity:node'
+    property_path: 'field_school_techniques:entity:field_title'
+    type: text
+    boost: 2.0
+    dependencies:
+      config:
+        - field.storage.node.field_school_techniques
+        - field.storage.paragraph.field_title
+      module:
+        - paragraphs
+  kiho_type:
+    label: 'Kiho Type'
+    datasource_id: 'entity:node'
+    property_path: field_kiho_type
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_kiho_type
+  masteries:
+    label: 'Mastery Abilities'
+    datasource_id: 'entity:node'
+    property_path: field_mastery
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_mastery
+  name:
+    label: Name
+    datasource_id: 'entity:taxonomy_term'
+    property_path: name
+    type: string
+    dependencies:
+      module:
+        - taxonomy
+  nid:
+    label: ID
+    datasource_id: 'entity:node'
+    property_path: nid
+    type: integer
+    dependencies:
+      module:
+        - node
+  parent:
+    label: 'Term Parents » Taxonomy term » Term Parents'
+    datasource_id: 'entity:taxonomy_term'
+    property_path: 'parent:entity:parent'
+    type: integer
+    dependencies:
+      module:
+        - taxonomy
+  parent_weight:
+    label: 'Term Parents » Taxonomy term » Weight'
+    datasource_id: 'entity:taxonomy_term'
+    property_path: 'parent:entity:weight'
+    type: integer
+    dependencies:
+      module:
+        - taxonomy
+  point_value:
+    label: 'Point Value'
+    datasource_id: 'entity:node'
+    property_path: field_point_value
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_point_value
+  point_value_numeric:
+    label: 'Point Value(s) (Numeric)'
+    datasource_id: 'entity:node'
+    property_path: field_point_value_numeric
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_point_value_numeric
+  rank:
+    label: Rank
+    datasource_id: 'entity:node'
+    property_path: field_rank
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_rank
+  rendered_item:
+    label: 'Rendered HTML output'
+    property_path: rendered_item
+    type: text
+    configuration:
+      roles:
+        - anonymous
+      view_mode:
+        'entity:node':
+          advanced_schools: default
+          advantages_disadvantages: default
+          alternate_paths: default
+          ancestors: default
+          families: default
+          homepage: default
+          kata: default
+          kiho: default
+          schools: default
+          skills: default
+          spells: default
+        'entity:paragraph':
+          inline_technique: default
+          mastery_abilities: default
+          source: default
+          techniques: default
+          trait_modifier: default
+        'entity:taxonomy_term':
+          advantage_disadvantage_subtypes: default
+          clans: default
+          keywords: default
+          rings_traits: default
+          school_type: default
+          skill_type: default
+          source_books: default
+          supplemental_terms: default
+  required_advantage:
+    label: 'Required Advantage'
+    datasource_id: 'entity:node'
+    property_path: field_required_advantage
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_required_advantage
+  required_schools:
+    label: 'Required Schools'
+    datasource_id: 'entity:node'
+    property_path: field_required_schools
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_required_schools
+  school__type_tid:
+    label: 'School Type » Taxonomy term » Term ID'
+    datasource_id: 'entity:node'
+    property_path: 'field_school_type:entity:tid'
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_school_type
+      module:
+        - taxonomy
+  school_techniques:
+    label: 'School Techniques'
+    datasource_id: 'entity:node'
+    property_path: field_school_techniques
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_school_techniques
+  school_type:
+    label: 'School Type'
+    datasource_id: 'entity:node'
+    property_path: field_school_type
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_school_type
+  school_type_name:
+    label: 'School Type » Taxonomy term » Name'
+    datasource_id: 'entity:node'
+    property_path: 'field_school_type:entity:name'
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_school_type
+      module:
+        - taxonomy
+  skill_sub_types:
+    label: 'Skill Sub-Types'
+    datasource_id: 'entity:node'
+    property_path: field_sub_types
+    type: text
+    boost: 2.0
+    dependencies:
+      config:
+        - field.storage.node.field_sub_types
+  skill_type:
+    label: 'Skill Type'
+    datasource_id: 'entity:node'
+    property_path: field_skill_type
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_skill_type
+  source:
+    label: 'Source » Paragraph » Source Book » Taxonomy term » Abbreviation'
+    datasource_id: 'entity:node'
+    property_path: 'field_source:entity:field_source_book:entity:field_abbreviation'
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_source
+        - field.storage.paragraph.field_source_book
+        - field.storage.taxonomy_term.field_abbreviation
+      module:
+        - paragraphs
+        - taxonomy
+  technique_description:
+    label: 'School Techniques » Paragraph » Description'
+    datasource_id: 'entity:node'
+    property_path: 'field_school_techniques:entity:field_description'
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_school_techniques
+        - field.storage.paragraph.field_description
+      module:
+        - paragraphs
+  technique_rank:
+    label: 'School Techniques » Paragraph » Rank'
+    datasource_id: 'entity:node'
+    property_path: 'field_school_techniques:entity:field_rank'
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_school_techniques
+        - field.storage.paragraph.field_rank
+      module:
+        - paragraphs
+  technique_type:
+    label: 'School Techniques » Paragraph » Paragraph type'
+    datasource_id: 'entity:node'
+    property_path: 'field_school_techniques:entity:type'
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_school_techniques
+      module:
+        - paragraphs
+  tid:
+    label: 'Term ID'
+    datasource_id: 'entity:taxonomy_term'
+    property_path: tid
+    type: integer
+    dependencies:
+      module:
+        - taxonomy
+  title:
+    label: Title
+    datasource_id: 'entity:node'
+    property_path: title
+    type: text
+    boost: 13.0
+    dependencies:
+      module:
+        - node
+  trait:
+    label: Trait(s)
+    datasource_id: 'entity:node'
+    property_path: field_trait
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_trait
+  trait_and_modifier:
+    label: 'Trait and Modifier'
+    datasource_id: 'entity:node'
+    property_path: field_benefit
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_benefit
+  trait_modified:
+    label: 'Required Rings » Paragraph » Trait Modified » Taxonomy term » Name'
+    datasource_id: 'entity:node'
+    property_path: 'field_benefit:entity:field_trait_modified:entity:name'
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_benefit
+        - field.storage.paragraph.field_trait_modified
+      module:
+        - paragraphs
+        - taxonomy
+  trait_modifier:
+    label: 'Required Rings » Paragraph » Trait Modifier'
+    datasource_id: 'entity:node'
+    property_path: 'field_benefit:entity:field_trait_modifier'
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_benefit
+        - field.storage.paragraph.field_trait_modifier
+      module:
+        - paragraphs
+  trait_name:
+    label: 'Trait(s) » Taxonomy term » Name'
+    datasource_id: 'entity:node'
+    property_path: 'field_trait:entity:name'
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_trait
+      module:
+        - taxonomy
+  trait_tid:
+    label: 'Trait(s) » Taxonomy term » Term ID'
+    datasource_id: 'entity:node'
+    property_path: 'field_trait:entity:tid'
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_trait
+      module:
+        - taxonomy
+  type:
+    label: 'Content type'
+    datasource_id: 'entity:node'
+    property_path: type
+    type: string
+    dependencies:
+      module:
+        - node
+  weight:
+    label: Weight
+    datasource_id: 'entity:taxonomy_term'
+    property_path: weight
+    type: integer
+    dependencies:
+      module:
+        - taxonomy
+datasource_settings:
+  'entity:node':
+    bundles:
+      default: true
+      selected: {  }
+    languages:
+      default: true
+      selected: {  }
+  'entity:paragraph':
+    bundles:
+      default: true
+      selected: {  }
+    languages:
+      default: true
+      selected: {  }
+  'entity:taxonomy_term':
+    bundles:
+      default: true
+      selected:
+        - school_clan
+    languages:
+      default: true
+      selected: {  }
+processor_settings:
+  add_url: {  }
+  aggregated_field: {  }
+  custom_value: {  }
+  entity_type: {  }
+  hierarchy:
+    weights:
+      preprocess_index: -45
+    fields:
+      clan_school_term: taxonomy_term-parent
+      clan_term: taxonomy_term-parent
+      spell_ring: taxonomy_term-parent
+      trait: taxonomy_term-parent
+  highlight:
+    weights:
+      postprocess_query: 0
+    prefix: '<strong>'
+    suffix: '</strong>'
+    excerpt: true
+    excerpt_always: false
+    excerpt_length: 256
+    exclude_fields: {  }
+    highlight: always
+    highlight_partial: false
+  html_filter:
+    weights:
+      preprocess_index: -15
+      preprocess_query: -15
+    all_fields: true
+    fields:
+      - advantage_type
+      - clan
+      - clan_group_name
+      - clan_school
+      - clan_school_parent
+      - description
+      - emphases
+      - entity_type
+      - field_title
+      - name
+      - point_value
+      - rendered_item
+      - required_advantage
+      - required_schools
+      - school_type_name
+      - skill_sub_types
+      - source
+      - technique_description
+      - technique_type
+      - title
+      - trait_modified
+      - trait_name
+      - type
+    title: true
+    alt: true
+    tags:
+      b: 2
+      h1: 5
+      h2: 3
+      h3: 2
+      strong: 2
+  ignorecase:
+    weights:
+      preprocess_index: -20
+      preprocess_query: -20
+    all_fields: true
+    fields:
+      - advantage_type
+      - clan
+      - clan_group_name
+      - clan_school
+      - clan_school_parent
+      - description
+      - emphases
+      - entity_type
+      - field_title
+      - name
+      - point_value
+      - rendered_item
+      - required_advantage
+      - required_schools
+      - school_type_name
+      - skill_sub_types
+      - source
+      - technique_description
+      - technique_type
+      - title
+      - trait_modified
+      - trait_name
+      - type
+  language_with_fallback: {  }
+  rendered_item: {  }
+  tokenizer:
+    weights:
+      preprocess_index: -6
+      preprocess_query: -6
+    all_fields: true
+    fields:
+      - description
+      - emphases
+      - field_title
+      - rendered_item
+      - required_advantage
+      - required_schools
+      - skill_sub_types
+      - technique_description
+      - title
+    spaces: ''
+    ignored: ._-
+    overlap_cjk: 1
+    minimum_word_size: '3'
+  transliteration:
+    weights:
+      preprocess_index: -20
+      preprocess_query: -20
+    all_fields: true
+    fields:
+      - advantage_type
+      - clan
+      - clan_group_name
+      - clan_school
+      - clan_school_parent
+      - description
+      - emphases
+      - entity_type
+      - field_title
+      - name
+      - point_value
+      - rendered_item
+      - required_advantage
+      - required_schools
+      - school_type_name
+      - skill_sub_types
+      - source
+      - technique_description
+      - technique_type
+      - title
+      - trait_modified
+      - trait_name
+      - type
+tracker_settings:
+  default:
+    indexing_order: fifo
+options:
+  cron_limit: 50
+  index_directly: true
+  track_changes_in_references: true
+server: database_server

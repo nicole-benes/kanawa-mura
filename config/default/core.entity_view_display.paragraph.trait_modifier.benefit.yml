@@ -1,0 +1,33 @@
+uuid: 7affae57-0395-4141-9f47-5f7facede585
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.benefit
+    - field.field.paragraph.trait_modifier.field_trait_modified
+    - field.field.paragraph.trait_modifier.field_trait_modifier
+    - paragraphs.paragraphs_type.trait_modifier
+id: paragraph.trait_modifier.benefit
+targetEntityType: paragraph
+bundle: trait_modifier
+mode: benefit
+content:
+  field_trait_modified:
+    type: entity_reference_label
+    label: visually_hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_trait_modifier:
+    type: number_integer
+    label: visually_hidden
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  search_api_excerpt: true

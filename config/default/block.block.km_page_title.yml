@@ -1,0 +1,20 @@
+uuid: 47ace868-bc51-498d-9319-f341ad7f3d30
+langcode: en
+status: true
+dependencies:
+  theme:
+    - km
+_core:
+  default_config_hash: c_ebnYbujIetZcYrdYPNE9Yxv2118eVMwGLixG3c_8w
+id: km_page_title
+theme: km
+region: header
+weight: -2
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  label_display: '0'
+  provider: core
+visibility: {  }

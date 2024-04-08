@@ -1,0 +1,19 @@
+uuid: 776a8263-0eef-49ec-9ae7-473c8b9cefb3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_abbreviation
+    - taxonomy.vocabulary.source_books
+id: taxonomy_term.source_books.field_abbreviation
+field_name: field_abbreviation
+entity_type: taxonomy_term
+bundle: source_books
+label: Abbreviation
+description: 'The abbreviation for this book.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

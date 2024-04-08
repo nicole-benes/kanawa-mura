@@ -1,0 +1,35 @@
+{%
+  set classes = [
+    'paragraph',
+    'paragraph--type--' ~ paragraph.bundle|clean_class,
+    view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
+    not paragraph.isPublished() ? 'paragraph--unpublished'
+  ]
+%}
+
+{% if paragraph.field_rank.value == 1 %}
+		{% set rank = "One" %}
+{% elseif paragraph.field_rank.value == 2 %}
+		{% set rank = "Two" %}
+{% elseif paragraph.field_rank.value == 3 %}
+		{% set rank = "Three" %}
+{% elseif paragraph.field_rank.value == 4 %}
+		{% set rank = "Four" %}
+{% elseif paragraph.field_rank.value == 5 %}
+		{% set rank = "Five" %}
+{% else %}
+		{% set rank = paragraph.field_rank.value %}
+{% endif %}
+
+{% block paragraph %}
+	{% block content %}
+		{% if content.field_rank[ 0 ][ '#markup' ] == 0 %}
+			<h6 class="technique-title-inline">{{ paragraph.field_title.value }}</h6><div class="technique-description-inline">{{ paragraph.field_description.value|raw }}</div>			
+		{% else %}
+			<h6 class="technique-title">Rank {{ rank }}: {{ paragraph.field_title.value }}</h6>
+			{{ paragraph.field_description.value|raw }}
+		{% endif %}
+
+		<span{{ attributes.addClass(classes) }}></span>
+	{% endblock %}
+{% endblock paragraph %}

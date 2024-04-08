@@ -1,0 +1,13 @@
+{%
+  set classes = [
+    'paragraph',
+    'paragraph--type--' ~ paragraph.bundle|clean_class,
+    view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
+    not paragraph.isPublished() ? 'paragraph--unpublished'
+  ]
+%}
+{% block paragraph %}
+	{% block content %}
+			<span class="mastery-ability-rank">Rank {{ paragraph.field_rank.value }}</span><span class="mastery-ability-title">{{ paragraph.field_title.value }}</span> - <span class="mastery-ability-description">{{ paragraph.field_ability_description.value|raw }}</span>			
+	{% endblock %}
+{% endblock paragraph %}

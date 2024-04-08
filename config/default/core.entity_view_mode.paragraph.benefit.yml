@@ -1,0 +1,11 @@
+uuid: 129ecc51-993a-4bdb-8d58-b73caf6d4582
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.benefit
+label: Benefit
+description: 'Display this trait as a benefit.'
+targetEntityType: paragraph
+cache: true

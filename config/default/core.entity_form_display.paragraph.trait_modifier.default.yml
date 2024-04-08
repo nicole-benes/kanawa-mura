@@ -1,0 +1,33 @@
+uuid: ee496579-f034-4f57-a4b7-e90f11154956
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.trait_modifier.field_trait_modified
+    - field.field.paragraph.trait_modifier.field_trait_modifier
+    - paragraphs.paragraphs_type.trait_modifier
+id: paragraph.trait_modifier.default
+targetEntityType: paragraph
+bundle: trait_modifier
+mode: default
+content:
+  field_trait_modified:
+    type: entity_reference_autocomplete
+    weight: 1
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_trait_modifier:
+    type: number
+    weight: 0
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

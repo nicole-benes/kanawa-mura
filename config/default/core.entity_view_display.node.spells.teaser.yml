@@ -1,0 +1,49 @@
+uuid: 052f45be-e4db-431a-957d-d7006310f4f7
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.spells.body
+    - field.field.node.spells.field_area_of_effect
+    - field.field.node.spells.field_duration
+    - field.field.node.spells.field_keywords
+    - field.field.node.spells.field_raises
+    - field.field.node.spells.field_range
+    - field.field.node.spells.field_rank
+    - field.field.node.spells.field_source
+    - field.field.node.spells.field_spell_special
+    - field.field.node.spells.field_trait
+    - node.type.spells
+  module:
+    - text
+    - user
+id: node.spells.teaser
+targetEntityType: node
+bundle: spells
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_area_of_effect: true
+  field_duration: true
+  field_keywords: true
+  field_raises: true
+  field_range: true
+  field_rank: true
+  field_source: true
+  field_spell_special: true
+  field_trait: true
+  search_api_excerpt: true

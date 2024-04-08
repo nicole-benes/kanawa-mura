@@ -1,0 +1,44 @@
+uuid: 653657fe-8fde-49f2-b082-3aefc33cf376
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.full_html
+  module:
+    - ckeditor5
+format: full_html
+editor: ckeditor5
+settings:
+  toolbar:
+    items:
+      - undo
+      - redo
+      - heading
+      - bold
+      - italic
+      - indent
+      - outdent
+      - bulletedList
+      - numberedList
+      - link
+      - removeFormat
+      - showBlocks
+      - sourceEditing
+      - underline
+      - specialCharacters
+  plugins:
+    ckeditor5_heading:
+      enabled_headings:
+        - heading2
+        - heading3
+        - heading4
+        - heading5
+        - heading6
+    ckeditor5_list:
+      properties:
+        reversed: true
+        startIndex: true
+      multiBlock: true
+    ckeditor5_sourceEditing:
+      allowed_tags: {  }
+image_upload: {  }

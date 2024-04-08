@@ -1,0 +1,25 @@
+{% if fields.type_1.content == 'advantages_disadvantages' %} 
+     {% include '@km/templates/views/site-search/advantages-disadvantages/advantages-disadvantages.html.twig' %}
+{% elseif fields.type_1.content == 'ancestors' %} 
+     {% include '@km/templates/views/ancestors/views-view-fields--ancestors.html.twig' %}
+{% elseif fields.type_1.content == 'families' %}
+     {% include '@km/templates/views/families/views-view-fields--families.html.twig' %}
+{% elseif fields.type_1.content == 'kata' %}
+     {% include '@km/templates/views/kata/views-view-fields--kata.html.twig' %}
+{% elseif fields.type_1.content == 'kiho' %}
+     {% include '@km/templates/views/kiho/views-view-fields--kiho.html.twig' %}
+{% elseif fields.type_1.content == 'schools' %}
+     {% include '@km/templates/views/site-search/schools/basic.html.twig' %}
+{% elseif fields.type_1.content == 'advanced_schools' %}
+     {% include '@km/templates/views/site-search/schools/advanced.html.twig' %}
+{% elseif fields.type_1.content == 'alternate_paths' %}
+     {% include '@km/templates/views/site-search/schools/paths.html.twig' %}
+{% elseif fields.type_1.content == 'skills' %}
+     {% include '@km/templates/views/skills/views-view-fields--skills.html.twig' %}
+{% elseif fields.type_1.content == 'spells' %}
+     {% include '@km/templates/views/spells/views-view-fields--spells.html.twig' %}
+{% else %}
+     Unknown content type result in site search.
+
+     {{ breakpoint() }}
+{% endif %}

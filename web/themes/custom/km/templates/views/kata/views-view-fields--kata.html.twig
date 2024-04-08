@@ -1,0 +1,37 @@
+<{{ fields.title.wrapper_element }}{{ fields.title.wrapper_attributes }}>
+     <{{ fields.title.element_type }}{{ fields.title.element_attributes }}>
+          {% if row.search_result %}
+               <div class="search-result-row-header">     
+                    <div class="result-title">
+                         <a href="{{ row.link }}" title="{{ fields.title.content }}">{{ fields.title.content }}</a>{% if fields.source %} [{{ fields.source.content }}]{% endif %}
+                    </div>
+
+                    <div class="result-type">
+                         <span class="result-icon"><i class="fa-solid fa-hands"></i></span>Kata
+                    </div>
+          {% else %}
+               <a id="{{ fields.title.content }}" class="anchor"></a>{{ fields.title.content }}{% if fields.source %} [{{ fields.source.content }}]{% endif %}     
+          {% endif %}
+     </{{ fields.title.element_type }}>
+</{{ fields.title.wrapper_element }}>
+
+<ul class="grouped-list">
+     <li>
+          <{{ fields.trait.wrapper_element }}{{ fields.trait.wrapper_attributes }}>
+               <span class="label">Ring/Mastery</span><span class="inline-field-value">{{ fields.trait.content }} {{ fields.rank.content }}</span>
+          </{{ fields.trait.wrapper_element }}>          
+     </li>
+
+     <li>
+          <{{ fields.field_required_schools.wrapper_element }}{{ fields.field_required_schools.wrapper_attributes }}>
+               <span class="label">Schools</span><span class="inline-field-value">{{ fields.field_required_schools.content }}</span>
+          </{{ fields.field_required_schools.wrapper_element }}>          
+     </li> 
+
+     <li>
+          <{{ fields.body.wrapper_element }}{{ fields.body.wrapper_attributes }}>
+               <span class="label">Effect</span><span class="inline-field-value">{{ fields.body.content }}</span>
+          </{{ fields.body.wrapper_element }}>          
+     </li> 
+</ul>
+

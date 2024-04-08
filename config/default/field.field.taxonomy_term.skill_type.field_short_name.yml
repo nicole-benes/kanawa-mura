@@ -1,0 +1,19 @@
+uuid: dae37fa3-6d14-42c1-a15a-8a9dbf690752
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_short_name
+    - taxonomy.vocabulary.skill_type
+id: taxonomy_term.skill_type.field_short_name
+field_name: field_short_name
+entity_type: taxonomy_term
+bundle: skill_type
+label: 'Short Name'
+description: 'A short version used for filtering in a view.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

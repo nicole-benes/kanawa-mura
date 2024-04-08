@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Comforter+Brush&display=swap');
+
+.path-frontpage {
+    h1 {
+        display: none;;
+    }
+    
+    .grouped-view {
+        &.view-site-search {
+            margin: .5rem 0;
+        }
+    }
+
+    .homepage-spells-ranks {
+          display: inline-block;
+          margin-left: 1rem;
+    }
+}

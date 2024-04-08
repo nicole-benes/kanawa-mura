@@ -1,0 +1,8 @@
+uuid: 90a4c51e-0710-45d6-b725-59162ba34154
+langcode: en
+status: true
+dependencies: {  }
+name: 'Advantage and Disadvantage Subtypes'
+vid: advantage_disadvantage_subtypes
+description: 'The various subtypes which advantages and disadvantages fall into.'
+weight: 0

@@ -1,0 +1,22 @@
+uuid: 9b168f47-08d7-4b63-ba82-81f5f7395316
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.kiho
+id: node.kiho.promote
+field_name: promote
+entity_type: node
+bundle: kiho
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

@@ -1,0 +1,7 @@
+{%- if row.school_content_type == 'advanced_schools' -%}
+	{% include 'views-view-fields--schools--advanced.html.twig' %}
+{%- elseif row.school_content_type == 'alternate_paths' -%}
+	{% include 'views-view-fields--schools--paths.html.twig' %}
+{%- else -%}
+	{% include 'views-view-fields--schools--basic.html.twig' %}
+{%- endif -%}

@@ -1,0 +1,53 @@
+.view-site-search {
+     margin-bottom: 3rem;
+     margin-top: 3rem;
+
+     .accordion {
+          .accordion-button {
+               background-color: transparent;
+               border: 0;
+               box-shadow: none;
+               font-weight: bold;;
+               padding: 0;
+          }
+
+          .accordion-item {
+               border: 0;
+          }
+     }
+
+     .result-type {
+          color: #999;
+          font-size: 1rem;
+          margin: .25rem 1.5rem;
+
+          .result-icon {
+               &::after {
+                    content: " ";
+                    display: inline;
+               }
+          }
+     }
+
+     .view-empty {
+          display: none;
+     }
+
+     .views-exposed-form {
+          .form-type-textfield {
+               width: 74%;
+          }     
+     }
+
+     .views-row {
+          border-bottom: 1px solid #999;
+          padding-bottom: 1.5rem;
+          margin-bottom: 1.5rem;
+
+          &:last-child {
+               margin-bottom: 0;
+               padding-bottom: 0;
+               border: 0;
+          }
+     }     
+}

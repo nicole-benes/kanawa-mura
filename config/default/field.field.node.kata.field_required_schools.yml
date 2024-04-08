@@ -1,0 +1,22 @@
+uuid: 766141ed-100b-40bd-b148-9796bd0b07dc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_required_schools
+    - node.type.kata
+  module:
+    - text
+id: node.kata.field_required_schools
+field_name: field_required_schools
+entity_type: node
+bundle: kata
+label: 'Required Schools'
+description: 'The schools which you must be a part of to learn this kata.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

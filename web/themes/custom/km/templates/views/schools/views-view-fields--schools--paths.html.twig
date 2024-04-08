@@ -1,0 +1,56 @@
+<{{ fields.source.wrapper_element }}{{ fields.source.wrapper_attributes }}>
+	<{{ fields.source.element_type }}{{ fields.source.element_attributes }}>
+		{{ fields.source.content }}
+	</{{ fields.source.element_type }}>
+</{{ fields.source.wrapper_element }}>
+
+{% if fields.body %}
+     <{{ fields.body.wrapper_element }}{{ fields.body.wrapper_attributes }}>
+          {{ fields.body.content }}
+     </{{ fields.body.wrapper_element }}>
+{% endif %}
+
+<div class="school-requirements-header">
+     <h5>Requirements:</h5>
+</div>
+
+<ul class="grouped-list school-requirements">
+     {% if fields.field_path_technique_rank %}
+          <li>
+               <{{ fields.field_path_technique_rank.wrapper_element }}{{ fields.field_path_technique_rank.wrapper_attributes }}>
+                    <span class="label">Technique Rank</span><span class="inline-field-value">{{ fields.field_path_technique_rank.content }}</span>
+               </{{ fields.field_path_technique_rank.wrapper_element }}>
+          </li>
+     {% endif %}
+
+
+     {% if fields.field_path_replaces %}
+          <li>
+               <{{ fields.field_path_replaces.wrapper_element }}{{ fields.field_path_replaces.wrapper_attributes }}>
+                    <span class="label">Replaces</span><span class="inline-field-value">{{ fields.field_path_replaces.content }}</span>
+               </{{ fields.field_path_replaces.wrapper_element }}>
+          </li>
+     {% endif %}
+
+     {% if fields.field_devotion %}
+          <li>
+               <{{ fields.field_devotion.wrapper_element }}{{ fields.field_devotion.wrapper_attributes }}>
+                    <span class="label">Devotion</span><span class="inline-field-value">{{ fields.field_devotion.content }}</span>
+               </{{ fields.field_devotion.wrapper_element }}>
+          </li>
+     {% endif %}
+
+     {% if fields.field_required_other %}
+          <li>
+               <{{ fields.field_required_other.wrapper_element }}{{ fields.field_required_other.wrapper_attributes }}>
+                    <span class="label">Requirements</span><span class="inline-field-value">{{ fields.field_required_other.content }}</span>
+               </{{ fields.field_required_other.wrapper_element }}>
+          </li>
+     {% endif %}
+
+     <li>
+          <div class="inline-technique">
+               <span class="label">Technique</span>{{ fields.school_techniques.content }}
+          </div>
+     </li>		
+</ul>

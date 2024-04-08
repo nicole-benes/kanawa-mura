@@ -1,0 +1,18 @@
+uuid: 06a5f736-1989-43f8-bfa7-b1512ee8f033
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.kata
+id: node.kata.title
+field_name: title
+entity_type: node
+bundle: kata
+label: Name
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

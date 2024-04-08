@@ -1,0 +1,19 @@
+uuid: d94a28fb-da97-4e2b-a18c-7da1d33ab1b7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_raises
+    - node.type.spells
+id: node.spells.field_raises
+field_name: field_raises
+entity_type: node
+bundle: spells
+label: Raises
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

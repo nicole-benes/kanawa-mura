@@ -1,0 +1,19 @@
+uuid: 76e44a3f-c0c2-4490-baaf-e325030b2092
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_title
+    - paragraphs.paragraphs_type.inline_technique
+id: paragraph.inline_technique.field_title
+field_name: field_title
+entity_type: paragraph
+bundle: inline_technique
+label: Title
+description: 'The title of the technique.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

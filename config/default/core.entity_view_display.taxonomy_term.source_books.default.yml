@@ -1,0 +1,31 @@
+uuid: fc6d94c0-a245-41a8-9dbe-0f3c79d6caf6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.source_books.field_abbreviation
+    - taxonomy.vocabulary.source_books
+  module:
+    - text
+id: taxonomy_term.source_books.default
+targetEntityType: taxonomy_term
+bundle: source_books
+mode: default
+content:
+  description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_abbreviation:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  search_api_excerpt: true

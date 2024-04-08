@@ -1,0 +1,22 @@
+uuid: b6022a7e-93b0-48f6-9fd6-7b06e7e6f409
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.ancestors
+id: node.ancestors.promote
+field_name: promote
+entity_type: node
+bundle: ancestors
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

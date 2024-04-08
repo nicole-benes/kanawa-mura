@@ -1,0 +1,23 @@
+uuid: 2c594304-e376-4ac2-91cd-3a01ed802114
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_rank
+    - paragraphs.paragraphs_type.techniques
+id: paragraph.techniques.field_rank
+field_name: field_rank
+entity_type: paragraph
+bundle: techniques
+label: Rank
+description: 'What rank the technique is available at.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

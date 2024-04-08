@@ -1,0 +1,8 @@
+uuid: 0aaf9533-7744-4bae-b8e2-8a357faba1da
+langcode: en
+status: true
+dependencies: {  }
+name: 'Skill Type'
+vid: skill_type
+description: 'The category of the skill.'
+weight: 0

@@ -1,0 +1,22 @@
+uuid: 66ef80cf-8774-4a58-80f2-a6df51a3c0b1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ancestor_demands
+    - node.type.ancestors
+  module:
+    - text
+id: node.ancestors.field_ancestor_demands
+field_name: field_ancestor_demands
+entity_type: node
+bundle: ancestors
+label: Demands
+description: 'The demands an ancestor places on a character they help.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

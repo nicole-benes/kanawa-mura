@@ -1,0 +1,89 @@
+{% if row.search_result %}
+     <{{ fields.title.wrapper_element }}{{ fields.title.wrapper_attributes }}>
+          <{{ fields.title.element_type }}{{ fields.title.element_attributes }}>
+               <div class="search-result-row-header">     
+                    <div class="result-title">
+                         <a href="{{ row.link }}" title="{{ fields.title.content }}">{{ fields.title.content }}</a>{% if fields.source %} [{{ fields.source.content }}]{% endif %}
+                    </div>
+
+                    <div class="result-type">
+                         <span class="result-icon"><i class="fa-solid fa-gear"></i></span>Skill
+                    </div>
+               </div>
+          </{{ fields.title.element_type }}>
+     </{{ fields.title.wrapper_element }}>
+{% else %}
+     <{{ fields.title.wrapper_element }}{{ fields.title.wrapper_attributes }}>
+          <{{ fields.title.element_type }}{{ fields.title.element_attributes }}>
+               {{ fields.title.content }}
+          </{{ fields.title.element_type }}>
+     </{{ fields.title.wrapper_element }}>
+{% endif %}
+
+{% if row.search_result %}
+     <div class="container"></div>
+          <div class="row">
+               <div class="col">
+{% endif %}
+                    <ul>
+                         <li>
+                              <{{ fields.skill_sub_types.wrapper_element }}{{ fields.skill_sub_types.wrapper_attributes }}>
+                                   <span class="label">Sub Types</span><span class="inline-field-value">{{ fields.skill_sub_types.content }}</span>
+                              </{{ fields.skill_sub_types.wrapper_element }}>
+                         </li>
+
+                         <li>
+                              <{{ fields.emphases.wrapper_element }}{{ fields.emphases.wrapper_attributes }}>
+                                   <span class="label">Emphases</span><span class="inline-field-value">{{ fields.emphases.content }}</span>
+                              </{{ fields.emphases.wrapper_element }}>         
+                         </li>
+                    </ul>
+
+                    {% if not row.search_result %}
+                         {% if fields.body %}
+                              <{{ fields.body.wrapper_element }}{{ fields.body.wrapper_attributes }}>
+                                   {{ fields.body.content }}
+                              </{{ fields.body.wrapper_element }}>
+                         {% endif %}
+                    {% endif %}     
+
+{% if row.search_result %}
+               </div>
+{% endif %}                    
+
+{% if fields.masteries %}
+     {% if row.search_result %}
+               <div class="col">
+     {% endif %}          
+                    <div class="skill-masteries-header">
+                         <h5>Mastery Abilities</h5>
+                    </div>
+
+                    <div class="skill-masteries">
+                         {{ fields.masteries.content }}
+                    </div>
+     {% if row.search_result %}
+               </div>
+          </div>
+     {% endif %}
+{% endif %}
+
+{% if row.search_result %}
+     <div class="accordion">
+          <div class="accordion-item">
+               <h6 class="accordion-header mastery-title">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#technique-{{ row._entity.loadedRevisionId }}" aria-expanded="true" aria-controls="collapseOne">
+                         Skill Description
+                    </button>
+               </h6>
+
+               <div id="technique-{{ row._entity.loadedRevisionId }}" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                         <{{ fields.body.wrapper_element }}{{ fields.body.wrapper_attributes }}>
+                              {{ fields.body.content }}
+                         </{{ fields.body.wrapper_element }}>
+                    </div>
+               </div>
+          </div>
+     </div>
+{% endif %}

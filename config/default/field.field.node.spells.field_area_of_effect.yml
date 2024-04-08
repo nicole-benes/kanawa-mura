@@ -1,0 +1,19 @@
+uuid: a8fe33f6-18f0-4c22-a512-aea955fec40f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_area_of_effect
+    - node.type.spells
+id: node.spells.field_area_of_effect
+field_name: field_area_of_effect
+entity_type: node
+bundle: spells
+label: 'Area of Effect'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

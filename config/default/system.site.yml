@@ -1,0 +1,14 @@
+_core:
+  default_config_hash: VDJxTZtQR21qB4lvOq8zszJZLvLKrSPQpdn2E3T71Ww
+langcode: en
+uuid: 64f79ba7-a2b7-44c0-a77e-0a7859c7dc82
+name: Kanawa-Mura
+mail: noreply@kanawa-mura.com
+slogan: 'A resource for the 4th edition of Legend of the Five Rings role-playing Game.'
+page:
+  403: ''
+  404: ''
+  front: /node/1
+admin_compact_mode: false
+weight_select_max: 100
+default_langcode: en

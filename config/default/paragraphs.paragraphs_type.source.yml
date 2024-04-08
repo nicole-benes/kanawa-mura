@@ -1,0 +1,10 @@
+uuid: 631813ee-1bfe-4499-a598-8d50198849f0
+langcode: en
+status: true
+dependencies: {  }
+id: source
+label: Source
+icon_uuid: null
+icon_default: null
+description: 'The source for this piece of content.'
+behavior_plugins: {  }

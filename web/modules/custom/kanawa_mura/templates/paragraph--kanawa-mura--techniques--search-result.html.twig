@@ -1,0 +1,45 @@
+{%
+  set classes = [
+    'paragraph',
+    'paragraph--type--' ~ paragraph.bundle|clean_class,
+    view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
+    not paragraph.isPublished() ? 'paragraph--unpublished'
+  ]
+%}
+
+{% if paragraph.field_rank.value == 1 %}
+		{% set rank = "One" %}
+{% elseif paragraph.field_rank.value == 2 %}
+		{% set rank = "Two" %}
+{% elseif paragraph.field_rank.value == 3 %}
+		{% set rank = "Three" %}
+{% elseif paragraph.field_rank.value == 4 %}
+		{% set rank = "Four" %}
+{% elseif paragraph.field_rank.value == 5 %}
+		{% set rank = "Five" %}
+{% else %}
+		{% set rank = paragraph.field_rank.value %}
+{% endif %}
+
+
+{% block paragraph %}
+	{% block content %}
+          <li class="accordion">
+               <div class="accordion-item">
+                    <h6 class="accordion-header technique-title">
+                         <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#technique-{{ paragraph.id.value }}" aria-expanded="true" aria-controls="collapseOne">
+                              Rank {{ rank }}: {{ paragraph.field_title.value }}
+                         </button>
+                    </h6>
+
+                    <div id="technique-{{ paragraph.id.value }}" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                         <div class="accordion-body">
+                              {{ paragraph.field_description.value|raw }}
+
+                              <span{{ attributes.addClass(classes) }}></span>                    
+                         </div>
+                    </div>
+               </div>
+          </li>
+	{% endblock %}
+{% endblock paragraph %}

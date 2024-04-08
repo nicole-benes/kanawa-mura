@@ -1,0 +1,21 @@
+uuid: ac25dc2b-eaee-43ac-a3cb-85abbedcd03f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_advantage_type
+    - node.type.advantages_disadvantages
+  module:
+    - options
+id: node.advantages_disadvantages.field_advantage_type
+field_name: field_advantage_type
+entity_type: node
+bundle: advantages_disadvantages
+label: 'Type (Advantages & Disadvantages)'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

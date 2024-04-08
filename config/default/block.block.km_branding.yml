@@ -1,0 +1,25 @@
+uuid: 6ca4e5ab-8365-4b1f-ae12-2e717cd594e4
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - km
+_core:
+  default_config_hash: 8XWCusfgbMmG3jsPn6Qwuuct96u7-t6lXf3OgVMqIGw
+id: km_branding
+theme: km
+region: navbar_branding
+weight: -1
+provider: null
+plugin: system_branding_block
+settings:
+  id: system_branding_block
+  label: 'Site branding'
+  label_display: '0'
+  provider: system
+  use_site_logo: true
+  use_site_name: true
+  use_site_slogan: true
+visibility: {  }

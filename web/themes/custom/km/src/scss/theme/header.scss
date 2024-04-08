@@ -1,0 +1,22 @@
+.navbar {
+    .me-auto {
+        margin-left: auto !important;
+        margin-right: 0 !important;
+    }
+
+    .navbar-brand__text {
+        line-height: 1;
+        margin-top: 0.5rem;
+        
+        span:first-child {
+            font-family: "Comforter Brush", cursive;
+            font-weight: 400;
+            font-style: normal;
+            font-size: 75px;
+        }
+
+        span:last-child {
+            font-size: 14px;
+        }
+    }
+}

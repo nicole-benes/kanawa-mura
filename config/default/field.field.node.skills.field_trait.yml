@@ -1,0 +1,29 @@
+uuid: efcde43a-9ac7-49a0-b533-a1ede423d188
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_trait
+    - node.type.skills
+    - taxonomy.vocabulary.rings_traits
+id: node.skills.field_trait
+field_name: field_trait
+entity_type: node
+bundle: skills
+label: Trait(s)
+description: 'The trait(s) this skill is usually paired with.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      rings_traits: rings_traits
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

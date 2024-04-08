@@ -1,0 +1,66 @@
+uuid: 120fa47d-cb62-453a-994d-86cba17a9b79
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.kiho.body
+    - field.field.node.kiho.field_keywords
+    - field.field.node.kiho.field_kiho_type
+    - field.field.node.kiho.field_rank
+    - field.field.node.kiho.field_trait
+    - node.type.kiho
+  module:
+    - text
+    - user
+id: node.kiho.default
+targetEntityType: node
+bundle: kiho
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  field_keywords:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 110
+    region: content
+  field_kiho_type:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 111
+    region: content
+  field_rank:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 105
+    region: content
+  field_trait:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 104
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  search_api_excerpt: true

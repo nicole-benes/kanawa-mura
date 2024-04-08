@@ -1,0 +1,29 @@
+uuid: 0eca2ab9-108c-4355-b80f-d8f2fef5ea37
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_affinity
+    - node.type.schools
+    - taxonomy.vocabulary.rings_traits
+id: node.schools.field_affinity
+field_name: field_affinity
+entity_type: node
+bundle: schools
+label: Affinity
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      rings_traits: rings_traits
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

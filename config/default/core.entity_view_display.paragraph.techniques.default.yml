@@ -1,0 +1,42 @@
+uuid: 6b2c326f-8f1e-4b4b-96ce-90ae0c0ff157
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.techniques.field_description
+    - field.field.paragraph.techniques.field_rank
+    - field.field.paragraph.techniques.field_title
+    - paragraphs.paragraphs_type.techniques
+  module:
+    - text
+id: paragraph.techniques.default
+targetEntityType: paragraph
+bundle: techniques
+mode: default
+content:
+  field_description:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_rank:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_title:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  search_api_excerpt: true

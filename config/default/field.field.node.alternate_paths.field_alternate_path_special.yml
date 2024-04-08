@@ -1,0 +1,22 @@
+uuid: e27dfac4-359a-430f-a974-1c5761bb88e7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_alternate_path_special
+    - node.type.alternate_paths
+  module:
+    - text
+id: node.alternate_paths.field_alternate_path_special
+field_name: field_alternate_path_special
+entity_type: node
+bundle: alternate_paths
+label: 'Alternate Path Special'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

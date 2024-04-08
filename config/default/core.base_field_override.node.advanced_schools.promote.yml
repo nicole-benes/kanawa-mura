@@ -1,0 +1,22 @@
+uuid: 6983a7bc-3978-4e9d-b1d0-d5d83c74c3d9
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.advanced_schools
+id: node.advanced_schools.promote
+field_name: promote
+entity_type: node
+bundle: advanced_schools
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

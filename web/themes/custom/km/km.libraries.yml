@@ -1,0 +1,9 @@
+style:
+  version: 1.0.0
+  css:
+    theme:
+      build/css/main.style.css: {  }
+  js:
+    build/js/main.script.js: {  }
+  dependencies:
+    - core/drupal

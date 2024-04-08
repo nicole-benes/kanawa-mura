@@ -1,0 +1,24 @@
+uuid: 9374673a-fdd8-4769-a9aa-5fd1832cf6e9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_description
+    - filter.format.full_html
+    - paragraphs.paragraphs_type.techniques
+  module:
+    - text
+id: paragraph.techniques.field_description
+field_name: field_description
+entity_type: paragraph
+bundle: techniques
+label: Description
+description: 'The actual text of the school technique.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - full_html
+field_type: text_long

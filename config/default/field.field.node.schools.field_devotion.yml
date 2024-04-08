@@ -1,0 +1,28 @@
+uuid: 3e53b9de-0e57-4714-8b88-c30dc75b1d42
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_devotion
+    - filter.format.basic_html
+    - filter.format.full_html
+    - filter.format.restricted_html
+    - node.type.schools
+  module:
+    - text
+id: node.schools.field_devotion
+field_name: field_devotion
+entity_type: node
+bundle: schools
+label: Devotion
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - basic_html
+    - restricted_html
+    - full_html
+field_type: text_long

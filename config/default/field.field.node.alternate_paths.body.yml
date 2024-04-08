@@ -1,0 +1,24 @@
+uuid: 7755f763-db1d-47ae-9d7a-49f511e091d2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.alternate_paths
+  module:
+    - text
+id: node.alternate_paths.body
+field_name: body
+entity_type: node
+bundle: alternate_paths
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+  allowed_formats: {  }
+field_type: text_with_summary

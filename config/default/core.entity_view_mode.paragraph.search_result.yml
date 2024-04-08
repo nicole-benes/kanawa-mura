@@ -1,0 +1,11 @@
+uuid: 95aa71df-36e7-4443-8e2c-51c609a1ce4d
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.search_result
+label: 'Search Result'
+description: 'Displayed when the item shows up in a search result.'
+targetEntityType: paragraph
+cache: true

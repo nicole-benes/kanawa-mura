@@ -1,0 +1,29 @@
+uuid: b4fc96dd-d9a3-49ab-9124-6a116ee95dc1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_advantage_subtype
+    - node.type.advantages_disadvantages
+    - taxonomy.vocabulary.advantage_disadvantage_subtypes
+id: node.advantages_disadvantages.field_advantage_subtype
+field_name: field_advantage_subtype
+entity_type: node
+bundle: advantages_disadvantages
+label: 'Subtype (Advantages & Disadvantages)'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      advantage_disadvantage_subtypes: advantage_disadvantage_subtypes
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

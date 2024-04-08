@@ -1,0 +1,77 @@
+uuid: 4a777b2d-2b28-42ed-9345-04ad76a50930
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.advantages_disadvantages.body
+    - field.field.node.advantages_disadvantages.field_advantage_subtype
+    - field.field.node.advantages_disadvantages.field_advantage_type
+    - field.field.node.advantages_disadvantages.field_point_value
+    - field.field.node.advantages_disadvantages.field_point_value_numeric
+    - field.field.node.advantages_disadvantages.field_source
+    - node.type.advantages_disadvantages
+  module:
+    - entity_reference_revisions
+    - options
+    - text
+    - user
+id: node.advantages_disadvantages.default
+targetEntityType: node
+bundle: advantages_disadvantages
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  field_advantage_subtype:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 103
+    region: content
+  field_advantage_type:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 104
+    region: content
+  field_point_value:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  field_point_value_numeric:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 105
+    region: content
+  field_source:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 103
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  search_api_excerpt: true

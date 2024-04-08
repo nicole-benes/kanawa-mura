@@ -1,0 +1,57 @@
+<{{ fields.source.wrapper_element }}{{ fields.source.wrapper_attributes }}>
+	<{{ fields.source.element_type }}{{ fields.source.element_attributes }}>
+		{{ fields.source.content }}
+	</{{ fields.source.element_type }}>
+</{{ fields.source.wrapper_element }}>
+
+{% if fields.body %}
+     <{{ fields.body.wrapper_element }}{{ fields.body.wrapper_attributes }}>
+          {{ fields.body.content }}
+     </{{ fields.body.wrapper_element }}>
+{% endif %}
+
+<div class="school-requirements-header">
+     <h5>Requirements:</h5>
+</div>
+
+<ul class="grouped-list school-requirements">
+     {% if fields.field_benefit %}
+          <li>
+               <{{ fields.field_benefit.wrapper_element }}{{ fields.field_benefit.wrapper_attributes }}>
+                    <span class="label">Rings/Traits</span><span class="inline-field-value">{{ fields.field_benefit.content }}</span>
+               </{{ fields.field_benefit.wrapper_element }}>
+          </li>
+     {% endif %}
+
+     {% if fields.field_school_skills %}
+          <li>
+               <{{ fields.field_school_skills.wrapper_element }}{{ fields.field_school_skills.wrapper_attributes }}>
+                    <span class="label">Skills</span><span class="inline-field-value">{{ fields.field_school_skills.content }}</span>
+               </{{ fields.field_school_skills.wrapper_element }}>
+          </li>
+     {% endif %}
+
+     {% if fields.field_required_other %}
+          <li>
+               <{{ fields.field_required_other.wrapper_element }}{{ fields.field_required_other.wrapper_attributes }}>
+                    <span class="label">Other</span><span class="inline-field-value">{{ fields.field_required_other.content }}</span>
+               </{{ fields.field_required_other.wrapper_element }}>
+          </li>
+     {% endif %}
+
+     {% if fields.field_required_advantage %}
+          <li>
+               <{{ fields.field_required_advantage.wrapper_element }}{{ fields.field_required_advantage.wrapper_attributes }}>
+                    <span class="label">Advantages</span><span class="inline-field-value">{{ fields.field_required_advantage.content }}</span>
+               </{{ fields.field_required_advantage.wrapper_element }}>
+          </li>
+     {% endif %}
+</ul>
+
+<div class="school-techniques-header">
+     <h5>Techniques</h5>
+</div>
+
+<div class="school-techniques">
+     {{ fields.school_techniques.content }}
+</div>

@@ -1,0 +1,157 @@
+.grouped-view {
+     .accordion {
+          .accordion {
+               margin-bottom: 3rem;
+          }
+     }
+
+     .inline-technique-title {
+          font-style: italic;
+     }
+
+     .grouping-description {
+          margin-bottom: 3rem;
+     }
+
+     .label {
+          font-weight: bold;
+
+          &:after {
+               content: ": ";
+               display: inline;
+          }
+     }
+
+     .ancestor-group {
+          margin-bottom: 3rem;
+     }
+
+     .grouped-list {
+          margin-left: 1rem;
+
+          & > .views-row {
+               margin-left: 1rem;
+          }
+
+          li {
+               .label {
+                    font-weight: bold;;
+
+                    &:after {
+                         content: ": ";
+                         display: inline;
+                    }
+               }
+          }
+     }
+
+     .view-content {
+          & > div {
+               margin-bottom: 3rem; 
+
+          }
+     }
+
+     .views-exposed-form {
+          margin-bottom: 3rem;
+
+          .form-actions {
+               float: right;
+          }
+
+          .form-item {
+               display: inline-block;
+
+               label {
+                    display: none;
+               }
+          }
+
+          .form-type-textfield {
+               width: 75%;
+          }
+     }
+
+     &.view-advantages-disadvantages { 
+          .views-exposed-form {
+               .form-type-textfield {
+                    width: 40%;
+
+                    &.form-item-point-value-value {
+                         width: 8%;
+                    }
+               }     
+          }
+     }     
+
+     &.view-ancestors {
+          .views-exposed-form {
+               .form-type-textfield {
+                    width: 67%;
+               }
+          }
+     }
+
+     &.view-families {
+          .views-exposed-form {
+               .form-type-textfield {
+                    width: 75%;
+               }
+          }
+     }
+
+     &.view-kata { 
+          .views-exposed-form {
+               .form-type-textfield {
+                    width: 80%;
+               }     
+          }
+     }
+
+     &.view-kiho { 
+          .views-exposed-form {
+               .form-type-textfield {
+                    width: 71%;
+               }     
+          }
+     }
+
+     &.view-site-search {
+          .form--views-exposed-form-site-search-block-1 {
+               margin-bottom: 1rem;
+          }
+     }
+
+     &.view-schools { 
+          .views-exposed-form {
+               .form-type-textfield {
+                    width: 46%;
+               }     
+          }
+     }
+
+     &.view-spells { 
+          .views-exposed-form {
+               .form-type-textfield {
+                    width: 65%;
+               }     
+          }
+     }
+
+     .views-row {
+          margin-bottom: 3rem;
+
+          table {
+               margin-bottom: 1rem;
+
+               thead {
+                    border-bottom: 1px solid #000;
+               }
+
+               td, th {
+                    padding: 2px 10px;
+               }
+          }
+     }     
+}
+

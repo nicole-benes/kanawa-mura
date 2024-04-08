@@ -1,0 +1,10 @@
+uuid: bc925605-be77-4b5f-94ca-591a3de94ee5
+langcode: en
+status: true
+dependencies: {  }
+id: techniques
+label: Techniques
+icon_uuid: null
+icon_default: null
+description: 'The Techniques of the various schools.'
+behavior_plugins: {  }

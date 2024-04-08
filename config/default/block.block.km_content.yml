@@ -1,0 +1,22 @@
+uuid: 5d22a583-26b0-4a25-934b-bb73a4d10ffc
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - km
+_core:
+  default_config_hash: AaNs_T0k8DwExmWSXTfiEQGDSwyQeY4pTXEkOKUZhM8
+id: km_content
+theme: km
+region: content
+weight: -2
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  label_display: '0'
+  provider: system
+visibility: {  }

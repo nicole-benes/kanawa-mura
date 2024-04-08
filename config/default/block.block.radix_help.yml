@@ -1,0 +1,22 @@
+uuid: 21306885-50ef-495c-a772-2b3e011eec50
+langcode: en
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - radix
+_core:
+  default_config_hash: jccFSSVqV0WCDb6NtML1VWAWTtDbZ-zn5YgTRMgMrIM
+id: radix_help
+theme: radix
+region: navbar_branding
+weight: 0
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  label_display: '0'
+  provider: help
+visibility: {  }

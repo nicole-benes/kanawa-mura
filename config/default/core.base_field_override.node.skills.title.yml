@@ -1,0 +1,18 @@
+uuid: 8a0c49f0-d8c9-4007-92c8-abdcf815f1fa
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.skills
+id: node.skills.title
+field_name: title
+entity_type: node
+bundle: skills
+label: 'Skill Name'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

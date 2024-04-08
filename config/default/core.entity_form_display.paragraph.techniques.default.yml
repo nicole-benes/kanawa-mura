@@ -1,0 +1,42 @@
+uuid: 0f740ace-df5c-4cfe-a34d-0e5f8cee56c6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.techniques.field_description
+    - field.field.paragraph.techniques.field_rank
+    - field.field.paragraph.techniques.field_title
+    - paragraphs.paragraphs_type.techniques
+  module:
+    - text
+id: paragraph.techniques.default
+targetEntityType: paragraph
+bundle: techniques
+mode: default
+content:
+  field_description:
+    type: text_textarea
+    weight: 2
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_rank:
+    type: number
+    weight: 0
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_title:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

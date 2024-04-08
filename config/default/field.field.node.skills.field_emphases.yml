@@ -1,0 +1,22 @@
+uuid: 3dce336b-fb1f-4a3e-aca0-972edf424aa2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_emphases
+    - node.type.skills
+  module:
+    - text
+id: node.skills.field_emphases
+field_name: field_emphases
+entity_type: node
+bundle: skills
+label: Emphases
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

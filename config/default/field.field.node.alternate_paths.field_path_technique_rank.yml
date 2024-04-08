@@ -1,0 +1,19 @@
+uuid: 885c18b5-418d-4e2b-9da8-b8b41f4313b0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_path_technique_rank
+    - node.type.alternate_paths
+id: node.alternate_paths.field_path_technique_rank
+field_name: field_path_technique_rank
+entity_type: node
+bundle: alternate_paths
+label: 'Path Technique Rank'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

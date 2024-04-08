@@ -1,0 +1,29 @@
+uuid: fbae99ea-1666-4804-a4f8-cb4d05ff40e4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.homepage.body
+    - node.type.homepage
+  module:
+    - text
+    - user
+id: node.homepage.default
+targetEntityType: node
+bundle: homepage
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  search_api_excerpt: true

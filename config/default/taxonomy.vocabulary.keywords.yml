@@ -1,0 +1,8 @@
+uuid: f82ce9c4-6685-47f9-a452-f4af97f9ac4f
+langcode: en
+status: true
+dependencies: {  }
+name: Keywords
+vid: keywords
+description: 'Various keywords associated with spells, equipment, etc'
+weight: 0

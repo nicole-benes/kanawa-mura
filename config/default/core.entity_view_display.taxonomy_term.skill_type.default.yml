@@ -1,0 +1,31 @@
+uuid: c4d05899-4b73-4615-87b2-5cb39b427908
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.skill_type.field_short_name
+    - taxonomy.vocabulary.skill_type
+  module:
+    - text
+id: taxonomy_term.skill_type.default
+targetEntityType: taxonomy_term
+bundle: skill_type
+mode: default
+content:
+  description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_short_name:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  search_api_excerpt: true

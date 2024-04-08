@@ -1,0 +1,8 @@
+uuid: fe538e93-b92d-48be-a7ca-67a298222c33
+langcode: en
+status: true
+dependencies: {  }
+name: 'School Type'
+vid: school_type
+description: 'The type of school this school is.'
+weight: 0

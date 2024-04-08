@@ -1,0 +1,8 @@
+uuid: b7a1e610-26ad-4f77-90e6-eae9cdc682b8
+langcode: en
+status: true
+dependencies: {  }
+name: 'Rings & Traits'
+vid: rings_traits
+description: 'The core character rings and traits.'
+weight: 0

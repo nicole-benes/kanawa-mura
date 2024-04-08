@@ -1,0 +1,24 @@
+uuid: 882b08c1-cb79-4f27-987b-f28f42ee45a7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.kiho
+  module:
+    - text
+id: node.kiho.body
+field_name: body
+entity_type: node
+bundle: kiho
+label: Description
+description: 'The description of this kiho.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: false
+  required_summary: false
+  allowed_formats: {  }
+field_type: text_with_summary

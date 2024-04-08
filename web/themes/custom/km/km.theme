@@ -1,0 +1,369 @@
+<?php
+
+use Drupal\Core\Language\LanguageInterface;
+
+/**
+ * @file
+ * Theme functions.
+ */
+
+// Include all files from the includes directory.
+$includes_path = dirname(__FILE__) . '/includes/*.theme';
+
+foreach (glob($includes_path) as $file) {
+     require_once dirname(__FILE__) . '/includes/' . basename($file);
+}
+
+
+
+function km_preprocess_views_view_grouping( &$variables ) {
+     // Only for certain views
+     if( $variables[ 'view' ]->id() == 'families' ) {
+
+          // Get the title and cut out any debugging text
+          $groupingTitle = km_remove_comments( $variables[ 'title' ] );
+
+          $termObject = \Drupal::entityTypeManager()
+		     ->getStorage( 'taxonomy_term' )
+		     ->loadByProperties( ['name' => $groupingTitle, 'vid' => 'clans' ]);
+
+          $termObject = array_shift( $termObject );
+
+          if( is_object( $termObject ) ) {
+               $variables[ 'description' ] = $termObject->get( 'description' )->value;
+               $variables[ 'groupingClan' ] = km_machine_name( $variables[ 'title' ] );
+          }
+     } else if( $variables[ 'view' ]->id() == 'ancestors' ) {
+
+          // Put the grouping clan in the title
+          $variables[ 'groupingClan' ] = km_machine_name( $variables[ 'title' ] );
+
+     } else if( $variables[ 'view' ]->id() == 'spells' ) {
+
+          // Get the title and cut out any debugging text
+          $title = km_remove_comments( $variables[ 'title' ] );
+
+          // We need this in the template
+          $variables[ 'spellType' ] = strtolower( $title );
+
+          // And we add it to the view for use in the unformatted template
+          $variables[ 'view' ]->ring = $title;
+
+     }
+}    
+
+function km_preprocess_views_view_unformatted( &$variables ) {
+
+     // Only for certain views
+     if( $variables[ 'view' ]->id() == 'skills' ) {
+
+          // Set our template variable for the accordion
+          $variables[ 'skillType' ] = km_machine_name( $variables[ 'title' ] );
+
+     } else if( $variables[ 'view' ]->id() == 'families' ) {
+
+          // Get the title and cut out any debugging text
+          $groupingTitle = km_remove_comments( $variables[ 'title' ] );
+
+          // Load this term
+          $termObject = \Drupal::entityTypeManager()
+		     ->getStorage( 'taxonomy_term' )
+		     ->loadByProperties( ['name' => $groupingTitle, 'vid' => 'clans' ]);
+
+          // Jettison the array
+          $termObject = array_shift( $termObject );
+
+          if( is_object( $termObject ) ) {
+
+               // Set our template variable for the accordion
+               $variables[ 'description' ] = $termObject->get( 'description' )->value;
+               $variables[ 'clan' ] = km_machine_name( $variables[ 'title' ] );
+     
+          }
+     } else if( $variables[ 'view' ]->id() == 'ancestors' ) {
+
+          // Minor Clans have no title since we removed the actual clan for some reason
+          if( strlen( $variables[ 'title' ] ) == 0 ) {
+
+               // Set a title
+               $variables[ 'title' ] = 'Minor Clans';
+          }
+
+          // Add the title to template for the accordion
+          $variables[ 'clan' ] = km_machine_name( $variables[ 'title' ] );
+     
+     } else if( $variables[ 'view' ]->id() == 'spells' ) {
+//     	static $view = false; if( !$view ) { dpm( 'view_unformatted' ); dpm( $variables ); $view = true; }
+
+          $variables[ 'ring' ] = $variables[ 'view' ]->ring;
+
+          $title = km_remove_comments( $variables[ 'title' ] );
+
+          $variables[ 'mastery_grouping' ] = strtolower( $variables[ 'view' ]->ring ) . '-mastery-' . km_remove_comments( $variables[ 'title' ] );
+          
+     } else if( $variables[ 'view' ]->id() == 'advantages_disadvantages' ) {
+
+          // Set our template variable for the accordion
+          $variables[ 'type' ] = km_machine_name( $variables[ 'title' ] );
+
+     } else if( $variables[ 'view' ]->id() == 'kata' ) {
+
+          $variables[ 'title' ] = strip_tags( $variables[ 'title' ] );
+
+          // Check if this is a multi-element kata
+          if( $variables[ 'title' ] !== 'Air' && $variables[ 'title' ] !== 'Earth' && $variables[ 'title' ] !== 'Fire' && $variables[ 'title' ] !== 'Water' && $variables[ 'title' ] !== 'Void' ) {
+
+               $variables[ 'title' ] = 'Multi-Element';
+          }
+
+          $variables[ 'kataGrouping' ] = km_machine_name( strip_tags( $variables[ 'title' ] ) );
+
+     } else if( $variables[ 'view' ]->id() == 'kiho' ) {
+
+          $variables[ 'title' ] = strip_tags( $variables[ 'title' ] );
+
+          $variables[ 'kataGrouping' ] = km_machine_name( strip_tags( $variables[ 'title' ] ) );
+     }
+}
+
+/*
+ * Implements template_preprocess_views_view_fields
+ */
+function km_preprocess_views_view_fields( &$variables ) {
+
+     // Schools view overrides (and site search since we need the variables there too)
+     if( $variables[ 'view' ]->id() == 'schools' ) {
+
+          // Do the stuff to figure out the variables we need to render the school
+          km_school_template_variables( $variables );
+
+     // Site Search
+     } else if( $variables[ 'view' ]->id() == 'site_search' ) {
+
+          // Assume we don't know what we found
+          $type = 'unknown';
+
+          // We don't know the title either!
+          $title = 'Unknown';
+
+          // Is this a taxonomy term?
+          if( $variables[ 'fields' ][ 'entity_type' ]->content == 'taxonomy_term' ) {
+
+               // Do stuff?
+
+          // Is this a node?
+          } else if ( $variables[ 'fields' ][ 'entity_type' ]->content == 'node' ) {
+
+               // Figure out what kind of content this is
+               $type = km_remove_comments( $variables[ 'fields' ][ 'type_1' ]->content );
+
+               // Figure out what the title of this item is
+               $title = km_remove_comments( $variables[ 'fields' ][ 'title' ]->content );
+
+          // Is this a paragraph?
+          } else if( $variables[ 'fields' ][ 'entity_type' ]->content == 'paragraph' ) {
+
+               // Do stuff?
+     
+          // We shouldn't hit this
+          } else {
+               dpm( 'Cannot determine type in km_preprocess_view_views_fields!' );
+               dpm( $variables );
+          }
+
+
+          $variables[ 'row' ]->content_type = $type;
+
+          $variables[ 'row' ]->search_result = true;
+
+          switch( $type ) {
+               case 'advanced_schools':
+               case 'alternate_paths':
+               case 'schools':
+                    $variables[ 'row' ]->link = '/schools?type=' . $type . '#' . $title;
+                    km_school_template_variables( $variables );
+                    break;
+
+               case 'families':
+                    $variables[ 'row' ]->link = '/families#' . $title;
+                    break;
+
+               case 'skills':
+                    $variables[ 'row' ]->link = '/skills#' . $title;
+                    break;
+
+               case 'spells':
+                    $variables[ 'row' ]->link = '/spells#' . $title;
+                    break;
+
+               case 'advantages_disadvantages':
+                    $variables[ 'row' ]->link = '/advantages-disadvantages#' . $title;
+                    break;
+
+               case 'ancestors':
+                    $variables[ 'row' ]->link = '/ancestors#' . $title;
+                    break;
+ 
+               case 'kiho':
+                    $variables[ 'row' ]->link = '/kiho#' . $title;
+                    break;
+
+               case 'kata':
+                    $variables[ 'row' ]->link = '/kata#' . $title;
+                    break;
+
+
+               default:
+                    break;
+          }
+
+     // Spells
+     } else if( $variables[ 'view' ]->id() == 'spells' ) {
+
+          if ( $variables[ 'fields' ][ 'trait' ]->content == 'Maho' ) {
+          
+               // Pass on to the template it's maho
+               $variables[ 'row' ]->isMaho = true;          
+
+          } else if ( $variables[ 'fields' ][ 'trait' ]->content == 'Multi-Element' ) {
+
+               // Fix the rank to be proper
+               $variables[ 'fields' ][ 'rank' ]->content = $variables[ 'row' ]->rank;
+
+               // Indicate it's a multi-element spell
+               $variables[ 'row' ]->isMulti = true;
+          }
+     }
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for Views field templates.
+ */
+function km_preprocess_views_view_field( &$variables ) {
+
+//     static $view = false; if( !$view ) { dpm( $variables[ 'row' ]->index ); dpm( 'view_field' ); dpm( $variables ); dpm( $variables[ 'field' ] ); $view = true; }sss
+
+     if( $variables[ 'view' ]->id() == 'schools' && $variables[ 'field' ]->field == 'school_techniques' ) {
+
+          $variables[ 'inline_technique' ] = false;
+
+          if( strpos( $variables[ 'field' ]->original_value, 'inline-technique' ) !== false ) {
+               $variables[ 'inline_technique' ] = true;
+          }
+
+     }
+}
+
+
+
+function km_school_template_variables( &$variables ) {
+
+     // Shortcut to the node
+	$node = $variables[ 'row' ]->_entity;
+
+     // Is this one of the school nodes?
+     if( $node->bundle() == 'schools' || $node->bundle() == 'advanced_schools' || $node->bundle() == 'alternate_paths' ) {
+
+          // Get the TIDs of Shugenja and Monk
+          $shugenjaTerm = km_term_lookup( 'Shugenja', 'school_type' );
+          $monkTerm = km_term_lookup( 'Monk', 'school_type' );
+
+
+          // Get what types of school this node is
+          $types = $node->get( 'field_school_type' )->getValue();
+
+          // Flag to hold if it's a monk school
+          $isMonk = false;
+
+          // Flag to hold if it's a shugenja
+          $isShugenja = false;
+
+          // Monks with more than one technique are fake!
+          $isFakeMonk = false;
+
+          foreach( $types as $type ) {
+               $type = $type[ 'target_id' ];
+
+               if( $type == $monkTerm ) {
+                    $isMonk = true;
+               }
+
+               if( $type == $shugenjaTerm ) {
+                    $isShugenja = true;
+               }
+          }
+
+          // Is this a monk with a technique or is it a monk with 5 techniques
+          if( count( $node->get( 'field_school_techniques' ) ) > 1 ) {
+
+               $isFakeMonk = true;
+          }
+
+          // Set variables so we can tell if this a monk or shugenja in the templates
+          $variables[ 'row' ]->monk = $isMonk;
+          $variables[ 'row' ]->shugenja = $isShugenja;
+          $variables[ 'row' ]->fakeMonk = $isFakeMonk;
+
+          // Get the content type of this row's node and add it so we can use it in the template
+          $variables[ 'row' ]->school_content_type = $node->bundle(); 
+     }     
+}
+
+
+function km_term_lookup( $term, $vid ) {
+	
+	// Lookup this this term by name in the supplied vid
+	$termObject = \Drupal::entityTypeManager()
+		->getStorage( 'taxonomy_term' )
+		->loadByProperties( ['name' => $term, 'vid' => $vid ]);
+
+	// Since we only will get one result, pop it off the array
+	$termObject = array_shift( $termObject );
+
+	// Ensure we got something back
+	if( $termObject != null ) {
+
+		// Return this term TID
+		return $termObject->id();
+
+	// We did not get a term back..
+	} else {
+
+		// .. So return false
+		return false;
+	}
+}
+
+function km_machine_name( $string ) {
+
+          // Get the title and cut out any debugging text
+          $string = trim( preg_replace( '/<!--(.*?)-->/s', '', $string ) );
+
+          // Transliterate the string
+          $string = \Drupal::transliteration()->transliterate( $string, LanguageInterface::LANGCODE_DEFAULT, '_');
+
+          // Make it all lowercase
+          $string = mb_strtolower( $string );
+     
+          // Replace any weird stuff and spaes with a -
+          $string = preg_replace('@[^a-z0-9_.]+@', '-', $string );
+
+          // Return the machine name
+          return $string;    
+}
+
+function km_remove_comments( $string ) {
+
+     // Is this a production envurinment?
+     if ( isset( $_ENV[ 'PANTHEON_ENVIRONMENT' ] ) && ( ( $_ENV[ 'PANTHEON_ENVIRONMENT' ] == 'live') || ( $_ENV[ 'PANTHEON_ENVIRONMENT' ] == 'test' ) ) ) {
+
+          // Don't need to do anything
+          return $string;
+
+     // Either on pantheon dev or local
+     } else {
+
+          // Remove the anoying debugging text
+          return trim( preg_replace( '/<!--(.*?)-->/s', '', $string ) );
+     }
+}

@@ -1,0 +1,10 @@
+uuid: e736da36-2ec1-4985-b752-28f345a47a5a
+langcode: en
+status: true
+dependencies: {  }
+id: inline_technique
+label: 'Inline Technique'
+icon_uuid: null
+icon_default: null
+description: 'Singular techniques which should be displayed inline rather than broken out.'
+behavior_plugins: {  }

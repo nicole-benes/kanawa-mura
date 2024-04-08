@@ -1,0 +1,29 @@
+{% if row.search_result %}
+     <{{ fields.title.wrapper_element }}{{ fields.title.wrapper_attributes }}>
+          <{{ fields.title.element_type }}{{ fields.title.element_attributes }}>
+               <div class="search-result-row-header">     
+                    <div class="result-title">
+                         <a href="{{ row.link }}" title="{{ fields.title.content }}">{{ fields.title.content }}</a>: <span class="family-benefit"></span><span class="trait-modifier">+{{ fields.trait_modifier.content }}</span> <span class="trait-trait">{{ fields.trait_modified.content }}</span></span>{% if fields.source %} [{{ fields.source.content }}]{% endif %}
+                    </div>
+
+                    <div class="result-type">
+                         <span class="result-icon"><i class="fa-solid fa-people-group"></i></span>Family
+                    </div>
+               </div>
+          </{{ fields.title.element_type }}>
+     </{{ fields.title.wrapper_element }}>
+{% else %}
+     <{{ fields.field_full_family_name.wrapper_element }}{{ fields.field_full_family_name.wrapper_attributes }}>
+          <{{ fields.field_full_family_name.element_type }}{{ fields.field_full_family_name.element_attributes }}>
+               {{ fields.field_full_family_name.content }}: <span class="family-benefit"></span><span class="trait-modifier">+{{ fields.trait_modifier.content }}</span> <span class="trait-trait">{{ fields.trait.content }}</span></span>
+          </{{ fields.field_full_family_name.element_type }}>
+     </{{ fields.field_full_family_name.wrapper_element }}>
+{% endif %}
+
+<div class="family-description">
+     {% if fields.body %}
+          <{{ fields.body.wrapper_element }}{{ fields.body.wrapper_attributes }}>
+               {{ fields.body.content }}
+          </{{ fields.body.wrapper_element }}>
+     {% endif %}
+</div>

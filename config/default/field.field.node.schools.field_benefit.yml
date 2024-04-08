@@ -1,0 +1,40 @@
+uuid: 6d23336e-391a-46f0-be46-229317dc0c6b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_benefit
+    - node.type.schools
+    - paragraphs.paragraphs_type.trait_modifier
+  module:
+    - entity_reference_revisions
+id: node.schools.field_benefit
+field_name: field_benefit
+entity_type: node
+bundle: schools
+label: Benefit
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      trait_modifier: trait_modifier
+    negate: 0
+    target_bundles_drag_drop:
+      mastery_abilities:
+        weight: 5
+        enabled: false
+      source:
+        weight: 6
+        enabled: false
+      techniques:
+        weight: 7
+        enabled: false
+      trait_modifier:
+        weight: 8
+        enabled: true
+field_type: entity_reference_revisions

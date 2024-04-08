@@ -1,0 +1,22 @@
+uuid: 382f32ec-4750-469c-916a-a9c41a3fb6e6
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: families
+label: Families
+type: 'canonical_entities:node'
+pattern: 'families/[node:field_clan]/[node:title]'
+selection_criteria:
+  5fbdbd0a-fde8-4439-9e24-f424b1230fc2:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: 5fbdbd0a-fde8-4439-9e24-f424b1230fc2
+    context_mapping:
+      node: node
+    bundles:
+      families: families
+selection_logic: and
+weight: -5
+relationships: {  }

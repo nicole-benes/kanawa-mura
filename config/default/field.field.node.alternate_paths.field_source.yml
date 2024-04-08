@@ -1,0 +1,40 @@
+uuid: 528f7337-9a71-49b7-8b4a-c3c04e4cd4ca
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_source
+    - node.type.alternate_paths
+    - paragraphs.paragraphs_type.source
+  module:
+    - entity_reference_revisions
+id: node.alternate_paths.field_source
+field_name: field_source
+entity_type: node
+bundle: alternate_paths
+label: Source
+description: 'The source this path is from.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      source: source
+    negate: 0
+    target_bundles_drag_drop:
+      mastery_abilities:
+        weight: 5
+        enabled: false
+      source:
+        weight: 3
+        enabled: true
+      techniques:
+        weight: 7
+        enabled: false
+      trait_modifier:
+        weight: 4
+        enabled: false
+field_type: entity_reference_revisions

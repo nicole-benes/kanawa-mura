@@ -1,0 +1,651 @@
+<?php
+
+/*
+function kanawa_mura_search_api_query_alter( $query ) {
+     dpm( $query );
+}
+*/
+
+// Group the clans on the clan select list
+function kanawa_mura_form_alter( &$form, $form_state, $form_id ) {
+
+     // Only do this on some views
+     if( $form_id == 'views_exposed_form' && ( $form[ '#id' ] == 'views-exposed-form-schools-page-1' || $form[ '#id' ] == 'views-exposed-form-families-page-1' ) ) {
+
+          // Flags for what group we're in
+          $greatClans = false;
+          $minorClans = false;
+          $lostClans = false;
+
+          // Set up our new options array
+          $newOptions = [
+               'All' => 'All Clans',
+          ];
+
+          // Loop through all the options
+          for( $i = 0; $i < count( $form[ 'clan' ][ '#options' ] ) - 1; $i++ ) {
+
+               // Is this the Great Clan row?
+               if( in_array( 'Great Clans', $form[ 'clan' ][ '#options' ][ $i ]->option ) ) {
+
+                    // Set what index great clans are
+                    $greatClans = $i;
+                    
+                    // Push this option onto the great clan array
+                    $newOptions[ 'Great Clans' ] = [
+                         array_key_first( $form[ 'clan' ][ '#options' ][ $i ]->option ) => 'All Great Clans',
+                    ];
+
+               } else if( in_array( 'Minor Clans', $form[ 'clan' ][ '#options' ][ $i ]->option ) )  {
+                    $minorClans = $i;
+                    $greatClans = false;
+                    $lostClans = false;
+
+                    $newOptions[ 'Minor Clans' ] = [
+                         array_key_first( $form[ 'clan' ][ '#options' ][ $i ]->option ) => 'All Minor Clans',
+                    ];
+
+               } else if( in_array( 'Lost Clans', $form[ 'clan' ][ '#options' ][ $i ]->option )  )  {
+
+                    $lostClans = $i;
+                    $greatClans = false;
+                    $minorClans = false;
+                    
+                    $newOptions[ 'Lost Clans' ] = [
+                         array_key_first( $form[ 'clan' ][ '#options' ][ $i ]->option ) => 'All Lost Clans',
+                    ];
+
+
+               } else if( in_array( 'Imperial Families', $form[ 'clan' ][ '#options' ][ $i ]->option )  )  {
+
+                    if( $form[ '#id' ] == 'views-exposed-form-schools-page-1' ) {
+
+                         $newOptions[ array_key_first( $form[ 'clan' ][ '#options' ][ $i ]->option ) ] = 'Imperial Schools';
+                         $newOptions[ kanawa_mura_term_lookup( 'Monk', 'supplemental_terms' ) ] = 'Monk Schools';
+
+                    } else if( $form[ '#id' ] == 'views-exposed-form-families-page-1' ) {
+
+                         $newOptions[ array_key_first( $form[ 'clan' ][ '#options' ][ $i ]->option ) ] = 'Imperial Families';
+                    }
+
+
+               } else if( in_array( 'Ronin Families', $form[ 'clan' ][ '#options' ][ $i ]->option )  )  {
+
+                    if( $form[ '#id' ] == 'views-exposed-form-schools-page-1' ) {
+
+                         $newOptions[ array_key_first( $form[ 'clan' ][ '#options' ][ $i ]->option ) ] = 'Ronin Schools';
+                         $newOptions[ kanawa_mura_term_lookup( 'Miscellaneous', 'supplemental_terms' ) ] = 'Miscellaneous Schools';
+
+                    } else if( $form[ '#id' ] == 'views-exposed-form-families-page-1' ) {
+
+                         $newOptions[ array_key_first( $form[ 'clan' ][ '#options' ][ $i ]->option ) ] = 'Ronin Families';
+                    }
+
+               } else {
+                    if( $greatClans !== false ) {
+                         foreach( $form['clan' ][ '#options' ][ $i ]->option as $tid => $label ) {
+                              $newOptions[ 'Great Clans' ][ $tid ] = trim( $label, ' -' );
+                         }
+
+                    } else if( $minorClans !== false ) {
+                         foreach( $form['clan' ][ '#options' ][ $i ]->option as $tid => $label ) {
+                              $newOptions[ 'Minor Clans' ][ $tid ] = trim( $label, ' -' );
+                         }
+
+                    } else if( $lostClans !== false ) {
+                         foreach( $form['clan' ][ '#options' ][ $i ]->option as $tid => $label ) {
+                              $newOptions[ 'Lost Clans' ][ $tid ] = trim( $label, ' -' );
+                         }
+
+                    } else {
+                              
+                    }
+               }   
+          }
+
+          // Replace the old select list with the new onedrush
+          $form[ 'clan' ][ '#options' ] = $newOptions;
+
+          $form[ 'type' ][ '#options' ][ 'All' ] = t( 'All Types' );
+          
+          $form[ 'descriptor' ][ '#options' ][ 'All' ] = t( 'All Descriptors' );
+
+          $form[ 'terms' ]['#attributes']['placeholder'] = t( 'Search Terms' );
+
+     // Skills view
+     } else if( $form_id == 'views_exposed_form' && $form[ '#id' ] == 'views-exposed-form-skills-page-1' ) {
+          
+          $form[ 'type' ][ '#options' ][ 'All' ] = t( 'All Types' );
+
+     // Kata view
+     } else if( $form_id == 'views_exposed_form' && $form[ '#id' ] == 'views-exposed-form-kata-page-1' ) {
+          
+          $form[ 'ring' ][ '#options' ][ 'All' ] = t( 'All Rings' );
+     
+     // Kiho view
+     } else if( $form_id == 'views_exposed_form' && $form[ '#id' ] == 'views-exposed-form-kiho-page-1' ) {
+
+          $form[ 'kiho_type' ][ '#options' ][ 'All' ] = t( 'All Types' );
+          $form[ 'ring' ][ '#options' ][ 'All' ] = t( 'All Rings' );
+
+     // Spells
+     } else if( $form_id == 'views_exposed_form' && $form[ '#id' ] == 'views-exposed-form-spells-page-1' ) {
+
+          // Rename the all option for the rank option
+          $form[ 'rank' ][ '#options' ][ 'All' ] = t( 'All Ranks' );
+
+          // Add the two supplemental terms to the select list
+          $form[ 'trait' ][ '#options' ][ kanawa_mura_term_lookup( 'Multi-Element', 'supplemental_terms' ) ] = 'Multi-Element';
+          $form[ 'trait' ][ '#options' ][ kanawa_mura_term_lookup( 'Maho', 'supplemental_terms' ) ] = 'Maho';
+
+     // Advantages & Disadvantgaes
+     } else if( $form_id == 'views_exposed_form' && $form[ '#id' ] == 'views-exposed-form-advantages-disadvantages-page-1' ) {
+
+          // Put the operator after the text box
+          $op = $form[ 'point_value_wrapper' ][ 'point_value_op' ];
+
+          unset( $form[ 'point_value_wrapper' ][ 'point_value_op' ] );
+
+          $form[ 'point_value_wrapper' ][ 'point_value_op' ] = $op;
+
+          // Rename the all option for advantages types
+          $form[ 'type' ][ '#options' ][ 'All' ] = t( 'All Types' );
+
+          // Rename the all option for subtypes
+          $form[ 'subtypes' ][ '#options' ][ 'All' ] = t( 'All Subtypes' );
+
+     // Ancestors
+     } else if( $form[ '#id' ] == 'views-exposed-form-ancestors-page-1' ) {
+
+          // Set up our new options array
+          $newOptions = [
+               'All' => 'All Clans',
+          ];
+
+          // Great clans will be first
+          $greatClans = true;
+
+          // Loop through all the options
+          for( $i = 0; $i < count( $form[ 'clan' ][ '#options' ] ) - 1; $i++ ) {
+
+               // Is this the Great Clan row?
+               if( in_array( 'Great Clans', $form[ 'clan' ][ '#options' ][ $i ]->option ) ) {
+
+                    // Set what index great clans are
+                    $greatClans = $i;
+
+                    // Push this option onto the great clan array
+                    $newOptions[ 'Great Clans' ] = [
+                         array_key_first( $form[ 'clan' ][ '#options' ][ $i ]->option ) => 'All Great Clans',
+                    ];
+
+               // Have we hit another grouping?
+               } else if(  in_array( 'Minor Clans', $form[ 'clan' ][ '#options' ][ $i ]->option ) || in_array( 'Lost Clans', $form[ 'clan' ][ '#options' ][ $i ]->option ) || in_array( 'Imperial Families', $form[ 'clan' ][ '#options' ][ $i ]->option ) || in_array( 'Ronin Families', $form[ 'clan' ][ '#options' ][ $i ]->option ) ) {
+
+                    // Were we working on great clans?
+                    if( $greatClans !== false ) {
+
+                         // We can just abort the loop then
+                         break;
+                    }
+
+               // Just an option
+               } else {
+
+                    // We only care about great clans
+                    if( $greatClans !== false ) {
+
+                         // Loop through each of the options and put them on the new options array
+                         foreach( $form['clan' ][ '#options' ][ $i ]->option as $tid => $label ) {
+                              $newOptions[ 'Great Clans' ][ $tid ] = trim( $label, ' -' );
+                         }
+                    }
+               }
+
+          }                    
+//          dpm( $form[ 'clan' ][ '#options' ] );
+          $newOptions[ kanawa_mura_term_lookup( 'Minor Clans', 'clans' ) ] = 'Minor Clans';
+          $newOptions[ kanawa_mura_term_lookup( 'Imperial Families', 'clans' ) ] = 'Imperial Families';
+          $newOptions[ kanawa_mura_term_lookup( 'Ronin Families', 'clans' ) ] = 'Ronin Ancestors';
+          $newOptions[ kanawa_mura_term_lookup( 'Monk', 'supplemental_terms' ) ] = 'Brotherhood of Shinsei Ancestors';
+
+          // Replace the old select list with the new one
+          $form[ 'clan' ][ '#options' ] = $newOptions;
+
+     // Site search block
+     } else if( $form[ '#id' ] == 'views-exposed-form-site-search-block-1' ) {
+          
+          // Change the search all option to something more clear
+          $form[ 'type' ][ '#options' ][ 'All' ] = t( 'All Types' ); 
+
+     // Site search page
+     } else if( $form[ '#id' ] == 'views-exposed-form-site-search-page-1' ) {
+
+          // Change the search all option to something more clear
+          $form[ 'type' ][ '#options' ][ 'All' ] = t( 'All Types' );    
+     }
+}
+
+/*
+function kanawa_mura_
+
+/*
+namespace Drupal\kanawa_mura\Plugin\search_api\sort;
+
+use Drupal\search_api\Plugin\search_api\Sort\SortPluginBase;
+
+/**
+ * Provides a custom sort plugin.
+ *
+ * @SearchApiSort(
+ *   id = "kanawa_mura_school_sort",
+ *   label = @Translation( "School Sort" ),
+ *   description = @Translation( "Sorts results based on the school type." ),
+ *   handler = "\Drupal\kanawa_mura\Plugin\search_api\sort\KanawaMuraSchoolSortHandler",
+ *   expose_to_views = true,
+ * )
+ */
+/*
+ class kanawa_mura_school_sort extends SortPluginBase {
+
+}
+
+
+
+/*
+function kanawa_mura_views_pre_view( $view, $display_id, $args ) {
+     dpm( $view );
+     dpm( $display_id );
+     dpm( $args );
+
+     $exposed_input = $view->getExposedInput();
+
+     dpm( $exposed_input );
+}
+*/
+/*
+function kanawa_mura_views_query_alter( $view, $query) {
+
+     // Limit the views we're going to edit
+     if( $view->id() == 'schools' ) {
+          dpm( $view );
+          dpm( $query );
+          foreach ($query->where as &$condition_group) {
+               foreach ($condition_group['conditions'] as &$condition) {
+                    dpm( $condition );
+                    if( $condition[ 'field' ] == 'taxonomy_term_field_data_node__field_clan_school.name = :taxonomy_term_field_data_name' ) {
+                         $condition = [
+                              'field' => 'taxonomy_term_field_data_node__field_clan_school.name',
+                              'value' => [
+                                   'crab',
+                                   'crane',
+                              ],
+                              'operator' => 'in',
+                         ];
+                    }
+               }
+          }               
+     }
+}
+*/
+/*
+function kanawa_mura_views_query_alter( $view, $query) {
+	switch( $view->storage->id() ) {
+	  case 'schools':
+		$query->addField('entity_type', 'id', '', ['function' => 'groupby']);
+		$query->addGroupBy('entity_type.id');
+		break;
+	}
+  }
+*/
+  
+/*
+function kanawa_mura_preprocess_views_view( &$variables ) {
+	
+	$view = $variables[ 'view' ];
+	dpm( $view );
+	if( $view->id() == 'schools' ) {
+		//dpm( $variables[ 'rows' ][ 0 ][ '#rows' ] );
+		$paragraphs =  \Drupal\paragraphs\Entity\Paragraph::loadMultiple( [ 161279 ]);
+		//dpm( $paragraphs );
+	}
+}
+
+*/
+/*
+function kanawa_mura_preprocess( &$variables, $hooks ) {
+	
+	static $view = false;
+
+	if( $hooks == 'views_view_field_benefit' ) {
+		dpm( 'sdfdfdsf');
+	}
+
+	if( !$view ) {
+		dpm( $hooks );
+		dpm( $variables );
+		$view = true;	
+	}
+}
+*/
+   
+function kanawa_mura_views_pre_render( $view ) {
+
+     // Spells need some editing
+     if( $view->id() == 'spells' ) {
+
+          // Loop through each result row
+          foreach( $view->result as &$result ) {
+
+               // Check if this has two terms
+               if( count( $result->{ 'entity:node/field_trait' } ) > 1 ) {
+
+                    // Is this Maho?
+                    if( $result->{ 'entity:node/field_trait' }[ 0 ]->get( 'name' )->value == 'Maho' ) {
+
+                         // Store the name of the ring we're going to remove
+                         $result->rings =  $result->{ 'entity:node/field_trait' }[ 1 ]->get( 'name' )->value;
+
+                         // Unset the other ring on the spell so it groups under Maho
+                         unset( $result->{ 'entity:node/field_trait' }[ 1 ] );
+
+                    // Is this a multi-element spell
+                    } else if( $result->{ 'entity:node/field_trait' }[ 0 ]->get( 'name' )->value == 'Universal' || $result->{ 'entity:node/field_trait' }[ 0 ]->get( 'name' )->value == 'Advanced' ) {
+
+                         // Save the real rank of this spell for later
+                         $result->rank = $result->{ 'entity:node/field_rank' }[ 0 ];
+
+                         // Is this a universal multi-element spell?
+                         if( $result->{ 'entity:node/field_trait' }[ 0 ]->get( 'name' )->value == 'Universal' ) {
+
+                              // Since rank is used to group everything else and is numeric, use a nonsensical value we can override later
+                              $result->{ 'entity:node/field_rank' }[ 0 ] = 11;
+                              
+                         // Must be an advanced spell
+                         } else {
+
+                              // Use a different nonsensical value
+                              $result->{ 'entity:node/field_rank' }[ 0 ] = 12;
+                         } 
+
+                         // Set up an empty string to hold the rings this spell actually uses since we're going to nuke them 
+                         $result->rings = '';
+
+                         // Loop through the rings on this spell, skipping the first one
+                         for( $i = 1; $i < count( $result->{'entity:node/field_trait'} ); $i++ ) {
+
+                              // Add this ring to the ring string
+                              $result->rings .= $result->{'entity:node/field_trait'}[ $i ]->get( 'name' )->value . ', ';
+                         }
+
+                         // Clean up the trailing ,
+                         $result->rings = trim( $result->rings, ', ' );
+
+                         // Empty the result array for entity name
+                         $result->{ 'entity:node/field_trait' } = [];
+
+                         // Lookup this this term for multi-element spells
+                         $termObject = \Drupal::entityTypeManager()
+                              ->getStorage( 'taxonomy_term' )
+                              ->loadByProperties( ['name' => 'Multi-Element', 'vid' => 'supplemental_terms' ]);
+
+                         // Since we only will get one result, pop it off the array
+                         $termObject = array_shift( $termObject );
+
+                         // Set the entity to the multi-element term
+                         $result->{ 'entity:node/field_trait'}[] = $termObject;
+                    }
+               }
+          }
+
+     // Also going to do some tweaking to the ancestors
+     } else if( $view->id() == 'ancestors' ) {
+
+          // Lookup this this term by name in the supplied vid
+          $minorClanTerm = \Drupal::entityTypeManager()
+               ->getStorage( 'taxonomy_term' )
+               ->loadByProperties( ['name' => 'Minor Clans', 'vid' => 'clans' ]);
+
+          // Since we only will get one result, pop it off the array
+          $minorClanTerm = array_shift( $minorClanTerm );
+
+          // Loop over each result
+          foreach( $view->result as &$result ) {
+
+               // Is this a minor clan?
+               if( property_exists( $result, 'entity:node/field_clan:entity:parent:entity:name' ) && $result->{ 'entity:node/field_clan:entity:parent:entity:name' }[ 0 ] == 'Minor Clans' ) {
+
+                    // Save the value of the minor clan
+                    $result->minorClan = $result->{ 'entity:node/field_clan' }[ 0 ]->get( 'name' )->value;
+
+                    // Set the clan to be minor clans
+                    $result->{ 'entity:node/field_clan' } = $minorClanTerm;
+
+                    // Remove the parent clan
+                    unset( $result->{ 'entity:node/field_clan:entity:parent:entity:name' } );
+               }
+          }    
+     }
+}
+
+/*
+function kanawa_mura_preprocess_views_view_fields( &$variables ) {
+	if( $view->id() == 'schools' ) {
+		static $view = false; if( !$view ) { dpm( $variables ); dpm( $variables[ 'row' ]->_entity ); $view = true; }
+	}
+}
+
+function kanawa_mura_preprocess_paragraph( &$variables ) {
+	static $view = false; if( !$view ) { dpm( $variables ); $view = true; }
+}
+*/
+
+
+function kanawa_mura_views_post_render( $view, &$output, $cache ) {
+
+     // Sorting for the schools view
+     if( $view->id() == 'schools' ) {
+
+		// Loop through each clan grouping
+		foreach( $output[ '#rows' ] as &$group ) {
+
+               // We also need to re-order the schools for each clan
+			foreach( $group[ '#rows' ] as &$schools ) {      
+
+                    // Does this school have an advanced school?
+                    if( isset( $schools[ 'rows' ][ 'advanced_schools' ] ) ) {
+
+                         // Make a temporary place for the advanced schools
+                         $advanced = $schools[ 'rows' ][ 'advanced_schools' ];
+
+                         // Remove the advanced schools from the rows array
+                         unset( $schools[ 'rows' ][ 'advanced_schools' ] );
+
+                         // Push it onto the rows array (making it come after basic schools)
+                         $schools[ 'rows' ][ 'advanced_schools' ] = $advanced;
+                    }
+
+                    // Does this school have an alternate path?
+                    if( isset( $schools[ 'rows' ][ 'alternate_paths' ] ) ) {
+
+                         // Put our paths somewhere temporary
+                         $paths = $schools[ 'rows' ][ 'alternate_paths' ];
+
+                         // Remove the path from this school
+                         unset( $schools[ 'rows' ][ 'alternate_paths' ] );
+
+                         // Stick the paths back on the array after basic schools and advanced schools
+                         $schools[ 'rows' ][ 'alternate_paths' ] = $paths;
+                    }
+               }         
+          }
+
+     } 
+}
+
+function kanawa_mura_school_sort( $schools ) {
+	// Array to hold our properly sorted schools
+	$schoolSort = [];
+
+	if( isset( $schools[ 'schools' ] ) ) {
+		$schoolSort[ 'schools' ] = $schools[ 'schools' ];
+	}
+
+	if( isset( $schools[ 'advanced_schools' ] ) ) {
+		$schoolSort[ 'advanced_schools' ] = $schools[ 'advanced_schools' ];
+	}
+
+	if( isset( $schools[ 'alternate_paths' ] ) ) {
+		$schoolSort[ 'alternate_paths' ] = $schools[ 'alternate_paths' ];
+	}
+
+	return $schoolSort;
+}
+
+
+
+/**
+ * Implements hook_theme()
+ *
+ * Register a theme for each paragraph type
+ *
+ */
+function kanawa_mura_theme($existing, $type, $theme, $path){
+	$theme_templates  = [];
+
+	$paragraph_types  = [
+		'techniques' => [
+               'search_result',
+          ],
+		'inline_technique' => [],
+		'trait_modifier' => [],
+          'mastery_abilities' => [],
+	];
+
+	// Register custom Paragraph bundle templates
+	foreach ($paragraph_types as $paragraph_type => $view_modes ){
+
+		$theme_templates['paragraph__kanawa_mura__' . $paragraph_type] = [
+			'base hook' => 'paragraph'
+		];
+
+		foreach( $view_modes as $view_mode ) {
+			$theme_templates['paragraph__kanawa_mura__' . $paragraph_type . '__' . $view_mode ] = [
+				'base hook' => 'paragraph'
+			];	
+	}
+}
+  
+	// Register custom Paragraph bundle template fallback
+	$theme_templates['paragraph__kanawa_mura'] = [
+	  'base hook' => 'paragraph'
+	];
+  
+	// Register custom Paragraph field wrapper
+	$theme_templates['field__paragraph__kanawa_mura__field_wrapper'] = [
+	  'base hook' => 'field',
+	];
+
+	return $theme_templates;
+  }
+  
+/**
+ * Implements HOOK_theme_suggestions_HOOK_alter
+ */
+function kanawa_mura_theme_suggestions_field_alter(array &$suggestions, array $variables, $hook) {
+	$field = $variables['element']['#field_name'];
+
+	if( $field == 'field_content_modules' ) {
+		$suggestions[] = 'field__paragraph__kanawa_mura__field_wrapper';
+	}
+}
+
+
+/**
+ * Implements HOOK_theme_suggestions_HOOK_alter
+ */
+function kanawa_mura_theme_suggestions_paragraph_alter(&$suggestions, $variables){
+	$entity              = $variables['elements']['#paragraph'];
+	$sanitized_view_mode = strtr($variables['elements']['#view_mode'], '.', '_');
+	$type                = $entity->getType();
+
+	$suggestions[] = 'paragraph__kanawa_mura';
+	$suggestions[] = 'paragraph__kanawa_mura__' . $type;
+	$suggestions[] = 'paragraph__kanawa_mura__' . $type . '__' . $sanitized_view_mode;
+}
+
+
+/**
+ * Implements hook_theme_registry_alter()
+ */
+function kanawa_mura_theme_registry_alter(&$theme_registry) {
+	$module_path      = \Drupal::service( 'extension.list.module' )->getPath( 'kanawa_mura' );
+	$template_objects = drupal_find_theme_templates( $theme_registry, '.html.twig', $module_path );
+
+//	dpm( $theme_registry );
+
+	$paragraph_types  = [
+		'techniques' => [
+               'search_result',
+          ],
+		'inline_technique' => [],
+		'trait_modifier' => [],
+          'mastery_abilities' => [],
+	];
+
+	// Is there a generic paragraph template set
+	if( !isset( $template_objects[ 'paragraph__kanawa_mura' ] ) ) {
+		unset( $theme_registry[ 'paragraph__kanawa_mura' ] );
+	}
+
+	// 1. Loop through the paragraph types
+	// 2. Check if each paragraph exists in the `$template_objects` array
+	// 3. If it doesn't exist, remove it from the registry so we don't get any errors
+	// 4. If it does exist, set actual path to template
+	foreach ( $paragraph_types as $type => $view_modes ){
+		
+		$template = 'paragraph__kanawa_mura__' . $type;
+		
+		if( !isset( $template_objects[ $template ] ) ) {
+			unset( $theme_registry[ 'paragraph__kanawa_mura__' . $type ] );
+
+		} else {
+			$theme_registry[ 'paragraph__kanawa_mura__' . $type ][ 'path' ] = $template_objects[ $template ][ 'path' ];
+		}
+
+		foreach( $view_modes as $view_mode ) {
+
+			$view_mode_template = $template . '__' . $view_mode;
+
+			if( !isset( $template_objects[ $view_mode_template ] ) ) {
+				unset( $theme_registry[ 'paragraph__kanawa_mura__' . $type . '__' . $view_mode ] );
+			} else {
+				$theme_registry[ 'paragraph__kanawa_mura__' . $type . '__' . $view_mode ][ 'path' ] = $template_objects[ $view_mode_template ][ 'path' ];
+			}
+		}		
+	}
+}
+
+function kanawa_mura_term_lookup( $term, $vid ) {
+	
+	// Lookup this this term by name in the supplied vid
+	$termObject = \Drupal::entityTypeManager()
+		->getStorage( 'taxonomy_term' )
+		->loadByProperties( ['name' => $term, 'vid' => $vid ]);
+
+	// Since we only will get one result, pop it off the array
+	$termObject = array_shift( $termObject );
+
+	// Ensure we got something back
+	if( $termObject != null ) {
+
+		// Return this term TID
+		return $termObject->id();
+
+	// We did not get a term back..
+	} else {
+
+		// .. So return false
+		return false;
+	}
+}

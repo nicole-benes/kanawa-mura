@@ -1,0 +1,29 @@
+uuid: 86773827-d123-4b83-aa0b-8a5401ea85ab
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_trait_modified
+    - paragraphs.paragraphs_type.trait_modifier
+    - taxonomy.vocabulary.rings_traits
+id: paragraph.trait_modifier.field_trait_modified
+field_name: field_trait_modified
+entity_type: paragraph
+bundle: trait_modifier
+label: 'Trait Modified'
+description: 'The trait on which this modifier applies.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      rings_traits: rings_traits
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

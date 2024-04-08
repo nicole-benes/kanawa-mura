@@ -1,0 +1,2572 @@
+<?php
+
+use Drupal\Core\Url;
+use Drupal\node\Entity\Node;
+use Drupal\paragraphs\Entity\Paragraph;
+use Drupal\user\Entity\User;
+use Drupal\redirect\Entity\Redirect;
+use Drupal\taxonomy\Entity\Term;
+use Drupal\taxonomy\TermInterface;
+
+
+
+
+/**
+ * Implements hook_install().
+ */
+function last_haiku_import_install() {
+
+     // Create user #2 to run all the import commands
+     last_haiku_import_create_user();
+
+     // Create the homepage
+     last_haiku_import_homepage();
+
+     // Create the taxonomies we need for the site
+	last_haiku_import_create_taxonomies();
+
+	// Generate the sources array
+	$sources = last_haiku_import_generate_sources();
+
+	// Get the clans taxonomy ID
+	$clans = last_haiku_import_generate_clans();
+
+	// Run the skills importer
+	last_haiku_import_skills( $sources );
+
+	// Run the Basic Schools Importer
+	last_haiku_import_basic_schools( $sources );
+
+	// Run the Advanced schools importer
+     last_haiku_import_advanced_schools( $sources );
+
+	// Run the alternate paths importer
+	last_haiku_import_alternate_paths( $sources );
+
+     // Import spells
+     last_haiku_import_spells( $sources );
+
+     // Import advantages & disadvantages
+     last_haiku_import_advantages_and_disadvantages( $sources );
+
+     // Import ancestors
+     last_haiku_import_ancestors( $sources );
+
+	// Import Katas
+	last_haiku_import_kata( $sources );
+
+	// Import Kiho
+	last_haiku_import_kiho( $sources );
+
+     // Run the redirect maker
+     last_haiku_import_make_redirects();
+
+     last_haiku_import_make_menu();
+}
+
+
+function last_haiku_import_make_menu() {
+     
+     // Links to create
+     $links = [
+          'Advantages & Disadvantages' => [
+               'description' => 'Abilities, relationships, or possesions that go above and beyond other mechanical representations.',
+               'uri' => '/advantages-disadvantages',
+          ],
+          'Ancestors' => [ 
+               'description' => 'All the Ancestors which are available for purchase.',
+               'uri' => '/ancestors',
+          ],
+          'Families' => [
+               'description' => 'The families which make up Rokugon.',
+               'uri' => '/families',
+          ],
+          'Kata' => [
+               'description' => 'The various Kata which bushi can purchase.',
+               'uri' => '/kata',
+          ],
+          'Kiho' => [
+               'description' => 'The various mystical abilities known to Rokugons monastic orders.',
+               'uri' => '/kiho',
+          ],
+          'Schools' => [
+               'description' => 'All basic, advanced, and alternate paths available to Samuri in Rokugon.',
+               'uri' => '/schools',
+          ],
+          'Skills' => [
+               'description' => 'The skills which make up the world of Rokugon.',
+               'uri' => '/skills',
+          ],
+          'Spells' => [
+               'description' => 'The invocations used by Shugenja and other less honorable magic.',
+               'uri' => '/spells',
+          ],
+
+     ];
+
+     $weight = 0;
+     
+     // Get the current links from the main menu
+     $menuLinks = \Drupal::entityTypeManager()->getStorage( 'menu_link_content' )->loadByProperties( [ 'menu_name' => 'main' ] );
+
+     foreach( $links as $title => $link ) {
+
+          $found = false;
+          
+          foreach( $menuLinks as $menuLink ) {
+
+               if( $title == $menuLink->getTitle() ) {
+
+                    $found = true;
+               }
+          }
+
+          if( !$found ) {
+
+               $newLink = \Drupal\menu_link_content\Entity\MenuLinkContent::create([
+
+                    'title' => $title,
+                    'link' => ['uri' => 'internal:' . $link[ 'uri' ] ],
+                    'menu_name' => 'main',
+                    'weight' => $weight,
+               ]);
+
+               $newLink->save();
+
+               $weight++;
+          }
+     }     
+}
+
+
+function last_haiku_import_homepage() {
+
+     // Set up our node
+     $node = [
+          'type' => 'homepage',
+          'title' => 'Home',
+          'body' => [
+               'value' => file_get_contents( \Drupal::service('extension.list.module')->getPath('last_haiku_import') . '/html/homepage.html' ),
+               'format' => 'full_html',
+          ],
+     ];
+
+     // Set the node author to the importer
+     $node[ 'uid' ] = 2;
+
+     // Create our node for this school
+     $node = Node::create( $node );
+
+     // Save the node
+     $node->save(); 
+}
+
+
+
+function last_haiku_import_create_user() {
+
+     $user = User::create();
+
+     $user->setUsername('Importer'); 
+     $user->setPassword('pasMeg8GVfPgWrZs7blS1avw2YmeBM3Cbp4sword');
+     $user->setEmail('noreply@kanawa-mura.com');
+     $user->enforceIsNew();
+     $user->activate();
+     $user->block();
+     $user->save();
+}
+
+
+
+function last_haiku_import_kiho( $sources ) {
+
+	// Get the path to the Katafile
+	$kihoFilePath = \Drupal::service('extension.list.module')->getPath('last_haiku_import') . '/json/kiho.json';
+	
+	// Turn the JSON back into a PHP array
+	$kihoArray = json_decode( file_get_contents( $kihoFilePath ) );
+
+	// Loop through the clans
+	foreach( $kihoArray as $name => $kiho ) {
+		
+		// Set up our node
+		$node = [
+			'type' => 'kiho',
+			'title' => $name,
+			'field_rank' => $kiho->rank,
+			'body' => [
+                    'value' => '<p>' . $kiho->description . '</p>',
+                    'format' => 'full_html',
+			],
+			'field_trait' => [
+				[ 'target_id' => last_haiku_import_term_lookup( $kiho->ring, 'rings_traits' ) ],
+			],
+		];
+
+		// Does this spell have any keywords?
+		if( property_exists( $kiho, 'keywords' ) ) {
+
+			// Set up an array to hold the keywords
+			$node[ 'field_keywords' ] = [];
+
+			// Loop through any keywords
+			foreach( $kiho->keywords as $keyword ) {
+
+				// Try to load this keywords TID
+				$tid = last_haiku_import_term_lookup( $keyword, 'keywords' );
+
+				// This term doesn't exist yet
+				if( !$tid ) {
+
+					// Lets make it!
+					$keywordTerm = Term::create([
+						'vid' => 'keywords',
+						'name' => $keyword,
+					]);
+
+					$keywordTerm->enforceIsNew();
+					$keywordTerm->save();
+
+					// Get the ID of the new term
+					$tid = $keywordTerm->id();
+				}
+
+				// Set any keywords
+				$node[ 'field_keywords' ][] = [ 'target_id' => $tid ];
+			}
+		}
+
+		// Try to get the keyword type of this Kiho
+		$type = last_haiku_import_term_lookup( $kiho->type, 'keywords' );
+
+		// This term doesn't exist yet
+		if( !$type ) {
+
+			// Lets make it!
+			$keywordTerm = Term::create([
+				'vid' => 'keywords',
+				'name' => $kiho->type,
+			]);
+
+			$keywordTerm->enforceIsNew();
+			$keywordTerm->save();
+
+			// Get the ID of the new term
+			$type = $keywordTerm->id();
+		}
+
+		// Set any keywords
+		$node[ 'field_kiho_type' ][] = [ 'target_id' => $type ];	
+
+		// Set the node author to the importer
+		$node[ 'uid' ] = 2;
+
+		// Create our node for this school
+		$node = Node::create( $node );
+
+		// Save the node
+		$node->save();       
+	}	
+}
+
+
+function last_haiku_import_kata( $sources ) {
+
+	// Get the path to the Katafile
+	$kataFilePath = \Drupal::service('extension.list.module')->getPath('last_haiku_import') . '/json/kata.json';
+	
+	// Turn the JSON back into a PHP array
+	$kataArray = json_decode( file_get_contents( $kataFilePath ) );
+
+	// Loop through the clans
+	foreach( $kataArray as $name => $kata ) {
+		
+		// Set up our node
+		$node = [
+			'type' => 'kata',
+			'title' => $name,
+			'field_rank' => $kata->rank,
+			'body' => [
+					'value' => $kata->effect,
+					'format' => 'full_html',
+			],
+			'field_required_schools' => [
+					'value' => $kata->schools,
+					'format' => 'full_html',
+			],
+		];
+
+		foreach( $kata->rings as $ring ) {
+			$node [ 'field_trait' ][] = [ 'target_id' => last_haiku_import_term_lookup( $ring, 'rings_traits' ) ];
+		}
+
+		// Set the node author to the importer
+		$node[ 'uid' ] = 2;
+
+		// Create our node for this school
+		$node = Node::create( $node );
+
+		// Save the node
+		$node->save();       
+	}	
+}
+
+
+function last_haiku_import_ancestors( $sources ) {
+
+	// Get the path to the A/D file
+	$ancestorFilePath = \Drupal::service('extension.list.module')->getPath('last_haiku_import') . '/json/ancestors.json';
+	
+	// Turn the JSON back into a PHP array
+	$ancestorArray = json_decode( file_get_contents( $ancestorFilePath ) );
+
+	// Loop through the clans
+	foreach( $ancestorArray as $clan => $clanAncestors ) {
+
+          // Loop through the ancestors
+          foreach( $clanAncestors as $ancestor ) {
+
+               // Set up empty description
+               $description = '';
+
+               // Loop through the description
+               foreach( $ancestor->description as $line ) {
+
+				// See if this line has an emphasis (//) in it
+                    while( strpos( $line, '//' ) !== false ) {
+
+                         $line = preg_replace('/\/\//', '<em>', $line, 1);
+                         $line = preg_replace('/\/\//', '</em>', $line, 1);
+                    }
+
+                    // Wrap it in <p> tags
+                    $description .= '<p>' . $line . '</p>';
+               }
+
+               // Try to load the clan term this ancestor belongs too
+               $clanTerm = last_haiku_import_term_lookup( $clan, 'clans' );
+
+               // Assume the title is fine to output
+               $title = $ancestor->name;
+
+               // Minor Clan titles need some work
+               if( $clan == 'Minor Clans' ) {
+
+                    // Find the start of the clan
+                    $clanStart = strpos( $title, ' (' );
+
+                    // Pull out the name of the minor clan
+                    $minorClan = strtolower( 
+                         trim( 
+                              substr( $title, 
+                                   strpos( $title, '(' )
+                               + 1 ),
+                          ')' ) 
+                    );
+
+                    // Pull out the title
+                    $title = substr( $title, 0, $clanStart );
+
+                    // Assign this to the right clan
+                    $clanTerm = last_haiku_import_term_lookup( $minorClan, 'clans' );
+               }
+
+               // Did we get a valid clan?
+               if( !$clanTerm ) {
+
+                    // Is this the ancestors for the monks?
+                    if( $clan == 'Brotherhood of Shinsei' ) {
+
+                         // Figure out the ID for the monk supplemental term
+                         $clanTerm = last_haiku_import_term_lookup( 'Monk', 'supplemental_terms' );
+
+                    // Oops, an error
+                    } else {
+
+                         // Output some debugging stuff and exit
+                         echo "Invalid $clan on $ancestor->name.\n";
+                         exit();
+                    }
+               }
+
+               // Set up our node
+               $node = [
+                    'type' => 'ancestors',
+                    'title' => $title,
+                    'field_point_value_numeric' => $ancestor->cost,
+                    'body' => [
+                         'value' => $description,
+                         'format' => 'full_html',
+                    ],
+                    'field_ancestor_demands' => [
+                         'value' => $ancestor->demands,
+                         'format' => 'full_html',
+                    ],
+                    'field_clan' => [
+                         [ 'target_id' => $clanTerm ],
+                    ],
+               ];
+               
+               // Check if we do have a source
+               if( property_exists( $ancestor, 'source' ) ) {
+
+                    // Create our source paragraph
+                    $source = Paragraph::create([
+                         'type' => 'source',
+                         'field_source_book' => [
+                              [ 'target_id' => $sources[ $ancestor->source ] ]
+                         ],
+                    ]); 
+
+                    // Save the source paragraph
+                    $source->save();
+
+                    // add the source to our node
+                    $node[ 'field_source' ] = [
+                         [
+                              'target_id' => $source->id(),
+                              'target_revision_id' => $source->getRevisionId(),			
+                         ],
+                    ];
+               }
+                
+               // Set the node author to the importer
+               $node[ 'uid' ] = 2;
+
+               // Create our node for this school
+               $node = Node::create( $node );
+
+               // Save the node
+               $node->save();                      
+          }
+     }
+}
+
+
+function last_haiku_import_advantages_and_disadvantages( $sources ) {
+
+	// Get the path to the A/D file
+	$adFilePath = \Drupal::service('extension.list.module')->getPath('last_haiku_import') . '/json/advantages-disadvantages.json';
+	
+	// Turn the JSON back into a PHP array
+	$adArray = json_decode( file_get_contents( $adFilePath ) );
+
+	// Loop through the advantages and disadvantages, which I'm just going to call advantages
+	foreach( $adArray as $advantage ) {
+
+          // Set up our node
+          $node = [
+               'type' => 'advantages_disadvantages',
+               'title' => $advantage->name,
+               'field_advantage_type' => $advantage->type,
+          ];
+
+          // Is there a point value?
+          if( property_exists( $advantage, 'cost' ) ) {
+
+               // Add to the node
+               $node[ 'field_point_value' ] = $advantage->cost;
+          }
+
+          // Ensure there's a numeric property
+          if( property_exists( $advantage, 'numeric' ) ) {
+
+               // Put the costs on the node
+               $node[ 'field_point_value_numeric' ] = $advantage->numeric;
+          }
+
+          // Is there a subtype?
+          if( property_exists( $advantage, 'subtype' ) ) {
+
+               // Prep an array to hold the subtypes
+               $node[ 'field_advantage_subtype' ] = [];
+
+               // Loop through each subtype
+               foreach( $advantage->subtype as $subtype ) {
+
+                    // Associate this node with that subtype
+                    $node[ 'field_advantage_subtype' ][] = [
+
+                         // Get the TID of this subtype
+                         'target_id' => last_haiku_import_term_lookup( $subtype, 'advantage_disadvantage_subtypes' ),
+                    ];
+               }
+          }
+
+
+          // Check if we do have a source
+          if( property_exists( $advantage, 'source' ) ) {
+
+               // Create our source paragraph
+               $source = Paragraph::create([
+                    'type' => 'source',
+                    'field_source_book' => [
+                         [ 'target_id' => $sources[ $advantage->source ] ]
+                    ],
+               ]); 
+
+               // Save the source paragraph
+               $source->save();
+
+               // add the source to our node
+               $node[ 'field_source' ] = [
+                    [
+                         'target_id' => $source->id(),
+                         'target_revision_id' => $source->getRevisionId(),			
+                    ],
+               ];
+          }
+
+          // Start our description as an empty string
+          $description = '';
+
+          // Work on the description
+          foreach( $advantage->description as $line ) {
+
+               // Is this part of the description just text?
+               if( !is_object( $line ) ) {
+
+                    // See if there's some HTML in this line
+                    if( strpos( $line, '<li' ) !== false ) {
+
+                         // Just push it into the html
+                         $description .= trim( $line );
+
+                    // Just a bunch of text
+                    } else {
+
+                         // Wrap it in <p> tags
+                         $description .= '<p>' . trim( $line ) . '</p>';
+                    }
+
+               // This is either a list or a table
+               } else {
+
+                    // Is this a table?
+                    if( $line->type == 'table' ) {
+                         
+                         // Open our tabke tag
+                         $description .= '<table>';
+
+                         // Does this table have a header?
+                         if( property_exists( $line->table, 'header' ) ) {
+
+                              // Output the header
+                              $description .= '<thead><tr>';
+
+                              // Assume the headers match the body
+                              $colspan = false;
+
+                              // See if the header has the same number of values as the table itself
+                              if( count( $line->table->header ) != count( $line->table->rows[ 0 ] ) ) {
+
+                                   // Make the first header span however wide to make missing columns
+                                   $colspan = count( $line->table->rows[ 0 ] ) - count( $line->table->header ) + 1;
+                              }
+
+                              // Loop through all the headers
+                              foreach( $line->table->header as $header ) {
+
+                                   // Do we need a colspan?
+                                   if( $colspan !== false ) {
+
+                                        // Output our header cell
+                                        $description .= '<th colspan="' . $colspan . '">' . $header . '</th>';
+
+                                   } else {
+
+                                        // Just a normal header
+                                        // Output our header cell
+                                        $description .= '<th>' . $header . '</th>';
+
+                                   }
+                              }
+
+                              // Close the header
+                              $description .= '</tr></thead>';
+
+                              // Start the body
+                              $description .= '<tbody>';
+
+                              // Figure out the bodyr
+                              foreach( $line->table->rows as $row ) {
+
+                                   // Start a new row
+                                   $description .= '<tr>';
+
+                                   // Loop through each cell
+                                   foreach( $row as $cell ) {
+
+                                        // Output our cell
+                                        $description .= '<td>' . $cell . '</td>';
+                                   }
+
+                                   // Close this row
+                                   $description .= '</tr>';
+                              }
+
+                              // Close the body and the table
+                              $description .= '</tbody></table>';
+                         }
+                    
+                    // Is this a list?
+                    } else if( $line->type == 'list' ) {
+
+                         // Start a list
+                         $description .= '<ul class="grouped-list">';
+
+                         // Loop through each item in the list
+                         foreach( $line->list as $item ) {
+
+                              // Start outputting a list
+                              $description .= '<li>';
+
+                              // Is there a label?
+                              if( strlen( $item->label ) > 0 ) {
+
+                                   // Output the label
+                                   $description .= '<span class="label">' . $item->label . '</span>';
+                              }
+                              
+                              // Finish off the list item
+                              $description .= '<span class="inline-field-value">' . $item->text . '</span></li>';
+                         }
+
+                         // Close the list
+                         $description .= '</ul>';
+
+                    // Oops!
+                    } else {
+
+                         // Error!
+                         echo "Error - should be a table or list!\n";
+
+                         // Print the broken advantage
+                         print_r( $advantage );
+
+                         // Stop execution
+                         exit();
+                    }
+               }
+          }
+
+          // Set the body of the node
+          $node[ 'body' ] = [
+               'value' => $description,
+               'format' => 'full_html',			
+          ];
+
+          // Set the node author to the importer
+          $node[ 'uid' ] = 2;
+
+          // Create our node for this school
+          $node = Node::create( $node );
+
+          // Save the node
+          $node->save();      
+     }
+}
+
+
+function last_haiku_import_spells( $sources ) {
+
+	// Get the path to the spells file
+	$spellsFilePath = \Drupal::service('extension.list.module')->getPath('last_haiku_import') . '/json/spells.json';
+	
+	// Turn the JSON back into a PHP array
+	$spellsArray = json_decode( file_get_contents( $spellsFilePath ) );
+
+	// Loop through the spell rings (and maho)
+	foreach( $spellsArray as $ring => $ranks ) {
+
+          // Loop through the ranks under this ring/maho
+          foreach( $ranks as $rank => $spells ) {
+
+               // Loop through each spell for this rank
+               foreach( $spells as $spell ) {
+
+                    // Set up the initial values of things that require no additional work
+                    $node = [
+                         'type' => 'spells',
+                         'title' => $spell->name,
+                         'field_duration' => $spell->duration,
+                         'field_range' => $spell->range,
+                         'field_rank' => $rank,
+                         'field_area_of_effect' => $spell->aoe,
+                    ];
+
+                    // Check if we do have a source
+                    if( property_exists( $spell, 'source' ) ) {
+                         // Create our source paragraph
+                         $source = Paragraph::create([
+                              'type' => 'source',
+                              'field_source_book' => [
+                                   [ 'target_id' => $sources[ $spell->source ] ]
+                              ],
+                         ]); 
+          
+                         // Save the source paragraph
+                         $source->save();
+
+                         // add the source to our node
+                         $node[ 'field_source' ] = [
+                              [
+                                   'target_id' => $source->id(),
+                                   'target_revision_id' => $source->getRevisionId(),			
+                              ],
+                         ];
+                    }
+
+                    // Line to hold the description
+                    $description = '';
+
+                    // One spell has a list! How fun!
+                    $isList = false;
+
+                    // Loop through the description
+                    foreach( $spell->description as $line ) {
+
+                         if( substr( $line, 0, 2 ) == 'x ' ) {
+                              
+                              if( !$isList ) {
+                                   $isList = true;
+                                   $description .= '<ul>';
+                              }
+
+                              $description .= '<li>' . trim( substr( $line, 1 ) ) . '</li>';
+
+                         // Just a normal description
+                         } else {
+
+                              if( $isList ) {
+                                   $isList = false;
+                                   $description .= '</ul>';
+                              }
+
+                              $description .= '<p>' . $line . '</p>';
+                         }
+                    }
+
+                    // Was the description a list?
+                    if( $isList ) {
+                         $description .= '</ul>';
+                    }
+
+                    // Set the body of the node
+                    $node[ 'body' ] = [
+                         'value' => $description,
+                         'format' => 'full_html',			
+                    ];
+                           
+                    // Does this spell have any keywords?
+                    if( property_exists( $spell, 'keywords' ) ) {
+
+                         // Set up an array to hold the keywords
+                         $node[ 'field_keywords' ] = [];
+                         
+                         // Loop through any keywords
+                         foreach( $spell->keywords as $keyword ) {
+
+                              // Try to load this keywords TID
+                              $tid = last_haiku_import_term_lookup( $keyword, 'keywords' );
+
+                              // This term doesn't exist yet
+                              if( !$tid ) {
+
+                                   // Lets make it!
+                                   $keywordTerm = Term::create([
+                                        'vid' => 'keywords',
+                                        'name' => $keyword,
+                                   ]);
+                                   
+                                   $keywordTerm->enforceIsNew();
+                                   $keywordTerm->save();
+                                   
+                                   // Get the ID of the new term
+                                   $tid = $keywordTerm->id();
+                              }
+
+                              // Set any keywords
+                              $node[ 'field_keywords' ][] = [ 'target_id' => $tid ];
+                         }
+                    }
+
+                    // Is this spell special?
+                    if( property_exists( $spell, 'Special' ) ) {
+                         $node[ 'field_spell_special' ] = $spell->special;
+                    }
+
+                    // Try to load the TID of the ring
+                    $ringTerm = last_haiku_import_term_lookup( $ring, 'rings_traits' );
+
+                    // We must be doing maho (don't tell anyone) or it's a universal spell
+                    if( !$ringTerm ) {
+
+                         // This this a multi element spell?
+                         if( $ring == 'Mutltielement-Universal' || $ring == 'Multielement-Advanced' ) {
+
+                              // Get the parent term for the multi-element spells
+                              $parentTerm = last_haiku_import_term_lookup( 'Multi-Element', 'supplemental_terms' );
+
+                              // Is this one of the universal ones?
+                              if( $ring == 'Mutltielement-Universal' ) {
+
+                                   // Set ring to be the universal term under the multi-element term
+                                   $ringTerm = last_haiku_import_term_with_parent_lookup( 'Universal', 'supplemental_terms', $parentTerm );
+                              
+                              // Should be an advanced term then
+                              } else {
+
+                                   // Set ring to be the advanced term under the multi-element term
+                                   $ringTerm = last_haiku_import_term_with_parent_lookup( 'Advanced', 'supplemental_terms', $parentTerm );
+                              }
+
+                              // Put the multi-element term onto this spell node
+                              $node[ 'field_trait' ][] = [ 'target_id' => $ringTerm ];
+
+                              // Loop through each of the rings this spell actually uses
+                              foreach( $spell->rings as $multiRing ) {
+
+                                   // Look up the ring and push it onto the list of terms on this spell
+                                   $node[ 'field_trait' ][] = [ 'target_id' => last_haiku_import_term_lookup( $multiRing, 'rings_traits' ) ];
+                              }
+
+                         // Universal or Maho then
+                         } else {
+
+                              $node[ 'field_trait' ][] = [ 'target_id' => last_haiku_import_term_lookup( $ring, 'supplemental_terms' ) ];
+
+                              // Maho needs the ring the spell uses added as well
+                              if( $ring == 'Maho' ) {
+
+                                   // Look up the ring's tid
+                                   $node[ 'field_trait' ][] = [ 'target_id' => last_haiku_import_term_lookup( $spell->ring, 'rings_traits' ) ];
+                              }
+                         }
+
+                    // Just a normal spell
+                    } else {
+                         $node[ 'field_trait' ][] = [ 'target_id' => $ringTerm ];
+                    }
+
+                    // Raises!
+                    if( property_exists( $spell, 'raises' ) ) {
+                         
+                         // Set up the raises array
+                         $node[ 'field_raises' ] = [];
+
+                         // Loop through each raise
+                         foreach( $spell->raises as $raise ) {
+
+                              // Push the raises onto the array
+                              $node[ 'field_raises' ][] = $raise;
+                         }
+                    }
+
+                    // Set the node author to the importer
+                    $node[ 'uid' ] = 2;
+
+                    // Create our node for this school
+                    $node = Node::create( $node );
+
+                    // Save the node
+                    $node->save();                    
+               }
+          }
+     }     
+}
+
+
+function last_haiku_import_alternate_paths( $sources ) {
+	
+	// Get the path to the advanced schools file
+	$alternatePathsFilePath = \Drupal::service('extension.list.module')->getPath('last_haiku_import') . '/json/alternate-paths.json';
+	
+	// Turn the JSON back into a PHP array
+	$pathsArray = json_decode( file_get_contents( $alternatePathsFilePath ) );
+
+	// Loop through the clans
+	foreach( $pathsArray as $clan => $paths ) {
+
+		// Loop through the schools under this clan
+		foreach( $paths as $path ) {
+
+			// Hold our node as we make it
+			$node = [
+				'type'        => 'alternate_paths',
+				'title'       => $path->name,
+	
+			];
+
+			// Schools may be multi type
+			foreach( $path->type as $type ) {
+
+				// Push this type onto the type array
+				$node[ 'field_school_type' ][][ 'target_id' ] = last_haiku_import_term_lookup( $type, 'school_type' );
+			}
+
+			// Check if we do have a source
+			if( strlen( $path->source ) > 0 ) {
+
+				// Create our source paragraph
+				$source = Paragraph::create([
+					'type' => 'source',
+					'field_source_book' => [
+						[ 'target_id' => $sources[ $path->source ] ]
+					],
+				]); 
+	
+				// Save the source paragraph
+				$source->save();
+
+				// add the source to our node
+				$node[ 'field_source' ] = [
+					[
+						'target_id' => $source->id(),
+						'target_revision_id' => $source->getRevisionId(),			
+					],
+				];
+			}
+
+			// Link this school to the appropriate term
+			$node[ 'field_clan_school' ] = last_haiku_import_school_clan( $clan, $path->type[ 0 ] );
+
+			// Set up a field to hold the description
+			$body = '';
+
+			// Loop through each line of the description
+			foreach( $path->description as $line ) {
+
+				// See if this line has an emphasis (//) in it
+				while( strpos( $line, '//' ) !== false ) {
+
+					$line = preg_replace('/\/\//', '<em>', $line, 1);
+					$line = preg_replace('/\/\//', '</em>', $line, 1);
+				}				
+	
+				// Wrap this line in <p> tags and smash it onto the body string
+				$body .= '<p>' . $line . '</p>';
+			}
+
+			// Set the body of the node
+			$node[ 'body' ] = [
+				'value' => $body,
+				'format' => 'full_html',			
+			];
+
+			// Place to put the HTML for the technique description
+			$description = '';
+
+			// Loop through each of the parts of technique description since some have more than one line
+			foreach( $path->technique->description as $line ) {
+
+				$description .= $line . '<br>';
+			}
+
+			// Create our technique which is formatted the same as shugenja paragraph
+			$t = Paragraph::create([
+				'type' => 'inline_technique',
+				'field_description' => [
+					'value' => $description,
+					'format' => 'full_html',
+				],
+				'field_title' => $path->technique->name,
+			]); 
+
+			// String to hold this path's technique rank
+			$techniqueRank = '';
+
+			// Is this one with some special text?
+			if( strlen( $path->rank->special ) > 0 ) {
+
+				$techniqueRank = $path->rank->special;
+
+			// Do we have at least one basic rank set
+			} else if( count( $path->rank->basic ) > 0 ) {
+
+				// We need to figure out what the rank of this technique is
+				$ranks = [];
+
+				foreach( $path->rank->basic as $rank ) {
+					if( !in_array( $rank, $ranks ) ) {
+						$ranks[] = $rank;
+					}
+				}
+
+				sort( $ranks );
+				
+				if( count( $ranks ) == 1 ) {
+					$techniqueRank = $ranks [ 0 ];
+	
+				} else if( count( $ranks ) == 2 ) {
+					$techniqueRank = $ranks[ 0 ] . ' or ' . $ranks[ 1 ];
+	
+				} else if( count( $ranks ) == 3 ) {
+				
+					$techniqueRank = $ranks[ 0 ] . ', ' . $ranks[ 1 ] . ', or ' . $ranks[ 2 ];
+	
+				} else {
+					echo "No basic rank for $path->name of $clan\n";
+					exit();
+				}
+			} else {
+				echo "No rank for $path->name of $clan\n";
+				exit();
+			}
+
+			$node[ 'field_path_technique_rank' ] = $techniqueRank;
+
+			// Save that technqiue paragraph
+			$t->save(); 
+
+			// add the technqiue to our node
+			$node[ 'field_school_techniques' ][] = $t;			
+
+			// Not every node has a replaces
+			if( property_exists( $path, 'replaces' ) ) {
+
+				// Put in the replaces
+				$node[ 'field_path_replaces' ] = [
+					'value' => $path->replaces,
+					'format' => 'full_html',
+				];
+
+			}
+
+			// Not every path has requirements
+			if( property_exists( $path, 'requirements' ) ) {
+
+				$node[ 'field_required_other' ] = [
+					'value' => last_haiku_import_parse_requirements( $path->requirements ),
+					'format' => 'full_html',
+				];
+
+//				echo $node[ 'field_required_other' ][ 'value' ] . "\n";
+			}
+
+               // Monks have devotions sometimes
+               if( property_exists( $path, 'devotion' ) ) {
+				$node[ 'field_devotion' ] = [
+					'value' => $path->devotion,
+					'format' => 'full_html',
+				];                    
+               }
+
+			// Does this path have any special notes?
+			if( property_exists( $path, 'special' ) ) {
+				$node[ 'field_alternate_path_special' ] = [
+					'value' => $path->special,
+					'format' => 'full_html',
+				];
+			}
+
+			// Set the node author to the importer
+			$node[ 'uid' ] = 2;
+
+			// Create our node for this school
+			$node = Node::create( $node );
+
+			// Save the node
+			$node->save();
+			
+		}
+	}
+}
+
+
+function last_haiku_import_advanced_schools( $sources ) {
+
+	// Get the path to the advanced schools file
+	$advancedSchoolsFilePath = \Drupal::service('extension.list.module')->getPath('last_haiku_import') . '/json/advanced-schools.json';
+	
+	// Turn the JSON back into a PHP array
+	$schoolsArray = json_decode( file_get_contents( $advancedSchoolsFilePath ) );
+
+	// Loop through the clans
+	foreach( $schoolsArray as $clan => $schools ) {
+
+		// Loop through the schools under this clan
+		foreach( $schools as $school ) {
+
+			// Hold our node as we make it
+			$node = [
+				'type'        => 'advanced_schools',
+				'title'       => $school->name,
+	
+			];
+
+			// Schools may be multi type
+			foreach( $school->type as $type ) {
+
+				// Push this type onto the type array
+				$node[ 'field_school_type' ][][ 'target_id' ] = last_haiku_import_term_lookup( $type, 'school_type' );
+			}
+
+			// Check if we do have a source
+			if( strlen( $school->source ) > 0 ) {
+
+				// Create our source paragraph
+				$source = Paragraph::create([
+					'type' => 'source',
+					'field_source_book' => [
+						[ 'target_id' => $sources[ $school->source ] ]
+					],
+				]); 
+	
+				// Save the source paragraph
+				$source->save();
+
+				// add the source to our node
+				$node[ 'field_source' ] = [
+					[
+						'target_id' => $source->id(),
+						'target_revision_id' => $source->getRevisionId(),			
+					],
+				];
+			}
+
+			// Link this school to the appropriate term
+			$node[ 'field_clan_school' ] = last_haiku_import_school_clan( $clan, $school->type[ 0 ] );
+
+			// Set up a field to hold the description
+			$body = '';
+
+			// Loop through each line of the description
+			foreach( $school->description as $line ) {
+
+				// See if this line has an emphasis (//) in it
+				while( strpos( $line, '//' ) !== false ) {
+
+					$line = preg_replace('/\/\//', '<em>', $line, 1);
+					$line = preg_replace('/\/\//', '</em>', $line, 1);
+				}				
+	
+				// Wrap this line in <p> tags and smash it onto the body string
+				$body .= '<p>' . $line . '</p>';
+			}
+
+			// Set the body of the node
+			$node[ 'body' ] = [
+				'value' => $body,
+				'format' => 'full_html',			
+			];
+
+			// Any stat requirements?
+			if( property_exists( $school->requirements, 'stats' ) ) {
+
+				$node[ 'field_benefit' ] = last_haiku_import_parse_stats( $school->requirements->stats );			
+
+			}
+
+			// Any skills requirements?
+			if( property_exists( $school->requirements, 'skills' ) ) {
+
+				$skills = last_haiku_import_parse_skills( $school->requirements->skills );
+
+				// Set up a string to hold the html for the schools
+				$node[ 'field_school_skills' ] = [
+					'value' => $skills,
+					'format' => 'full_html',			
+				]; 
+			}
+			
+			// Anhy "other" requirements?
+			if( property_exists( $school->requirements, 'other' ) ) {
+				
+				// Set the other field
+				$node[ 'field_required_other' ] = [
+					'value' => trim( $school->requirements->other ),
+					'format' => 'full_html',			
+				];				
+			}
+
+			// Anhy advantage requirements?
+			if( property_exists( $school->requirements, 'advantages' ) ) {
+
+				// We're going to link to the advantage
+				$advantage = '<a href=/advantages#' . $school->requirements->advantages . '">' . $school->requirements->advantages . '</a>';
+
+				// Set the advantage field
+				$node[ 'field_required_advantage' ] = [
+					'value' => $advantage,
+					'format' => 'full_html',			
+				];				
+			}
+
+			// Add the techniques for this school
+			foreach( $school->techniques as $technique ) {
+
+				// Place to put the HTML for the description
+				$description = '';
+
+				// Loop through each of the parts of technique description since some have more than one line
+				foreach( $technique->description as $line ) {
+
+					$description .= '<p>' . $line . '</p>';
+				}
+
+				// Create our technique paragraph
+				$t = Paragraph::create([
+					'type' => 'techniques',
+					'field_description' => [
+						'value' => $description,
+						'format' => 'full_html',
+					],
+					'field_rank' => $technique->rank,
+					'field_title' => $technique->name,
+				]); 
+
+				// Save that technqiue paragraph
+				$t->save(); 
+
+				// add the technqiue to our node
+				$node[ 'field_school_techniques' ][] = $t;			
+			}
+
+			// Set the node author to the importer
+			$node[ 'uid' ] = 2;
+
+			// Create our node for this school
+			$node = Node::create( $node );
+
+			// Save the node
+			$node->save();
+		}
+	}	
+}
+
+function last_haiku_import_basic_schools( $sources )  {
+	
+	// Get the path to the basic schools file
+	$basicSchoolsFilePath = \Drupal::service('extension.list.module')->getPath('last_haiku_import') . '/json/basic-schools.json';
+
+	// Turn the JSON back into a PHP array
+	$schoolsArray = json_decode( file_get_contents( $basicSchoolsFilePath ) );
+
+	// Loop through the clans
+	foreach( $schoolsArray as $clan => $schools ) {
+
+		// Loop through the schools under this clan
+		foreach( $schools as $school ) {
+
+			// Hold our node as we make it
+			$node = [
+				'type'        => 'schools',
+				'title'       => $school->name,
+	
+			];
+
+			// Couple of flags so we know if this school is a shugenja or monk
+			$isMonk = false;
+			$isShugenja = false;
+
+			// Schools may be multi type
+			foreach( $school->type as $type ) {
+
+				// Push this type onto the type array
+				$node[ 'field_school_type' ][][ 'target_id' ] = last_haiku_import_term_lookup( $type, 'school_type' );
+
+                    // Check if this a shugenja school
+				if( $type == 'Shugenja' ) {
+					
+					// Set our flag
+					$isShugenja = true;
+
+					// See if this is one of the special shugenja
+					if( property_exists( $school, 'affinitySpecial' ) ) {
+						
+						// Grab the special affinity section making it a string and not an array
+						$node[ 'field_affinity_special' ] = [
+							'value' => $school->affinitySpecial,
+							'format' => 'full_html',			
+						];
+
+					// Just your regular run of the mill shugenja
+					} else {
+
+						// Set our affinity and deficiency
+						$node[ 'field_affinity' ][][ 'target_id' ] = last_haiku_import_term_lookup( $school->affinity, 'rings_traits' );
+						$node[ 'field_deficiency' ][][ 'target_id' ] = last_haiku_import_term_lookup( $school->deficiency, 'rings_traits' );
+					}
+
+					// Shugenja also get spells, parse it into a nice html string
+					$node[ 'field_spells' ] = [
+						'value' => last_haiku_import_parse_school_spells( $school->spells ),
+						'format' => 'full_html',			
+					];
+
+				// Check if this a monk school
+				} else if ( $type == 'Monk' ) {
+
+					// Set our flag
+					$isMonk = true;
+
+					// See if this monk school has a devotion
+					if( property_exists( $school, 'devotion' ) ) {
+
+						// Add the field
+						$node[ 'field_devotion' ] = [
+							'value' => $school->devotion,
+							'format' => 'full_html',			
+						];
+					}
+				}
+			}
+
+			// Set up an array to hold the trait term link
+			$schoolTrait = [];
+			$schoolTraitAmount = -1;
+
+			// Not every school has a benefit
+			if( property_exists( $school, 'benefitTrait' ) ) {
+
+				// Create our trait modifer paragraph
+				$benefit = Paragraph::create([
+					'type' => 'trait_modifier',
+					'field_trait_modified' => [
+						'target_id' => last_haiku_import_term_lookup( $school->benefitTrait, 'rings_traits' )
+					],
+					'field_trait_modifier' => $school->benefitAmount,
+				]); 	
+			
+				// Save this paragraph
+				$benefit->save();
+
+				$node[ 'field_benefit' ] = [
+					'target_id' => $benefit->id(),
+					'target_revision_id' => $benefit->getRevisionId(),		
+				];
+			}
+
+			// Set up a string to hold the html for the schools
+			$schoolSkills = last_haiku_import_parse_skills( $school->skills ); 
+
+			// Add the skills to our node
+			$node[ 'field_school_skills' ] = [
+				'value' => $schoolSkills,
+				'format' => 'full_html',			
+			];
+
+			// Check if we do have a source
+			if( strlen( $school->source ) > 0 ) {
+
+				// Create our source paragraph
+				$source = Paragraph::create([
+					'type' => 'source',
+					'field_source_book' => [
+						[ 'target_id' => $sources[ $school->source ] ]
+					],
+				]); 
+	
+				// Save the source paragraph
+				$source->save();
+
+				// add the source to our node
+				$node[ 'field_source' ] = [
+					[
+						'target_id' => $source->id(),
+						'target_revision_id' => $source->getRevisionId(),			
+					],
+				];
+			}
+
+			// Link this school to the appropriate term
+			$node[ 'field_clan_school' ] = last_haiku_import_school_clan( $clan, $school->type[ 0 ] );
+
+               // Set up a field to hold the description
+			$body = '';
+
+			// Loop through each line of the description
+			foreach( $school->description as $line ) {
+
+				// See if this line has an emphasis (//) in it
+				while( strpos( $line, '//' ) !== false ) {
+
+					$line = preg_replace('/\/\//', '<em>', $line, 1);
+					$line = preg_replace('/\/\//', '</em>', $line, 1);
+				}				
+
+				// Wrap this line in <p> tags and smash it onto the body string
+				$body .= '<p>' . $line . '</p>';
+			}
+
+			// Set the body of the node
+			$node[ 'body' ] = [
+				'value' => $body,
+				'format' => 'full_html',			
+			];
+
+			// Not every school has a starting honor
+			if( property_exists( $school, 'honor' ) ) {
+
+				// This scholl does, so set it
+				$node[ 'field_school_honor' ] = $school->honor;
+			}
+
+			// Does this school have a starting outfit
+			if( property_exists( $school, 'outfit' ) ) {
+				
+				// Set the outfit
+				$node[ 'field_school_outfit' ] = [
+					'value' => $school->outfit,
+					'format' => 'full_html',
+				];	
+			}
+
+			// Different paragraphs for different classes technqiues
+			if( $isShugenja || $isMonk ) {
+
+				// Shugenja only have the one technique
+				$technique = $school->techniques[ 0 ];
+
+				// Place to put the HTML for the description
+				$description = '';
+
+				// Loop through each of the parts of technique description since some have more than one line
+				foreach( $technique->description as $line ) {
+					$description .= $line . '<br>';
+				}
+
+				// Create our technique paragraph
+				$t = Paragraph::create([
+					'type' => 'inline_technique',
+					'field_description' => [
+						'value' => $description,
+						'format' => 'full_html',
+					],
+					'field_title' => $technique->name,
+				]); 
+
+				// Save that technqiue paragraph
+				$t->save(); 
+
+				// add the technqiue to our node
+				$node[ 'field_school_techniques' ][] = $t;	
+                    
+			// Standard - bushi, courtier, etc
+			} else {	
+
+				// Add the techniques for this school
+				foreach( $school->techniques as $technique ) {
+
+					// Place to put the HTML for the description
+					$description = '';
+
+					// Loop through each of the parts of technique description since some have more than one line
+					foreach( $technique->description as $line ) {
+						$description .= '<p>' . $line . '</p>';
+					}
+
+					// Create our technique paragraph
+					$t = Paragraph::create([
+						'type' => 'techniques',
+						'field_description' => [
+							'value' => $description,
+							'format' => 'full_html',
+						],
+						'field_rank' => $technique->rank,
+						'field_title' => $technique->name,
+					]); 
+
+					// Save that technqiue paragraph
+					$t->save(); 
+
+					// add the technqiue to our node
+					$node[ 'field_school_techniques' ][] = $t;			
+				}
+			}
+
+               // Set the node author to the importer
+			$node[ 'uid' ] = 2;
+
+			// Create our node for this school
+			$node = Node::create( $node );
+
+			// Save the node
+			$node->save();
+		}
+	}
+}
+
+function last_haiku_import_skills( $sources ) {
+
+	// Get the path to the clans file
+	$skillsFilePath = \Drupal::service('extension.list.module')->getPath('last_haiku_import') . '/json/skills.json';
+
+	// Turn the JSON back into a PHP array
+	$skillsArray = json_decode( file_get_contents( $skillsFilePath ) );
+
+	// Loop through all of the skills
+	foreach( $skillsArray as $skill ) {
+		// Get the category/type of skill
+		$type[ 0 ][ 'target_id' ] = last_haiku_import_term_lookup( $skill->type, 'skill_type' );
+
+		// Set up an array to hold our traits
+		$traits = [];
+
+		// Loop through the traits of this skill
+		foreach( $skill->traits as $trait ) {
+
+			// Get the TID and add it to the term array
+			$traits[][ 'target_id' ] = last_haiku_import_term_lookup( $trait, 'rings_traits' );
+		}
+
+		// Placeholder for the HTML of the skill description
+		$body = '';
+
+		// One skill has no description
+		if( property_exists( $skill, 'description' ) ) {
+
+			// Loop through each block of the description
+			foreach( $skill->description as $block ) {
+
+				// See if this line has an emphasis (//) in it
+				while( strpos( $block, '//' ) !== false ) {
+
+					$block = preg_replace('/\/\//', '<em>', $block, 1);
+					$block = preg_replace('/\/\//', '</em>', $block, 1);
+				}	
+
+				// Put it on the array and smash it onto the body string
+				$body .= '<p>' . $block . '</p>';
+			}
+		}
+
+		// Create our source paragraph (Which for all skills is the Core book)
+		$source = Paragraph::create([
+			'type' => 'source',
+			'field_source_book' => [
+				[ 'target_id' => $sources[ 'CR' ] ]
+			],
+		]); 
+
+		// Save that source paragraph
+		$source->save(); 		
+
+		// Create a variable to hold any masteries
+		$masteries = [];
+
+		// See if there was any masteries for this skill
+		if( property_exists( $skill, 'mastery' ) ) {
+
+			// Loop through our mastery list
+			foreach( $skill->mastery as $rank => $ability ) {
+
+				// Create our mastery paragraph
+				$mastery = Paragraph::create([
+					'type' => 'mastery_abilities',
+					'field_ability_description' => $ability,
+					'field_rank' => $rank,
+				]); 
+
+				// Save the mastery paragraph
+				$mastery->save(); 		
+
+				$masteries[] = $mastery;
+			}
+		}
+
+          // Create our node for this skill
+		$node = Node::create([
+			'type'        => 'skills',
+			'title'       => $skill->name,
+			'body'		  => [
+				'value' => $body,
+				'format' => 'full_html',
+			],
+			'field_trait'  => $traits,
+			'field_sub_types' => [
+				'value' => last_haiku_import_parse_emphases_subtypes( $skill->subtypes ),
+				'format' => 'plain_html',
+			],
+			'field_emphases' => [
+				'value' => last_haiku_import_parse_emphases_subtypes( $skill->emphases ),
+				'format' => 'plain_html',
+			],
+			'field_source' => [
+				[
+					'target_id' => $source->id(),
+					'target_revision_id' => $source->getRevisionId(),			
+				],
+			],
+			'field_mastery' => $masteries,
+			'field_skill_type' => $type,
+			'uid' => 2,
+		]);
+
+		// Save the node
+		$node->save();
+
+	}
+}
+
+
+
+function last_haiku_import_clans() {
+
+	// Get the path to the clans file
+	$clansFilePath = \Drupal::service('extension.list.module')->getPath('last_haiku_import') . '/json/clans.json';
+
+	// Turn the JSON back into a PHP array
+	$clans = json_decode( file_get_contents( $clansFilePath ) );
+
+	// Loop through the clans
+	foreach( $clans as $clan ) {
+
+		// Try to load the term for the clan
+		$clanTerm = \Drupal::entityTypeManager()
+			->getStorage('taxonomy_term')
+			->loadByProperties(['name' => $clan->clan, 'vid' => 'clans' ]);
+
+		// Since we only will get one result, pop it off the array
+		$clanTerm = array_shift( $clanTerm );
+
+		// Check if we need to put <p> tags around the description
+		if( strpos( $clan->description, '<p>' ) === false ) {
+			$clan->description = '<p>' . $clan->description . '</p>';
+		}
+
+		// Set the clan's description
+		$clanTerm->setDescription( $clan->description );
+
+		// Change the text format
+		$clanTerm->setFormat('full_html');
+
+		// Save the clan
+		$clanTerm->save();
+	}
+}
+
+
+
+
+function last_haiku_import_generate_sources() {
+
+	// These are the abbreviations and names of all the sources
+	$sources = [
+		'CR' => 'Core Rulebook',
+		'GC' => 'Great Clans',
+		'BoA' => 'Book of Air',
+		'BoE' => 'Book of Earth',
+		'BoF' => 'Book of Fire',
+		'BoW' => 'Book of Water',
+		'BoV' => 'Book of the Void',
+		'EE' => 'Emerald Empire',
+		'EnE' => 'Enemies of the Empire',
+		'EoE' => 'Enemies of the Empire',
+		'IH' => 'Imperial Histories',
+		'IH2' => 'Imperial Histories 2',
+		'NP' => 'Naishou Province',
+		'SE' => 'Secrets of the Empire',
+		'StE' => 'Strongholds of the Empire',
+		'S&F' => 'Sword and Fan',
+		'IA' => 'The Imperial Archives',
+          'HR' => 'House Rule',
+     ];
+
+	// Set up an array to hold our finished array
+	$terms = [];
+
+	// Loop through each source
+	foreach( $sources as $key => $source ) {
+
+		// Get the tid for this source
+		$terms[ $key ] = last_haiku_import_term_lookup( $source, 'source_books' );
+	}
+
+	// Return the finished mapping
+	return $terms;
+}
+
+
+function last_haiku_import_term_with_parent_lookup( $term, $vid, $parent ) {
+	// Lookup this this term by name in the supplied vid
+	$termObject = \Drupal::entityTypeManager()
+		->getStorage( 'taxonomy_term' )
+		->loadByProperties( ['name' => $term, 'vid' => $vid, 'parent' => $parent ]);
+
+	// Since we only will (usually) get one result, pop it off the array
+	$termObject = array_shift( $termObject );
+
+	// Ensure we got something back
+	if( $termObject != null ) {
+
+		// Return this term TID
+		return $termObject->id();
+
+	// We did not get a term back..
+	} else {
+
+		// .. So return false
+		return false;
+	}
+}
+
+
+function last_haiku_import_term_lookup( $term, $vid ) {
+	
+	// Lookup this this term by name in the supplied vid
+	$termObject = \Drupal::entityTypeManager()
+		->getStorage( 'taxonomy_term' )
+		->loadByProperties( ['name' => $term, 'vid' => $vid ]);
+
+	// Since we only will (usually) get one result, pop it off the array
+	$termObject = array_shift( $termObject );
+
+	// Ensure we got something back
+	if( $termObject != null ) {
+
+		// Return this term TID
+		return $termObject->id();
+
+	// We did not get a term back..
+	} else {
+
+		// .. So return false
+		return false;
+	}
+}
+
+function last_haiku_import_parse_emphases_subtypes( $line ) {
+	
+	// Take out all the descriptive text for low/high skills
+	$line = str_replace( " [Note: sub-skills marked with a * are considered Low Skills; sub-skills marked with a # are considered High Skill]", "", $line );
+	$line = str_replace( " [Sub-skills marked with a * are considered Low Skills]", "", $line );
+	$line = str_replace( " [Emphases marked with a * are considered Low Skills]", "", $line );
+
+	// Replace the * and # with an HTML wrapper
+	$line = last_haiku_import_parse_emphases_subtypes_recursive( $line );
+
+	// Return our modified result
+	return $line;
+}
+
+function last_haiku_import_parse_emphases_subtypes_recursive( $line ) {
+	// Find the next # or *
+	$next = strpbrk( $line, '#*' );
+
+	// See if we found either symbol or we ran out of text
+	if( $next === false || strlen( $line ) == 0 ) {
+
+		// Return nothing
+		return $line;
+	}
+		
+	// Calculate where that symbol was in the string
+	$position = strlen( $line ) - strlen( $next );
+
+	// Find where the word started
+	for( $i = $position; $i--; $i > 0 ) {
+
+		// Check if this is the space before the word
+		if( $line[ $i ] == ' ' ) {
+
+			// Pull out the word
+			$word = trim( substr( $line, $i, $position - $i ) );
+
+			// Is it a low skill?
+			if( $line[ $position ] == '*' ) {
+				
+				// Wrap the word in the string with html
+				$string = substr( $line, 0, $i ) . ' <span class="low-skill"><i class="fa-solid fa-arrow-down-long"></i>' . $word . '</span>';
+			
+				// Return the string so far and pass the rest of the string down the function
+				return $string . last_haiku_import_parse_emphases_subtypes_recursive( substr( $line, $position + 1 ) );
+
+			// It's a high skill
+			} else {
+
+				// Wrap the word in the string with html
+				$string = substr( $line, 0, $i ) . ' <span class="high-skill"><i class="fa-solid fa-arrow-up-long"></i>' . $word . '</span>';
+
+				// Return the string so far and pass the rest of the string down the function
+				return $string . last_haiku_import_parse_emphases_subtypes_recursive( substr( $line, $position + 1 ) );
+			}
+
+			break;
+		}
+	}
+}
+
+
+function last_haiku_import_generate_clans() {
+
+	$clans = [
+		'Crab',
+		'Crane',
+		'Dragon',
+		'Lion',
+		'Mantis',
+		'Phoenix',
+		'Scorpion',
+		'Spider',
+		'Unicorn',
+		'Badger',
+		'Bat',
+		'Boar',
+		'Dragonfly',
+		'Falcon',
+		'Fox',
+		'Hare',
+		'Monkey',
+		'Oriole',
+		'Ox',
+		'Snake',
+		'Sparrow',
+		'Tiger',
+		'Tortoise',
+		'Imperial Families',
+		'Ronin Families',
+		'Firefly',
+		'Bee',
+		'Peacock',
+		'Raven',
+		'Salamander',
+		'Shark',
+		'Tanuki',
+	];
+
+	// Set up an array to hold our finished array
+	$terms = [];
+
+	// Loop through each source
+	foreach( $clans as $clan ) {
+
+		// Get the tid for this source
+		$terms[ $clan ] = last_haiku_import_term_lookup( $clan, 'clans' );
+	}
+
+	// These two are used in schools but aren't really clans
+	$terms[ 'Monk' ] = -1;
+	$terms[ 'Miscellaneous' ] = -1;
+
+	// Return the finished mapping
+	return $terms;
+}
+
+
+function last_haiku_import_parse_school_spells( $spells ) {
+
+	// Replace the unviersal spells with links to the spells
+	$spells = str_replace( 'Summon', '<a href="/spells/universal#Summon">Summon</a>', $spells );
+	$spells = str_replace( 'Sense', '<a href="/spells/universal#Sense">Sense</a>', $spells );
+	$spells = str_replace( 'Commune', '<a href="/spells/universal#Commune">Commune</a>', $spells );
+	
+	// Replace the rings
+	$spells = str_replace( 'Fire', '<a href="/spells/fire">Fire</a>', $spells );
+	$spells = str_replace( 'Water', '<a href="/spells/water">Water</a>', $spells );
+	$spells = str_replace( 'Air', '<a href="/spells/air">Air</a>', $spells );
+	$spells = str_replace( 'Earth', '<a href="/spells/earth">Earth</a>', $spells );
+	$spells = str_replace( 'Void', '<a href="/spells/void">Void</a>', $spells );
+
+	// Return our HTMLized spell list
+	return $spells;
+}
+
+function last_haiku_import_parse_skills( $skills ) {
+
+	// String to hold the html of the parsed skills
+	$schoolSkills = '';
+
+	// Loop through th{{e skills
+	foreach( $skills as $key => $skill ) {
+		
+		// If this is just numeric, there's nothing more than a skill here
+		if( is_numeric( $key ) ) {
+
+			// Figure out if it's got a colon in it
+			$colon = strpos( $skill, ':' );
+
+			// Is it a meta skill? (ie Lore: Shadowlands)
+			if( $colon !== false ) {
+
+				// Parse out the any portion
+				$skillName = trim( substr( $skill, 0, $colon ) );
+				
+				// The thing right after the colon will be a skill
+				$skillMod = trim( substr( $skill, $colon + 1 ) );
+
+				// Remove any potential numbers from the link
+				$skillLink = preg_replace('/[0-9\s]/', '', $skillName );
+
+				// Make our link to the skill
+				$schoolSkills .= '<a href="/skills#' . $skillLink . '">' . $skillName . ': ' . $skillMod . '</a>, ';
+
+			// No colon, just a plain ol skill
+			} else {
+				// Remove any potential numbers from the link
+				$skillLink = trim( preg_replace('/[0-9]/', '', $skill ) );
+
+				// Stick it on the skill string
+				$schoolSkills .= '<a href="/skills#' . $skillLink . '">' . $skill . '</a>, ';
+			}
+
+		// Is this an array (meaning pick from given list)?
+		} else if( $key == 'pickAny' ) {
+
+			// Start off smashing the text onto the html
+			$schoolSkills .= $skill->text . ': ';
+
+			// My naming conventions could be better
+			foreach( $skill->skills as $anyKey => $anyValue ) {
+
+				// Is this a skill with emphases?
+				if( is_array( $anyValue ) ) {
+
+					$schoolSkills .= '<a href="/skills#' . $anyKey . '">' . $anyKey . '</a> (';
+
+					foreach( $anyValue as $empKey => $emp ) {
+						$schoolSkills .= $emp . ', ';
+					}
+
+					$schoolSkills = trim( $schoolSkills, ', ' ) . '), ';
+				} else {
+
+					// No emphases
+					$schoolSkills .= '<a href="/skills#' . $anyValue . '">' . $anyValue . '</a>, ';
+				}
+			}
+
+		// Just some "pick any" text"
+		} else if( $key == 'any' ) {
+
+			// Is this a pick any one or two skills?
+			if( strpos( $skill, 'any one Skill' ) !== false || strpos( $skill, 'any two Skills' ) !== false ) {
+
+				// Figure out where the word skill is
+				$position = strpos( $skill, 'Skill' );
+
+				// Make skill(s) hyperlinked
+				$skill = substr( $skill, 0, $position ) . '<a href="/skills">' . substr( $skill, $position ) . '</a>, ';
+			}
+
+			// Link to Bugei skills
+			if( strpos( $skill, ' Bugei ' ) !== false ) {
+
+				// Replace the word bugei with a hyperlink
+				$skill = str_replace( 'Bugei ', ' <a href="/skills#bugei">Bugei</a> ', $skill );
+			}
+
+			// Link to Low skills
+			if( strpos( strtolower( $skill) , ' low ' ) !== false ) {
+
+				// Replace the word bugei with a hyperlink
+				$skill = str_replace( ' Low ', ' <a href="/skills#low">Bugei</a> ', $skill );
+			}
+
+			// Link to High skills
+			if( strpos( strtolower( $skill) , 'high' ) !== false ) {
+
+				// Replace the word bugei with a hyperlink
+				$skill = str_replace( ' High ', ' <a href="/skills#High">High</a> ', $skill );
+			}
+
+			// Link to Bugei skills
+			if( strpos( strtolower( $skill) , 'merchant' ) !== false ) {
+
+				// Replace the word bugei with a hyperlink
+				$skill = str_replace( ' Merchant ', ' <a href="/skills#merchant">Merchant</a> ', $skill );
+			}
+
+			// Add to our html
+			$schoolSkills .= $skill . ', ';
+
+		// If we got here, it's gotta be a skill with an emphasis
+		} else {
+
+			// Make our link to the skill
+			$schoolSkills .= '<a href="/skills#' . $key . '">' . $key . ' (' . $skill;
+			
+			// If this is an advanced school, it might not need a )
+			if( strpos( $skill, ')' ) !== false ) {
+				$schoolSkills .= '</a>,';
+
+			// Basic school or doesn't already have a )
+			} else {
+				$schoolSkills .= ')</a>, ';
+			}
+		}
+	}
+
+	// Remove that pesky trailing comma
+	return trim( $schoolSkills, ', ' );
+}
+
+
+function last_haiku_import_parse_stats( $stats ) {
+	
+	// Array to hold the html for the stat block
+	$requirements = [];
+
+	// Loop through each of the stats
+	foreach( $stats as $stat ) {
+
+		// Create our trait modifer paragraph
+		$requirement = Paragraph::create([
+			'type' => 'trait_modifier',
+			'field_trait_modified' => [
+				'target_id' => last_haiku_import_term_lookup( $stat->stat, 'rings_traits' )
+			],
+			'field_trait_modifier' => $stat->rank,
+		]); 	
+
+		// Save that technqiue paragraph
+		$requirement->save(); 
+	
+		// Add this to our block of requirements
+		$requirements[] = $requirement;
+	}
+
+	return $requirements;
+}
+
+function last_haiku_import_parse_requirements( $requirements ) {
+
+	// Do nothing for now
+	return $requirements;
+/*&
+	// Explode the requirements on , assuming everything is a skill
+	$skills = explode( ',', $requirements );
+
+	// Set up an array to hold any stats
+	$stats = [];
+	echo "$requirements\n";
+
+	foreach( $skills as $index => $value ) {
+//		echo "$index -> $value\n";
+	}
+// echo "-------------\n";
+	//$requirements = last_haiku_import_parse_skills( $requirements );
+	//$requirements = last_haiku_import_parse_stats( $requirements );
+
+//	echo "$requirements\n";
+*/
+}
+
+function last_haiku_import_school_clan( $clan, $type ) {
+
+	// Array to hold our returned items
+	$terms = [];
+
+	// Set the school clan assuming it's a real clan
+	$clanTerm = last_haiku_import_term_lookup( $clan, 'clans' );
+	
+	// Wasn't a real clan (ie Monk)
+	if( !$clanTerm ) {
+
+		// It's a miscellaneous school, monk school, or a ronin school
+		if( $clan == 'Miscellaneous' || $clan == 'Monk' || $clan == 'Ronin Schools' ) {
+
+			// We have to use the "school clan" vocabulary for these guys
+			$clanTerm = last_haiku_import_term_lookup( $clan, 'supplemental_terms' );
+
+		// This clan had a "real" clan term, but add the school term on as well
+		} else {
+
+			// Output an error message
+			echo "Invalid clanTerm name on school import: $clan with $type\n";
+		}
+	}
+
+	// Add whatever term we came up with to the terms array
+	$terms[][ 'target_id' ] = $clanTerm;
+
+	// Return our term array
+	return $terms;
+}
+
+
+function last_haiku_import_make_redirects() {
+
+     $clans = [
+          'Great Clans',
+          'Crab',
+          'Crane',
+          'Dragon',
+          'Lion',
+          'Mantis',
+          'Phoenix',
+          'Scorpion',
+          'Spider',
+          'Unicorn',
+          'Minor Clans',
+          'Badger',
+          'Bat',
+          'Boar',
+          'Dragonfly',
+          'Falcon',
+          'Fox',
+          'Hare',
+          'Monkey',
+          'Oriole',
+          'Ox',
+          'Snake',
+          'Sparrow',
+          'Tiger',
+          'Tortoise',
+          'Imperial Families',
+          'Ronin Families',
+          'Lost Clans',
+          'Firefly',
+          'Bee',
+          'Peacock',
+          'Raven',
+          'Salamander',
+          'Shark',
+          'Tanuki',          
+     ];
+
+     $redirects = [];
+
+     foreach( $clans as $clan ) {
+
+          $redirects[ 'families/' . strtolower( $clan ) ] = '/families?clan[]=' . last_haiku_import_term_lookup( $clan, 'clans' );
+
+          if( $clan == 'Ronin Families' ) {
+               $clan = 'Ronin Schools';
+          }
+
+          $redirects[ 'schools/' . strtolower( $clan ) ] = '/schools?clan[]=' . last_haiku_import_term_lookup( $clan, 'clans' );
+     }
+
+     $redirects[ 'schools/' . strtolower( 'Miscellaneous' ) ] = '/schools?clan[]=' . last_haiku_import_term_lookup( 'Miscellaneous', 'supplemental_terms' );
+     $redirects[ 'schools/' . strtolower( 'Monk' ) ] = '/schools?clan[]=' . last_haiku_import_term_lookup( 'Monk', 'supplemental_terms' );
+
+     $redirects[ 'schools/' . strtolower( 'Basic' ) ] = '/schools?type[]=schools';
+     $redirects[ 'schools/' . strtolower( 'Basic Schools' ) ] = '/schools?type[]=schools';
+     $redirects[ 'schools/' . strtolower( 'Advanced' ) ] = '/schools?type[]=advanced_schools';
+     $redirects[ 'schools/' . strtolower( 'Advanced Schools' ) ] = '/schools?type[]=advanced_schools';
+     $redirects[ 'schools/' . strtolower( 'Paths' ) ] = '/schools?type[]=alternate_paths';
+     $redirects[ 'schools/' . strtolower( 'Alternate Paths' ) ] = '/schools?type[]=alternate_paths';
+ 
+     
+     // Skill Redirects
+     $skills = [
+          'High',
+          'Bugei',
+          'Merchant',
+          'Low',
+     ];
+
+     foreach( $skills as $skill ) {
+          $redirects[ 'skills/' . strtolower( $skill ) ] = '/skills?type[]=' . last_haiku_import_term_lookup( $skill . ' Skills', 'skill_type' );
+          $redirects[ 'skills/' . strtolower( $skill ) . ' skills' ] = '/skills?type[]=' . last_haiku_import_term_lookup( $skill . ' Skills', 'skill_type' );
+     }
+
+     // Spells
+     $spells = [
+          'Air',
+          'Earth',
+          'Fire',
+          'Water',
+          'Void',
+          'Multi-Element',
+          'Maho',
+     ];
+
+     foreach( $spells as $spell ) {
+
+          $trait =  last_haiku_import_term_lookup( $spell, 'rings_traits' );
+
+          if( !$trait ) {
+               $trait = last_haiku_import_term_lookup( $spell, 'supplemental_terms' );
+          }
+
+          $redirects[ 'spells/' . strtolower( $spell ) ] = '/spells?trait=' . $trait;
+     }
+
+     // Advantages / Disadvantages redirects
+     $redirects[ 'advantages-disadvantages/advantages' ] = '/advantages-disadvantages?type=advantage';
+     $redirects[ 'advantages-disadvantages/disadvantages' ] = '/advantages-disadvantages?type=disadvantage';
+
+
+     // Make all the redirects
+     foreach( $redirects as $source => $target ) {
+          Redirect::create([
+               'redirect_source' => $source,
+               'redirect_redirect' => 'internal:' . $target,
+               'language' => 'und',
+               'status_code' => '302',
+          ])->save();
+     }
+}
+
+
+
+function last_haiku_import_create_taxonomies() {
+
+     last_haiku_import_create_rings_traits();
+
+     last_haiku_import_create_clans_families();
+
+     last_haiku_import_create_sources();
+
+     last_haiku_import_create_skill_types();
+
+     last_haiku_import_create_school_types();
+
+     last_haiku_import_create_supplemental_terms();
+
+     last_haiku_import_create_advantage_and_disadvantage_subtypes();
+}
+
+
+function last_haiku_import_create_supplemental_terms() {
+     $supplementalTerms = [
+          'Monk',
+          'Ronin Schools',
+          'Miscellaneous',
+          'Universal',
+          'Maho',
+          'Multi-Element',
+     ];
+
+     foreach( $supplementalTerms as $type ) {
+          $term = Term::create([
+               'vid' => 'supplemental_terms',
+               'name' => $type,
+          ]);
+          
+          $term->enforceIsNew();
+          $term->save();      
+          
+          if( $type == 'Multi-Element' ) {
+               
+               foreach( [ 'Universal', 'Advanced' ] as $multiType ) {
+
+                    $multiTerm = Term::create([
+                         'vid' => 'supplemental_terms',
+                         'name' => $multiType,
+                         'parent' => [ 'target_id' => $term->id() ],
+                    ]);
+          
+                    $multiTerm->enforceIsNew();
+                    $multiTerm->save();
+               }
+
+          }
+     }
+}
+
+function last_haiku_import_create_school_types() {
+     $schoolTypes = [
+          'Artisan',
+          'Bushi',
+          'Courtier',
+          'Guru',
+          'Monk',
+          'Ninja',
+          'Shugenja',
+     ];
+
+     foreach( $schoolTypes as $type ) {
+          $term = Term::create([
+               'vid' => 'school_type',
+               'name' => $type,
+          ]);
+          
+          $term->enforceIsNew();
+          $term->save();            
+     }
+}
+
+
+
+function last_haiku_import_create_school_clans() {
+     $schoolClans = [
+          'Monk',
+          'Ronin Schools',
+          'Miscellaneous',
+     ];
+
+     foreach( $schoolClans as $school ) {
+          $term = Term::create([
+               'vid' => 'school_clan',
+               'name' => $school,
+          ]);
+          
+          $term->enforceIsNew();
+          $term->save();            
+     }
+}
+
+
+function last_haiku_import_create_advantage_and_disadvantage_subtypes() {
+     $subtypes = [
+          'Physical' => "These represent an ability or disability inherent to the character's body in some way. They may not be purchased after character creation without extenuating circumstances, and conversely they may sometimes be awarded without deliberate purchase (losing a limb results in Missing Limb, for example).",
+          'Mental' => "These abilities represent part of a character's mental or psychological make-up in some way, and cannot be purchased after character creation unless approved by the GM.",
+          'Social' => "Social Advantages and Disadvantages represent a character's ability or inability to interact with others in a successful manner. They may be purchased during play with GM approval if the circumstnces are appropriate (a character should only purchase the Allies Advantage if he actually has allies, and so on.",
+          'Material' => "These abilities represent possession of a physical item. They are riskier than other Advantages or Disadvantages because such an item can be stolen or destroyed, depriving the character of the mechanical benefit for which Experience Points were spent. These may be purchased during play with approval from the GM.",
+          'Spiritual' => "These abilities represent a link between the character and something else that is not normally experienced by the average person. This might be a bond with a creature from a spirit realm, or even just a kharmic tie with another person in some way. These may only be purchased after character creation if the GM judges the circumstances dictate the character would in fact have this relationship.",
+          'Varies' => '',
+     ];
+
+     foreach( $subtypes as $name => $description ) {
+          $subtypeTerm = Term::create([
+               'vid' => 'advantage_disadvantage_subtypes',
+               'name' => $name,
+			'description' => [
+				'value' => '<p>' . $description . '</p>',
+				'format' => 'full_html',
+			],                              
+          ]);
+          
+          $subtypeTerm->enforceIsNew();
+          $subtypeTerm->save();           
+     }
+}
+
+
+
+function last_haiku_import_create_skill_types() {
+
+     $skillTypes = [
+          'bugei' => [
+               'name' => 'Bugei Skills',
+               'description' => "Bugei kills are the domain of the bushi. These are the Skills of a warrior, and while the samurai are not the only ones who practice them (since ashigaru and budoka learn some of these as well), they are unquestionably the masters of the craft.",
+          ],     
+          'high' => [
+               'name' => 'High Skills',
+               'description' => "High skills are exclusively the province of the samurai caste. These are the Skills one would typically see in use at a daimyo's court, or even among the attendants of the Emperor's court. They reflect sophistication and nobility, and typically require considerable education in order to attain and practice.",
+          ],
+          'low' => [
+               'name' => 'Low Skills',
+               'description' => "Low skills represent deplorable crafts and practices that no honorable soul would even imagine taking up. Practicing any of these Skills will usually result in a loss of Honor for a samurai who does so, and if done in public, quite possibly Glory as well.",
+          ],
+          'merchant' => [
+               'name' => 'Merchant Skills',
+               'description' => "Merchant skills present knowledge of certain practices that are not the domain of the samurai. While it is not inherently dishonorable to practice these Skills, it is somewhat questionable, and those who do so openly and regularly are looked upon with mild disdain by their more sophisticated kinsmen.",
+          ],
+     ];
+     
+     foreach( $skillTypes as $short => $skill ) {
+          $skillTerm = Term::create([
+               'vid' => 'skill_type',
+               'name' => $skill[ 'name' ],
+               'field_short_name' => $short,
+			'description' => [
+				'value' => '<p>' . $skill[ 'description' ] . '</p>',
+				'format' => 'full_html',
+			],                              
+          ]);
+          
+          $skillTerm->enforceIsNew();
+          $skillTerm->save();           
+     }
+}
+
+
+
+function last_haiku_import_create_sources() {
+
+	// These are the abbreviations and names of all the sources
+	$sources = [
+		'CR' => 'Core Rulebook',
+		'GC' => 'Great Clans',
+		'BoA' => 'Book of Air',
+		'BoE' => 'Book of Earth',
+		'BoF' => 'Book of Fire',
+		'BoW' => 'Book of Water',
+		'BoV' => 'Book of the Void',
+		'EE' => 'Emerald Empire',
+		'EnE' => 'Enemies of the Empire',
+		'EoE' => 'Enemies of the Empire',
+		'IH' => 'Imperial Histories',
+		'IH2' => 'Imperial Histories 2',
+		'NP' => 'Naishou Province',
+		'SE' => 'Secrets of the Empire',
+		'StE' => 'Strongholds of the Empire',
+		'S&F' => 'Sword and Fan',
+		'IA' => 'The Imperial Archives',
+          'HR' => 'House Rule',
+	];
+
+	// Loop through each source
+	foreach( $sources as $key => $source ) {
+
+          $book = Term::create([
+               'vid' => 'source_books',
+               'name' => $source,
+               'field_abbreviation' => $key,
+          ]);
+
+          $book->enforceIsNew();
+          $book->save();          
+	}
+}
+
+
+
+function last_haiku_import_create_rings_traits() {
+     $ringsTraits = [
+          'Air' => [
+               'Reflexes',
+               'Awareness'
+          ],
+          'Earth' => [
+               'Stamina',
+               'Willpower',
+          ],
+          'Fire' => [
+               'Agility',
+               'Intelligence',
+          ],
+          'Water' => [
+               'Strength',
+               'Perception',
+          ],
+          'Void' => [
+          ],
+     ];
+
+     foreach( $ringsTraits as $ring => $traits ) {
+
+          $ring = Term::create([
+               'vid' => 'rings_traits',
+               'name' => $ring,
+          ]);
+
+          $ring->enforceIsNew();
+          $ring->save();
+          
+          foreach( $traits as $trait ) {
+               $trait = Term::create([
+                    'vid' => 'rings_traits',
+                    'name' => $trait,
+                    'parent' => [ 'target_id' => $ring->id() ],
+               ]);
+     
+               $trait->enforceIsNew();
+               $trait->save();
+          }
+     }
+}
+
+
+
+function last_haiku_import_create_clans_families() {
+
+     // Get the path to the clans file
+	$familiesFilePath = \Drupal::service('extension.list.module')->getPath('last_haiku_import') . '/json/clans-families.json';
+
+	// Turn the JSON back into a PHP array
+	$families = json_decode( file_get_contents( $familiesFilePath ) );
+
+     // Loop through the groupings
+     foreach( $families as $groupingName => $grouping ) {
+
+          if( $groupingName == 'Imperial Families' || $groupingName == 'Ronin Families' ) {
+               
+          }
+
+          $description = '';
+
+          foreach( $grouping->description as $line ) {
+               $description .= '<p>' . trim( $line ) . '</p>';
+          }
+
+          $group = Term::create([
+               'vid' => 'clans',
+               'name' => $groupingName,
+			'description' => [
+				'value' => $description,
+				'format' => 'full_html',
+			],                              
+          ]);
+
+          if( $groupingName == 'Lost Clans' ) {
+               $group->setWeight( 80 );
+          } else if( $groupingName == 'Minor Clans' ) {
+               $group->setWeight( 20);
+          } else if( $groupingName == 'Ronin Families' ) {
+               $group->setWeight( 60 );
+          } else if( $groupingName == 'Imperial Families' ) {
+               $group->setWeight( 40 ); 
+          }
+
+          $group->enforceIsNew();
+          $group->save();          
+
+          foreach( $grouping->clans as $clanName => $clan ) {
+
+               $parent = $group->id();
+
+               if( $clanName != 'Not Applicable' ) {
+
+                    $clanTerm = Term::create([
+                         'vid' => 'clans',
+                         'name' => $clanName,
+                         'parent' => [ 'target_id' => $group->id() ],
+                    ]);
+
+                    if( property_exists( $clan, 'description' ) ) {
+
+                         $description = '';
+
+                         foreach( $clan->description as $line ) {
+                              $description .= '<p>' . $line . '</p>';
+                         }
+
+                         $clanTerm->description = [
+                              'value' => $description,
+                              'format' => 'full_html',
+                         ];
+                    }
+                    
+                    $clanTerm->enforceIsNew();
+                    $clanTerm->save();
+
+                    $parent = $clanTerm->id();
+               } 
+
+               foreach( $clan->families as $familyName => $family ) {
+
+                    // Get the trait
+                    $traitTerm = last_haiku_import_term_lookup( $family->benefit->trait, 'rings_traits' );
+
+                    $description = '';
+
+                    foreach( $family->description as $line ) {
+                         $description .= '<p>' . $line . '</p>';
+
+                    }
+
+                    // Create our trait modifer paragraph
+                    $benefit = Paragraph::create([
+                         'type' => 'trait_modifier',
+                         'field_trait_modified' => [
+                              [ 'target_id' => $traitTerm ]
+                         ],
+                         'field_trait_modifier' => $family->benefit->value,
+                    ]); 
+
+                    // Save that paragraph
+                    $benefit->save(); 		
+
+                    // Create our node for this family
+                    $node = Node::create([
+                         'type' => 'families',
+                         'title' => $familyName,
+                         'body' => [
+                              'value' => $description,
+                              'format' => 'full_html',
+                         ],   
+                         'field_clan' => [
+                              [ 'target_id' => $parent ], 
+                         ],
+                         'field_benefit' => [
+                              [
+                                   'target_id' => $benefit->id(),
+                                   'target_revision_id' => $benefit->getRevisionId(),		
+                              ],
+                         ],
+                         'field_full_family_name' => $family->full,
+                         'uid' => 2,
+                    ]);
+
+                    // Save the node
+                    $node->save();
+               }
+          }
+     }
+}

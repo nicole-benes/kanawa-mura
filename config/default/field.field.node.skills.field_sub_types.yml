@@ -1,0 +1,22 @@
+uuid: ea9510e1-aa06-4f8c-88b0-9e237cdc327e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_sub_types
+    - node.type.skills
+  module:
+    - text
+id: node.skills.field_sub_types
+field_name: field_sub_types
+entity_type: node
+bundle: skills
+label: Sub-Types
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

@@ -1,0 +1,89 @@
+{#}
+{{ dump( fields) }}
+{{ dump( row ) }}
+#}
+<{{ fields.source.wrapper_element }}{{ fields.source.wrapper_attributes }}>
+	<{{ fields.source.element_type }}{{ fields.source.element_attributes }}>
+		{{ fields.source.content }}
+	</{{ fields.source.element_type }}>
+</{{ fields.source.wrapper_element }}>
+
+{% if fields.body %}
+     <{{ fields.body.wrapper_element }}{{ fields.body.wrapper_attributes }}>
+          {{ fields.body.content }}
+     </{{ fields.body.wrapper_element }}>
+{% endif %}
+
+<ul class="grouped-list school-benefits">
+     {% if row.monk and fields.field_devotion %}
+          <li>
+               <{{ fields.field_devotion.wrapper_element }}{{ fields.field_devotion.wrapper_attributes }}>
+                    <span class="label">Devotion</span><span class="inline-field-value">{{ fields.field_devotion.content }}</span>
+               </{{ fields.field_devotion.wrapper_element }}>
+          </li>
+     {% endif %}
+
+     {% if fields.trait_modifier %}
+          <li>
+               <{{ fields.trait_modifier.wrapper_element }}{{ fields.trait_modifier.wrapper_attributes }}>
+                    <span class="label">Benefit</span><span class="inline-field-value"><span class="trait-modifier">+{{ fields.trait_modifier.content }}</span> <span class="trait-trait">{{ fields.trait_modified.content }}</span></span>
+               </{{ fields.trait_modifier.wrapper_element }}>
+          </li>
+     {% endif %}
+
+	<li>
+		<{{ fields.field_school_skills.wrapper_element }}{{ fields.field_school_skills.wrapper_attributes }}>
+			<span class="label">Skills</span><span class="inline-field-value">{{ fields.field_school_skills.content }}</span>
+		</{{ fields.field_school_skills.wrapper_element }}>
+	</li>
+
+     {% if fields.field_school_honor %}
+          <li>
+               <{{ fields.field_school_honor.wrapper_element }}{{ fields.field_school_honor.wrapper_attributes }}>
+                    <span class="label">Honor</span><span class="inline-field-value">{{ fields.field_school_honor.content }}</span>
+               </{{ fields.field_school_honor.wrapper_element }}>
+          </li>
+     {% endif %}
+
+     {% if( not row.monk) %}
+          <li>
+               <{{ fields.field_school_outfit.wrapper_element }}{{ fields.field_school_outfit.wrapper_attributes }}>
+                    <span class="label">Outfit</span><span class="inline-field-value">{{ fields.field_school_outfit.content }}</span>
+               </{{ fields.field_school_outfit.wrapper_element }}>
+          </li>
+     {% endif %}
+
+     {% if row.shugenja %}
+		<li>
+			<{{ fields.field_affinity_special.wrapper_element }}{{ fields.field_affinity_special.wrapper_attributes }}>
+				<span class="label">Affinity/Deficiency</span><span class="inline-school-field-value">{{ fields.field_affinity_special.content }}</span>
+			</{{ fields.field_affinity_special.wrapper_element }}>
+		</li>
+		
+		<li>
+			<span class="label">Technique</span>{{ fields.school_techniques.content }}
+		</li>
+
+		<li>
+			<{{ fields.field_spells.wrapper_element }}{{ fields.field_spells.wrapper_attributes }}>
+				<span class="label">Spells</span><span class="inline-school-field-value">{{ fields.field_spells.content }}</span>
+			</{{ fields.field_spells.wrapper_element }}>
+		</li>
+	{% endif %}
+
+	{% if row.monk and not row.fakeMonk %}
+          <li>
+               <span class="label">Technique</span><span class="inline-school-field-value">{{ fields.school_techniques.content }}</span>
+          </li>
+	{% endif %}
+</ul>
+
+{% if ( not row.monk and not row.shugenja ) or row.fakeMonk %}
+	<div class="school-techniques-header">
+		<h5>Techniques</h5>
+	</div>
+
+	<div class="school-techniques">
+		{{ fields.school_techniques.content }}
+	</div>
+{% endif %}

@@ -1,0 +1,25 @@
+uuid: 1c838d84-9b1f-497b-a783-2f883ba47f50
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_trait_modifier
+    - paragraphs.paragraphs_type.trait_modifier
+id: paragraph.trait_modifier.field_trait_modifier
+field_name: field_trait_modifier
+entity_type: paragraph
+bundle: trait_modifier
+label: 'Trait Modifier'
+description: 'How much the trait is modified by.'
+required: true
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

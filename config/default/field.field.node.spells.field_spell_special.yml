@@ -1,0 +1,19 @@
+uuid: bce4ff28-9d13-4f92-a4fd-ffaf8d4efd04
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_spell_special
+    - node.type.spells
+id: node.spells.field_spell_special
+field_name: field_spell_special
+entity_type: node
+bundle: spells
+label: Special
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

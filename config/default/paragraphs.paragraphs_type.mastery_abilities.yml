@@ -1,0 +1,10 @@
+uuid: 41fc9e9b-ec81-4138-abba-0b61a70dd171
+langcode: en
+status: true
+dependencies: {  }
+id: mastery_abilities
+label: 'Mastery Abilities'
+icon_uuid: null
+icon_default: null
+description: 'Mastery Abilities are additional benefits that characters gain from having higher ranks in a given Skill.'
+behavior_plugins: {  }

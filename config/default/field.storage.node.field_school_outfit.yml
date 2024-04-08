@@ -1,0 +1,19 @@
+uuid: a410916f-4d83-485f-b3a1-7e3cbdc9a9bf
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - text
+id: node.field_school_outfit
+field_name: field_school_outfit
+entity_type: node
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

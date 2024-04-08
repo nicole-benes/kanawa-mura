@@ -1,0 +1,18 @@
+uuid: 8062d07c-1854-40f7-b912-d894ef4c0984
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: Homepage
+type: homepage
+description: 'A content type for the homepage of the site.'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false

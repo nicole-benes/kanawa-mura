@@ -1,0 +1,29 @@
+uuid: 127ac5c1-1d53-4102-a9f4-db374263b476
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_clan
+    - node.type.families
+    - taxonomy.vocabulary.clans
+id: node.families.field_clan
+field_name: field_clan
+entity_type: node
+bundle: families
+label: Clan
+description: 'The clan to which this family is part of.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      clans: clans
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

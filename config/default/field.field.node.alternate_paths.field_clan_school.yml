@@ -1,0 +1,31 @@
+uuid: 6dcd752a-f0e1-42af-a616-6acc1ebfc071
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_clan_school
+    - node.type.alternate_paths
+    - taxonomy.vocabulary.clans
+    - taxonomy.vocabulary.supplemental_terms
+id: node.alternate_paths.field_clan_school
+field_name: field_clan_school
+entity_type: node
+bundle: alternate_paths
+label: 'Clan School '
+description: 'The clan this path belongs too. Separate since some paths belong to no clans.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      clans: clans
+      supplemental_terms: supplemental_terms
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: clans
+field_type: entity_reference

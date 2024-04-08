@@ -1,0 +1,18 @@
+uuid: e3634903-9c05-4e9e-82f1-bec4f7e4e6f1
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: Skills
+type: skills
+description: 'Skills define the knowledge and competency of a character.'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false

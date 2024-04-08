@@ -1,0 +1,22 @@
+uuid: 54f388f1-5fc7-487f-89c5-2363140b8068
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.advantages_disadvantages
+id: node.advantages_disadvantages.promote
+field_name: promote
+entity_type: node
+bundle: advantages_disadvantages
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

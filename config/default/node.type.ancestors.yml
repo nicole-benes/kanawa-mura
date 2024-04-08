@@ -1,0 +1,18 @@
+uuid: de215704-4806-46af-b4f9-883058555a7f
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: Ancestors
+type: ancestors
+description: 'The various ancestors which are available to choose from.'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false

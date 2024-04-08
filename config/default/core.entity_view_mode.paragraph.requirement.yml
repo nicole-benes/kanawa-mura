@@ -1,0 +1,11 @@
+uuid: a80f79af-e5ba-4dfd-ad67-4a0e98b83396
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.requirement
+label: Requirement
+description: 'Display this trait as a requirement.'
+targetEntityType: paragraph
+cache: true

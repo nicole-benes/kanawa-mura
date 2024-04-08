@@ -1,0 +1,8 @@
+uuid: 1c1e3476-44b2-4bc9-b919-645d2e2aad73
+langcode: en
+status: true
+dependencies: {  }
+name: 'Supplemental Terms'
+vid: supplemental_terms
+description: "Some uses of a vocabulary are insufficient , such as a clan's school (Monks, Miscellaneous) or spells (Universal spells)."
+weight: 0

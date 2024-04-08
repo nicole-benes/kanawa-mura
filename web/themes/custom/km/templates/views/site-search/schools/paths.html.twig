@@ -1,0 +1,68 @@
+<{{ fields.title.wrapper_element }}{{ fields.title.wrapper_attributes }}>
+     <{{ fields.title.element_type }}{{ fields.title.element_attributes }}>
+          <div class="search-result-row-header">     
+               <div class="result-title">
+                    <a href="{{ row.link }}" title="{{ fields.title.content }}">{{ fields.title.content }}</a>{% if fields.source %} [{{ fields.source.content }}]{% endif %}
+               </div>
+
+               <div class="result-type">
+                    <span class="result-icon"><i class="fa-solid fa-person-hiking"></i></span>{{ fields.clan_school_term.content }} Alternate Path
+               </div>
+          </div>
+     </{{ fields.title.element_type }}>
+</{{ fields.title.wrapper_element }}>
+
+<div class="container basic-school school-content">
+     <div class="row">
+          <div class="col">
+               <div class="school-requirements-header">
+                    <h5>Requirements:</h5>
+               </div>
+               
+               <ul class="grouped-list school-benefits">
+                    {% if fields.field_path_technique_rank %}
+                         <li>
+                              <{{ fields.field_path_technique_rank.wrapper_element }}{{ fields.field_path_technique_rank.wrapper_attributes }}>
+                                   <span class="label">Technique Rank</span><span class="inline-field-value">{{ fields.field_path_technique_rank.content }}</span>
+                              </{{ fields.field_path_technique_rank.wrapper_element }}>
+                         </li>
+                    {% endif %}
+               
+               
+                    {% if fields.field_path_replaces %}
+                         <li>
+                              <{{ fields.field_path_replaces.wrapper_element }}{{ fields.field_path_replaces.wrapper_attributes }}>
+                                   <span class="label">Replaces</span><span class="inline-field-value">{{ fields.field_path_replaces.content }}</span>
+                              </{{ fields.field_path_replaces.wrapper_element }}>
+                         </li>
+                    {% endif %}
+               
+                    {% if fields.field_devotion %}
+                         <li>
+                              <{{ fields.field_devotion.wrapper_element }}{{ fields.field_devotion.wrapper_attributes }}>
+                                   <span class="label">Devotion</span><span class="inline-field-value">{{ fields.field_devotion.content }}</span>
+                              </{{ fields.field_devotion.wrapper_element }}>
+                         </li>
+                    {% endif %}
+               
+                    {% if fields.field_required_other %}
+                         <li>
+                              <{{ fields.field_required_other.wrapper_element }}{{ fields.field_required_other.wrapper_attributes }}>
+                                   <span class="label">Requirements</span><span class="inline-field-value">{{ fields.field_required_other.content }}</span>
+                              </{{ fields.field_required_other.wrapper_element }}>
+                         </li>
+                    {% endif %}
+               </ul>
+          </div>
+
+          <div class="col">
+               <div class="school-techniques-header">
+                    <h5>Technique</h5>
+               </div>  
+               
+               <div>
+                    {{ fields.school_techniques.content }}
+               </div>
+          </div>
+     </div>
+</div>

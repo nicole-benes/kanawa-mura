@@ -1,0 +1,19 @@
+uuid: d0b138cd-0751-4e40-98f3-ac5e731f2dd6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_title
+    - paragraphs.paragraphs_type.techniques
+id: paragraph.techniques.field_title
+field_name: field_title
+entity_type: paragraph
+bundle: techniques
+label: Title
+description: 'The title of the technique.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

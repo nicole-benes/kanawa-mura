@@ -1,0 +1,31 @@
+uuid: a67677f0-01a1-4ac7-a272-cc821a4c9888
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_clan_school
+    - node.type.advanced_schools
+    - taxonomy.vocabulary.clans
+    - taxonomy.vocabulary.supplemental_terms
+id: node.advanced_schools.field_clan_school
+field_name: field_clan_school
+entity_type: node
+bundle: advanced_schools
+label: 'Clan School '
+description: 'The clan this school belongs too. Separate since some schools belong to no clans.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      clans: clans
+      supplemental_terms: supplemental_terms
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: clans
+field_type: entity_reference

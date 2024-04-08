@@ -1,0 +1,19 @@
+uuid: 1c075de1-f44d-400b-ac9a-98c7bf7b5d48
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_duration
+    - node.type.spells
+id: node.spells.field_duration
+field_name: field_duration
+entity_type: node
+bundle: spells
+label: Duration
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
