@@ -6,6 +6,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    envienvironment: Pantheon Deploy
     steps:
     - uses: actions/checkout@v1
     - uses: shimataro/ssh-key-action@v2
