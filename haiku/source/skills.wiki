@@ -233,6 +233,15 @@ Jiujutsu can be used as a Weapon Skill, rolling Jiujutsu / Agility against an op
 * Rank 5: Use of Jiujutsu confers a Free Raise toward initiating a Grapple.
 * Rank 7: The damage of all unarmed attacks is increased by +0k1 (+1k1 total).
 
++ Teppoudo (Intelligence)
+**Sub-type:** Weapon Skill
+**Emphases:** Fire-Lance, Hand-Cannon, Bajozutsu, Teppo
+**Description:** Teppoudo is the skill of maintaining and firing a Rokugani (non-gaijin) firearm. Taught alongside the traditional arts of Kenjutsu and Kyujutsu, the art of Teppoudo places a great emphasis on mindfulness, calm deliberate intentions, and careful breathing. It is just as much a practice of zenlike focus as it is a test of rote and memory. The samurai does not merely pull the trigger- he pushes the bullet.
+**Mastery Abilities:**
+* Rank 3 - Gain +1k0 to all damage rolls when firing a Rokugani firearm
+* Rank 5 - Loading a Rokugani firearm requires one less Complex Action
+* Rank 7 - Gain +0k1 to all damage rolls when firing a Rokugani firearm
+
 + Weapons (Various)
 **Sub-types:** Marco-Skill (Includes all the Weapons Skills listed below as well as any other weapon not covered by one of the pre-existing listed Skills, such as Weapon: Crossbow, used by some tribes of Yobanjin in the mountains north of Rokugan).
 **Emphases:** Varies by sub-skill

@@ -1,0 +1,340 @@
++-+ Armor
+
+**Bogu**
+* Bonus to Armor TN: +0
+* Damage reduction: 1
+* Price: 1 koku
+
+**Ashigaru Armor [CR]**
+* Bonus to Armor TN: 3
+* Damage reduction: 1
+* Cost: 5 koku
+
+**Tatami Armor**
+* Bonus to Armor TN: 4
+* Damage reduction: 1
+* Price: 10 koku
+
+**Light Armor [CR]**
+* Bonus to Armor TN: 5
+* Damage reduction: 3
+* Special: Wearing light armor increases the TN of all Athletic and Stealth rolls by 5.
+* Cost: 25 koku
+
+**Heavy Armor [CR]**
+* Bonus to Armor TN: 10
+* Damage reduction: 5
+* Special: Wearing heavy armor increases the TN of all skill rolls using Agility and Reflexes by 5.
+* Cost: 40 koku
+
+**Tetsu-do**
+* Bonus to Armor TN: +13
+* Damage reduction: 8
+* Special: Iron armor is considered heavy armor for the purposes of mechanical effects that specify armor type, including Techniques, Advantages, etc. Wearing iron armor increases the TN of all Skill Rolls using Agility or Reflexes by +10; if the wearer has a Strength of 5 or higher, the penalty is only +5 instead.
+* Price: 100 koku
+
+**Riding armor [CR]**
+* Bonus to Armor TN: 12 on horseback, 4 otherwise.
+* Damage reduction: 4
+* Special: Wearing riding armor increases the TN of all skill rolls using Agility and Reflexes by 5, except on horseback.
+* Cost: 55 koku
+
++-+ Weapons
+
+++ Arrows
+**Armor-piercing [CR]**
+* Damage rating: 1k1
+* Special: Ignores Bonus to Armor TN from armor.
+* Cost: 2 bu.
+
+**Flesh Cutter [CR]**
+* Damage rating: 2k3
+* Special: Doubles Bonus to Armor TN from armor; half range.
+* Cost: 5 bu.
+
+**Humming Bulb [CR]**
+* Damage rating: 0k1
+* Cost: 5 bu.
+* Special: Makes a whistle sound.
+
+**Rope Cutter [CR]**
+* Damage rating: 1k1
+* Special: Grants two Raises on call shots towards inanimate objects; half range.
+* Cost: 3 bu.
+
+**Willow Leaf (Ya) [CR]**
+* Damage rating: 2k2
+* Cost: 1 bu.
+
+++ Bows
+**Dai-kyu**
+* Keywords : Small
+* Strength: 4 (minimum strength of 3 to wield)
+* Range: 500'
+* Special: Increases TN of all attack rolls by 10 on foot.
+* Cost: 25 koku.
+
+**Han-kyu**
+* Keywords : Small
+* Strength: 1 (minimum strength of 3 to wield)
+* Range: 100'
+* Special: Increases TN of all attack rolls by 10 on horseback.
+* Cost: 6 koku.
+
+**Yumi**
+* Keywords : Large
+* Strength: 3
+* Range: 250'
+* Special: Increases TN of all attack rolls by 10 on horseback.
+* Cost: 20 koku.
+
+++ Chain weapons
+**Kusarigama**
+* Keywords : Large
+* Damage rating: 0k2 (kama end), 0k1 (weighted end)
+* Cost: 5 koku.
+
+**Kyoketsu-shogi**
+* Keywords : Large
+* Damage rating: 0k1
+* Special: Doubles Bonus to Armor TN from armor.
+* Cost: 9 bu.
+
+**Manrikikusari**
+* Keywords : Large
+* Damage rating: 1k1
+* Cost: 3 koku.
+
+++ Heavy Weapons
+**Dai-tsuchi**
+* Keywords : Large
+* Damage rating: 5k2
+* Cost: 15 koku.
+
+**Masakiri**
+* Keywords : Medium
+* Damage rating: 2k3
+* Cost: 8 koku.
+
+**Ono**
+* Keywords : Large
+* Damage rating: 0k4
+* Cost: 20 koku.
+
+**Tetsubo**
+* Keywords : Large
+* Damage rating: 3k3
+* Cost: 20 koku.
+
+++ Knives
+**Aiguchi & Tanto**
+* Keywords : Small
+* Damage rating: 1k1
+* Cost: 1 koku.
+
+**Jitte & Sai**
+* Keywords : Small
+* Damage rating: 1k1
+* Cost: 5 bu.
+
+**Kama**
+* Keywords : Small
+* Damage rating: 0k2
+* Cost: 5 bu.
+
+++ Ninja weapons
+**Blowgun**
+* Keywords : Medium, Ninja
+* Damage rating: 1 Wound
+* Range: 50'
+* Special: Triples Bonus to Armor TN from armor. Damages increase to 1k1 then 2k1 at Ninjutsu 3/7.
+* Cost: 8 zeni.
+
+**Shuriken**
+* Keywords : Small, Ninja
+* Damage rating: 1k1
+* Special: Can be thrown up to 25' as a ranged weapon.
+* Cost: 2 bu.
+
+**Tsubute**
+* Keywords : Small, Ninja
+* Damage rating: 1k1
+* Special: Can be thrown up to 30' as a ranged weapon.
+* Cost: 1 bu.
+
+++ Polearms
+**Bisento**
+* Keywords : Large
+* Damage rating: 3k3
+* Cost: 12 koku
+
+**Nagamaki**
+* Keywords : Large
+* Damage rating: 2k3
+* Cost: 8 koku
+
+**Naginata**
+* Keywords : Large, Samurai
+* Damage rating: 3k2
+* Cost: 10 koku
+
+**Sasumata**
+* Keywords : Large
+* Damage rating: 0k2
+* Special: Can be used to initiate a grapple.
+* Cost: 6 koku
+
+**Sadegarami**
+* Keywords : Large
+* Damage rating: 1k1
+* Special: Can be used to initiate a grapple.
+* Cost: 6 koku
+
+++ Spears
+**Kumade**
+* Keywords : Large, Peasant
+* Damage rating: 1k1
+* Special: Breaks if inflicts 25 or more damage.
+* Cost: 3 bu
+
+**Mai chong**
+* Keywords : Large
+* Damage rating: 0k3
+* Special: Can be thrown up to 25' as a ranged weapon.
+* Cost: 20 koku
+
+**Lance**
+* Keywords : Large
+* Damage rating: 3k4
+* Special: Damage reduced to 1k2 when not charging on horseback. Using without charging imposes a penality of 5 on horseback and 10 on foot. Breaks if inflicts 30 or more damage.
+* Cost: 20 koku
+
+**Nage-yari**
+* Keywords : Large
+* Damage rating: 1k2
+* Special: Can be thrown up to 50' as a ranged weapon.
+* Cost: 3 koku
+
+**Yari**
+* Keywords : Large
+* Damage rating: 2k2
+* Special: Can be thrown up to 50' as a ranged weapon. Damage rating when thrown is 1k2.
+* Cost: 5 koku
+
+++ Staves
+**Bo**
+* Keywords : Large
+* Damage rating: 1k2
+* Cost: 2 bu
+
+**Jo**
+* Keywords : Medium
+* Damage rating: 0k2
+* Cost: 1 bu
+
+**Machi-kanshisha**
+* Keywords : Medium
+* Damage rating: 0k2
+* Cost: 20 koku
+
+**Nunchaku**
+* Keywords : Small, Peasant
+* Damage rating: 1k2
+* Cost: 3 bu
+
+**Sang kauw**
+* Keywords : Medium
+* Damage rating: 1k2 (crescent blade), 2k1 (shield sang kaw)
+* Cost: 10 koku
+
+**Tonfa**
+* Keywords : Medium, Peasant
+* Damage rating: 0k3
+* Cost: 5 bu
+  
+++ Swords
+**Bokken**
+* Keywords: Samurai
+* Damage rating: 0k2
+* Special: Reduction from armor is doubled against a bokken.
+
+**Katana**
+* Keywords : Medium, Samurai
+* Damage rating: 3k2
+* Special: Can spend a void point to increase damage by 1k1.
+* Cost: cannot be bought. (Effective value : 25 koku)
+
+**Ninja-to**
+* Keywords : Medium, Ninja
+* Damage rating: 3k2
+* Special: Counts as small for concealment. Breaks if inflicts 40 or more damage.
+* Cost: cannot be bought.
+
+**No-dachi**
+* Keywords : Large
+* Damage rating: 3k3
+* Cost: 30 koku
+
+**Parangu**
+* Keywords : Medium, Peasant
+* Damage rating: 2k2
+* Special: Breaks if inflicts 30 or more damage.
+* Cost: 10 bu.
+
+**Scimitar**
+* Keywords : Medium
+* Damage rating: 2k3
+* Cost: 20 koku
+
+**Shinai**
+* Keywords: Samurai
+* Damage rating: 0k1
+* Special: A shinai’s damage dice cannot explode.
+
+**Wakizashi**
+* Keywords : Medium, Samurai
+* Damage rating: 2k2
+* Special: Can be thrown up to 20' as a ranged weapon.
+* Cost: 15 koku
+
+++ War fans
+**War fan**
+* Keywords : Small
+* Damage rating: 0k1
+* Cost: 5 koku.
+
+
+++ Rokugani Firearms
+**Kakiyari (Fire Lance)**
+* Keywords: Large, Firearm
+* Range: 50 feet
+* Damage rating: 3k2
+* Price: 8 Koku
+* Special: The Fire Lance can be wielded in melee as a Yari. If so, its DR is 1k1 and it cannot be thrown accurately. A normal Fire Lance such as this can only be fired once.
+
+**Bo-Hiya (Fire Arrows)**
+* Range: 100 feet (regardless of bow used)
+* Damage rating: 3k3
+* Price: 1 Koku
+* Special: Fire Arrows explode when they land. Their damage ignores all forms of Reduction.
+
+**Hand-Cannon**
+* Keywords: Large, Firearm, Heavy Weapon
+* Range: 20 feet
+* Damage rating: 4k3
+* Price: 25 Koku
+* Special: The Hand-Cannon ignores Reduction from natural toughness. It can only be fired once. The Hand-Cannon can be wielded in melee as a Tetsubo.
+
+**Bajozutsu**
+* Keywords: Small, Samurai, Firearm
+* Range: 20 feet
+* Damage rating: 3k2
+* Price: Due to the sacred nature of the Bajozutsu and the complexity of the weapon’s manufacture, they are not normally available for sale.
+* Special: The Bajozutsu can be drawn from its sheath with the Iaijutsu skill.
+
+**Teppo**
+* Keywords: Large, Samurai, Firearm
+* Range: 150 feet
+* Damage rating: 3k3
+* Price: 30 Koku
+* Special: At half range or less, the Teppo ignores Reduction from natural toughness.
