@@ -1,0 +1,120 @@
+uuid: ec1c747c-42ba-4bbb-b599-b3f3f04acb87
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.equipment.body
+    - field.field.node.equipment.field_armor_damage_reduction
+    - field.field.node.equipment.field_bonus_to_armor_tn
+    - field.field.node.equipment.field_bow_strength
+    - field.field.node.equipment.field_damage_rating
+    - field.field.node.equipment.field_equipment_cost
+    - field.field.node.equipment.field_equipment_special
+    - field.field.node.equipment.field_equipment_type
+    - field.field.node.equipment.field_keywords
+    - field.field.node.equipment.field_range
+    - field.field.node.equipment.field_source
+    - node.type.equipment
+  module:
+    - entity_reference_revisions
+    - text
+    - user
+id: node.equipment.default
+targetEntityType: node
+bundle: equipment
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  field_armor_damage_reduction:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 112
+    region: content
+  field_bonus_to_armor_tn:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 113
+    region: content
+  field_bow_strength:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 115
+    region: content
+  field_damage_rating:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 116
+    region: content
+  field_equipment_cost:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 111
+    region: content
+  field_equipment_special:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 114
+    region: content
+  field_equipment_type:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 117
+    region: content
+  field_keywords:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 110
+    region: content
+  field_range:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 106
+    region: content
+  field_source:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 103
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  search_api_excerpt: true

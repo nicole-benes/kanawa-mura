@@ -2,6 +2,8 @@
      {% include '@km/templates/views/site-search/advantages-disadvantages/advantages-disadvantages.html.twig' %}
 {% elseif fields.type_1.content == 'ancestors' %} 
      {% include '@km/templates/views/ancestors/views-view-fields--ancestors.html.twig' %}
+{% elseif fields.type_1.content == 'equipment' %}
+     {% include '@km/templates/views/equipment/views-view-fields--equipment.html.twig' %}
 {% elseif fields.type_1.content == 'families' %}
      {% include '@km/templates/views/families/views-view-fields--families.html.twig' %}
 {% elseif fields.type_1.content == 'kata' %}

@@ -1,0 +1,23 @@
+uuid: 42f79ad7-9d3b-4c38-9c7d-20b0cb74cd61
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_armor_damage_reduction
+    - node.type.equipment
+id: node.equipment.field_armor_damage_reduction
+field_name: field_armor_damage_reduction
+entity_type: node
+bundle: equipment
+label: 'Armor Damage Reduction'
+description: 'The damage reduction supplied by this armor.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

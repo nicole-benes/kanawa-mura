@@ -1,0 +1,20 @@
+uuid: 3abb164d-4351-4437-bc95-93c125dd4fb6
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_bonus_to_armor_tn
+field_name: field_bonus_to_armor_tn
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -12424,6 +12424,10 @@ textarea.form-control-lg {
   font-size: 1rem;
   margin: 0.25rem 1.5rem;
 }
+.view-site-search .result-type .equipment-arrow::before, .view-site-search .result-type .equipment-arrow::after {
+  content: " ";
+  display: inline;
+}
 .view-site-search .result-type .result-icon::after {
   content: " ";
   display: inline;

@@ -21,6 +21,13 @@
           font-size: 1rem;
           margin: .25rem 1.5rem;
 
+          .equipment-arrow {
+               &::before, &::after {
+                    content: " ";
+                    display: inline;
+               }
+          }
+
           .result-icon {
                &::after {
                     content: " ";

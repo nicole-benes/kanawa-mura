@@ -49,6 +49,12 @@ function km_preprocess_views_view_grouping( &$variables ) {
           // And we add it to the view for use in the unformatted template
           $variables[ 'view' ]->ring = $title;
 
+
+     } else if( $variables[ 'view' ]->id() == 'equipment' ) {
+
+          if( strlen( $variables[ 'title' ] ) > 0 ) {
+               $variables[ 'groupingType' ] = km_machine_name( $variables[ 'title' ] );
+          }          
      }
 }    
 
@@ -80,6 +86,7 @@ function km_preprocess_views_view_unformatted( &$variables ) {
                $variables[ 'clan' ] = km_machine_name( $variables[ 'title' ] );
      
           }
+
      } else if( $variables[ 'view' ]->id() == 'ancestors' ) {
 
           // Minor Clans have no title since we removed the actual clan for some reason
@@ -123,6 +130,11 @@ function km_preprocess_views_view_unformatted( &$variables ) {
           $variables[ 'title' ] = strip_tags( $variables[ 'title' ] );
 
           $variables[ 'kataGrouping' ] = km_machine_name( strip_tags( $variables[ 'title' ] ) );
+
+     } else if( $variables[ 'view' ]->id() == 'equipment' ) {
+
+          $variables[ 'type' ] = km_machine_name( $variables[ 'title' ] );
+
      }
 }
 

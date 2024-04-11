@@ -1,0 +1,103 @@
+<{{ fields.title.wrapper_element }}{{ fields.title.wrapper_attributes }}>
+     <{{ fields.title.element_type }}{{ fields.title.element_attributes }}>
+          {% if row.search_result %}
+               <div class="search-result-row-header">     
+                    <div class="result-title">
+                         <a href="{{ row.link }}" title="{{ fields.title.content }}">{{ fields.title.content }}</a>{% if fields.source %} [{{ fields.source.content }}]{% endif %}
+                    </div>
+
+                    <div class="result-type">     
+                              {% if fields.equipment_type.content == 'Armor' %}
+                                   <span class="result-icon"><i class="fa-solid fa-shield"></i></span>Equipment<span class="equipment-arrow"><i class="fa-solid fa-arrow-right"></i></span>Armor
+                              {% elseif fields.equipment_group.content == 'Weapons' %}
+                                   <span class="result-icon"><i class="fa-solid fa-skull-crossbones"></i></span>Equipment<span class="equipment-arrow"><i class="fa-solid fa-arrow-right"></i></span>Weapons<span class="equipment-arrow"><i class="fa-solid fa-arrow-right"></i></span>{{ fields.equipment_type.content }}
+                              {% else %}
+                                   <span class="result-icon"><i class="fa-solid fa-question"></i></span>Other
+                              {% endif %}
+                         </span>
+                    </div>
+          {% else %}
+               <a id="{{ fields.title.content }}"></a>{{ fields.title.content }}{% if fields.source %} [{{ fields.source.content }}]{% endif %}
+          {% endif %}
+     </{{ fields.title.element_type }}>
+</{{ fields.title.wrapper_element }}>
+
+<div class="equipment-description">
+     {% if fields.body %}
+          <{{ fields.body.wrapper_element }}{{ fields.body.wrapper_attributes }}>
+               {{ fields.body.content }}
+          </{{ fields.body.wrapper_element }}>
+     {% endif %}
+</div>
+
+{#}
+{% if fields.equipment_type.content == 'Arrows' %}
+
+{% endif %}
+#}
+
+<ul class="equipment-stats">
+     {% if fields.bonus_to_armor_tn %}
+          <li>
+               <{{ fields.bonus_to_armor_tn.wrapper_element }}{{ fields.bonus_to_armor_tn.wrapper_attributes }}>
+                    <span class="label">Bonus to Armor TN</span><span class="inline-field-value">+{{ fields.bonus_to_armor_tn.content }}</span>
+               </{{ fields.bonus_to_armor_tn.wrapper_element }}>
+          </li>
+     {% endif %} 
+     
+     {% if fields.armor_damage_reduction %}
+          <li>
+               <{{ fields.armor_damage_reduction.wrapper_element }}{{ fields.armor_damage_reduction.wrapper_attributes }}>
+                    <span class="label">Reduction</span><span class="inline-field-value">{{ fields.armor_damage_reduction.content }}</span>
+               </{{ fields.armor_damage_reduction.wrapper_element }}>
+          </li>
+     {% endif %}      
+
+     {% if fields.keywords %}
+          <li>
+               <{{ fields.keywords.wrapper_element }}{{ fields.keywords.wrapper_attributes }}>
+                    <span class="label">Keywords</span><span class="inline-field-value">{{ fields.keywords.content }}</span>
+               </{{ fields.keywords.wrapper_element }}>
+          </li>
+     {% endif %} 
+
+     {% if fields.damage_rating %}
+          <li>
+               <{{ fields.damage_rating.wrapper_element }}{{ fields.damage_rating.wrapper_attributes }}>
+                    <span class="label">Damage Rating</span><span class="inline-field-value">{{ fields.damage_rating.content }}</span>
+               </{{ fields.damage_rating.wrapper_element }}>
+          </li>
+     {% endif %} 
+
+     {% if fields.bow_strength %}
+          <li>
+               <{{ fields.bow_strength.wrapper_element }}{{ fields.bow_strength.wrapper_attributes }}>
+                    <span class="label">Strength</span><span class="inline-field-value">{{ fields.bow_strength.content }}</span>
+               </{{ fields.bow_strength.wrapper_element }}>
+          </li>
+     {% endif %}                 
+
+     {% if fields.range %}
+          <li>
+               <{{ fields.range.wrapper_element }}{{ fields.range.wrapper_attributes }}>
+                    <span class="label">Range</span><span class="inline-field-value">{{ fields.range.content }}</span>
+               </{{ fields.range.wrapper_element }}>
+          </li>
+     {% endif %}      
+
+     {% if fields.field_equipment_special %}
+          <li>
+               <{{ fields.equipment_special.wrapper_element }}{{ fields.equipment_special.wrapper_attributes }}>
+                    <span class="label">Special Rules</span><span class="inline-field-value">{{ fields.equipment_special.content }}</span>
+               </{{ fields.equipment_special.wrapper_element }}>
+          </li>
+     {% endif %}      
+
+     {% if fields.equipment_cost %}
+          <li>
+               <{{ fields.equipment_cost.wrapper_element }}{{ fields.equipment_cost.wrapper_attributes }}>
+                    <span class="label">Price</span><span class="inline-field-value">{{ fields.equipment_cost.content }}</span>
+               </{{ fields.equipment_cost.wrapper_element }}>
+          </li>
+     {% endif %} 
+</ul>

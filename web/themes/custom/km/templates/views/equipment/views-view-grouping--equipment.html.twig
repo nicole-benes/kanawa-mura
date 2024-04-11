@@ -1,0 +1,23 @@
+{% if groupingType %}
+     <div class="content-type {{ title|lower|replace( {' ':'-'} ) }} accordion">
+          <div class="accordion-item">
+               <h2 class="accordion-header">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#{{ groupingType }}" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+                         {{ title }}
+                    </button>
+               </h2>
+
+               <div id="{{ groupingType }}" class="accordion-collapse collapse show">
+                    <div class="accordion-body">
+                         <div class="equipment-content">
+                              {{ content }}
+                         </div>
+                    </div>
+               </div>
+          </div>
+     </div>
+{% else %}
+     <div class="equipment-content">
+          {{ content }}
+     </div>
+{% endif %}

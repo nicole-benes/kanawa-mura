@@ -1,12 +1,12 @@
-<div class="family-group accordion">
+<div class="equipment-type accordion">
      <div class="accordion-item">
           <h2 class="accordion-header">
-               <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#{{ clan }}-accordion" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+               <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#{{ type }}-accordion" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
                     {{ title }}
                </button>
           </h2>
 
-          <div id="{{ clan }}-accordion" class="accordion-collapse collapse show">
+          <div id="{{ type }}-accordion" class="accordion-collapse collapse show">
                <div class="accordion-body">
                     {% if description %}
                          <div class="grouping-description">
@@ -18,10 +18,9 @@
                          {% for row in rows %}
                               {% 
                               set row_classes = [
-                                   default_row_class ? 'views-row family ',
+                                   default_row_class ? 'views-row equipment ',
                               ]|merge(row_utility_classes ? row_utility_classes : []) 
                               %}
-                              
                               <div{{ row.attributes.addClass(row_classes) }}>
                                    {{- row.content -}}
                               </div>

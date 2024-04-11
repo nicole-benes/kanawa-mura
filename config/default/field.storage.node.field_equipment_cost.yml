@@ -1,0 +1,20 @@
+uuid: 8b4d45e4-3bf2-4b39-81e5-e4f993758d5f
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - text
+id: node.field_equipment_cost
+field_name: field_equipment_cost
+entity_type: node
+type: text
+settings:
+  max_length: 255
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

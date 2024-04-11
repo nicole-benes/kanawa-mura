@@ -25,7 +25,7 @@ if ( $handle ) {
                if( isset( $item[ 'name' ] ) ) {
 
                     // Push the description on
-                    $item[ 'description'] = trim( $description );
+                    $item[ 'description' ] = trim( $description );
 
                     // Put the item on the equipment array
                     $equipment[ $itemCategory ][ $itemType ][] = $item;
@@ -47,7 +47,7 @@ if ( $handle ) {
                if( isset( $item[ 'name' ] ) ) {
 
                     // Push the description on
-                    $item[ 'description'] = trim( $description );
+                    $item[ 'description' ] = trim( $description );
 
                     // Put the item on the equipment array
                     $equipment[ $itemCategory ][ $itemType ][] = $item;
@@ -67,6 +67,12 @@ if ( $handle ) {
 
                // Do we have an equipment item?
                if( isset( $item[ 'name' ] ) ) {
+
+                    // Push the description on
+                    $item[ 'description' ] = trim( $description );
+
+                    // Reset the description
+                    $description = '';
 
                     // Put the item on the equipment array
                     $equipment[ $itemCategory ][ $itemType ][] = $item;
@@ -174,7 +180,7 @@ if ( $handle ) {
      }   
 
      // Push the description on
-     $item[ 'description'] = trim( $description );
+     $item[ 'description' ] = trim( $description );
 
      // Push the last item on the equipment array
      $equipment[ $itemCategory ][ $itemType ][] = $item;

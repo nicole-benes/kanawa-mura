@@ -1,0 +1,29 @@
+uuid: 6c1381f6-2389-4d45-a179-ff6be29026d0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_keywords
+    - node.type.equipment
+    - taxonomy.vocabulary.keywords
+id: node.equipment.field_keywords
+field_name: field_keywords
+entity_type: node
+bundle: equipment
+label: Keywords
+description: 'The various keywords associated with this item.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      keywords: keywords
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

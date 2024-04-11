@@ -10,13 +10,19 @@ dependencies:
     - field.storage.node.field_affinity_special
     - field.storage.node.field_ancestor_demands
     - field.storage.node.field_area_of_effect
-    - field.storage.node.field_benefit
+    - field.storage.node.field_armor_damage_reduction
+    - field.storage.node.field_bonus_to_armor_tn
     - field.storage.node.field_clan
     - field.storage.node.field_clan_school
+    - field.storage.node.field_damage_rating
     - field.storage.node.field_devotion
     - field.storage.node.field_duration
     - field.storage.node.field_emphases
+    - field.storage.node.field_equipment_cost
+    - field.storage.node.field_equipment_special
+    - field.storage.node.field_equipment_type
     - field.storage.node.field_full_family_name
+    - field.storage.node.field_keywords
     - field.storage.node.field_kiho_type
     - field.storage.node.field_mastery
     - field.storage.node.field_path_replaces
@@ -3097,6 +3103,632 @@ display:
             use_highlighting: false
             multi_type: separator
             multi_separator: ', '
+        armor_damage_reduction:
+          id: armor_damage_reduction
+          table: search_api_index_main_index
+          field: armor_damage_reduction
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_field
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: number_integer
+          settings:
+            thousand_separator: ''
+            prefix_suffix: true
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          field_rendering: false
+          fallback_handler: search_api_numeric
+          fallback_options:
+            set_precision: false
+            precision: 0
+            decimal: .
+            separator: ''
+            format_plural: false
+            format_plural_string: !!binary MQNAY291bnQ=
+            prefix: ''
+            suffix: ''
+            link_to_item: false
+            use_highlighting: false
+            multi_type: separator
+            multi_separator: ', '
+            format_plural_values:
+              - '1'
+              - '@count'
+        bonus_to_armor_tn:
+          id: bonus_to_armor_tn
+          table: search_api_index_main_index
+          field: bonus_to_armor_tn
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_field
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: number_integer
+          settings:
+            thousand_separator: ''
+            prefix_suffix: true
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          field_rendering: false
+          fallback_handler: search_api_numeric
+          fallback_options:
+            set_precision: false
+            precision: 0
+            decimal: .
+            separator: ''
+            format_plural: false
+            format_plural_string: !!binary MQNAY291bnQ=
+            prefix: ''
+            suffix: ''
+            link_to_item: false
+            use_highlighting: false
+            multi_type: separator
+            multi_separator: ', '
+            format_plural_values:
+              - '1'
+              - '@count'
+        damage_rating:
+          id: damage_rating
+          table: search_api_index_main_index
+          field: damage_rating
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_field
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: false
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          field_rendering: false
+          fallback_handler: search_api
+          fallback_options:
+            link_to_item: false
+            use_highlighting: false
+            multi_type: separator
+            multi_separator: ', '
+        equipment_cost:
+          id: equipment_cost
+          table: search_api_index_main_index
+          field: equipment_cost
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_field
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: text_default
+          settings: {  }
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          field_rendering: false
+          fallback_handler: search_api
+          fallback_options:
+            link_to_item: false
+            use_highlighting: false
+            multi_type: separator
+            multi_separator: ', '
+        _equipment_special:
+          id: _equipment_special
+          table: search_api_index_main_index
+          field: _equipment_special
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_field
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: text_default
+          settings: {  }
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          field_rendering: false
+          fallback_handler: search_api
+          fallback_options:
+            link_to_item: false
+            use_highlighting: false
+            multi_type: separator
+            multi_separator: ', '
+        keywords:
+          id: keywords
+          table: search_api_index_main_index
+          field: keywords
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_field
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: target_id
+          type: entity_reference_label
+          settings:
+            link: true
+          group_column: target_id
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          field_rendering: true
+          fallback_handler: search_api_entity
+          fallback_options:
+            link_to_item: false
+            use_highlighting: false
+            multi_type: separator
+            multi_separator: ', '
+            display_methods:
+              advantage_disadvantage_subtypes:
+                display_method: label
+              clans:
+                display_method: label
+                view_mode: default
+              equipment:
+                display_method: label
+              keywords:
+                display_method: label
+              rings_traits:
+                display_method: label
+              school_type:
+                display_method: label
+              skill_type:
+                display_method: label
+                view_mode: default
+              source_books:
+                display_method: label
+                view_mode: default
+              supplemental_terms:
+                display_method: label
+        equipment_type:
+          id: equipment_type
+          table: search_api_index_main_index
+          field: equipment_type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_field
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: target_id
+          type: entity_reference_label
+          settings:
+            link: false
+          group_column: target_id
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          field_rendering: true
+          fallback_handler: search_api_entity
+          fallback_options:
+            link_to_item: false
+            use_highlighting: false
+            multi_type: separator
+            multi_separator: ', '
+            display_methods:
+              advantage_disadvantage_subtypes:
+                display_method: label
+              clans:
+                display_method: label
+                view_mode: default
+              equipment:
+                display_method: label
+              keywords:
+                display_method: label
+              rings_traits:
+                display_method: label
+              school_type:
+                display_method: label
+              skill_type:
+                display_method: label
+                view_mode: default
+              source_books:
+                display_method: label
+                view_mode: default
+              supplemental_terms:
+                display_method: label
+        equipment_group:
+          id: equipment_group
+          table: search_api_index_main_index
+          field: equipment_group
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_field
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: false
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          field_rendering: true
+          fallback_handler: search_api
+          fallback_options:
+            link_to_item: false
+            use_highlighting: false
+            multi_type: separator
+            multi_separator: ', '
       pager:
         type: full
         options:
@@ -3326,13 +3958,19 @@ display:
         - 'config:field.storage.node.field_affinity_special'
         - 'config:field.storage.node.field_ancestor_demands'
         - 'config:field.storage.node.field_area_of_effect'
-        - 'config:field.storage.node.field_benefit'
+        - 'config:field.storage.node.field_armor_damage_reduction'
+        - 'config:field.storage.node.field_bonus_to_armor_tn'
         - 'config:field.storage.node.field_clan'
         - 'config:field.storage.node.field_clan_school'
+        - 'config:field.storage.node.field_damage_rating'
         - 'config:field.storage.node.field_devotion'
         - 'config:field.storage.node.field_duration'
         - 'config:field.storage.node.field_emphases'
+        - 'config:field.storage.node.field_equipment_cost'
+        - 'config:field.storage.node.field_equipment_special'
+        - 'config:field.storage.node.field_equipment_type'
         - 'config:field.storage.node.field_full_family_name'
+        - 'config:field.storage.node.field_keywords'
         - 'config:field.storage.node.field_kiho_type'
         - 'config:field.storage.node.field_mastery'
         - 'config:field.storage.node.field_path_replaces'
@@ -3387,13 +4025,19 @@ display:
         - 'config:field.storage.node.field_affinity_special'
         - 'config:field.storage.node.field_ancestor_demands'
         - 'config:field.storage.node.field_area_of_effect'
-        - 'config:field.storage.node.field_benefit'
+        - 'config:field.storage.node.field_armor_damage_reduction'
+        - 'config:field.storage.node.field_bonus_to_armor_tn'
         - 'config:field.storage.node.field_clan'
         - 'config:field.storage.node.field_clan_school'
+        - 'config:field.storage.node.field_damage_rating'
         - 'config:field.storage.node.field_devotion'
         - 'config:field.storage.node.field_duration'
         - 'config:field.storage.node.field_emphases'
+        - 'config:field.storage.node.field_equipment_cost'
+        - 'config:field.storage.node.field_equipment_special'
+        - 'config:field.storage.node.field_equipment_type'
         - 'config:field.storage.node.field_full_family_name'
+        - 'config:field.storage.node.field_keywords'
         - 'config:field.storage.node.field_kiho_type'
         - 'config:field.storage.node.field_mastery'
         - 'config:field.storage.node.field_path_replaces'
@@ -3444,13 +4088,19 @@ display:
         - 'config:field.storage.node.field_affinity_special'
         - 'config:field.storage.node.field_ancestor_demands'
         - 'config:field.storage.node.field_area_of_effect'
-        - 'config:field.storage.node.field_benefit'
+        - 'config:field.storage.node.field_armor_damage_reduction'
+        - 'config:field.storage.node.field_bonus_to_armor_tn'
         - 'config:field.storage.node.field_clan'
         - 'config:field.storage.node.field_clan_school'
+        - 'config:field.storage.node.field_damage_rating'
         - 'config:field.storage.node.field_devotion'
         - 'config:field.storage.node.field_duration'
         - 'config:field.storage.node.field_emphases'
+        - 'config:field.storage.node.field_equipment_cost'
+        - 'config:field.storage.node.field_equipment_special'
+        - 'config:field.storage.node.field_equipment_type'
         - 'config:field.storage.node.field_full_family_name'
+        - 'config:field.storage.node.field_keywords'
         - 'config:field.storage.node.field_kiho_type'
         - 'config:field.storage.node.field_mastery'
         - 'config:field.storage.node.field_path_replaces'

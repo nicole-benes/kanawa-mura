@@ -1,0 +1,19 @@
+uuid: d5cba9bf-e483-4927-8e34-2d9fabe4eafe
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_range
+    - node.type.equipment
+id: node.equipment.field_range
+field_name: field_range
+entity_type: node
+bundle: equipment
+label: Range
+description: 'The range of this weapon.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

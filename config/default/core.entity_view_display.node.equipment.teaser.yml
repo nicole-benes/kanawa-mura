@@ -1,0 +1,51 @@
+uuid: e4173d4c-a94c-4339-85bd-2f6d6ff0aecf
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.equipment.body
+    - field.field.node.equipment.field_armor_damage_reduction
+    - field.field.node.equipment.field_bonus_to_armor_tn
+    - field.field.node.equipment.field_bow_strength
+    - field.field.node.equipment.field_damage_rating
+    - field.field.node.equipment.field_equipment_cost
+    - field.field.node.equipment.field_equipment_special
+    - field.field.node.equipment.field_equipment_type
+    - field.field.node.equipment.field_keywords
+    - field.field.node.equipment.field_range
+    - field.field.node.equipment.field_source
+    - node.type.equipment
+  module:
+    - text
+    - user
+id: node.equipment.teaser
+targetEntityType: node
+bundle: equipment
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_armor_damage_reduction: true
+  field_bonus_to_armor_tn: true
+  field_bow_strength: true
+  field_damage_rating: true
+  field_equipment_cost: true
+  field_equipment_special: true
+  field_equipment_type: true
+  field_keywords: true
+  field_range: true
+  field_source: true
+  search_api_excerpt: true

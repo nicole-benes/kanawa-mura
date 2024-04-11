@@ -1,0 +1,23 @@
+uuid: 96df13fd-59c7-4b29-99e7-d09935bc28b0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_bonus_to_armor_tn
+    - node.type.equipment
+id: node.equipment.field_bonus_to_armor_tn
+field_name: field_bonus_to_armor_tn
+entity_type: node
+bundle: equipment
+label: 'Bonus to Armor TN'
+description: 'The bonus this armor provides to your TN.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

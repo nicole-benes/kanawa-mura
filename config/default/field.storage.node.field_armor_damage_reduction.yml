@@ -1,0 +1,20 @@
+uuid: 2f7e4514-fc99-43e9-8109-319c4b21a116
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_armor_damage_reduction
+field_name: field_armor_damage_reduction
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

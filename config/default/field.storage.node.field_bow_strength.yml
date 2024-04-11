@@ -1,0 +1,19 @@
+uuid: 90836000-ddd4-45db-86f5-bd5d6c02bde4
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - text
+id: node.field_bow_strength
+field_name: field_bow_strength
+entity_type: node
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

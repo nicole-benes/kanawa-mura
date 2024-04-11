@@ -58,11 +58,16 @@ function last_haiku_import_install() {
 	// Import Kiho
 	last_haiku_import_kiho( $sources );
 
+     // Import equipment
+     last_haiku_import_equipment( $sources );
+
      // Run the redirect maker
      last_haiku_import_make_redirects();
 
+     // Make the top menu
      last_haiku_import_make_menu();
 }
+
 
 
 function last_haiku_import_make_menu() {
@@ -76,6 +81,10 @@ function last_haiku_import_make_menu() {
           'Ancestors' => [ 
                'description' => 'All the Ancestors which are available for purchase.',
                'uri' => '/ancestors',
+          ],
+          'Equipment' => [
+               'description' => 'The equipment available for purchase and use in Rokugon.',
+               'uri' => '/equipment',
           ],
           'Families' => [
                'description' => 'The families which make up Rokugon.',
@@ -174,6 +183,174 @@ function last_haiku_import_create_user() {
      $user->activate();
      $user->block();
      $user->save();
+}
+
+
+
+function last_haiku_import_equipment( $sources ) {
+
+	// Get the path to the Katafile
+	$equipmentFilePath = \Drupal::service('extension.list.module')->getPath('last_haiku_import') . '/json/equipment.json';
+	
+	// Turn the JSON back into a PHP array
+	$equipmentArray = json_decode( file_get_contents( $equipmentFilePath ) );
+
+	// Loop through the outer category
+	foreach( $equipmentArray as $category => $equipmentGroup ) {
+
+          // Loop through the inner category
+          foreach( $equipmentGroup as $groupType => $group ) {
+
+               // Check if we have a category
+               if( strlen( $groupType ) == 0 ) {
+
+                    // Make the type the category
+                    $groupType = $category;
+               }
+
+               // Loop through the items
+               foreach( $group as $item ) {
+
+                    // Set up our node
+                    $node = [
+                         'type' => 'equipment',
+                         'title' => $item->name,
+                         'field_equipment_type' => [ 'target_id' => last_haiku_import_term_lookup( $groupType, 'equipment' ) ],
+                    ];
+
+                    // Do we have a description?
+                    if( property_exists( $item, 'description' ) ) {
+
+                         // Set the description, wrapped in paragraph tags
+                         $node[ 'body' ] = [
+                              'value' => '<p>' . $item->description . '</p>',
+                              'format' => 'full_html',
+                         ];
+                    }
+               
+                    // Does this spell have any keywords?
+                    if( property_exists( $item, 'keywords' ) ) {
+
+                         // Set up an array to hold the keywords
+                         $node[ 'field_keywords' ] = [];
+
+                         // Loop through any keywords
+                         foreach( $item->keywords as $keyword ) {
+
+                              // Try to load this keywords TID
+                              $tid = last_haiku_import_term_lookup( $keyword, 'keywords' );
+
+                              // This term doesn't exist yet
+                              if( !$tid ) {
+
+                                   // Lets make it!
+                                   $keywordTerm = Term::create([
+                                        'vid' => 'keywords',
+                                        'name' => $keyword,
+                                   ]);
+
+                                   $keywordTerm->enforceIsNew();
+                                   $keywordTerm->save();
+
+                                   // Get the ID of the new term
+                                   $tid = $keywordTerm->id();
+                              }
+
+                              // Set any keywords
+                              $node[ 'field_keywords' ][] = [ 'target_id' => $tid ];
+                         }
+                    }  
+                    
+                    // Does this item have a cost?
+                    if( property_exists( $item, 'cost' ) ) {
+
+                         // Set the cost
+                         $node[ 'field_equipment_cost' ] = [
+                              'value' => $item->cost,
+                              'format' => 'full_html',
+                         ];
+                    }
+
+                    // Does this item have a range?
+                    if( property_exists( $item, 'range' ) ) {
+
+                         // Set the range
+                         $node[ 'field_range' ] = $item->range;
+                    }
+
+                    // Does this item have special rules?
+                    if( property_exists( $item, 'special' ) ) {
+                    
+                         // Set the special rules
+                         $node[ 'field_equipment_special' ] = $item->special;
+                    }
+
+                    // Does this item have damage reduction?
+                    if( property_exists( $item, 'damage_reduction' ) ) {
+
+
+                         // Set the special rules
+                         $node[ 'field_armor_damage_reduction' ] = $item->damage_reduction;
+                    }
+
+                    // Does this item have a bonus to TN?
+                    if( property_exists( $item, 'tn' ) ) {
+
+                         // Set the special rules
+                         $node[ 'field_bonus_to_armor_tn' ] = $item->tn;
+                    }
+
+                    // Does this item have a strength requirement?
+                    if( property_exists( $item, 'strength' ) ) {
+
+                         // Set the special rules
+                         $node[ 'field_bow_strength' ] = [
+                              'value' => $item->strength,
+                              'format' => 'full_html',
+                         ];
+                    }
+
+                    // Does this item have a damage rating?
+                    if( property_exists( $item, 'damage_rating' ) ) {
+
+                         // Set the special rules
+                         $node[ 'field_damage_rating' ] = $item->damage_rating;
+                    }  
+                    
+                    // Check if we do have a source
+                    if( property_exists( $item, 'source' ) ) {
+
+                         // Create our source paragraph
+                         $source = Paragraph::create([
+                              'type' => 'source',
+                              'field_source_book' => [
+                                   [ 'target_id' => $sources[ $item->source ] ]
+                              ],
+                         ]); 
+
+                         // Save the source paragraph
+                         $source->save();
+
+                         // add the source to our node
+                         $node[ 'field_source' ] = [
+                              [
+                                   'target_id' => $source->id(),
+                                   'target_revision_id' => $source->getRevisionId(),			
+                              ],
+                         ];
+                    } 
+                    
+                    // Set the node author to the importer
+                    $node[ 'uid' ] = 2;
+
+                    // Create our node for this item
+                    $node = Node::create( $node );
+
+                    // Save the node
+                    $node->save();                    
+               }
+          }     
+     } 
 }
 
 
@@ -2208,6 +2385,75 @@ function last_haiku_import_create_taxonomies() {
      last_haiku_import_create_supplemental_terms();
 
      last_haiku_import_create_advantage_and_disadvantage_subtypes();
+
+     last_haiku_import_create_equipment();
+}
+
+
+
+function last_haiku_import_create_equipment() {
+     $equipment = [
+          'Armor',
+          'Weapons' => [
+               'Arrows',
+               'Bows',
+               'Chain Weapons',
+               'Heavy Weapons',
+               'Knives',
+               'Ninja Weapons',
+               'Polearms',
+               'Spears',
+               'Staves',
+               'Swords',
+               'War Fans',
+               'Rokugani Firearms',
+          ],
+     ];
+
+     foreach( $equipment as $key => $type ) {
+
+          // Check if this item has children
+          if( !is_array( $type ) ) {
+
+               // Just a normal term with no children so we can create it
+               $term = Term::create([
+                    'vid' => 'equipment',
+                    'name' => $type,
+               ]);
+               
+               $term->enforceIsNew();
+               $term->save(); 
+     
+          // This term has sub-categories
+          } else {
+
+               // Make our parent term based on the key
+               $term = Term::create([
+                    'vid' => 'equipment',
+                    'name' => $key,
+               ]);
+               
+               $term->enforceIsNew();
+               $term->save(); 
+               
+               // Get the ID of the term we just made
+               $parent = $term->id();
+
+               // Cycle through the sub-types
+               foreach( $type as $child ) {
+          
+                    // Make our parent term based on the key
+                    $term = Term::create([
+                         'vid' => 'equipment',
+                         'name' => $child,
+                         'parent' => [ 'target_id' => $parent ],
+                    ]);
+                    
+                    $term->enforceIsNew();
+                    $term->save(); 
+               }
+          }
+     }     
 }
 
 

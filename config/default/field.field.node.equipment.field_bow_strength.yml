@@ -1,0 +1,22 @@
+uuid: 2b0077aa-0c4c-484d-af8f-3375ada46a56
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_bow_strength
+    - node.type.equipment
+  module:
+    - text
+id: node.equipment.field_bow_strength
+field_name: field_bow_strength
+entity_type: node
+bundle: equipment
+label: 'Bow Strength'
+description: 'The strength of this bow.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

@@ -3,15 +3,23 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_required_advantage
+    - field.storage.node.field_armor_damage_reduction
+    - field.storage.node.field_bonus_to_armor_tn
+    - field.storage.node.field_bow_strength
     - field.storage.node.field_clan
     - field.storage.node.field_clan_school
+    - field.storage.node.field_damage_rating
     - field.storage.node.field_emphases
+    - field.storage.node.field_equipment_cost
+    - field.storage.node.field_equipment_special
+    - field.storage.node.field_equipment_type
+    - field.storage.node.field_keywords
     - field.storage.node.field_kiho_type
     - field.storage.node.field_mastery
     - field.storage.node.field_point_value
     - field.storage.node.field_point_value_numeric
     - field.storage.node.field_rank
+    - field.storage.node.field_required_advantage
     - field.storage.node.field_benefit
     - field.storage.paragraph.field_trait_modified
     - field.storage.paragraph.field_trait_modifier
@@ -40,6 +48,14 @@ name: 'Main Index'
 description: 'The main site index.'
 read_only: false
 field_settings:
+  _equipment_special:
+    label: 'Equipment Special'
+    datasource_id: 'entity:node'
+    property_path: field_equipment_special
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_equipment_special
   advantage_subtypes:
     label: 'Subtype (Advantages & Disadvantages)'
     datasource_id: 'entity:node'
@@ -56,6 +72,38 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.field_advantage_type
+  armor_damage_reduction:
+    label: 'Armor Damage Reduction'
+    datasource_id: 'entity:node'
+    property_path: field_armor_damage_reduction
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_armor_damage_reduction
+  benefit:
+    label: 'Required Rings'
+    datasource_id: 'entity:node'
+    property_path: field_benefit
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_benefit
+  bonus_to_armor_tn:
+    label: 'Bonus to Armor TN'
+    datasource_id: 'entity:node'
+    property_path: field_bonus_to_armor_tn
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_bonus_to_armor_tn
+  bow_strength:
+    label: 'Bow Strength'
+    datasource_id: 'entity:node'
+    property_path: field_bow_strength
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_bow_strength
   clan:
     label: 'Clan » Taxonomy term » Name'
     datasource_id: 'entity:node'
@@ -132,6 +180,14 @@ field_settings:
         - field.storage.node.field_clan
       module:
         - taxonomy
+  damage_rating:
+    label: 'Damage Rating'
+    datasource_id: 'entity:node'
+    property_path: field_damage_rating
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_damage_rating
   description:
     label: Description
     datasource_id: 'entity:taxonomy_term'
@@ -153,26 +209,40 @@ field_settings:
     label: 'Entity type'
     property_path: search_api_entity_type
     type: string
-  field_benefit:
-    label: 'Required Rings'
+  equipment_cost:
+    label: 'Equipment Cost'
     datasource_id: 'entity:node'
-    property_path: field_benefit
+    property_path: field_equipment_cost
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_equipment_cost
+  equipment_group:
+    label: 'Equipment Type » Taxonomy term » Term Parents » Taxonomy term » Name'
+    datasource_id: 'entity:node'
+    property_path: 'field_equipment_type:entity:parent:entity:name'
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_equipment_type
+      module:
+        - taxonomy
+  equipment_type:
+    label: 'Equipment Type'
+    datasource_id: 'entity:node'
+    property_path: field_equipment_type
     type: integer
     dependencies:
       config:
-        - field.storage.node.field_benefit
-  field_title:
-    label: 'School Techniques » Paragraph » Title'
+        - field.storage.node.field_equipment_type
+  keywords:
+    label: Keywords
     datasource_id: 'entity:node'
-    property_path: 'field_school_techniques:entity:field_title'
-    type: text
-    boost: 2.0
+    property_path: field_keywords
+    type: integer
     dependencies:
       config:
-        - field.storage.node.field_school_techniques
-        - field.storage.paragraph.field_title
-      module:
-        - paragraphs
+        - field.storage.node.field_keywords
   kiho_type:
     label: 'Kiho Type'
     datasource_id: 'entity:node'
@@ -258,6 +328,7 @@ field_settings:
           advantages_disadvantages: default
           alternate_paths: default
           ancestors: default
+          equipment: default
           families: default
           homepage: default
           kata: default
@@ -274,6 +345,7 @@ field_settings:
         'entity:taxonomy_term':
           advantage_disadvantage_subtypes: default
           clans: default
+          equipment: default
           keywords: default
           rings_traits: default
           school_type: default
@@ -382,6 +454,18 @@ field_settings:
       config:
         - field.storage.node.field_school_techniques
         - field.storage.paragraph.field_rank
+      module:
+        - paragraphs
+  technique_title:
+    label: 'School Techniques » Paragraph » Title'
+    datasource_id: 'entity:node'
+    property_path: 'field_school_techniques:entity:field_title'
+    type: text
+    boost: 2.0
+    dependencies:
+      config:
+        - field.storage.node.field_school_techniques
+        - field.storage.paragraph.field_title
       module:
         - paragraphs
   technique_type:
@@ -520,7 +604,7 @@ processor_settings:
     fields:
       clan_school_term: taxonomy_term-parent
       clan_term: taxonomy_term-parent
-      spell_ring: taxonomy_term-parent
+      equipment_type: taxonomy_term-parent
       trait: taxonomy_term-parent
   highlight:
     weights:
@@ -539,15 +623,19 @@ processor_settings:
       preprocess_query: -15
     all_fields: true
     fields:
+      - _equipment_special
       - advantage_type
+      - bow_strength
       - clan
       - clan_group_name
       - clan_school
       - clan_school_parent
+      - damage_rating
       - description
       - emphases
       - entity_type
-      - field_title
+      - equipment_cost
+      - equipment_group
       - name
       - point_value
       - rendered_item
@@ -557,6 +645,7 @@ processor_settings:
       - skill_sub_types
       - source
       - technique_description
+      - technique_title
       - technique_type
       - title
       - trait_modified
@@ -576,15 +665,19 @@ processor_settings:
       preprocess_query: -20
     all_fields: true
     fields:
+      - _equipment_special
       - advantage_type
+      - bow_strength
       - clan
       - clan_group_name
       - clan_school
       - clan_school_parent
+      - damage_rating
       - description
       - emphases
       - entity_type
-      - field_title
+      - equipment_cost
+      - equipment_group
       - name
       - point_value
       - rendered_item
@@ -594,6 +687,7 @@ processor_settings:
       - skill_sub_types
       - source
       - technique_description
+      - technique_title
       - technique_type
       - title
       - trait_modified
@@ -607,14 +701,16 @@ processor_settings:
       preprocess_query: -6
     all_fields: true
     fields:
+      - _equipment_special
+      - bow_strength
       - description
       - emphases
-      - field_title
       - rendered_item
       - required_advantage
       - required_schools
       - skill_sub_types
       - technique_description
+      - technique_title
       - title
     spaces: ''
     ignored: ._-
@@ -626,15 +722,19 @@ processor_settings:
       preprocess_query: -20
     all_fields: true
     fields:
+      - _equipment_special
       - advantage_type
+      - bow_strength
       - clan
       - clan_group_name
       - clan_school
       - clan_school_parent
+      - damage_rating
       - description
       - emphases
       - entity_type
-      - field_title
+      - equipment_cost
+      - equipment_group
       - name
       - point_value
       - rendered_item
@@ -644,6 +744,7 @@ processor_settings:
       - skill_sub_types
       - source
       - technique_description
+      - technique_title
       - technique_type
       - title
       - trait_modified

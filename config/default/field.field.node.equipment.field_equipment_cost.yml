@@ -1,0 +1,22 @@
+uuid: 71c12106-c796-4889-a07d-6f6e10dca769
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_equipment_cost
+    - node.type.equipment
+  module:
+    - text
+id: node.equipment.field_equipment_cost
+field_name: field_equipment_cost
+entity_type: node
+bundle: equipment
+label: 'Equipment Cost'
+description: 'How much it generally costs to purchase this item.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text

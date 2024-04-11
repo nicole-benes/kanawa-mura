@@ -1,0 +1,8 @@
+uuid: 2ecb3e47-14a4-493b-876d-d2635f631740
+langcode: en
+status: true
+dependencies: {  }
+name: 'Equipment Types'
+vid: equipment
+description: 'A taxonomy to hold the various types of equipment found in L5R.'
+weight: 0
