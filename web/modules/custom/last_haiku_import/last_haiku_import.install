@@ -2356,6 +2356,9 @@ function last_haiku_import_make_redirects() {
      $redirects[ 'advantages-disadvantages/advantages' ] = '/advantages-disadvantages?type=advantage';
      $redirects[ 'advantages-disadvantages/disadvantages' ] = '/advantages-disadvantages?type=disadvantage';
 
+     // Equipment redirects
+     $redirects[ 'equipment/armor' ] = '/equipment?type=90';
+     $redirects[ 'equipment/weapons' ] = '/equipment?type=91';
 
      // Make all the redirects
      foreach( $redirects as $source => $target ) {
