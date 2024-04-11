@@ -12374,6 +12374,9 @@ textarea.form-control-lg {
 .grouped-view.view-ancestors .views-exposed-form .form-type-textfield {
   width: 67%;
 }
+.grouped-view.view-equipment .views-exposed-form .form-type-textfield {
+  width: 74%;
+}
 .grouped-view.view-families .views-exposed-form .form-type-textfield {
   width: 75%;
 }

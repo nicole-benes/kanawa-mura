@@ -223,6 +223,47 @@ function kanawa_mura_form_alter( &$form, $form_state, $form_id ) {
 
           // Change the search all option to something more clear
           $form[ 'type' ][ '#options' ][ 'All' ] = t( 'All Types' );    
+     
+     // Equipment
+     } else if( $form[ '#id' ] == 'views-exposed-form-equipment-page-1' ) {
+
+          // Set up our new options array
+          $newOptions = [
+               'All' => 'All Equipment',
+          ];
+
+          // Indicator for when we are doing weapons
+          $weapons = false;
+
+          // Loop through all the options
+          for( $i = 0; $i < count( $form[ 'type' ][ '#options' ] ) - 1; $i++ ) {
+
+               // Is this the Great Clan row?
+               if( in_array( 'Armor', $form[ 'type' ][ '#options' ][ $i ]->option ) ) {
+
+                    $newOptions[ kanawa_mura_term_lookup( 'Armor', 'equipment' ) ] = 'Armor';
+
+               } else if( in_array( 'Weapons', $form[ 'type' ][ '#options' ][ $i ]->option ) ) {
+
+                    // Set what index great clans are
+                    $weapons = $i;
+                    
+                    // Push this option onto the great clan array
+                    $newOptions[ 'Weapons' ] = [
+                         array_key_first( $form[ 'type' ][ '#options' ][ $i ]->option ) => 'All Weapons',
+                    ];                    
+
+               } else {
+                    if( $weapons !== false ) {
+                         foreach( $form['type' ][ '#options' ][ $i ]->option as $tid => $label ) {
+                              $newOptions[ 'Weapons' ][ $tid ] = trim( $label, ' -' );
+                         }                         
+                    }
+               }     
+          }
+
+          // Replace the old select list with the new onedrush
+          $form[ 'type' ][ '#options' ] = $newOptions;          
      }
 }
 

@@ -196,6 +196,10 @@ function km_preprocess_views_view_fields( &$variables ) {
                     km_school_template_variables( $variables );
                     break;
 
+               case 'equipment':
+                    $variables[ 'row' ]->link = '/equipment#' . $title;
+                    break;
+
                case 'families':
                     $variables[ 'row' ]->link = '/families#' . $title;
                     break;
