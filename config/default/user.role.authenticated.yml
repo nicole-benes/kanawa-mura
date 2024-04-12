@@ -8,6 +8,7 @@ dependencies:
     - file
     - filter
     - fontawesome
+    - google_analytics
     - shortcut
     - system
 _core:
@@ -21,4 +22,5 @@ permissions:
   - 'access fontawesome additional settings'
   - 'access shortcuts'
   - 'delete own files'
+  - 'opt-in or out of google analytics tracking'
   - 'use text format basic_html'
