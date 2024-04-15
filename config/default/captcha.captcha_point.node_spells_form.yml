@@ -1,0 +1,7 @@
+uuid: 5a4679b4-d34c-4a39-bf58-c0c3714bc27a
+langcode: en
+status: false
+dependencies: {  }
+formId: node_spells_form
+captchaType: default
+label: node_spells_form

@@ -1,0 +1,7 @@
+uuid: 8fcf11b2-2530-491d-970c-c961dc77781a
+langcode: en
+status: false
+dependencies: {  }
+formId: node_skills_form
+captchaType: default
+label: node_skills_form

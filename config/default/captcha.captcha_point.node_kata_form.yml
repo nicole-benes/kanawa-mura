@@ -1,0 +1,7 @@
+uuid: 5d90087b-6dd7-41bf-b8ff-cd9880989f23
+langcode: en
+status: false
+dependencies: {  }
+formId: node_kata_form
+captchaType: default
+label: node_kata_form
