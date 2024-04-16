@@ -16,11 +16,11 @@ dependencies:
     - search_api.index.main_index
     - taxonomy.vocabulary.rings_traits
   content:
-    - 'taxonomy_term:rings_traits:7230c98d-8d86-4d9a-a007-71280998f27c'
-    - 'taxonomy_term:rings_traits:85abf81d-ed70-4ea6-b8fe-6e60e26429b8'
-    - 'taxonomy_term:rings_traits:8e94a304-c9a4-45df-8728-409dc499249b'
-    - 'taxonomy_term:rings_traits:a5e06980-3950-454e-979a-e402598742e4'
-    - 'taxonomy_term:rings_traits:ea1ce600-f4bc-42e0-bf73-2b078e9a2220'
+    - 'taxonomy_term:rings_traits:11e785d0-2f83-4079-b8fb-3ed2f2586006'
+    - 'taxonomy_term:rings_traits:7130992f-73fa-40f6-973c-a7313c891249'
+    - 'taxonomy_term:rings_traits:84b79f38-ec29-4b6f-9e2c-3b425afa81c0'
+    - 'taxonomy_term:rings_traits:a2f64669-e4fa-449b-836c-29ee6d6b643e'
+    - 'taxonomy_term:rings_traits:d7c83ca5-ed28-4780-9c0f-bf4dd6be8b36'
   module:
     - rest
     - search_api
@@ -908,6 +908,19 @@ display:
           id: rank
           table: search_api_index_main_index
           field: rank
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: ASC
+          expose:
+            label: ''
+            field_identifier: ''
+          exposed: false
+        title:
+          id: title
+          table: search_api_index_main_index
+          field: title
           relationship: none
           group_type: group
           admin_label: ''

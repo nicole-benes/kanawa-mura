@@ -1817,6 +1817,19 @@ display:
             label: ''
             field_identifier: ''
           exposed: false
+        title:
+          id: title
+          table: search_api_index_main_index
+          field: title
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: ASC
+          expose:
+            label: ''
+            field_identifier: ''
+          exposed: false
       arguments: {  }
       filters:
         type_1:
