@@ -1,7 +1,7 @@
 _core:
   default_config_hash: ByOVf1cU9r5NkZ4ieBJ7k9sUid6jb03ojMN1gjJ0-OU
-site_key: 'site key'
-secret_key: 'secret key'
+site_key: 'v2 key'
+secret_key: 'v2 secret'
 verify_hostname: false
 use_globally: false
 widget:

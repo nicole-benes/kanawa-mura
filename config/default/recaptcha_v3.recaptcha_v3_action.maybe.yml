@@ -1,0 +1,8 @@
+uuid: 3c889ee2-ec2d-4655-ab4f-6aeeab934aa8
+langcode: en
+status: true
+dependencies: {  }
+id: maybe
+label: Maybe
+threshold: 0.5
+challenge: recaptcha/reCAPTCHA
