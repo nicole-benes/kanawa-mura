@@ -450,7 +450,7 @@ This spell uses the power of the Earth to enhance the resistance to hostile magi
 * Duration: Instantaneous
 * Raises: Damage (+1k0), Range (+10'), Targets (+1 target, maximum of 5 total targets)
 
-This summons forth the purest of Earth kami, those of jade, in the form of a blast of iridescent green energy. The jade power flies out and unerringly strikes the chosen target - it cannot be intercepted or deflected, although Magic Resistance or other forms of magical defense can thwart it. If the target has at least one Rank of Taint, the Jade Strike will inflict damage with a DR of 3,3, burning and blackening the Tainted flesh. However, a target who does not have at least a full Rank of Taint will not suffer any damage from the spell. Casting Jade Strike on a non-Tainted target is generally regarded as a grave insult - except perhaps among the more paranoid ranks of the Kuni family, where it is seen as merely a sensible precaution.
+This summons forth the purest of Earth kami, those of jade, in the form of a blast of iridescent green energy. The jade power flies out and unerringly strikes the chosen target - it cannot be intercepted or deflected, although Magic Resistance or other forms of magical defense can thwart it. If the target has at least one Rank of Taint, the Jade Strike will inflict damage with a DR of 3k3, burning and blackening the Tainted flesh. However, a target who does not have at least a full Rank of Taint will not suffer any damage from the spell. Casting Jade Strike on a non-Tainted target is generally regarded as a grave insult - except perhaps among the more paranoid ranks of the Kuni family, where it is seen as merely a sensible precaution.
 
 **Jurojin's Balm [CR]**
 * Ring/Mastery: Earth 1
