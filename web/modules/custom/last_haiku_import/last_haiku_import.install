@@ -2251,8 +2251,6 @@ function last_haiku_import_make_redirects() {
           'Bat',
           'Boar',
           'Dragonfly',
-          'Falcon',
-          'Fox',
           'Hare',
           'Monkey',
           'Oriole',
@@ -2285,6 +2283,9 @@ function last_haiku_import_make_redirects() {
 
           $redirects[ 'schools/' . strtolower( $clan ) ] = '/schools?clan[]=' . last_haiku_import_term_lookup( $clan, 'clans' );
      }
+
+     $redirects[ 'families/falcon' ] = '/families?clan[]=' . last_haiku_import_term_lookup( 'Crab', 'clans' ) . '#Toritaka';
+     $redirects[ 'families/fox' ] = '/families?clan[]=' . last_haiku_import_term_lookup( 'Mantis', 'clans' ) . '#Kitsune';
 
      $redirects[ 'schools/' . strtolower( 'Miscellaneous' ) ] = '/schools?clan[]=' . last_haiku_import_term_lookup( 'Miscellaneous', 'supplemental_terms' );
      $redirects[ 'schools/' . strtolower( 'Monk' ) ] = '/schools?clan[]=' . last_haiku_import_term_lookup( 'Monk', 'supplemental_terms' );
