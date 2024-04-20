@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.families.field_benefit
     - field.field.node.families.field_clan
     - field.field.node.families.field_full_family_name
+    - field.field.node.families.field_source
     - node.type.families
   module:
     - entity_reference_revisions
@@ -48,6 +49,15 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     weight: 106
+    region: content
+  field_source:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 103
     region: content
   links:
     settings: {  }

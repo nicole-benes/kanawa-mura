@@ -8,6 +8,7 @@ dependencies:
     - field.field.node.families.field_benefit
     - field.field.node.families.field_clan
     - field.field.node.families.field_full_family_name
+    - field.field.node.families.field_source
     - node.type.families
   module:
     - text
@@ -34,4 +35,5 @@ hidden:
   field_benefit: true
   field_clan: true
   field_full_family_name: true
+  field_source: true
   search_api_excerpt: true

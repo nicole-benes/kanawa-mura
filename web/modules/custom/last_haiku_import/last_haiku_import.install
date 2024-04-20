@@ -23,10 +23,7 @@ function last_haiku_import_install() {
      last_haiku_import_homepage();
 
      // Create the taxonomies we need for the site
-	last_haiku_import_create_taxonomies();
-
-	// Generate the sources array
-	$sources = last_haiku_import_generate_sources();
+	$sources = last_haiku_import_create_taxonomies();
 
 	// Get the clans taxonomy ID
 	$clans = last_haiku_import_generate_clans();
@@ -2201,23 +2198,6 @@ function last_haiku_import_parse_requirements( $requirements ) {
 
 	// Do nothing for now
 	return $requirements;
-/*&
-	// Explode the requirements on , assuming everything is a skill
-	$skills = explode( ',', $requirements );
-
-	// Set up an array to hold any stats
-	$stats = [];
-	echo "$requirements\n";
-
-	foreach( $skills as $index => $value ) {
-//		echo "$index -> $value\n";
-	}
-// echo "-------------\n";
-	//$requirements = last_haiku_import_parse_skills( $requirements );
-	//$requirements = last_haiku_import_parse_stats( $requirements );
-
-//	echo "$requirements\n";
-*/
 }
 
 function last_haiku_import_school_clan( $clan, $type ) {
@@ -2375,11 +2355,14 @@ function last_haiku_import_make_redirects() {
 
 function last_haiku_import_create_taxonomies() {
 
+     last_haiku_import_create_sources();
+
+	// Generate the sources array
+	$sources = last_haiku_import_generate_sources();
+
      last_haiku_import_create_rings_traits();
 
-     last_haiku_import_create_clans_families();
-
-     last_haiku_import_create_sources();
+     last_haiku_import_create_clans_families( $sources );
 
      last_haiku_import_create_skill_types();
 
@@ -2390,6 +2373,8 @@ function last_haiku_import_create_taxonomies() {
      last_haiku_import_create_advantage_and_disadvantage_subtypes();
 
      last_haiku_import_create_equipment();
+
+     return $sources;
 }
 
 
@@ -2693,7 +2678,7 @@ function last_haiku_import_create_rings_traits() {
 
 
 
-function last_haiku_import_create_clans_families() {
+function last_haiku_import_create_clans_families( $sources ) {
 
      // Get the path to the clans file
 	$familiesFilePath = \Drupal::service('extension.list.module')->getPath('last_haiku_import') . '/json/clans-families.json';
@@ -2792,8 +2777,8 @@ function last_haiku_import_create_clans_families() {
                     // Save that paragraph
                     $benefit->save(); 		
 
-                    // Create our node for this family
-                    $node = Node::create([
+                    // Set up an array of our node
+                    $node = [
                          'type' => 'families',
                          'title' => $familyName,
                          'body' => [
@@ -2810,8 +2795,37 @@ function last_haiku_import_create_clans_families() {
                               ],
                          ],
                          'field_full_family_name' => $family->full,
-                         'uid' => 2,
-                    ]);
+                         'field_source' => [
+
+                         ],
+                         'uid' => 2,                         
+                    ];
+
+                    // Check if we do have a source
+                    if( property_exists( $family, 'source' ) ) {
+
+                         // Create our source paragraph
+                         $source = Paragraph::create([
+                              'type' => 'source',
+                              'field_source_book' => [
+                                   [ 'target_id' => $sources[ $family->source ] ]
+                              ],
+                         ]); 
+          
+                         // Save the source paragraph
+                         $source->save();
+
+                         // add the source to our node
+                         $node[ 'field_source' ] = [
+                              [
+                                   'target_id' => $source->id(),
+                                   'target_revision_id' => $source->getRevisionId(),			
+                              ],
+                         ];
+                    }
+
+                    // Create our node for this family
+                    $node = Node::create( $node );
 
                     // Save the node
                     $node->save();

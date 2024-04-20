@@ -86,6 +86,19 @@ if ( $handle ) {
 			// Remove all the extra whitespace
 			$line = trim( $line );
 
+               // Placeholder for source
+               $source = false;
+
+               // Check for a source
+               if( strpos( $line, '[' ) !== false ) {
+
+                    // Pull out the source
+                    $source = substr( $line, strpos( $line, '[' ) + 1, strpos( $line, ']' ) - strpos( $line, '[' ) - 1 );
+
+                    $line = trim( substr( $line, 0, -(strlen( $source ) ) - 2 ) );
+
+               }
+
 			// Find where the family ends
 			$length = strpos( $line, 'Family');
 
@@ -132,6 +145,13 @@ if ( $handle ) {
                     'full' => $fullFamily,
 				'description' => [],
 			];
+
+               // Did we find a source?
+               if( $source !== false ) {
+
+                    // Set the source
+                     $memberFamilies[ 'source' ] = $source;
+               }
 
 		// Either an empty line or the description of the family
 		} else {
