@@ -46,10 +46,12 @@
           display: none;
      }
 
-     .views-exposed-form {
-          .form-type-textfield {
-               width: 75%;
-          }     
+     @include media-breakpoint-up(lg) {
+          .views-exposed-form {
+               .form-type-textfield {
+                    width: 75%;
+               }     
+          }
      }
 
      .views-row {

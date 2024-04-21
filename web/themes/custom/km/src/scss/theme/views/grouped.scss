@@ -61,6 +61,7 @@
 
           .form-item {
                display: inline-block;
+               margin-bottom: .5rem;
 
                label {
                     display: none;
@@ -68,89 +69,91 @@
           }
 
           .form-type-textfield {
-               width: 75%;
+               width: 100%;
           }
      }
 
-     &.view-advantages-disadvantages { 
-          .views-exposed-form {
-               .form-type-textfield {
-                    width: 43%;
+     @include media-breakpoint-up(lg) {
+          &.view-advantages-disadvantages { 
+               .views-exposed-form {
+                    .form-type-textfield {
+                         width: 43%;
 
-                    &.form-item-point-value-value {
-                         width: 8%;
+                         &.form-item-point-value-value {
+                              width: 8%;
+                         }
+                    }     
+               }
+          }     
+
+          &.view-ancestors {
+               .views-exposed-form {
+                    .form-type-textfield {
+                         width: 68%;
                     }
-               }     
-          }
-     }     
-
-     &.view-ancestors {
-          .views-exposed-form {
-               .form-type-textfield {
-                    width: 68%;
                }
           }
-     }
 
-     &.view-equipment {
-          .views-exposed-form {
-               .form-type-textfield {
-                    width: 75%;
+          &.view-equipment {
+               .views-exposed-form {
+                    .form-type-textfield {
+                         width: 75%;
+                    }
                }
           }
-     }
 
-     &.view-families {
-          .views-exposed-form {
-               .form-type-textfield {
-                    width: 77%;
+          &.view-families {
+               .views-exposed-form {
+                    .form-type-textfield {
+                         width: 77%;
+                    }
                }
           }
-     }
 
-     &.view-kata { 
-          .views-exposed-form {
-               .form-type-textfield {
-                    width: 82%;
-               }     
+          &.view-kata { 
+               .views-exposed-form {
+                    .form-type-textfield {
+                         width: 82%;
+                    }     
+               }
           }
-     }
 
-     &.view-kiho { 
-          .views-exposed-form {
-               .form-type-textfield {
-                    width: 76%;
-               }     
+          &.view-kiho { 
+               .views-exposed-form {
+                    .form-type-textfield {
+                         width: 76%;
+                    }     
+               }
           }
-     }
 
-     &.view-site-search {
-          .form--views-exposed-form-site-search-block-1 {
-               margin-bottom: 1rem;
+          &.view-site-search {
+               .form--views-exposed-form-site-search-block-1 {
+                    margin-bottom: 1rem;
+               }
           }
-     }
 
-     &.view-schools { 
-          .views-exposed-form {
-               .form-type-textfield {
-                    width: 50%;
-               }     
+          &.view-schools { 
+               .views-exposed-form {
+                    .form-type-textfield {
+                         width: 50%;
+                    }     
+               }
           }
-     }
 
-     &.view-skills { 
-          .views-exposed-form {
-               .form-type-textfield {
-                    width: 78%;
-               }     
+          &.view-skills { 
+               .views-exposed-form {
+                    .form-type-textfield {
+                         width: 78%;
+                    }     
+               }
           }
-     }
 
-     &.view-spells { 
-          .views-exposed-form {
-               .form-type-textfield {
-                    width: 67%;
-               }     
+          &.view-spells { 
+               .views-exposed-form {
+                    .form-type-textfield {
+                         width: 67%;
+                    }     
+               }
           }
      }
 
@@ -168,6 +171,33 @@
                     padding: 2px 10px;
                }
           }
-     }     
+     }
+     @include media-breakpoint-down(md) {
+          .views-exposed-form {
+               .form-actions {
+                    width: 100%;
+
+                    input:first-child {
+                         float: left;
+                    }
+
+                    input:last-child {
+                         float: right;
+                    }
+
+                    input:only-child {
+                         width: 100%;
+                    }
+
+                    .btn {
+                         width: 47.5%;
+                    }
+               }
+
+               .form-item {
+                    width: 100%;
+               }
+          }          
+     }
 }
 

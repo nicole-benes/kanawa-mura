@@ -16,3 +16,10 @@
           margin-left: 1rem;
     }
 }
+
+
+@include media-breakpoint-down(md) {
+     #toolbar-bar {
+          margin-top: 76px;
+     }
+}

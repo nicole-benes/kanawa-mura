@@ -2,6 +2,12 @@ main {
      &.py-5 {
           margin-top: 80px !important;
      }
+
+     @include media-breakpoint-down(md) {
+          &.py-5 {
+               padding-top: 1rem !important;   
+          }
+     }
 }
 
 

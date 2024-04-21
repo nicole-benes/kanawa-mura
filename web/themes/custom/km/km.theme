@@ -15,6 +15,14 @@ foreach (glob($includes_path) as $file) {
 }
 
 
+function km_form_alter( &$form, $form_state, $form_id ) {
+     if( $form_id == 'views_exposed_form' ) {
+          $form[ 'actions' ]['reset' ][ '#attributes' ][ 'class' ][] = 'btn-warning';
+
+     }
+     //     edit-reset
+}
+
 
 function km_preprocess_views_view_grouping( &$variables ) {
      // Only for certain views
