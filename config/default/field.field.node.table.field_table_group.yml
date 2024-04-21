@@ -1,0 +1,31 @@
+uuid: ed86dd25-63bd-427b-a96d-290840d3d9bd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_table_group
+    - node.type.table
+    - taxonomy.vocabulary.clans
+    - taxonomy.vocabulary.supplemental_terms
+id: node.table.field_table_group
+field_name: field_table_group
+entity_type: node
+bundle: table
+label: 'Table Group'
+description: 'The grouping this table belongs to, usually a clan.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      clans: clans
+      supplemental_terms: supplemental_terms
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: clans
+field_type: entity_reference

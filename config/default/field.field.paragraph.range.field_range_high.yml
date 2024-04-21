@@ -1,0 +1,23 @@
+uuid: 8f0b2912-46a8-4236-ba35-9f551513a40f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_range_high
+    - paragraphs.paragraphs_type.range
+id: paragraph.range.field_range_high
+field_name: field_range_high
+entity_type: paragraph
+bundle: range
+label: 'Range (High)'
+description: 'The high number of this range.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

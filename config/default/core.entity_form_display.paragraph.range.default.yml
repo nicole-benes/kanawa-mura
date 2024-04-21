@@ -1,0 +1,41 @@
+uuid: dd8636a9-ab3d-4a62-aa72-91d1b129b8f8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.range.field_description
+    - field.field.paragraph.range.field_range_high
+    - field.field.paragraph.range.field_range_low
+    - paragraphs.paragraphs_type.range
+  module:
+    - text
+id: paragraph.range.default
+targetEntityType: paragraph
+bundle: range
+mode: default
+content:
+  field_description:
+    type: text_textarea
+    weight: 2
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_range_high:
+    type: number
+    weight: 1
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_range_low:
+    type: number
+    weight: 0
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

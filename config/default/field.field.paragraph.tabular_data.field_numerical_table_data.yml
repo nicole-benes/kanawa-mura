@@ -1,0 +1,49 @@
+uuid: f2355d9c-b78f-4eda-b333-739c485fee63
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_numerical_table_data
+    - paragraphs.paragraphs_type.range
+    - paragraphs.paragraphs_type.tabular_data
+  module:
+    - entity_reference_revisions
+id: paragraph.tabular_data.field_numerical_table_data
+field_name: field_numerical_table_data
+entity_type: paragraph
+bundle: tabular_data
+label: 'Numerical Table Data'
+description: 'The numerical table data for this table.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      range: range
+    negate: 0
+    target_bundles_drag_drop:
+      inline_technique:
+        weight: 8
+        enabled: false
+      mastery_abilities:
+        weight: 9
+        enabled: false
+      range:
+        weight: 10
+        enabled: true
+      source:
+        weight: 11
+        enabled: false
+      tabular_data:
+        weight: 12
+        enabled: false
+      techniques:
+        weight: 13
+        enabled: false
+      trait_modifier:
+        weight: 14
+        enabled: false
+field_type: entity_reference_revisions

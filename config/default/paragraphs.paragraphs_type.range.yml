@@ -1,0 +1,10 @@
+uuid: 2f743e65-aa5e-4e74-85d8-e9ff84b8e4d3
+langcode: en
+status: true
+dependencies: {  }
+id: range
+label: Range
+icon_uuid: null
+icon_default: null
+description: 'A range of numbers and a description.'
+behavior_plugins: {  }

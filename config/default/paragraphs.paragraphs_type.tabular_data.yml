@@ -1,0 +1,10 @@
+uuid: b6123ced-d661-4c14-9c41-5cd06b835c8a
+langcode: en
+status: true
+dependencies: {  }
+id: tabular_data
+label: 'Tabular Data'
+icon_uuid: null
+icon_default: null
+description: 'Some form of tabular data.'
+behavior_plugins: {  }

@@ -1,0 +1,29 @@
+uuid: c7aa7f48-dd2b-4d12-9229-5c090dd576f6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_table_type
+    - node.type.table
+    - taxonomy.vocabulary.table_types
+id: node.table.field_table_type
+field_name: field_table_type
+entity_type: node
+bundle: table
+label: 'Table Type'
+description: 'What type of table this is.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      table_types: table_types
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

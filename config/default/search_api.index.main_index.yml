@@ -346,9 +346,11 @@ field_settings:
           schools: default
           skills: default
           spells: default
+          table: default
         'entity:paragraph':
           inline_technique: default
           mastery_abilities: default
+          range: ''
           source: default
           techniques: default
           trait_modifier: default
@@ -362,6 +364,7 @@ field_settings:
           skill_type: default
           source_books: default
           supplemental_terms: default
+          table_types: ''
   required_advantage:
     label: 'Required Advantage'
     datasource_id: 'entity:node'

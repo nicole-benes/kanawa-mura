@@ -118,6 +118,9 @@ if ( $handle ) {
                               // Set the sameful high
                               $heritages[ $clan ][ 'initial' ][ 'shameful' ][ 'high' ] = $range[ 1 ];
                          }
+
+                         // Give a description
+                         $heritages[ $clan ][ 'initial' ][ 'shameful' ][ 'description' ] = 'Shameful Past';
                     
                     // Second is illustrious
                     } else if( $initial == 2 ) {
@@ -132,6 +135,9 @@ if ( $handle ) {
                               $heritages[ $clan ][ 'initial' ][ 'illustrious' ][ 'high' ] = $range[ 1 ];
                          }                         
 
+                         // Give a description
+                         $heritages[ $clan ][ 'initial' ][ 'illustrious' ][ 'description' ] = 'Illustrious Past';
+
                     // Last is mixed
                     } else if( $initial == 3 ) {
 
@@ -143,7 +149,10 @@ if ( $handle ) {
 
                               // Set the mixed high
                               $heritages[ $clan ][ 'initial' ][ 'mixed' ][ 'high' ] = $range[ 1 ];
-                         }                         
+                         }  
+                         
+                         // Give a description
+                         $heritages[ $clan ][ 'initial' ][ 'mixed' ][ 'description' ] = 'Mixed Blessing';
                     } 
 
                // We're either in shameful, illustrious, or mixed blocks

@@ -1,0 +1,59 @@
+uuid: a607a703-9f59-4924-afea-829a3286c319
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.table.field_source
+    - field.field.node.table.field_table_group
+    - field.field.node.table.field_table_type
+    - field.field.node.table.field_tabular_data
+    - node.type.table
+  module:
+    - entity_reference_revisions
+    - user
+id: node.table.default
+targetEntityType: node
+bundle: table
+mode: default
+content:
+  field_source:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 103
+    region: content
+  field_table_group:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 105
+    region: content
+  field_table_type:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 104
+    region: content
+  field_tabular_data:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 106
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  search_api_excerpt: true

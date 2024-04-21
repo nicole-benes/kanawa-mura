@@ -1,0 +1,29 @@
+uuid: 800a2139-4273-4c98-b4c8-224e64f75ec2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_source_book
+    - paragraphs.paragraphs_type.tabular_data
+    - taxonomy.vocabulary.source_books
+id: paragraph.tabular_data.field_source_book
+field_name: field_source_book
+entity_type: paragraph
+bundle: tabular_data
+label: 'Source Book'
+description: 'The book this piece of content can be found in.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      source_books: source_books
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

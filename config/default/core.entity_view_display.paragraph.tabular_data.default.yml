@@ -1,0 +1,43 @@
+uuid: fdba4cd4-a7cf-41ea-aedc-66e8e2b845e1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.tabular_data.field_description
+    - field.field.paragraph.tabular_data.field_numerical_table_data
+    - field.field.paragraph.tabular_data.field_source_book
+    - paragraphs.paragraphs_type.tabular_data
+  module:
+    - entity_reference_revisions
+    - text
+id: paragraph.tabular_data.default
+targetEntityType: paragraph
+bundle: tabular_data
+mode: default
+content:
+  field_description:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_numerical_table_data:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_source_book:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  search_api_excerpt: true

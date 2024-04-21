@@ -1,0 +1,8 @@
+uuid: a5dd5667-0eaf-4469-a067-7596048073f9
+langcode: en
+status: true
+dependencies: {  }
+name: 'Table Types'
+vid: table_types
+description: 'The various types of tables.'
+weight: 0

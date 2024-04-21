@@ -1,0 +1,23 @@
+uuid: ae271105-3c3b-4f48-bc1f-ed79cad8a6f5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_range_low
+    - paragraphs.paragraphs_type.range
+id: paragraph.range.field_range_low
+field_name: field_range_low
+entity_type: paragraph
+bundle: range
+label: 'Range (Low)'
+description: 'The low number for this range.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

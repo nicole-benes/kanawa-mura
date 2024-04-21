@@ -1,0 +1,29 @@
+uuid: e750959b-14a6-4969-aacc-e52e7fa38cb3
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.table.field_source
+    - field.field.node.table.field_table_group
+    - field.field.node.table.field_table_type
+    - field.field.node.table.field_tabular_data
+    - node.type.table
+  module:
+    - user
+id: node.table.teaser
+targetEntityType: node
+bundle: table
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_source: true
+  field_table_group: true
+  field_table_type: true
+  field_tabular_data: true
+  search_api_excerpt: true

@@ -58,6 +58,9 @@ function last_haiku_import_install() {
      // Import equipment
      last_haiku_import_equipment( $sources );
 
+     // Import Tables
+     last_haiku_import_tables( $sources );
+
      // Run the redirect maker
      last_haiku_import_make_redirects();
 
@@ -65,6 +68,137 @@ function last_haiku_import_install() {
      last_haiku_import_make_menu();
 }
 
+
+function last_haiku_import_heritage_tables( $sources ) {
+
+ 	// Get the path to the Katafile
+     $heritageFilePath = \Drupal::service('extension.list.module')->getPath('last_haiku_import') . '/json/heritages.json';
+
+     // Turn the JSON back into a PHP array
+     $heritagesArray = json_decode( file_get_contents( $heritageFilePath ) );
+
+     // Loop through the outer category
+     foreach( $heritagesArray as $clan => $heritage ) {
+
+          // Try to load the clan term this heritage table belongs too
+          $clanTerm = last_haiku_import_term_lookup( $clan, 'clans' );
+
+          // Must be monk heritage
+          if( !$clanTerm ) {
+                    
+               // Should be monk..
+               if( $clan == 'Monk' ) {
+
+                    // Figure out the ID for the monk supplemental term
+                    $clanTerm = last_haiku_import_term_lookup( 'Monk', 'supplemental_terms' );
+
+               // Never hurts to do some error checking though!
+               } else {
+
+                    echo "Error: Invalid clan |$clan|\n";
+                    exit();
+               }
+          }
+
+          // Set up our node
+          $node = [
+               'type' => 'table',
+               'title' => $clan . ' Heritage Tables',
+               'field_table_group' => [
+                    [ 'target_id' => $clanTerm ],
+               ],
+          ]; 
+
+          // Check if we do have a source
+          if( property_exists( $heritage, 'source' ) ) {
+
+               // Create our source paragraph
+               $source = Paragraph::create([
+                    'type' => 'source',
+                    'field_source_book' => [
+                         [ 'target_id' => $sources[ $heritage->source ] ]
+                    ],
+               ]); 
+
+               // Save the source paragraph
+               $source->save();
+
+               // add the source to our node
+               $node[ 'field_source' ] = [
+                    [
+                         'target_id' => $source->id(),
+                         'target_revision_id' => $source->getRevisionId(),			
+                    ],
+               ];
+          }
+
+          // Placeholder for our rows for this part of the heritage table
+          $rows = [];
+
+          // Place to put all the tables we're going to add to this node
+          $tables = [];
+
+          // Loop through the initial heritage table
+          foreach( $heritage->initial as $name => $type ) {
+
+               // Make a new row
+               $row = Paragraph::create([
+                    'type' => 'range',
+                    'field_description' => $type->description,
+                    'field_range_low' => $type->low,
+                    'field_range_high' => $type->high,
+               ]);
+
+               // Save the row paragraph
+               $row->save();
+
+               // Push the relevant data onto our rows array
+               $rows[] = [
+                    'target_id' => $row->id(),
+                    'target_revision_id' => $row->getRevisionId(),
+               ];
+
+          }
+          
+          // Create the initial heritage table block
+          $initial = Paragraph::create([
+               'type' => 'tabular_data',
+               'field_description' => $clan . ' Heritage',
+               'field_numerical_table_data' => $rows,
+
+          ]);
+
+          // Save the initial paragraph
+          $initial->save();
+
+          // Push the initial table onto our tabular data array
+          $tables[] = [
+               'target_id' => $initial->id(),
+               'target_revision_id' => $initial->getRevisionId(),               
+          ];
+
+
+
+          // Add the initial paragraph to our 
+          $node[ 'field_tabular_data' ] = $tables;
+
+          // Set the node author to the importer
+          $node[ 'uid' ] = 2;
+
+          // Create our node for this item
+          $node = Node::create( $node );
+
+          // Save the node
+          $node->save();             
+     }    
+}
+
+
+function last_haiku_import_tables( $sources ) {
+
+     // Import heritage tables
+     last_haiku_import_heritage_tables( $sources );
+}
 
 
 function last_haiku_import_make_menu() {
@@ -2376,9 +2510,28 @@ function last_haiku_import_create_taxonomies() {
 
      last_haiku_import_create_equipment();
 
-     last_haiku_import_create_heritage_terms( $sources );
+     last_haiku_import_create_table_terms();
 
      return $sources;
+}
+
+
+
+function last_haiku_import_create_table_terms() {
+     $types = [
+          'Heritage Table',
+     ];
+
+     foreach( $types as $type ) {
+
+          $term = Term::create([
+               'vid' => 'table_types',
+               'name' => $type,
+          ]);
+          
+          $term->enforceIsNew();
+          $term->save(); 
+     }     
 }
 
 

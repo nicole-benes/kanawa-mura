@@ -1,0 +1,49 @@
+uuid: 91308177-e709-4a07-a9f3-b361e3e18a68
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_tabular_data
+    - node.type.table
+    - paragraphs.paragraphs_type.tabular_data
+  module:
+    - entity_reference_revisions
+id: node.table.field_tabular_data
+field_name: field_tabular_data
+entity_type: node
+bundle: table
+label: 'Tabular Data'
+description: 'Some form of a table.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      tabular_data: tabular_data
+    negate: 0
+    target_bundles_drag_drop:
+      inline_technique:
+        weight: 8
+        enabled: false
+      mastery_abilities:
+        weight: 9
+        enabled: false
+      range:
+        weight: 10
+        enabled: false
+      source:
+        weight: 11
+        enabled: false
+      tabular_data:
+        weight: 12
+        enabled: true
+      techniques:
+        weight: 13
+        enabled: false
+      trait_modifier:
+        weight: 14
+        enabled: false
+field_type: entity_reference_revisions

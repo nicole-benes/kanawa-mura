@@ -1,0 +1,22 @@
+uuid: ddcb361a-b8d8-4ea2-845d-ac3305d0e844
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_description
+    - paragraphs.paragraphs_type.range
+  module:
+    - text
+id: paragraph.range.field_description
+field_name: field_description
+entity_type: paragraph
+bundle: range
+label: Description
+description: 'The text which goes along with this range.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long
