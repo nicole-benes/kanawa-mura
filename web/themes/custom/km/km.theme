@@ -21,7 +21,7 @@ function km_preprocess_views_view_grouping( &$variables ) {
      if( $variables[ 'view' ]->id() == 'families' ) {
 
           // Get the title and cut out any debugging text
-          $groupingTitle = km_remove_comments( $variables[ 'title' ] );
+          $groupingTitle = $variables[ 'title' ];
 
           $termObject = \Drupal::entityTypeManager()
 		     ->getStorage( 'taxonomy_term' )
@@ -55,6 +55,51 @@ function km_preprocess_views_view_grouping( &$variables ) {
           if( strlen( $variables[ 'title' ] ) > 0 ) {
                $variables[ 'groupingType' ] = km_machine_name( $variables[ 'title' ] );
           }          
+
+     // Schools view
+     } else if( $variables['view' ]->id() == 'schools' ) {
+
+          // Assume we have a title for this grouping
+          $title = $variables[ 'title' ];
+
+          // Handle the groups which have no title
+          if( strlen( $variables[ 'title' ] ) < 1 ) {
+
+               // Loop through the groups in this 
+               foreach( $variables[ 'content' ] as &$grouping ) {
+
+                    // Is this one of the groupings which don't have a further grouping
+                    if( isset( $grouping[ '#rows' ][ 'schools' ] ) ) {
+
+                         // Get the first term of this grouping
+                         $term = array_shift( $grouping[ '#rows' ][ 'schools' ][ 'rows' ] )->{ "entity:node/field_clan_school" }[ 0 ];
+                         
+                         // Is this monk or miscellaneous?
+                         if( $term->getName() == 'Monk' || $term->getName() == 'Miscellaneous' ) {
+
+                              // Set the title of the grouping and our title variable
+                              $grouping[ '#title' ] = $title = $term->getName();
+                         } 
+                    }
+               }
+          }
+
+          // Set the machine name for this grouping
+          $variables[ 'schoolGrouping' ] = km_machine_name( $title );
+
+          // Check if we already have a greater grouping for this result
+          if( !property_exists( $variables[ 'view' ], 'greaterGrouping' ) ) {
+
+               // Set the title as greaterGrouping so we can use it later
+               $variables[ 'view' ]->greaterGrouping = $variables[ 'schoolGrouping' ];
+
+          // If we already have one, set the minor grouping
+          } else {
+
+               // Set the minor grouping
+               $variables[ 'view' ]->minorGrouping = $variables[ 'schoolGrouping' ];
+          }
+
      }
 }    
 
@@ -135,6 +180,40 @@ function km_preprocess_views_view_unformatted( &$variables ) {
 
           $variables[ 'type' ] = km_machine_name( $variables[ 'title' ] );
 
+     } else if( $variables[ 'view' ]->id() == 'schools' ) {
+
+          // Is this one of the miscellaenous school groupings?
+          if( $variables[ 'view' ]->greaterGrouping != 'miscellaneous' ) {
+
+               // It isn't, so we need the greater grouping
+               $variables[ 'schoolTypeGrouping' ] = $variables[ 'view' ]->greaterGrouping . '-';
+ 
+          // It is the miscellaneous grouping...
+          } else {
+
+               // Just set the schoolTypeGrouping to blank initially
+               $variables[ 'schoolTypeGrouping' ] = '';
+          }
+
+          // Stick on the minor grouping to the accordion ID
+          if( property_exists( $variables[ 'view' ], 'minorGrouping' ) ) {
+
+               $variables[ 'schoolTypeGrouping' ] .= $variables[ 'view' ]->minorGrouping . '-';
+          }
+
+          // Attach the school type to the accordion ID
+          if( $variables[ 'title' ] == 'Basic Schools' ) {
+
+               $variables[ 'schoolTypeGrouping' ] .= 'basic';
+
+          } else if( $variables[ 'title' ] == 'Advanced Schools' ) {
+
+               $variables[ 'schoolTypeGrouping' ] .= 'advanced';
+          
+          } else if( $variables[ 'title' ] == 'Alternate Paths' ) {
+
+               $variables[ 'schoolTypeGrouping' ] .= 'paths';
+          }
      }
 }
 

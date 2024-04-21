@@ -487,7 +487,18 @@ function kanawa_mura_views_post_render( $view, &$output, $cache ) {
      // Sorting for the schools view
      if( $view->id() == 'schools' ) {
 
-		// Loop through each clan grouping
+          // Array to hold the desired sorting of our schools
+          $schoolSort = [
+               'Great Clans' => 0,
+               'Minor Clans' => 1,
+               'Imperial Families' => 2,
+               'Monk' => 3,
+               'Ronin Families' => 4,
+               'Miscellaneous' => 5,
+               'Lost Clans' => 6,
+          ];
+
+          // Loop through each clan grouping
 		foreach( $output[ '#rows' ] as &$group ) {
 
                // We also need to re-order the schools for each clan
@@ -518,8 +529,35 @@ function kanawa_mura_views_post_render( $view, &$output, $cache ) {
                          // Stick the paths back on the array after basic schools and advanced schools
                          $schools[ 'rows' ][ 'alternate_paths' ] = $paths;
                     }
-               }         
+               }
+          } 
+
+          // Store the old output
+          $oldOutput = $output[ '#rows' ];
+
+          // Erase the output
+          $output[ '#rows' ] = [];
+
+          foreach( $oldOutput as $row ) {
+
+               if( strpos( $row[ '#title' ],  'Great Clans' ) !== false ) {
+                    usort( $row[ '#rows' ], 'kanawa_mura_school_clan_sort' );
+                    $output[ '#rows' ][ 0 ] = $row;
+
+               } else if( strpos( $row[ '#title' ], 'Minor Clans' ) !== false ) {
+                    usort( $row[ '#rows' ], 'kanawa_mura_school_clan_sort' );
+                    $output[ '#rows' ][ 1 ] = $row;
+
+               } else if( strpos( $row[ '#title' ], 'Lost Clans' ) !== false ) {
+                    usort( $row[ '#rows' ], 'kanawa_mura_school_clan_sort' );
+                    $output[ '#rows' ][ 3 ] = $row;
+
+               } else {
+                    $output[ '#rows' ][ 2 ] = $row;
+               }
           }
+
+          ksort( $output[ '#rows' ] );
 
      // Fix sorting on ancestors
      } else if( $view->id() == 'ancestors' ) {
@@ -569,6 +607,26 @@ function kanawa_mura_views_post_render( $view, &$output, $cache ) {
           // Sort by the updated indexes
           ksort( $output[ '#rows' ] );
      }
+}
+
+
+function kanawa_mura_school_clan_sort( $a, $b ) {
+
+     // Get the first term of this grouping
+     $aTerm = array_shift( $a[ 'rows' ][ 'schools' ][ 'rows' ] )->{ "entity:node/field_clan_school" }[ 0 ];
+
+     // Get the second term of this grouping
+     $bTerm = array_shift( $b[ 'rows' ][ 'schools' ][ 'rows' ] )->{ "entity:node/field_clan_school" }[ 0 ];
+
+     // Are these the same weight? This should never happen, but whatever...
+     if( $aTerm->getWeight() == $bTerm->getWeight() ) {
+
+          // Return equal
+          return 0;
+     }
+
+     // Otherwise, return lesser or greater
+     return ( $aTerm->getWeight() < $bTerm->getWeight() ) ? -1 : 1;
 }
 
 

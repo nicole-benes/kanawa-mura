@@ -16,7 +16,7 @@
  */
 {% include "radix:views-view--unformatted" %}
 #}
-
+{#}
 {% block views_unformatted_title %}
   {% if title %}
     {% include 'radix:heading' with {
@@ -41,3 +41,32 @@
 	</div>
   {% endfor %}
 {% endblock %}
+#}
+
+<div class="schools-type-group accordion">
+     <div class="accordion-item">
+          <h2 class="accordion-header">
+               <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#{{ schoolTypeGrouping }}-accordion" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+                    {{ title }}
+               </button>
+          </h2>
+
+          <div id="{{ schoolTypeGrouping }}-accordion" class="accordion-collapse collapse show">
+               <div class="accordion-body">
+                    {% block views_unformatted_rows %}
+                         {% for row in rows %}
+                              {% 
+                              set row_classes = [
+                                   default_row_class ? 'views-row school school-{{ schoolTypeGrouping }}',
+                              ]|merge(row_utility_classes ? row_utility_classes : []) 
+                              %}
+                              
+                              <div{{ row.attributes.addClass(row_classes) }}>
+                                   {{- row.content -}}
+                              </div>
+                         {% endfor %}
+                    {% endblock %}     
+               </div>
+          </div>
+     </div>
+</div>          

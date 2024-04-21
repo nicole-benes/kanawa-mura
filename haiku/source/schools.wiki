@@ -3957,19 +3957,19 @@ Although this school is intended primarily to represent ronin, it can also be us
 
 __**Techniques**__
 
-**Rank One:** //Strength of My Father//
+**Rank One:** Strength of My Father
 Ronin are known for their resilience in the face of adversity. When you are suffering TN penalties due to Wounds, you may make an Earth Roll (ignoring Wound TN penalties) during the Reactions Stage of each Round, with a TN equal to 5 + 5x the number of Wound Ranks you are currently suffering. If the roll is successful, you may ignore the effects of your Wound penalties until the next Reactions Stage. This Technique does not work once you reach the Down or Out Wound Ranks.
 
-**Rank Two:** //Never Yield//
+**Rank Two:** Never Yield
 Ronin are accustomed to being the underdogs. When you are outnumbered in a skirmish, you gain a bonus to your Armor TN equal to the amount by which the number of enemies exceeds the number of your allies. This bonus cannot exceed the total of your School Rank x2.
 
-**Rank Three:** //Bite of the Wolf//
+**Rank Three:** Bite of the Wolf
 Veteran ronin are swift and deadly fighters. You may attack as a Simple Action when wielding a katana or a knife.
 
-**Rank Four:** //Twice-Cutting Spirit//
+**Rank Four:** Twice-Cutting Spirit
 As ronin become truly experienced, they become ever more deadly with many different weapons. Choose one additional melee weapon: you may attack with that weapon as a Simple Action. Once per skirmish, you may spend a Void Point on a damage roll, regardless of what weapon you are using.
 
-**Rank Five:** //Valor of the Wolf//
+**Rank Five:** Valor of the Wolf
 Those ronin who survive long enough to perfect their skills become legends of the battlefield, able to endure all manner of hardship and prevail in spite of severe injuries. Choose another melee weapon: you may attack with that weapon as a Simple Action. Additionally, you may spend a Void Point to activate your R1 Technique without requiring a Earth Roll; when you activate it in this way, it lasts a number of Rounds equal to your Fire Ring.
 
 

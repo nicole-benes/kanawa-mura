@@ -17,10 +17,32 @@
  */
 #}
 
-<div class="content-type {{ title|lower|replace( {' ':'-'} ) }}">
-	<h2>{{ title }}</h2>
+{% set grouping = 'clan-grouping' %}
 
-	<div class="school-content">
-		{{ content }}
-	</div>
+{% if title %}
+     {% set machine_name = title|lower|replace( {' ':'-'} ) %} 
+     
+     {% if machine_name == 'great-clans' or machine_name == 'minor-clans' or machine_name == 'lost-clans' %}
+          {% set grouping = 'greater-clan-grouping' %}
+     {% endif %}
+{% endif %}
+
+<div class="{{ grouping }} accordion {{ title|lower|replace( {' ':'-'} ) }}">
+     {% if title %}
+          <div class="accordion-item">
+               <h2 class="accordion-header">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#{{ schoolGrouping }}-accordion" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+                         {{ title }}
+                    </button>
+               </h2>
+
+               <div id="{{ schoolGrouping }}-accordion" class="accordion-collapse collapse show">
+                    <div class="accordion-body">               
+     {% endif %}
+                         {{ content }}
+     {% if title %}
+                    </div>
+               </div>
+          </div>
+     {% endif %}
 </div>

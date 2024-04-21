@@ -32,7 +32,7 @@ dependencies:
 id: schools
 label: Schools
 module: views
-description: ''
+description: 'All of the basic schools, advanced schools, and alternate paths available.'
 tag: ''
 base_table: search_api_index_main_index
 base_field: search_api_id
@@ -1787,32 +1787,6 @@ display:
           admin_label: ''
           plugin_id: search_api
           order: DESC
-          expose:
-            label: ''
-            field_identifier: ''
-          exposed: false
-        parent_weight:
-          id: parent_weight
-          table: search_api_index_main_index
-          field: parent_weight
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: search_api
-          order: ASC
-          expose:
-            label: ''
-            field_identifier: ''
-          exposed: false
-        weight:
-          id: weight
-          table: search_api_index_main_index
-          field: weight
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: search_api
-          order: ASC
           expose:
             label: ''
             field_identifier: ''
