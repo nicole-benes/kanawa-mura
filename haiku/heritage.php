@@ -36,7 +36,17 @@ if ( $handle ) {
                     $initial = 0;
                }
 
-               $clan = trim( str_replace( '+-+', '', $line ) );
+               // Remove the extra stuff
+               $line = trim( str_replace( '+-+', '', $line ) );
+
+               // Figure out where the source starts
+               $sourceStart = strpos( $line, '[' );
+
+               // Pull out the clan
+               $clan = trim( substr( $line, 0, $sourceStart ) );
+
+               // Pull out the source
+               $heritages[ $clan ][ 'source' ] = substr( $line, $sourceStart + 1, -1 );
 
           // Is this a roll result header
           } else if( strpos( strtolower( $line ), 'd10 roll result' ) !== false ) {

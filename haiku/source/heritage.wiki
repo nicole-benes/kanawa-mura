@@ -1,4 +1,4 @@
-+-+ Crab
++-+ Crab [GC]
 D10 roll result
 * 1-3 Shameful Past: Roll on Table 1
 * 4-7 Illustrious Past: Roll on Table 2
@@ -35,7 +35,7 @@ D10 Roll result
 * 8-9 Your ancestor participated in a battle with another clan, where he unexpectedly distinguished himself in a duel. However, the descendants of the samurai he defeated would like re-match. You gain 1.0 Glory but you also have a Sworn Enemy in another clan’s family.
 * 0 Your ancestor was a Kaiu craftsman of singular skills. One of his creations was passed on to you. Unfortunately he was afflicted with too much Fire and sometimes didn’t seem himself. You gain the Sacred Weapon: Kaiu Blade Advantage for free, but the blade is afflicted with some manner of curse known only to your GM.
 
-+-+ Crane
++-+ Crane [GC]
 D10 roll result
 * 1-3 Shameful Past: Roll on Table 1
 * 4-8 Illustrious Past: Roll on Table 2
@@ -73,7 +73,7 @@ D10 Roll result
 * 8-9 Your ancestor was a highly successful merchant patron who cared little about scruples or propriety. You are a true heir to his traditions. You gain an additional 3 koku in your starting Outfi t, but gain the Insensitive Disadvantage.
 * 0 Your ancestor was an artist of high renown and you’re expected to follow in his footsteps, perhaps even to surpass him. You may take the Soul of Artistry Advantage for 2 less points, but you gain the Disadvantage Consumed by Perfection.
 
-+-+ Dragon
++-+ Dragon [GC]
 D10 roll result
 * 1-2 Shameful Past: Roll on Table 1
 * 3-5 Illustrious Past: Roll on Table 2
@@ -112,7 +112,7 @@ D10 Roll result
 * 8-9 Your ancestor was a very creative soul, but saw into the Elements too deeply. You gain a +1k0 bonus to all Craft rolls, but you also gain the Frail Mind Disadvantage.
 * 0 Your ancestor followed one of the False Paths. You may take the Sage Advantage for 1 less Experience Point, but you also gain the Disbeliever Disadvantage.
 
-+-+ Lion
++-+ Lion [GC]
 D10 roll result
 * 1-2 Shameful Past: Roll on Table 1
 * 3-7 Illustrious Past: Roll on Table 2
@@ -151,7 +151,7 @@ D10 Roll result
 * 8-9 Your ancestor was one of the Ikoma Lion’s Shadow. His subtle and pragmatic ways have passed down to you. You start with 1.5 less Honor, but you may take either the Crafty or the Silent Advantage for 2 less Experience Points.
 * 0 Your ancestor took part in a victorious battle, but the Lion histories consider the battle to have been run ineptly. You lose 1.0 Glory but gain 1 free Rank in a Weapon Skill of your choice.
 
-+-+ Mantis
++-+ Mantis [GC]
 D10 roll result
 * 1-4 Shameful Past: Roll on Table 1
 * 5-7 Illustrious Past: Roll on Table 2
@@ -190,7 +190,7 @@ D10 Roll result
 * 8-9 Your family history is fi lled with scoundrels and misfi ts. You gain 1.0 Infamy but also gain 1 free Rank in the Skill of Lore: Underworld.
 * 0 Your ancestor married a komouri shapeshifter spirit. You may purchase the Child of Chikushudo Advantage.
 
-+-+ Phoenix
++-+ Phoenix [GC]
 D10 roll result
 * 1-3 Shameful Past: Roll on Table 1
 * 4-7 Illustrious Past: Roll on Table 2
@@ -229,7 +229,7 @@ D10 Roll result
 * 8-9 Your ancestor was a well-known mediator. In one particularly dangerous situation she took extreme and dishonorable measures to preserve the peace. Her dishonor and success both linger. You start with 1.0 less Honor but also gain a 2-point Ally in another clan.
 * 0 Your family has always been one of the guardians of Gisei Toshi. You have access to the sacred knowledge and hidden items within Gisei Toshi should you need them, but you must never tell anyone about the city’s location. Gain Dark Secret: Location of Gisei Toshi.
 
-+-+ Scorpion
++-+ Scorpion [GC]
 D10 roll result
 * 1-2 Shameful Past: Roll on Table 1
 * 3-5 Illustrious Past: Roll on Table 2
@@ -269,7 +269,7 @@ D10 Roll result
 * 8-9 Your ancestor joined the shinobi and a few of the skills he was taught have been passed down. You gain 1 free Rank in the Ninjutsu Skill but you also have the Disadvantage Dark Secret.
 * 0 Your ancestor was Shadow Branded. Due to the Shadow’s ongoing influence over your family line, you gain the Silent advantage, but the Shadow is looking for you...
 
-+-+ Spider
++-+ Spider [GC]
 D10 roll result
 * 1-3 Born of Darkness: Roll on Table 1
 * 4-8 Fallen from Grace: Roll on Table 2
@@ -304,7 +304,7 @@ D10 Roll result
 * 7-9 As a child you suffered from visions. Others thought you were possessed by demons and eventually you were abandoned by your family. The Lost never questioned your value, however, and let you earn your place among them. You gain the Ishiken-do Advantage.
 * 0 The other Lost found you as a child, surviving alone in the Shadowlands. No one understands how this was possible and you have no memory of those years. Sometimes, however, you have half-remembered dreams that give you glimpses of what happened... or what will happen. You gain the Inner Gift Advantage.
 
-+-+ Unicorn
++-+ Unicorn [GC]
 D10 roll result
 * 1-2 Shameful Past: Roll on Table 1
 * 3-6 Illustrious Past: Roll on Table 2
@@ -344,7 +344,7 @@ D10 Roll result
 * 8-9 Your family has struggled financially, and you have been forced to study the ways of coin and craft in order to compensate. You start with 4 less koku in your Outfit, but you gain 1 free Rank in Commerce and 1 free Rank in a Craft Skill of your choice.
 * 0 Your ancestor met a jinn while wandering the Burning Sands. They had a long and fruitful affair. You occasionally have strange urges and odd dreams...
 
-+-+ Minor Clans
++-+ Minor Clans [SE]
 D10 Roll Result
 * 1-3 Shameful Past: Roll on Table 6.11
 * 4-7 Illustrious Past: Roll on Table 6.12
@@ -380,7 +380,7 @@ D10 Roll Result
 * 8-9 Your ancestor was involved with some shady dealings with a member of one of the Great Clans. The deals went in your ancestor’s favor, and the details have been passed on to you. You gain a 3-point Blackmail Advantage against someone in one of the Great Clans, but since they know that you hold the information you also gain the Sworn Enemy Disadvantage with them.
 * 0 Your ancestor was a craftsman of singular skills. One of his creations was passed on to you. You gain a single item of superior quality (an Excellent item if using the optional advanced crafting rules in this book); however, the item was originally intended as a gift for a member of a Great Clan, and his family wants it back.
 
-+-+ Monk
++-+ Monk [SE]
 D10 Roll Result
 * 1-3 Shameful Past: Roll on Table 1
 * 4-8 Illustrious Past: Roll on Table 2
@@ -416,7 +416,7 @@ D10 Roll Result
 * 8-9 You were born a samurai, but were forced to join the Brotherhood before completing your gempukku. There are members of your family who are not happy about this fact. You gain the Forced Retirement Disadvantage but also gain a 3-Point Ally Advantage with someone in your former clan.
 * 0 Your sensei venerated certain moral values highly, but rejected others as unimportant. You gain the Paragon Advantage for one tenet of Bushido, but also gain the Failure of Bushido Disadvantage for a different tenet. (This overturns the normal restrictions on taking these Advantages/Disadvantages.)
 
-+-+ Ronin Families
++-+ Ronin Families [SE]
 D10 Roll Result
 * 1-2 Shameful Past: Roll on Table 1
 * 3-5 Illustrious Past: Roll on Table 2
@@ -455,7 +455,7 @@ D10 Roll Result
 * 8-9 Either you or your parents were born as clan samurai but became ronin due to the manipulations of a rival. You retain many connections within your former clan, including friends who would gladly help you avenge yourself. You have a 5-point Sworn Enemy within your former clan but also may purchase up to three Allies (each of a maximum of 3 points) within that clan.
 * 0 For whatever reason, your family has often flirted with the powers of darkness. You gain the Advantage of Forbidden Knowledge: Maho, but also gain 1 Rank in the Shadowlands Taint.
 
-+-+ Imperial Families
++-+ Imperial Families [SE]
 D10 Roll Result
 * 1-2 Shameful Past: Roll on Table 1
 * 3-7 Illustrious Past: Roll on Table 2

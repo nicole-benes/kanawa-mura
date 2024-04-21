@@ -2376,6 +2376,8 @@ function last_haiku_import_create_taxonomies() {
 
      last_haiku_import_create_equipment();
 
+     last_haiku_import_create_heritage_terms( $sources );
+
      return $sources;
 }
 
