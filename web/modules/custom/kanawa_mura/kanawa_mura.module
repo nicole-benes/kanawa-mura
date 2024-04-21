@@ -465,7 +465,7 @@ function kanawa_mura_views_pre_render( $view ) {
                     // Remove the parent clan
                     unset( $result->{ 'entity:node/field_clan:entity:parent:entity:name' } );
                }
-          }    
+          }   
      }
 }
 
@@ -521,8 +521,77 @@ function kanawa_mura_views_post_render( $view, &$output, $cache ) {
                }         
           }
 
-     } 
+     // Fix sorting on ancestors
+     } else if( $view->id() == 'ancestors' ) {
+
+          // Do we have more than one row to even worry about?
+          if( count( $output[ '#rows' ] ) > 1 ) { 
+
+               // Get the two groups which the view generates
+               $else = $output[ '#rows' ][ 0 ];
+               $great = $output [ '#rows' ][ 1 ];
+
+               // Remake the row output swapping the rows
+               $output[ '#rows' ] = [
+                    $great,
+                    $else,
+               ];
+          }
+
+     // Sort spells
+     } else if( $view->id() == 'spells' ) {
+
+          // Set up the correct spell order
+          $spellOrder = [
+               'Universal' => 0,
+               'Air' => 1,
+               'Earth' => 2,
+               'Fire' => 3,
+               'Water' => 4,
+               'Void' => 5,
+               'Multi-Element' => 6,
+               'Maho' => 7,
+          ];
+
+          // Save the output
+          $rows = $output[ '#rows' ];
+
+          // Erase the output 
+          $output[ '#rows' ] = [];
+
+          // Loop through the output
+          foreach( $rows as $row ) {
+
+               // Figure out the index of this ring
+               $output[ '#rows' ][ kanawa_mura_spell_sort( $row[ '#title' ] ) ] = $row;
+          }
+
+          // Sort by the updated indexes
+          ksort( $output[ '#rows' ] );
+     }
 }
+
+
+function kanawa_mura_spell_sort( $ring ) {
+
+     $spellOrder = [
+          'Universal' => 0,
+          'Air' => 1,
+          'Earth' => 2,
+          'Fire' => 3,
+          'Water' => 4,
+          'Void' => 5,
+          'Multi-Element' => 6,
+          'Maho' => 7,
+     ];
+     
+     foreach( $spellOrder as $name => $index ) {
+          if( $name == $ring ) {
+               return $index;
+          }
+     }
+}
+
 
 function kanawa_mura_school_sort( $schools ) {
 	// Array to hold our properly sorted schools

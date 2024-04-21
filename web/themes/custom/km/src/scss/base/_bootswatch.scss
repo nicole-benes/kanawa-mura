@@ -1,91 +1,206 @@
-// Lumen 5.3.3
+// Yeti 5.3.3
 // Bootswatch
 
 
 // Variables
 
-$web-font-path: "https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,300;0,400;0,700;1,400&display=swap" !default;
+$web-font-path: "https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" !default;
 @if $web-font-path {
   @import url("#{$web-font-path}");
-}
-
-// Mixins
-
-@mixin shadow($width: 4px){
-  border-style: solid;
-  border-width: 0 1px $width 1px;
 }
 
 // Navbar
 
 .navbar {
-  @include shadow();
+  font-weight: $headings-font-weight;
+}
 
-  @each $color, $value in $theme-colors {
-    &.bg-#{$color} {
-      border-color: shade-color($value, 10%);
+.bg-primary {
+  .dropdown-menu {
+    background-color: $primary;
+
+    .dropdown-item,
+    .dropdown-item:focus {
+      color: $navbar-dark-color;
+    }
+
+    .dropdown-item.active,
+    .dropdown-item:hover,
+    .dropdown-item:focus {
+      color: $white;
+      background-color: shade-color($primary, 10%);
     }
   }
+}
 
-  &.bg-body-secondary,
-  &.bg-body-tertiary {
-    border-color: rgba(0, 0, 0, .1);
+.bg-dark {
+  background-color: $gray-800 !important;
+
+  .dropdown-menu {
+    background-color: $gray-800;
+
+    .dropdown-item,
+    .dropdown-item:focus {
+      color: $navbar-dark-color;
+    }
+
+    .dropdown-item.active,
+    .dropdown-item:hover,
+    .dropdown-item:focus  {
+      color: $white;
+      background-color: shade-color($gray-800, 10%);
+    }
+  }
+}
+
+.bg-light {
+  .dropdown-menu {
+    background-color: $gray-200;
+
+    .dropdown-item,
+    .dropdown-item:focus {
+      color: $navbar-light-color;
+    }
+
+    .dropdown-item.active,
+    .dropdown-item:hover,
+    .dropdown-item:focus  {
+      color: $navbar-light-hover-color;
+      background-color: tint-color($gray-200, 10%);
+    }
   }
 }
 
 // Buttons
 
 .btn {
-  @include shadow();
-  text-transform: uppercase;
-
-  &:not(.disabled):hover {
-    margin-top: 1px;
-    border-bottom-width: 3px;
+  &-primary {
+    border-color: shade-color($primary, 10%);
   }
 
-  &:not(.disabled):active {
-    margin-top: 2px;
-    border-bottom-width: 2px;
-    @include box-shadow(none);
+  &-secondary {
+    border-color: shade-color($secondary, 10%);
   }
 
-  @each $color, $value in $theme-colors {
-    &-#{$color} {
-      &:hover,
-      &:active,
-      &:focus {
-        background-color: $value;
-      }
+  &-success {
+    border-color: shade-color($success, 10%);
+  }
 
-      &,
-      &:not(.disabled):hover,
-      &:not(.disabled):active,
-      &:focus {
-        border-color: shade-color($value, 10%);
-      }
-    }
+  &-info {
+    color: $white;
+    border-color: shade-color($info, 10%);
+  }
+
+  &-danger {
+    border-color: shade-color($danger, 10%);
+  }
+
+  &-warning {
+    color: $white;
+    border-color: shade-color($warning, 10%);
+  }
+
+  &-light {
+    border-color: shade-color($light, 10%);
+  }
+
+  &-dark {
+    border-color: shade-color($dark, 10%);
   }
 }
 
 .btn-outline-secondary {
-  color: var(--bs-tertiary-color);
+  color: var(--bs-primary-color);
 }
 
-[class*="btn-outline"] {
-  border-top-width: 1px;
-}
+.btn-group {
+  .dropdown-menu {
+    border-top-width: 0;
+  }
 
-.btn-group-vertical {
-  .btn + .btn {
-    &:hover {
-      margin-top: -1px;
-      border-top-width: 1px;
+  .dropdown-toggle {
+    &.btn-primary ~ .dropdown-menu {
+      background-color: $primary;
+      border-color: shade-color($primary, 10%);
+
+      .dropdown-item {
+        color: $white;
+      }
+
+      .dropdown-item:hover,
+      .dropdown-item:focus {
+        background-color: shade-color($primary, 16%);
+      }
     }
 
-    &:active {
-      margin-top: -1px;
-      border-top-width: 2px;
+    &.btn-secondary ~ .dropdown-menu {
+      background-color: $secondary;
+      border-color: shade-color($secondary, 10%);
+
+      .dropdown-item {
+        color: $body-color;
+      }
+
+      .dropdown-item:hover,
+      .dropdown-item:focus {
+        background-color: shade-color($secondary, 16%);
+      }
+    }
+
+    &.btn-success ~ .dropdown-menu {
+      background-color: $success;
+      border-color: shade-color($success, 10%);
+
+      .dropdown-item {
+        color: $white;
+      }
+
+      .dropdown-item:hover,
+      .dropdown-item:focus {
+        background-color: shade-color($success, 16%);
+      }
+    }
+
+    &.btn-info ~ .dropdown-menu {
+      background-color: $info;
+      border-color: shade-color($info, 10%);
+
+      .dropdown-item {
+        color: $white;
+      }
+
+      .dropdown-item:hover,
+      .dropdown-item:focus {
+        background-color: shade-color($info, 16%);
+      }
+    }
+
+    &.btn-warning ~ .dropdown-menu {
+      background-color: $warning;
+      border-color: shade-color($warning, 10%);
+
+      .dropdown-item {
+        color: $white;
+      }
+
+      .dropdown-item:hover,
+      .dropdown-item:focus {
+        background-color: shade-color($warning, 16%);
+      }
+    }
+
+    &.btn-danger ~ .dropdown-menu {
+      background-color: $danger;
+      border-color: shade-color($danger, 10%);
+
+      .dropdown-item {
+        color: $white;
+      }
+
+      .dropdown-item:hover,
+      .dropdown-item:focus {
+        background-color: shade-color($danger, 16%);
+      }
     }
   }
 }
@@ -100,182 +215,102 @@ $web-font-path: "https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,w
   color: $gray-600;
 }
 
+// Tables
+
+table {
+  font-size: $font-size-sm;
+}
+
 // Forms
 
-.form-control {
-  box-shadow: inset 0 2px 0 rgba(0, 0, 0, .075);
+label,
+.control-label,
+.help-block,
+.checkbox,
+.radio,
+.form-control-feedback {
+  font-size: $font-size-sm;
 }
 
 // Navs
 
-.nav {
-  .open > a,
-  .open > a:hover,
-  .open > a:focus {
-    border-color: transparent;
-  }
+.dropdown-item {
+  padding-top: .75rem;
+  padding-bottom: .75rem;
+  font-size: $font-size-sm;
+  font-weight: 300;
 }
 
-.nav-tabs {
-  .nav-link {
-    color: var(--#{$prefix}body-color);
-
-    &,
-    &.disabled,
-    &.disabled:hover,
-    &.disabled:focus {
-      margin-top: 6px;
-      border-color: $nav-tabs-border-color;
-      transition: padding-bottom .2s ease-in-out, margin-top .2s ease-in-out, border-bottom .2s ease-in-out;
-    }
-
-    &:not(.disabled):hover,
-    &:not(.disabled):focus,
-    &.active {
-      padding-bottom: add(.5rem, 6px);
-      margin-top: 0;
-      color: var(--#{$prefix}body-color);
-      border-bottom-color: transparent;
-    }
+.nav-pills {
+  .active {
+    border: 1px solid shade-color($primary, 10%);
   }
-
-  &.nav-justified > li {
-    vertical-align: bottom;
-  }
-}
-
-.dropdown-menu {
-  margin-top: 0;
-  @include shadow();
-  border-top-width: 1px;
-  @include box-shadow(none);
 }
 
 .breadcrumb {
-  border-color: $pagination-border-color;
-  @include shadow();
+  font-size: $font-size-sm;
+  font-weight: 300;
+  text-transform: uppercase;
+  border: 1px solid $dropdown-border-color;
 }
 
 .pagination {
-  > li > a,
-  > li > span {
-    position: relative;
-    top: 0;
-    font-weight: 700;
-    color: $pagination-color;
-    text-transform: uppercase;
-    @include shadow();
+  font-weight: 300;
+
+  .page-link {
+    margin-right: .1em;
+    margin-left: .1em;
+    border-color: transparent;
+    border-radius: 3px;
 
     &:hover,
     &:focus {
-      top: 1px;
       text-decoration: none;
-      border-bottom-width: 3px;
-    }
-
-    &:active {
-      top: 2px;
-      border-bottom-width: 2px;
     }
   }
 
-  > .disabled > a,
-  > .disabled > span {
-    &:hover {
-      top: 0;
-      @include shadow();
-    }
-
-    &:active {
-      top: 0;
-      @include shadow();
+  .page-item.disabled {
+    .page-link {
+      border-color: transparent;
     }
   }
 }
 
-.pager {
-  > li > a,
-  > li > span,
-  > .disabled > a,
-  > .disabled > span {
-    &,
-    &:hover,
-    &:active {
-      border-right-width: 2px;
-      border-left-width: 2px;
+.pagination,
+.pagination-lg,
+.pagination-sm {
+  .page-item:first-child,
+  .page-item:last-child {
+    .page-link {
+      border-radius: 3px;
     }
   }
+}
+
+@include color-mode(dark) {
+  .pagination {
+    --bs-pagination-disabled-color: #{$gray-700};
+  }
+}
+
+.list-group {
+  font-size: $font-size-sm;
+  font-weight: 300;
+}
+
+.list-group-item.disabled,
+.list-group-item:disabled {
+  background-color: var(--bs-secondary-bg);
 }
 
 // Indicators
 
-.btn-close {
-  text-decoration: none;
-  opacity: .4;
-
-  &:hover,
-  &:focus {
-    opacity: 1;
-  }
-}
-
 .alert {
-  color: $white;
-  @include shadow();
-
-  &-primary {
-    background-color: $primary;
-    border-color: shade-color($primary, 10%);
-  }
-
-  &-secondary {
-    background-color: $secondary;
-    border-color: shade-color($secondary, 10%);
-  }
-
-  &-success {
-    background-color: $success;
-    border-color: shade-color($success, 10%);
-  }
-
-  &-info {
-    background-color: $info;
-    border-color: shade-color($info, 10%);
-  }
-
-  &-danger {
-    background-color: $danger;
-    border-color: shade-color($danger, 10%);
-  }
-
-  &-warning {
-    background-color: $warning;
-    border-color: shade-color($warning, 10%);
-  }
-
-  &-dark {
-    background-color: $dark;
-    border-color: shade-color($dark, 10%);
-  }
-
-  &-light {
-    background-color: $light;
-    border-color: shade-color($light, 10%);
-  }
+  font-size: $font-size-sm;
+  font-weight: 300;
 
   .alert-link {
-    font-weight: 400;
-    color: $white;
     text-decoration: underline;
-  }
-
-  &-secondary,
-  &-light {
-    &,
-    a,
-    .alert-link {
-      color: $body-color;
-    }
   }
 }
 
@@ -286,47 +321,19 @@ $web-font-path: "https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,w
   }
 }
 
-// Containers
+// Progress bars
 
-a.list-group-item {
-  &-success {
-    &.active {
-      background-color: $success;
-    }
-
-    &.active:hover,
-    &.active:focus {
-      background-color: shade-color($success, 10%);
-    }
-  }
-
-  &-warning {
-    &.active {
-      background-color: $warning;
-    }
-
-    &.active:hover,
-    &.active:focus {
-      background-color: shade-color($warning, 10%);
-    }
-  }
-
-  &-danger {
-    &.active {
-      background-color: $danger;
-    }
-
-    &.active:hover,
-    &.active:focus {
-      background-color: shade-color($danger, 10%);
-    }
-  }
+.progress[value] {
+  height: 22px;
+  padding: 2px;
+  background-color: #f6f6f6;
+  border: 1px solid #ccc;
+  @include box-shadow(none);
 }
 
-.modal,
-.toast,
-.offcanvas {
-  .btn-close {
-    background-image: escape-svg(url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='#{$black}'><path d='M.293.293a1 1 0 0 1 1.414 0L8 6.586 14.293.293a1 1 0 1 1 1.414 1.414L9.414 8l6.293 6.293a1 1 0 0 1-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 0 1-1.414-1.414L6.586 8 .293 1.707a1 1 0 0 1 0-1.414z'/></svg>"));
-  }
+// Popovers
+
+.popover-header {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
 }

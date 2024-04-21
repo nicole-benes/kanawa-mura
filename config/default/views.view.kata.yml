@@ -11,18 +11,18 @@ dependencies:
     - search_api.index.main_index
     - taxonomy.vocabulary.rings_traits
   content:
-    - 'taxonomy_term:rings_traits:477c2bad-5ef4-4419-abc8-820f635fc6f1'
-    - 'taxonomy_term:rings_traits:803b4c2b-1ee8-4da8-9510-18378c64477f'
-    - 'taxonomy_term:rings_traits:ac49325b-674c-4c7c-92b0-68e20a186ac0'
-    - 'taxonomy_term:rings_traits:bcf81f1a-211b-4453-9542-97e57cb481e1'
-    - 'taxonomy_term:rings_traits:da033e72-bf8b-4bb8-904a-a277706562e5'
+    - 'taxonomy_term:rings_traits:1c531629-5423-4e79-ae2d-2430f6e5f930'
+    - 'taxonomy_term:rings_traits:7b4e3d8f-ac26-4866-83f2-93a7f6c61675'
+    - 'taxonomy_term:rings_traits:98776b2e-dd7a-4905-9b76-cf62e506d451'
+    - 'taxonomy_term:rings_traits:c47dea98-c518-4946-b992-90630e80f9cb'
+    - 'taxonomy_term:rings_traits:de107aa8-328b-446e-9646-cd16f201687a'
   module:
     - search_api
     - text
 id: kata
 label: Kata
 module: views
-description: ''
+description: 'The kata which bushi can learn.'
 tag: ''
 base_table: search_api_index_main_index
 base_field: search_api_id
@@ -168,7 +168,7 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          field_rendering: false
+          field_rendering: true
           fallback_handler: search_api
           fallback_options:
             link_to_item: false
@@ -637,11 +637,11 @@ display:
           plugin_id: search_api_term
           operator: or
           value:
-            13873: 13873
-            13876: 13876
-            13879: 13879
-            13885: 13885
-            13882: 13882
+            19: 19
+            22: 22
+            25: 25
+            31: 31
+            28: 28
           group: 1
           exposed: true
           expose:

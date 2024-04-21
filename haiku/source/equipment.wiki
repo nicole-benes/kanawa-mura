@@ -152,8 +152,8 @@ typically crafted from a single piece of wood or horn.
 * Range: 250'
 * Special: Increases TN of all attack rolls by 10 on horseback.
 * Cost: 20 koku.
-Tlis is the basic bow carried by infantry archers. and by
-samurai who lravd i11depemlt::11tly uf cu 111it::::, u1 otbe1 large
+This is the basic bow carried by infantry archers. and by
+samurai who travel independently of armies or other large
 groups. It is a powerful bow, although not quite as powerful
 as the dai-kyu, but its curvature makes it inconvenient to use
 on horseback.

@@ -2680,6 +2680,43 @@ function last_haiku_import_create_rings_traits() {
 
 
 function last_haiku_import_create_clans_families( $sources ) {
+     
+     // Set up clan weights
+     $clanWeights = [
+          'Great Clans' => 0,
+          'Crab' => 1,
+          'Crane' => 2,
+          'Dragon' => 3,
+          'Lion' => 4,
+          'Mantis' => 5,
+          'Phoenix' => 6,
+          'Scorpion' => 7,
+          'Spider' => 8,
+          'Unicorn' => 9,
+          'Minor Clans' => 20,
+          'Badger' => 21,
+          'Bat' => 22,
+          'Boar' => 23,
+          'Dragonfly' => 24,
+          'Hare' => 25,
+          'Monkey' => 26,
+          'Oriole' => 27,
+          'Ox' => 28,
+          'Snake' => 29,
+          'Sparrow' => 30,
+          'Tiger' => 31,
+          'Tortoise' => 32,
+          'Imperial Families' => 40,
+          'Ronin Families' => 60,
+          'Lost Clans' => 80,
+          'Firefly' => 81,
+          'Bee' => 82,
+          'Peacock' => 83,
+          'Raven' => 84,
+          'Salamander' => 85,
+          'Shark' => 86,
+          'Tanuki' => 87,   
+     ];
 
      // Get the path to the clans file
 	$familiesFilePath = \Drupal::service('extension.list.module')->getPath('last_haiku_import') . '/json/clans-families.json';
@@ -2689,10 +2726,6 @@ function last_haiku_import_create_clans_families( $sources ) {
 
      // Loop through the groupings
      foreach( $families as $groupingName => $grouping ) {
-
-          if( $groupingName == 'Imperial Families' || $groupingName == 'Ronin Families' ) {
-               
-          }
 
           $description = '';
 
@@ -2708,7 +2741,7 @@ function last_haiku_import_create_clans_families( $sources ) {
 				'format' => 'full_html',
 			],                              
           ]);
-
+/*
           if( $groupingName == 'Lost Clans' ) {
                $group->setWeight( 80 );
           } else if( $groupingName == 'Minor Clans' ) {
@@ -2718,6 +2751,8 @@ function last_haiku_import_create_clans_families( $sources ) {
           } else if( $groupingName == 'Imperial Families' ) {
                $group->setWeight( 40 ); 
           }
+*/
+          $group->setWeight( $clanWeights[ $groupingName ] );
 
           $group->enforceIsNew();
           $group->save();          
@@ -2733,6 +2768,8 @@ function last_haiku_import_create_clans_families( $sources ) {
                          'name' => $clanName,
                          'parent' => [ 'target_id' => $group->id() ],
                     ]);
+
+                    $clanTerm->setWeight( $clanWeights[ $clanName ] );
 
                     if( property_exists( $clan, 'description' ) ) {
 

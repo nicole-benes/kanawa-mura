@@ -16,11 +16,11 @@ dependencies:
     - search_api.index.main_index
     - taxonomy.vocabulary.rings_traits
   content:
-    - 'taxonomy_term:rings_traits:11e785d0-2f83-4079-b8fb-3ed2f2586006'
-    - 'taxonomy_term:rings_traits:7130992f-73fa-40f6-973c-a7313c891249'
-    - 'taxonomy_term:rings_traits:84b79f38-ec29-4b6f-9e2c-3b425afa81c0'
-    - 'taxonomy_term:rings_traits:a2f64669-e4fa-449b-836c-29ee6d6b643e'
-    - 'taxonomy_term:rings_traits:d7c83ca5-ed28-4780-9c0f-bf4dd6be8b36'
+    - 'taxonomy_term:rings_traits:058d4503-6570-4564-aab9-76b9cc3a6609'
+    - 'taxonomy_term:rings_traits:1691b92b-fa65-4b23-bf00-ffb6bb96f79a'
+    - 'taxonomy_term:rings_traits:18a3495b-1948-4b29-8892-304c518e954f'
+    - 'taxonomy_term:rings_traits:a1782a0a-677e-40a6-910a-9241592bcb0c'
+    - 'taxonomy_term:rings_traits:e89faffd-ece9-460a-b13b-583c49f3125d'
   module:
     - rest
     - search_api
@@ -277,7 +277,7 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          field_rendering: false
+          field_rendering: true
           fallback_handler: search_api
           fallback_options:
             link_to_item: false
@@ -1031,11 +1031,11 @@ display:
           plugin_id: search_api_term
           operator: or
           value:
-            1: 1
-            4: 4
-            7: 7
-            13: 13
-            10: 10
+            19: 19
+            22: 22
+            25: 25
+            31: 31
+            28: 28
           group: 1
           exposed: true
           expose:

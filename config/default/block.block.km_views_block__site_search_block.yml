@@ -1,6 +1,6 @@
 uuid: acb2f6d4-2ff2-43da-85a4-235dc14a357b
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - views.view.site_search

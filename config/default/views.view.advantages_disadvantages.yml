@@ -17,7 +17,7 @@ dependencies:
 id: advantages_disadvantages
 label: 'Advantages & Disadvantages'
 module: views
-description: ''
+description: 'Displays all advantages and disadvantages.'
 tag: ''
 base_table: search_api_index_main_index
 base_field: search_api_id
@@ -592,6 +592,19 @@ display:
           admin_label: ''
           plugin_id: search_api
           order: DESC
+          expose:
+            label: ''
+            field_identifier: ''
+          exposed: false
+        advantage_type:
+          id: advantage_type
+          table: search_api_index_main_index
+          field: advantage_type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: ASC
           expose:
             label: ''
             field_identifier: ''

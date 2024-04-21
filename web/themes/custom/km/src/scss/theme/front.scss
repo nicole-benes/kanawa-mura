@@ -1,0 +1,21 @@
+.homepage-header {
+     text-align: center;
+     padding-bottom: 3rem;
+
+     h2 {
+          color: $purple;
+          font-family: "Comforter Brush", cursive;
+          font-size: 115px;
+     }
+
+     .description {
+          color: $purple;
+          font-style: italic;
+     }
+
+     .intro {
+          color: $purple;
+          font-family: "Comforter Brush", cursive;
+          font-size: 30px;
+     }
+}

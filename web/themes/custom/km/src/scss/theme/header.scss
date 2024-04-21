@@ -1,3 +1,4 @@
+/*
 .navbar {
     .me-auto {
         margin-left: auto !important;
@@ -19,4 +20,49 @@
             font-size: 14px;
         }
     }
+}
+*/
+
+.navbar {
+     background-color: $gray-900 !important;
+
+     a {
+          color: $white;
+
+          &:hover {
+//               color: $gray-500;
+               color: $purple;
+          }
+     }
+
+     .block-system-branding-block {
+          display: flex;
+          flex-basis: auto;
+     }
+
+     .navbar-brand__text {
+          span:first-child {
+               font-family: "Comforter Brush", cursive;
+               font-size: 50px;
+               line-height: 1;
+               margin-bottom: -5px;
+               margin-top: 5px;
+          }   
+
+          .small {
+               display: none;;
+          }
+     }
+
+     .nav-link {
+          &.active {
+               color: $gray-600;
+          }
+     }
+}
+
+.toolbar-horizontal {
+     .navbar {
+          margin-top: 80px;
+     }
 }

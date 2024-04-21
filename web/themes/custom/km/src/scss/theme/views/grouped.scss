@@ -75,7 +75,7 @@
      &.view-advantages-disadvantages { 
           .views-exposed-form {
                .form-type-textfield {
-                    width: 40%;
+                    width: 43%;
 
                     &.form-item-point-value-value {
                          width: 8%;
@@ -87,7 +87,7 @@
      &.view-ancestors {
           .views-exposed-form {
                .form-type-textfield {
-                    width: 67%;
+                    width: 68%;
                }
           }
      }
@@ -95,7 +95,7 @@
      &.view-equipment {
           .views-exposed-form {
                .form-type-textfield {
-                    width: 74%;
+                    width: 75%;
                }
           }
      }
@@ -103,7 +103,7 @@
      &.view-families {
           .views-exposed-form {
                .form-type-textfield {
-                    width: 75%;
+                    width: 77%;
                }
           }
      }
@@ -111,7 +111,7 @@
      &.view-kata { 
           .views-exposed-form {
                .form-type-textfield {
-                    width: 80%;
+                    width: 82%;
                }     
           }
      }
@@ -119,7 +119,7 @@
      &.view-kiho { 
           .views-exposed-form {
                .form-type-textfield {
-                    width: 71%;
+                    width: 76%;
                }     
           }
      }
@@ -133,7 +133,15 @@
      &.view-schools { 
           .views-exposed-form {
                .form-type-textfield {
-                    width: 46%;
+                    width: 50%;
+               }     
+          }
+     }
+
+     &.view-skills { 
+          .views-exposed-form {
+               .form-type-textfield {
+                    width: 78%;
                }     
           }
      }
@@ -141,7 +149,7 @@
      &.view-spells { 
           .views-exposed-form {
                .form-type-textfield {
-                    width: 65%;
+                    width: 67%;
                }     
           }
      }

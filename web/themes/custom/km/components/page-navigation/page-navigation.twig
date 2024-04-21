@@ -1,0 +1,39 @@
+{#
+/**
+ * @file
+ * Template for a Page Navigation component.
+ *
+#}
+
+{% embed 'radix:navbar' with {
+  container: 'fixed-top',
+  navbar_theme: 'light',
+  navbar_utility_classes: [
+    'justify-content-between',
+    'bg-primary',
+    'fixed-top',
+  ],
+} %}
+
+	{% block branding %}
+		{% if page.navbar_branding %}
+			{{ page.navbar_branding }}
+		{% endif %}
+	{% endblock %}
+
+	{% block left %}
+		{% if page.navbar_left %}
+			<div class="me-auto">
+				{{ page.navbar_left }}
+			</div>
+		{% endif %}
+	{% endblock %}
+
+	{% block right %}
+		{% if page.navbar_right %}
+			<div class="ms-auto">
+				{{ page.navbar_right }}
+			</div>
+		{% endif %}
+	{% endblock %}
+{% endembed %}
