@@ -2318,6 +2318,7 @@ function last_haiku_import_make_redirects() {
           'Fire',
           'Water',
           'Void',
+          'Universal',
           'Multi-Element',
           'Maho',
      ];
@@ -2741,17 +2742,7 @@ function last_haiku_import_create_clans_families( $sources ) {
 				'format' => 'full_html',
 			],                              
           ]);
-/*
-          if( $groupingName == 'Lost Clans' ) {
-               $group->setWeight( 80 );
-          } else if( $groupingName == 'Minor Clans' ) {
-               $group->setWeight( 20);
-          } else if( $groupingName == 'Ronin Families' ) {
-               $group->setWeight( 60 );
-          } else if( $groupingName == 'Imperial Families' ) {
-               $group->setWeight( 40 ); 
-          }
-*/
+
           $group->setWeight( $clanWeights[ $groupingName ] );
 
           $group->enforceIsNew();

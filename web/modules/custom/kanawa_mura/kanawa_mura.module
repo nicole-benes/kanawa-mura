@@ -134,7 +134,8 @@ function kanawa_mura_form_alter( &$form, $form_state, $form_id ) {
           // Rename the all option for the rank option
           $form[ 'rank' ][ '#options' ][ 'All' ] = t( 'All Ranks' );
 
-          // Add the two supplemental terms to the select list
+          // Add the three supplemental terms to the select list
+          $form[ 'trait' ][ '#options' ][ kanawa_mura_term_lookup( 'Universal', 'supplemental_terms' ) ] = 'Universal';
           $form[ 'trait' ][ '#options' ][ kanawa_mura_term_lookup( 'Multi-Element', 'supplemental_terms' ) ] = 'Multi-Element';
           $form[ 'trait' ][ '#options' ][ kanawa_mura_term_lookup( 'Maho', 'supplemental_terms' ) ] = 'Maho';
 
