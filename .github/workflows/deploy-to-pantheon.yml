@@ -25,3 +25,11 @@ jobs:
       run: |
         git remote add pantheon $pantheon_repo
         git push pantheon HEAD:master
+    - name: Pantheon Workflow Deployer
+      env:
+        pantheon_site_name: ${{ secrets.PANTHEON_SITE_NAME  }}
+      run: |
+        terminus workflow:wait l5r.dev
+        commit_message=$(git log -1 --pretty=%B)
+        terminus env:deploy $pantheon_site_name.test --note="Automated deploy: $commit_message"
+        terminus env:deploy $pantheon_site_name.live --note="Automated deploy: $commit_message"
