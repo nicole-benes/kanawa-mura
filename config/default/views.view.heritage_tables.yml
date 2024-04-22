@@ -9,10 +9,10 @@ dependencies:
     - taxonomy.vocabulary.clans
     - taxonomy.vocabulary.table_types
   content:
-    - 'taxonomy_term:table_types:0dc7f50b-a3b8-498c-b848-912ad022cd40'
-    - 'taxonomy_term:table_types:17bbd8d4-16bf-4076-a66c-579dd14ecec3'
-    - 'taxonomy_term:table_types:343a68c5-7f93-4d6e-a213-27367f822617'
-    - 'taxonomy_term:table_types:b94b25b4-a9dc-431c-8da5-3ec7b7abfe88'
+    - 'taxonomy_term:table_types:0b540b9d-7495-4083-b22c-75318eba58bb'
+    - 'taxonomy_term:table_types:4e34042f-31f0-45d5-b6cb-b4400d522725'
+    - 'taxonomy_term:table_types:8e1dea33-572d-41f5-9b18-66ce9f690e7b'
+    - 'taxonomy_term:table_types:d6e436e1-bbd9-4bf6-be34-84480d296591'
   module:
     - entity_reference_revisions
     - search_api
@@ -449,7 +449,7 @@ display:
           plugin_id: search_api_term
           operator: or
           value:
-            104: 104
+            105: 105
           group: 1
           exposed: false
           expose:
