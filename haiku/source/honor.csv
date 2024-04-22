@@ -5,10 +5,10 @@ Acknowledging a superior opponent, 5, 4, 4, 2, 2, 0
 Aiding a wounded enemy, 9, 8, 6, 6, 5, 3
 Being an accomplice to a heinous crime, -1, -4, -8, -12, -16, -20
 Being an accomplice to a minor crime, 0, -1, -4, -4, -8, -8
-Breach of etiquette, blasphemous, -1, -6, -10, -10, -16, -20
-Breach of etiquette, major, 0, -2, -2, -2, -6, -6
-Breach of etiquette, minor, 0, 0, -1, -2, -2, -2
-Disloyalty to lord, spouse, or superior, 0, -2, -6, -10, -14, -18 
+"Breach of etiquette, blasphemous", -1, -6, -10, -10, -16, -20
+"Breach of etiquette, major", 0, -2, -2, -2, -6, -6
+"Breach of etiquette, minor", 0, 0, -1, -2, -2, -2
+"Disloyalty to lord, spouse, or superior", 0, -2, -6, -10, -14, -18 
 Duped into performing a criminal act, -1, -4, -8, -12, -16, -18 
 Duped into performing a disloyal act, 0, -2, -4, -6, -10, -14 
 Duped into performing a foolish act, 0, -2, -4, -4, -6, -8

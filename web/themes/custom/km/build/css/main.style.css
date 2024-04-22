@@ -12555,6 +12555,17 @@ label,
     margin-top: 76px;
   }
 }
+.honor-table tr:nth-child(even) {
+  background: #eee;
+}
+.honor-table tr td:not(:first-child) {
+  text-align: center;
+  width: 75px;
+}
+.honor-table tr th:not(:first-child) {
+  text-align: center;
+}
+
 main.py-5 {
   margin-top: 80px !important;
 }
@@ -12644,6 +12655,14 @@ main.py-5 {
   .homepage-header h2, .homepage-header .h2 {
     font-size: 4.75rem;
   }
+}
+
+.navbar-expand-lg .navbar-nav li:hover .dropdown-menu {
+  background-color: #222;
+  display: block;
+}
+.navbar-expand-lg .navbar-nav li:hover .dropdown-menu .dropdown-item:hover, .navbar-expand-lg .navbar-nav li:hover .dropdown-menu .dropdown-item.active {
+  background-color: #222;
 }
 
 .accordion .accordion-button {

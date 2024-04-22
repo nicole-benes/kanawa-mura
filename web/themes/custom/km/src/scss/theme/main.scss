@@ -23,3 +23,24 @@
           margin-top: 76px;
      }
 }
+
+.honor-table {
+     tr {
+          &:nth-child( even ) {
+               background: $gray-200;
+          }
+
+          td {
+               &:not(:first-child) {
+                    text-align: center;
+                    width: 75px;
+               }
+          }
+
+          th {
+               &:not(:first-child) {
+                    text-align: center;;
+               }
+          }
+     }
+}

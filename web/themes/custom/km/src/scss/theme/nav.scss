@@ -1,0 +1,18 @@
+.navbar-expand-lg {
+     .navbar-nav {
+          li {
+               &:hover {
+                    .dropdown-menu {
+                         background-color: $gray-900;
+                         display: block;
+
+                         .dropdown-item {
+                              &:hover, &.active {
+                                   background-color: $gray-900;
+                              }
+                         }
+                    }
+               }
+          }
+     }
+}

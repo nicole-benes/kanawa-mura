@@ -21,9 +21,23 @@
 {% elseif fields.type_1.content == 'spells' %}
      {% include '@km/templates/views/spells/views-view-fields--spells.html.twig' %}
 {% elseif fields.type_1.content == 'table' %}
-    {% if fields.table_type_term.content == 'Heritage Table' %}
-     {% include '@km/templates/views/heritage-tables/views-view-fields--heritage-tables.html.twig' %}
-    {% else %}
+     {% if fields.table_type_term.content == 'Heritage Table' %}
+          {% include '@km/templates/views/heritage-tables/views-view-fields--heritage-tables.html.twig' %}
+     {% elseif fields.table_type_term.content == 'Honor Table' %}
+          <div class="views-field views-field-title">
+               <h3 class="field-content">     
+                    <div class="search-result-row-header">     
+                         <div class="result-title">
+                              <a href="/honor" title="Gains/Losses by Honor Rank">Gains/Losses by Honor Rank</a>{% if fields.source %} [{{ fields.source.content }}]{% endif %}
+                         </div>
+
+                         <div class="result-type">
+                              <span class="result-icon"><i class="fa-solid fa-table"></i></span>Table<span class="equipment-arrow"><i class="fa-solid fa-arrow-right"></i></span>Honor Table
+                         </div>
+                    </div>          
+               </h3>
+          </div>
+     {% else %}
           Unknown table type result in site search.
 
           {{ breakpoint() }}

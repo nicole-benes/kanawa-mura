@@ -62,7 +62,7 @@ function last_haiku_import_install() {
      last_haiku_import_tables( $sources );
 
      // Import the honor table
-     last_haiku_import_honor_table();
+     last_haiku_import_honor_table( $sources );
 
      // Run the redirect maker
      last_haiku_import_make_redirects();
@@ -72,13 +72,13 @@ function last_haiku_import_install() {
 }
 
 
-function last_haiku_import_honor_table() {
+function last_haiku_import_honor_table( $sources ) {
 
      // Load the wrapping html
      $body = file_get_contents( \Drupal::service('extension.list.module')->getPath('last_haiku_import') . '/html/honor.html' );
 
      // Load the table html
-     $table = file_get_contents( \Drupal::service('extension.list.module')->getPath('last_haiku_import') . '/html/honor.html' );
+     $table = file_get_contents( \Drupal::service('extension.list.module')->getPath('last_haiku_import') . '/html/honor-table.html' );
 
      // Create the full body html
      $body = str_replace( '<!-- TABLE GOES HERE -->', $table, $body );
@@ -90,7 +90,7 @@ function last_haiku_import_honor_table() {
           'type' => 'table',
           'title' => 'Gains/Losses by Honor Rank',
           'field_table_type' => [
-               [ 'target_id' => last_haiku_import_term_lookup( 'Honor', 'table_types') ]
+               [ 'target_id' => last_haiku_import_term_lookup( 'Honor Table', 'table_types') ]
           ],
           'field_table_group' => [
                [ 'target_id' => last_haiku_import_term_lookup( 'Honor', 'supplemental_terms') ]
@@ -146,6 +146,15 @@ function last_haiku_import_honor_table() {
 
      // Save the node
      $node->save(); 
+
+     // Make the alias for the node
+     $path_alias = \Drupal\path_alias\Entity\PathAlias::create([
+          'path' => "/node" . "/" . $node->id(),
+          'alias' => '/honor',
+     ]);
+     
+     // Save the alias
+     $path_alias->save();     
 }
 
 
@@ -360,7 +369,20 @@ function last_haiku_import_make_menu() {
                'description' => 'The invocations used by Shugenja and other less honorable magic.',
                'uri' => '/spells',
           ],
-
+          'Tables' => [
+               'description' => 'Various tables which may be useful to reference at times.',
+               'uri' => '/search?type=table',
+               'children' => [
+                    'Heritage Tables' => [
+                         'description' => 'Various heritage options for new characters.',
+                         'uri' => '/heritages',
+                    ],
+                    'Honor Table' => [
+                         'description' => 'Gains/Losses by Honor Rank',
+                         'uri' => '/honor',
+                    ],
+               ],
+          ],
      ];
 
      $weight = 0;
@@ -393,6 +415,26 @@ function last_haiku_import_make_menu() {
                $newLink->save();
 
                $weight++;
+
+               if( array_key_exists( 'children', $link ) ) {
+
+                    $childWeight = 0;
+
+                    foreach( $link[ 'children' ] as $childTitle => $childLink ) {
+                         $childLink = \Drupal\menu_link_content\Entity\MenuLinkContent::create([
+
+                              'title' => $childTitle,
+                              'link' => ['uri' => 'internal:' . $childLink[ 'uri' ] ],
+                              'menu_name' => 'main',
+                              'weight' => $childWeight,
+                              'parent' => 'menu_link_content:' . $newLink->uuid(),
+                         ]);
+          
+                         $childLink->save();
+          
+                         $childWeight++;
+                    }
+               }
           }
      }     
 }
@@ -2644,7 +2686,7 @@ function last_haiku_import_create_table_terms() {
                'Illustrious Past',
                'Mixed Blessings',
           ],
-          'Honor',
+          'Honor Table',
      ];
 
      foreach( $types as $key => $type ) {
