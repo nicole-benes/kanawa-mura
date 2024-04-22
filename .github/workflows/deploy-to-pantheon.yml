@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - 'main'
+  workflow_dispatch: 
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -19,4 +20,4 @@ jobs:
         pantheon_repo: '${{ secrets.PANTHEON_REPO }}'
       run: |
         git remote add pantheon $pantheon_repo
-        git push pantheon HEAD:master
+        git push pantheon HEAD:master -f
