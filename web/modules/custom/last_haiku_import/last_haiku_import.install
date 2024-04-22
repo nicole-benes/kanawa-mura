@@ -61,12 +61,93 @@ function last_haiku_import_install() {
      // Import Tables
      last_haiku_import_tables( $sources );
 
+     // Import the honor table
+     last_haiku_import_honor_table();
+
      // Run the redirect maker
      last_haiku_import_make_redirects();
 
      // Make the top menu
      last_haiku_import_make_menu();
 }
+
+
+function last_haiku_import_honor_table() {
+
+     // Load the wrapping html
+     $body = file_get_contents( \Drupal::service('extension.list.module')->getPath('last_haiku_import') . '/html/honor.html' );
+
+     // Load the table html
+     $table = file_get_contents( \Drupal::service('extension.list.module')->getPath('last_haiku_import') . '/html/honor.html' );
+
+     // Create the full body html
+     $body = str_replace( '<!-- TABLE GOES HERE -->', $table, $body );
+
+
+
+     // Set up our node
+     $node = [
+          'type' => 'table',
+          'title' => 'Gains/Losses by Honor Rank',
+          'field_table_type' => [
+               [ 'target_id' => last_haiku_import_term_lookup( 'Honor', 'table_types') ]
+          ],
+          'field_table_group' => [
+               [ 'target_id' => last_haiku_import_term_lookup( 'Honor', 'supplemental_terms') ]
+          ],
+     ];
+
+     // Create the table block
+     $tableBlock = Paragraph::create([
+          'type' => 'tabular_data',
+          'field_description' => [
+               'value' => $body,
+               'format' => 'full_html',
+          ],
+          'field_table_type' => [
+               [ 'target_id' => last_haiku_import_term_lookup( 'Honor', 'table_types') ]
+          ],
+
+     ]);
+
+     // Save the initial paragraph
+     $tableBlock->save();
+
+     // Add the paragraph to our node
+     $node[ 'field_tabular_data' ] = [
+          'target_id' => $tableBlock->id(),
+          'target_revision_id' => $tableBlock->getRevisionId(),               
+     ];     
+
+     // Crea[te our source paragraph
+     $source = Paragraph::create([
+          'type' => 'source',
+          'field_source_book' => [
+               [ 'target_id' => $sources[ 'CR' ] ]
+          ],
+     ]); 
+
+     // Save the source paragraph
+     $source->save();
+
+     // add the source to our node
+     $node[ 'field_source' ] = [
+          [
+               'target_id' => $source->id(),
+               'target_revision_id' => $source->getRevisionId(),			
+          ],
+     ];
+
+     // Set the node author to the importer
+     $node[ 'uid' ] = 2;
+
+     // Create our node for this school
+     $node = Node::create( $node );
+
+     // Save the node
+     $node->save(); 
+}
+
 
 
 function last_haiku_import_heritage_tables( $sources ) {
@@ -2563,6 +2644,7 @@ function last_haiku_import_create_table_terms() {
                'Illustrious Past',
                'Mixed Blessings',
           ],
+          'Honor',
      ];
 
      foreach( $types as $key => $type ) {
@@ -2686,6 +2768,7 @@ function last_haiku_import_create_supplemental_terms() {
           'Universal',
           'Maho',
           'Multi-Element',
+          'Honor',
      ];
 
      foreach( $supplementalTerms as $type ) {

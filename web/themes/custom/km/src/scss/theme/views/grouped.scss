@@ -110,6 +110,14 @@
                }
           }
 
+          &.view-heritage-tables {
+               .views-exposed-form {
+                    .form-type-textfield {
+                         width: 65%;
+                    }
+               }
+          }
+
           &.view-kata { 
                .views-exposed-form {
                     .form-type-textfield {

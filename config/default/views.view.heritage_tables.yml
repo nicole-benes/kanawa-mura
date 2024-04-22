@@ -9,7 +9,10 @@ dependencies:
     - taxonomy.vocabulary.clans
     - taxonomy.vocabulary.table_types
   content:
-    - 'taxonomy_term:table_types:27678994-aa7d-483e-a801-29401df96ff7'
+    - 'taxonomy_term:table_types:0dc7f50b-a3b8-498c-b848-912ad022cd40'
+    - 'taxonomy_term:table_types:17bbd8d4-16bf-4076-a66c-579dd14ecec3'
+    - 'taxonomy_term:table_types:343a68c5-7f93-4d6e-a213-27367f822617'
+    - 'taxonomy_term:table_types:b94b25b4-a9dc-431c-8da5-3ec7b7abfe88'
   module:
     - entity_reference_revisions
     - search_api
@@ -574,6 +577,57 @@ display:
             group_items: {  }
           reduce_duplicates: false
           vid: clans
+          type: select
+          hierarchy: false
+          limit: true
+          error_message: true
+        table_type_term_1:
+          id: table_type_term_1
+          table: search_api_index_main_index
+          field: table_type_term
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_term
+          operator: or
+          value:
+            107: 107
+            108: 108
+            106: 106
+          group: 1
+          exposed: true
+          expose:
+            operator_id: table_type_term_1_op
+            label: 'Table Type'
+            description: ''
+            use_operator: false
+            operator: table_type_term_1_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: type
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              content_editor: '0'
+              administrator: '0'
+            reduce: true
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          vid: table_types
           type: select
           hierarchy: false
           limit: true

@@ -1,0 +1,31 @@
+Act,0,1-2,3-4,5-6,7-8,9-10
+Accepting a bribe, 0, 0, -3, -4, -7, -8
+Accepting responsibility for a superior's shameful action, 8, 7, 6, 4, 3, 3
+Acknowledging a superior opponent, 5, 4, 4, 2, 2, 0
+Aiding a wounded enemy, 9, 8, 6, 6, 5, 3
+Being an accomplice to a heinous crime, -1, -4, -8, -12, -16, -20
+Being an accomplice to a minor crime, 0, -1, -4, -4, -8, -8
+Breach of etiquette, blasphemous, -1, -6, -10, -10, -16, -20
+Breach of etiquette, major, 0, -2, -2, -2, -6, -6
+Breach of etiquette, minor, 0, 0, -1, -2, -2, -2
+Disloyalty to lord, spouse, or superior, 0, -2, -6, -10, -14, -18 
+Duped into performing a criminal act, -1, -4, -8, -12, -16, -18 
+Duped into performing a disloyal act, 0, -2, -4, -6, -10, -14 
+Duped into performing a foolish act, 0, -2, -4, -4, -6, -8
+Disobeying a lord's command, 0, -2, -2, -6, -6, -10 
+Enduring an insult to your ancestors, 0, -2, -4, -4, -6, -8 
+Enduring an insult to yourself, 2, 2, 2, 0, 0, 2
+Enduring an insult to your family or clan, 0, 0, -2, -2, -4, -4 
+Facing a superior foe in the name of your family, 8, 6, 5, 4, 3, 2 
+Fleeing from battle, 0, -2, -4, -6, -8, -10 
+Following orders despite personal misgivings, 6, 4, 0, 0, -2, -4
+Fulfilling a promise despite great personal cost, 10, 8, 6, 4, 2, 0 
+Giving a truthful report at your own expense, 8, 6, 4, 2, 0, 0 
+Lying to bolster your reputation, 0, -2, -4, -6, -8, -10 
+Manipulating another into dishonorable behavior, 0, -2, -4, -6, -8, -10 
+Politely ignoring another's dishonorable behavior, 3, 2, 0, 0, -2, -2
+Protecting your clan/family/lord's interest despite great risk to yourself, 8, 8, 6, 6, 4, 2
+Showing kindness to one beneath your station, 6, 6, 4, 4, 2, 2
+Showing sincere courtesy to enemies or rivals, 9, 7, 5, 2, 0, 0
+Using a Low Skill, 0, -1, -2, -3, -6, -9
+Using false courtesy to gain advantage over an enemy, 0, 0, -2, -6, -10, -10

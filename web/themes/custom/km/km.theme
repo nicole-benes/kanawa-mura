@@ -328,6 +328,16 @@ function km_preprocess_views_view_fields( &$variables ) {
                     $variables[ 'row' ]->link = '/kata#' . $title;
                     break;
 
+               case 'table':
+                    switch( $variables[ 'fields' ][ 'table_type_term' ]->content ) {
+                         case 'Heritage Table':
+                              $variables[ 'row' ]->link = '/heritages#' . $title;
+                              break;
+
+                         default:
+                              break;
+                    }
+                    break;
 
                default:
                     break;

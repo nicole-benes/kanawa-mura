@@ -12722,6 +12722,9 @@ main.py-5 {
   .grouped-view.view-families .views-exposed-form .form-type-textfield {
     width: 77%;
   }
+  .grouped-view.view-heritage-tables .views-exposed-form .form-type-textfield {
+    width: 65%;
+  }
   .grouped-view.view-kata .views-exposed-form .form-type-textfield {
     width: 82%;
   }

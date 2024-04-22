@@ -20,6 +20,14 @@
      {% include '@km/templates/views/skills/views-view-fields--skills.html.twig' %}
 {% elseif fields.type_1.content == 'spells' %}
      {% include '@km/templates/views/spells/views-view-fields--spells.html.twig' %}
+{% elseif fields.type_1.content == 'table' %}
+    {% if fields.table_type_term.content == 'Heritage Table' %}
+     {% include '@km/templates/views/heritage-tables/views-view-fields--heritage-tables.html.twig' %}
+    {% else %}
+          Unknown table type result in site search.
+
+          {{ breakpoint() }}
+    {% endif %}
 {% else %}
      Unknown content type result in site search.
 

@@ -1,1 +1,1405 @@
-{"Crab":{"source":"GC","initial":{"shameful":{"low":"1","high":"3","description":"Shameful Past"},"illustrious":{"low":"4","high":"7","description":"Illustrious Past"},"mixed":{"low":"8","high":"0","description":"Mixed Blessing"}},"shameful":[{"low":"1","description":"Your ancestor summoned a powerful kami during a time of need. Your ancestor made promises to the kami in return for its help, but never followed through. You gain the Disadvantage Wrath of the Kami."},{"low":"2","high":"3","description":"Your ancestor was a merchant patron who thought he was getting the better end of a deal, only to discover he\u2019d had the wool pulled over his eyes. Your family has been impoverished ever since. Start with three less koku in your Outfit."},{"low":"4","high":"5","description":"Your ancestor fell to the Shadowlands and returned to fi ght his former clan as one of the Lost. His failure haunts you line to this day. You start with 0.1 Taint and your starting Honor is 1.0 lower."},{"low":"6","high":"7","description":"A creature from the Shadowlands cursed your line with its dying breath. You start play with the Disadvantage Bad Fortune: Lingering Misfortune."},{"low":"8","high":"9","description":"Your ancestor abandoned a comrade to die in the Shadowlands. The other man\u2019s family swore a blood feud against yours. You gain the Sworn Enemy Disadvantage."},{"low":"0","description":"Your ancestor was seduced by the Shadowlands and in the generations since he has taken several of his descendants to join him there. You are next on the list."}],"illustrious":[{"low":"1","description":"A particular kami took an interest in your family line, and it senses a similarity to your ancestor in you. You may take the Friendly Kami Advantage (if you are a shugenja) or the Friend of the Elements Advantage for one less Experience Point."},{"low":"2","high":"3","description":"Your ancestor made many political connections with another clan which have lasted to this day. You gain a 3-point Ally Advantage in that clan for free."},{"low":"4","high":"5","description":"Your ancestor single-handedly turned back an enemy sally during a siege. His deeds still bring fame to your family today. Gain 1.0 Glory."},{"low":"6","high":"7","description":"Your ancestor died a hero\u2019s death fighting the Shadowlands. His legacy of heroism inspires you today. Gain 1 free Rank in a Weapon Skill of your choice."},{"low":"8","high":"9","description":"A visiting dignitary got caught in a Shadowlands attack while touring the Wall. Your ancestor saved his life and in thanks was granted an additional stipend. Your starting Outfit gains 2 koku."},{"low":"0","description":"During a fierce battle with another clan, your ancestor saved the life of one of his enemies. Their descendants remain indebted to your line. You gain a free 3-point Obligation with their clan."}],"mixed":[{"low":"1","description":"Your family is known for something disreputable - not necessarily undeserved. You gain the Infamous Disadvantage. However, you have learned from your family\u2019s illicit activities and gain one free Rank in a Low Skill."},{"low":"2","high":"3","description":"Your ancestor discovered something very interesting - and very taboo. You may take the Forbidden Knowledge Advantage for one less Experience Point."},{"low":"4","high":"5","description":"Your family has always had good relations with the Nezumi. You gain a free 2-point Ally who is a Nezumi."},{"low":"6","high":"7","description":"Due to various mishaps and misfortunes, you are the last of your line, and have all your family\u2019s titles and responsibilities resting squarely on your shoulders. You gain 0.5 Status but you are also under a 3-point Obligation to the Crab to keep your family line alive."},{"low":"8","high":"9","description":"Your ancestor participated in a battle with another clan, where he unexpectedly distinguished himself in a duel. However, the descendants of the samurai he defeated would like re-match. You gain 1.0 Glory but you also have a Sworn Enemy in another clan\u2019s family."},{"low":"0","description":"Your ancestor was a Kaiu craftsman of singular skills. One of his creations was passed on to you. Unfortunately he was afflicted with too much Fire and sometimes didn\u2019t seem himself. You gain the Sacred Weapon: Kaiu Blade Advantage for free, but the blade is afflicted with some manner of curse known only to your GM."}]},"Crane":{"source":"GC","initial":{"shameful":{"low":"1","high":"3","description":"Shameful Past"},"illustrious":{"low":"4","high":"8","description":"Illustrious Past"},"mixed":{"low":"9","high":"0","description":"Mixed Blessing"}},"shameful":[{"low":"1","description":"Your ancestor was in charge when a clan treasure vanished. He committed seppuku and your family has worked to rebuild its reputation ever since. You gain the Driven Disadvantage."},{"low":"2","high":"3","description":"Your ancestor was mildly obsessed with her looks, and people say you act just like her. You gain a 2-point Compulsion: Always Look Your Best."},{"low":"4","high":"5","description":"Your ancestor was a clan magistrate but was rumored to sell justice to the highest bidder. His fl aw has been passed down through the bloodline to you. You gain the Greedy Disadvantage."},{"low":"6","high":"7","description":"Your ancestor was a soldier who deserted rather than face the enemies of the Crane. His deeds still stain your family\u2019s reputation. You start with 0.5 less Status and 0.5 less Glory than normal."},{"low":"8","high":"9","description":"Your ancestor lost an important duel and his failure still hangs over your line. You start with 1.0 less Honor and 0.5 less Status than normal."},{"low":"0","description":"Your ancestor claimed a rival\u2019s art as his own, winning praise from the Imperial Court. If the deceit is ever discovered, your family will be ruined. You gain the Dark Secret Disadvantage."}],"illustrious":[{"low":"1","description":"Your ancestor created a work of art that is still admired to this day. You gain 1 free Rank in the appropriate Artisan skill and 0.5 Glory."},{"low":"2","high":"3","description":"Your family has ties of marriage or alliance with another clan. You may take the Different School Advantage for 2 less Experience Points."},{"low":"4","high":"6","description":"Your ancestor served the clan as a clerk in the Imperial bureaucracy. You may take the Precise Memory Advantage for 2 less points."},{"low":"7","high":"0","description":"Your ancestor fought in one of the famous battles of his time, and his courageous deeds are still celebrated in the Crane Clan. You gain 0.5 Glory and a free Rank in either Battle or a Weapon Skill of your choice."},{"low":"8","high":"9","description":"Your ancestor nearly single-handedly averted a political catastrophe and turned it into a victory for the Crane. His brilliance is reflected in your own skills. You may take the Clear Thinker Advantage for 1 less Experience Point."},{"low":"0","description":"Your ancestor saved an Asahina Fetish Master from a serious social mishap. In thanks she gave your family a fetish (chosen by the GM) which has since been passed down to you."}],"mixed":[{"low":"1","description":"At your gempukku you were given an item. It seemed commonplace, but you were told you were to be its keeper and only use it in a time of great need. You were also told no one was sure what it did."},{"low":"2","high":"3","description":"Your ancestor slew a major enemy of the Crane in a duel. His descendants remember this as well. You gain 0.5 Glory but also gain a Sworn Enemy in another clan."},{"low":"4","high":"6","description":"Your ancestor ignored his duty to the Crane and followed a personal quest to a different school in another clan. He made allies for your family but his obsessive nature has been passed down to you. You may take the Different School Advantage for two less points, but you have the Driven Disadvantage."},{"low":"7","high":"0","description":"Your ancestor was a magistrate who revealed another family\u2019s dishonor. You have inherited his uncompromising and perceptive nature. You gain a free Rank in Investigation and the Contrary Disadvantage."},{"low":"8","high":"9","description":"Your ancestor was a highly successful merchant patron who cared little about scruples or propriety. You are a true heir to his traditions. You gain an additional 3 koku in your starting Outfi t, but gain the Insensitive Disadvantage."},{"low":"0","description":"Your ancestor was an artist of high renown and you\u2019re expected to follow in his footsteps, perhaps even to surpass him. You may take the Soul of Artistry Advantage for 2 less points, but you gain the Disadvantage Consumed by Perfection."}]},"Dragon":{"source":"GC","initial":{"shameful":{"low":"1","high":"2","description":"Shameful Past"},"illustrious":{"low":"3","high":"5","description":"Illustrious Past"},"mixed":{"low":"6","high":"0","description":"Mixed Blessing"}},"shameful":[{"low":"1","description":"Your ancestor gave away vital information about Dragon troop movements. His foolishness still haunts your family\u2019s reputation. You gain the Infamous Disadvantage."},{"low":"2","high":"3","description":"Your ancestor was the victim of an elaborate confi dence scheme which ended with his seppuku. Unfortunately, you share his weaknesses and your family\u2019s status has never recovered from his failure. You gain the Gullible Disadvantage and lose 0.5 Status."},{"low":"4","high":"5","description":"Your ancestor lacked the courage to face the enemies of the Dragon, fleeing from battle. It is up to you to rebuild your family\u2019s reputation. You start with 0.0 Glory and it will take you twice as long (20 Glory Points) to reach Glory Rank 1."},{"low":"6","high":"7","description":"Your mother became pregnant with you after swearing an oath of celibacy to her daimyo. She committed seppuku after giving birth. You start with the Black Sheep disadvantage."},{"low":"8","high":"9","description":"Your ancestor successfully pursued a love match within another clan, disrupting others\u2019 marriage plans and earning their eternal hatred. You gain a Nemesis within that clan."},{"low":"0","description":"Your ancestor lost focus during an alchemy experiment, causing it to fail horribly. Ever since then your family has been cursed with Epilepsy, and you are no exception."}],"illustrious":[{"low":"1","description":"Your ancestor was signifi cantly involved in a famous major battle of his time. Gain a free 2-point Ally from another clan of your choice and 1 rank in the Lore Skill for that clan."},{"low":"2","high":"3","description":"Your ancestor performed admirably while occupying a high-profi le position in the Dragon Clan. You gain 1 free Rank in a High Skill of your choice."},{"low":"4","high":"5","description":"Your ancestor had a romantic affair during winter court that was the inspiration for many pillow books. Some of that past glory refl ects on you. You gain 0.5 Glory and may take the Advantage Seven Fortunes Blessing: Benten\u2019s Blessing for 1 less Experience Point."},{"low":"6","high":"7","description":"Your ancestor played an instrumental role in a small battle. You gain 1 free Rank in a Bugei Skill of your choice."},{"low":"8","high":"9","description":"Your ancestor died while carrying the clan banner in battle. His superiors found him still holding it upright the next morning. Your family still reveres his name and his glory redounds to your benefit. You gain 1.0 Glory and 0.5 Honor."},{"low":"0","description":"Your ancestor was a tattooed man famous for his unusual nature - including the fact that he married and had children. You gain 1 free Rank in any one Skill which is not a School Skill for you."}],"mixed":[{"low":"1","description":"One of your parents was of the Tattooed Order and you were given a tattoo shortly before your gempukku. Unfortunately, your mind was not fully prepared for such power. You gain a Togashi tattoo of the GM\u2019s choice, but you also gain the Enlightened Madness Disadvantage connected to the tattoo."},{"low":"2","high":"3","description":"One of your ancestors picked up an item from a battlefi eld on a whim. It has since been passed down to you. Although no one is quite sure what it does, family legend speaks of a spirit that makes its home within..."},{"low":"4","high":"5","description":"Your ancestor escalated a minor matter of honor into a duel to the death with a samurai from another clan. He won the duel, fortunately, but it was his temper which brought it on in the fi rst place. You have inherited his nature and legacy. You gain 1.0 Glory and 1 free Rank in the Lore Skill for the clan of the duelist he defeated, but you also gain the Brash Disadvantage."},{"low":"6","high":"7","description":"Your family has never been wealthy, but your ascetic lifestyle has helped you on the path to enlightenment. You gain 1 free Rank in the Meditation Skill, but you also have the Ascetic Disadvantage."},{"low":"8","high":"9","description":"Your ancestor was a very creative soul, but saw into the Elements too deeply. You gain a +1k0 bonus to all Craft rolls, but you also gain the Frail Mind Disadvantage."},{"low":"0","description":"Your ancestor followed one of the False Paths. You may take the Sage Advantage for 1 less Experience Point, but you also gain the Disbeliever Disadvantage."}]},"Lion":{"source":"GC","initial":{"shameful":{"low":"1","high":"2","description":"Shameful Past"},"illustrious":{"low":"3","high":"7","description":"Illustrious Past"},"mixed":{"low":"8","high":"0","description":"Mixed Blessing"}},"shameful":[{"low":"1","description":"Your ancestor was a Deathseeker who never redeemed his name. Your family still labors under his failure. You start with 2.0 less Honor."},{"low":"2","high":"3","description":"Your ancestor had a vice, and someone else found out about it. You have the Blackmailed Disadvantage."},{"low":"4","high":"5","description":"Your ancestor lacked the courage to stand on the front lines of battle. He ran, leading to a defeat that cost many lives. Your family lives under the shadow of his failure. You start with 0.0 Glory and gain the Disadvantage Phobia: Combat (1 point)."},{"low":"6","high":"7","description":"Your ancestor made an enemy in a family from another clan, and they\u2019ve never forgotten it. You gain a Sworn Enemy from that clan."},{"low":"8","high":"9","description":"Your ancestor served in an army destined for inglorious defeat. The Lion tend not to talk about this particular battle, but they do give you funny looks. You lose 0.5 Glory and gain the Disadvantage Driven: Prove Self."},{"low":"0","description":"Your ancestor found true love in the arms of a Crane. They were forbidden to see each other again, and being a dutiful Lion your ancestor obeyed- but you have inherited his\/her passionate nature. You gain either the True Love or Lost Love Disadvantage (your choice)."}],"illustrious":[{"low":"1","description":"The blood of your ancestors runs strong in your veins. You may take a Lion Ancestor for 2 less points."},{"low":"2","high":"3","description":"You can trace your line directly back to your family\u2019s founder. Honors and gifts from those early years have been passed down to you. You may take the Lion Sacred Weapon Advantage for 2 less points."},{"low":"4","high":"5","description":"Your ancestor served honorably and memorably in the Imperial Legions. You gain 0.5 Honor and 0.5 Status."},{"low":"6","high":"7","description":"Your ancestor died a hero\u2019s death while fi ghting in one of the major battles of his time. His skills are reborn in you. You gain 1 free Rank in a Weapon Skill of your choice."},{"low":"8","high":"9","description":"Your ancestor rose to be a Rikugunshokan, commanding one of the four Lion armies in a great battle of his age. He led well, and his legacy is in your blood. You may take the Advantage Leadership for 2 less Experience Points."},{"low":"0","description":"Your ancestor died defending the Emperor from an assassination attempt. The Emperor proclaimed his line - of which you are the scion - to be Sacrosanct."}],"mixed":[{"low":"1","description":"Your ancestor was a Kitsu who met a spirit creature he shouldn\u2019t have. You still labor under the effects of that long-ago encounter. You gain the Cursed by the Realm Disadvantage but may take the Inner Gift Advantage for 2 less Experience Points."},{"low":"2","high":"3","description":"Your ancestor was a famous Ikoma Bard and you possess a great many of her traits. You may take the Sensation Advantage for 1 less point, but you love the adulation of the audience, and gain the Disadvantage Compulsion: Perform (2 points) as well."},{"low":"4","high":"5","description":"Your gempukku took place on the battlefi eld where your ancestor died. He guides your steps, walking beside you ever since. You gain the Haunted Disadvantage but also gain 1 free Rank in a Bugei Skill of your choice."},{"low":"6","high":"7","description":"Your ancestor took part in a battle that was a defeat for the Lion, but which is now used to teach students at the War College. You lose 1.0 Glory but gain 0.5 Honor."},{"low":"8","high":"9","description":"Your ancestor was one of the Ikoma Lion\u2019s Shadow. His subtle and pragmatic ways have passed down to you. You start with 1.5 less Honor, but you may take either the Crafty or the Silent Advantage for 2 less Experience Points."},{"low":"0","description":"Your ancestor took part in a victorious battle, but the Lion histories consider the battle to have been run ineptly. You lose 1.0 Glory but gain 1 free Rank in a Weapon Skill of your choice."}]},"Mantis":{"source":"GC","initial":{"shameful":{"low":"1","high":"4","description":"Shameful Past"},"illustrious":{"low":"5","high":"7","description":"Illustrious Past"},"mixed":{"low":"8","high":"0","description":"Mixed Blessing"}},"shameful":[{"low":"1","description":"Your ancestor thought he was the one in charge of the scam-he was wrong. His weakness is yours as well. You gain the Can\u2019t Lie Disadvantage."},{"low":"2","high":"3","description":"Your ancestor fought on the losing side in a famous battle. He was convinced the Mantis would win... right up until the end. You gain the Overconfident Disadvantage."},{"low":"4","high":"5","description":"Your line is fi lled with pirates. One ancestor was particularly noted for harassing other clans. You gain a Sworn Enemy in a clan of the GM\u2019s choice."},{"low":"6","high":"7","description":"Your ancestor fought and died in a war far from Rokugan\u2019s shores. No one in Rokugan has ever heard of it, nor would they want to. Lose 1.0 Glory."},{"low":"8","high":"9","description":"Your family was on the losing side of a commercial dispute and has never recovered. You gain the Disadvantage Seven Fortune\u2019s Curse: Daikoku."},{"low":"0","description":"One of your ancestors committed seppuku to atone for the Gusai family\u2019s treachery. You gain Social Disadvantage: Gusai Ancestor."}],"illustrious":[{"low":"1","description":"Your ancestor was a merchant patron of some renown within the Empire. You start with 2 extra koku in your Outfi t."},{"low":"2","high":"3","description":"Your ancestor proved himself during one of the great battles of his time, and his derring-do is still remembered today. His blood runs true in your veins. You may purchase the Daredevil Advantage for 1 less Experience Point."},{"low":"4","high":"5","description":"Your ancestor was a legendary sailor and explorer. You gain 1 free Rank in either the Sailing Skill or the Navigation Skill."},{"low":"6","high":"7","description":"You can trace your family line back to Kaimetsu-Uo himself. You may take the Blood of Osano-Wo Advantage for 1 less point."},{"low":"8","high":"9","description":"Your ancestor was a mercenary in the early days of the Mantis Clan. He made contacts across the Empire, but became especially good friends while serving in the army of one particular clan. You gain a free 3-point Ally in another clan of your choice."},{"low":"0","description":"Your ancestor won the blessing of the Thunder Dragon during a great storm. You may take a Rank of the Magic Resistance Advantage for 1 less Experience Point."}],"mixed":[{"low":"1","description":"You are one of the secret descendants of the Gusai family. You gain Dark Secret: Gusai Family but also gain 1.0 Status."},{"low":"2","high":"3","description":"Your ancestor was involved in covert trade with gaijin. You may take the Gaijin Gear Advantage for 1 less Experience Point, but you have an Obligation (3 points) to his foreign trading partner."},{"low":"4","high":"5","description":"Your ancestor was an ally of the Cornejo family and learned things which no Rokugani should know. You have the Advantage Forbidden Knowledge: Gaijin Pepper."},{"low":"6","high":"7","description":"Your ancestor was a prosperous smuggler, and while this enriched your family it also damaged their repute. You start with 1 additional koku in your Outfi t, but lose 0.5 Glory."},{"low":"8","high":"9","description":"Your family history is fi lled with scoundrels and misfi ts. You gain 1.0 Infamy but also gain 1 free Rank in the Skill of Lore: Underworld."},{"low":"0","description":"Your ancestor married a komouri shapeshifter spirit. You may purchase the Child of Chikushudo Advantage."}]},"Phoenix":{"source":"GC","initial":{"shameful":{"low":"1","high":"3","description":"Shameful Past"},"illustrious":{"low":"4","high":"7","description":"Illustrious Past"},"mixed":{"low":"8","high":"0","description":"Mixed Blessing"}},"shameful":[{"low":"1","description":"Your ancestor was forced to undergo the Forgotten ritual, and remnants of it remain in your bloodline. You gain the Momoku Disadvantage."},{"low":"2","high":"3","description":"Your ancestor lost a book containing the only copy of some vital information. He committed seppuku and your family has been committed to finding the knowledge ever since. You gain the Driven Disadvantage."},{"low":"4","high":"5","description":"Your ancestor was a yojimbo who failed to protect his charge in battle. The shame of his actions has not yet been purged. You gain 1.0 Infamy."},{"low":"6","high":"7","description":"Your ancestor was an Ishiken who got a little too close to the Void. You gain the Touch of the Void Disadvantage."},{"low":"8","high":"9","description":"Your ancestor dabbled in maho. He summoned an oni and gave it his name. Ever since, that oni has been haunting your family line."},{"low":"0","description":"While researching powerful new magics, your ancestor disappeared in a flash of light, taking his notes with him. The Kitsu have determined his soul never made it to Meido. No one has been able to duplicate his work or determine where he has gone. Your family is obsessed with hunting for him; you gain the Consumed by Knowledge Disadvantage."}],"illustrious":[{"low":"1","description":"You can trace your line directly to your family\u2019s founder. You may take a Phoenix Clan Ancestor for 2 less Experience Points."},{"low":"2","high":"3","description":"Your ancestor was one of the Elemental Masters and your line is still granted respect for this today. You gain 1.0 Glory and 1.0 Status."},{"low":"4","high":"5","description":"This is not your first time around on the kharmic wheel, and you have been lucky enough to be reborn as your own descendant. You may take the Enlightened Advantage for 1 less point."},{"low":"6","high":"7","description":"Your ancestor was instrumental in negotiating a peace treaty between two clans. His legacy of virtue and compassion is still carried forward in your line. You gain 1.0 Honor and you may purchase the Advantage Paragon of Compassion for 2 less Experience Points."},{"low":"8","high":"9","description":"Your ancestor was a yojimbo who fought and won a glorious duel in defense of his charge. His fame endures and you look to his example for guidance. Gain 1 free Rank in the Iaijutsu Skill and 0.5 Glory."},{"low":"0","description":"Your ancestor achieved one of the great breakthroughs of magic, and you have benefi tted from his work. Gain 1 free Rank in either the Lore: Shugenja Skill or the Spellcraft Skill"}],"mixed":[{"low":"1","description":"Your ancestor was a shugenja of some renown with her Element, but was absolutely terrible with the opposing Element. You may take the Friend of the Elements (Element of your choice) Advantage for 1 less Experience Point, but also gain Wrath of the Kami in the opposing Element."},{"low":"2","high":"3","description":"A kansen tempted your ancestor into using maho, leaving a stain on your family name. The kansen has since found you. It acts as the Friendly Kami advantage, but the bonuses only apply to casting Maho spells."},{"low":"4","high":"5","description":"One of your ancestors went missing for several months. No one is sure where he went, but when he returned he had no memories save for a message he claimed was from the Celestial Heavens. You may take the Advantage Chosen by the Oracles for 2 less Experience Points, but you also gain the Disadvantage Lord Moon\u2019s Curse."},{"low":"6","high":"7","description":"Your ancestor was repeatedly defeated at something, and your family has made a point of being the best at it ever since. Choose a Skill. You gain the Jealousy Disadvantage in that Skill, but you also gain either 2 free Ranks in that Skill or one free Emphasis in that Skill."},{"low":"8","high":"9","description":"Your ancestor was a well-known mediator. In one particularly dangerous situation she took extreme and dishonorable measures to preserve the peace. Her dishonor and success both linger. You start with 1.0 less Honor but also gain a 2-point Ally in another clan."},{"low":"0","description":"Your family has always been one of the guardians of Gisei Toshi. You have access to the sacred knowledge and hidden items within Gisei Toshi should you need them, but you must never tell anyone about the city\u2019s location. Gain Dark Secret: Location of Gisei Toshi."}]},"Scorpion":{"source":"GC","initial":{"shameful":{"low":"1","high":"2","description":"Shameful Past"},"illustrious":{"low":"3","high":"5","description":"Illustrious Past"},"mixed":{"low":"6","high":"0","description":"Mixed Blessing"}},"shameful":[{"low":"1","description":"Your ancestor was branded with the name \"junshin\", and you find that you\u2019re junshin too. The clan will probably never trust you with anything important."},{"low":"2","high":"3","description":"Your ancestor was played for a fool in the courts for all to see. His weak nature is reborn in you. You gain the Gullible Disadvantage."},{"low":"4","high":"5","description":"Your ancestor gave away vital information to the enemy, forever tainting your family\u2019s name as disloyal. You lose 1.0 Glory and 0.5 Status and may never have the Gentry Advantage."},{"low":"6","high":"7","description":"Your ancestor was supposed to target and eliminate an enemy-either politically or physically. Regardless, he fell in love with his target instead and never completed his mission. Your family has been fighting his legacy ever since. You lose 0.5 Status and gain the Disadvantage Failure of Bushido: Duty."},{"low":"8","high":"9","description":"Your ancestor was in command of a battle that should have been an easy win for the Scorpion. Instead, they were defeated, resulting in many years of lost time for the Scorpion in the courts. You gain the Overconfident Disadvantage."},{"low":"0","description":"You aren\u2019t sure what your ancestor did, but somewhere there\u2019s a tree with his name on it."}],"illustrious":[{"low":"1","description":"Charisma runs in your blood. Your ancestors were all notable seductresses and seducers. You gain the Dangerous Beauty Advantage."},{"low":"2","high":"3","description":"Your ancestor had a winter romance that the Scorpion were able to use to further their agenda. You may take Blackmail on someone in another clan for 2 less Experience Points."},{"low":"4","high":"5","description":"Your ancestor was adept at finding others\u2019 weaknesses and twisting them to her benefi t, and you are her true heir. You gain the Heartless Advantage for 1 less Experience Point."},{"low":"6","high":"7","description":"Your ancestor without hesitation or question in order to further a larger plot, and his loyalty runs in your veins. You may take the Advantage Paragon of Duty for 2 less Experience Points."},{"low":"8","high":"9","description":"Your ancestor was a shinobi who assassinated vital targets. Some of his skills are reborn in you. You gain 1 free Rank in the Stealth Skill."},{"low":"0","description":"Your ancestor performed a mission for the Shosuro Infiltrators, for which they owe your family a debt. You may call on their assistance once in your life and they will help you. (The GM decides exactly how.)"}],"mixed":[{"low":"1","description":"Your ancestor was a Rikugunshokan in command of the Scorpion army. He was instructed to lose a specific battle, but despite his best efforts he won instead. You may take a Rank in the Luck Advantage for 1 less Experience Point, but you also gain the Infamous Disadvantage."},{"low":"2","high":"3","description":"After your gempukku you were given a nemuranai. You were told nothing about its history or nature, only that you are to keep it safe, hidden, and never ever to use it."},{"low":"4","high":"5","description":"Your family has always had connections with the criminal underworld, and someone knows about it. You gain either 2 free Ranks of Lore: Underworld or a 2-point Ally in the criminal classes, but you also gain the Blackmailed Disadvantage."},{"low":"6","high":"7","description":"Your ancestor died in a duel to prove a point. You share both his nature and his legacy. You may take the Advantage Paragon of Duty for 2 less Experience Points, but you also gain a Nemesis in the appropriate clan."},{"low":"8","high":"9","description":"Your ancestor joined the shinobi and a few of the skills he was taught have been passed down. You gain 1 free Rank in the Ninjutsu Skill but you also have the Disadvantage Dark Secret."},{"low":"0","description":"Your ancestor was Shadow Branded. Due to the Shadow\u2019s ongoing influence over your family line, you gain the Silent advantage, but the Shadow is looking for you..."}]},"Spider":{"source":"GC","initial":{"shameful":{"low":"1","high":"3","description":"Shameful Past"},"illustrious":{"low":"4","high":"8","description":"Illustrious Past"},"mixed":{"low":"9","high":"0","description":"Mixed Blessing"}},"shameful":[{"low":"1","high":"3","description":"Your father was a minor functionary in the entourage of an Imperial Herald. When your lord was killed by bandits, he survived, and the Lost accepted him into their ranks. He meant only to survive, but their acceptance gave him the first true sense of belonging he had ever known. You gain the Perceived Honor Advantage."},{"low":"4","high":"6","description":"Your parents were among those who first flocked to Daigotsu\u2019s banner, and you were among the first born in the City of the Lost. You the Fame Advantage and 1 free Rank in a Weapon Skill of your choice."},{"low":"7","high":"9","description":"Your mother was consumed by the Lying Darkness, yet somehow managed to give birth to you without passing on her affliction. Or did she? You gain the Crafty Advantage."},{"low":"0","description":"Your parents were members of the Unbroken, a group of Tainted ronin who sought to purge their corruption by killing others that possessed it. You, however, embraced your strength and cast aside their weakness. You gain the Strength of the Earth Advantage."}],"illustrious":[{"low":"1","high":"2","description":"Your family once served the Crab, but an ancestor was corrupted in the line of duty and rather than be consigned to death, he embraced his fate. You gain the Large Advantage and 1 free rank in the Heavy Weapons Skill, but also gain a Sworn Enemy among the Crab."},{"low":"3","high":"4","description":"Your family was once part of the Mantis, but a voyage through the Sea of Shadow led to corruption and madness. You gain one rank of the Luck Advantage and 1 free Rank in the Skills of Chain Weapons and Sailing, but gain a Sworn Enemy among the Mantis."},{"low":"5","high":"6","description":"Your family once claimed membership among the Phoenix, but your ancestor\u2019s love of secrets and lust for knowledge overwhelmed him, leading him to corruption. You gain the Forbidden Knowledge Advantage and 1 free Rank in a Lore Skill of your choice, but gain a Sworn Enemy among the Phoenix."},{"low":"7","high":"8","description":"The Scorpion once considered your family loyal vassals, but study of dark secrets led to your ancestor\u2019s corruption and he was sanctioned by the clan. You gain the Dangerous Beauty Advantage and 1 free Rank in the Stealth Skill, but gain a Sworn Enemy among the Scorpion."},{"low":"9","high":"0","description":"Your ancestor was once a Unicorn, but the call of the fallen Moto was unusually strong within his soul and he willingly rode to the Shadowlands. You gain the Gaijin Gear Advantage and 1 free Rank in the Horsemanship Skill, but gain a Sworn Enemy among the Unicorn."}],"mixed":[{"low":"1","high":"3","description":"You were taken from your family as an infant-stolen by the Bloodspeaker Cult, who felt you were a child of prophecy. You never embraced their ways, however, and eagerly betrayed them to the Lost at the first opportunity. You gain the Touch of the Spirit Realm Advantage."},{"low":"4","high":"6","description":"You were abandoned at a monastery as a child, an unwelcome burden on your parents. Your years in the monastery were unpleasant and punishing, but the doctrine of strength and power in the Order of the Spider appealed to you, and you were among Roshungi\u2019s fi rst adherents. You gain the Dark Paragon Advantage."},{"low":"7","high":"9","description":"As a child you suffered from visions. Others thought you were possessed by demons and eventually you were abandoned by your family. The Lost never questioned your value, however, and let you earn your place among them. You gain the Ishiken-do Advantage."},{"low":"0","description":"The other Lost found you as a child, surviving alone in the Shadowlands. No one understands how this was possible and you have no memory of those years. Sometimes, however, you have half-remembered dreams that give you glimpses of what happened... or what will happen. You gain the Inner Gift Advantage."}]},"Unicorn":{"source":"GC","initial":{"shameful":{"low":"1","high":"2","description":"Shameful Past"},"illustrious":{"low":"3","high":"6","description":"Illustrious Past"},"mixed":{"low":"7","high":"0","description":"Mixed Blessing"}},"shameful":[{"low":"1","description":"Your ancestor was a Moto who fell to the Shadowlands, and he would very much like you to join him. You gain the Disadvantage Cursed by Jigoku."},{"low":"2","high":"3","description":"As part of an investigation, your ancestor uncovered a dirty secret about another family\u2026 and spread the news widely. You gain the Rumormonger Disadvantage."},{"low":"4","high":"5","description":"Your ancestor ran from his duties to the Unicorn and became a ronin. Although your family has survived, the shame still stains your reputation. You lose 0.5 Glory and 0.5 Status."},{"low":"6","high":"7","description":"Your ancestor was on the losing side during one of the famous battles of her day. You lose 1.0 Glory."},{"low":"8","high":"9","description":"Your ancestor was a Battle Maiden who betrayed her oath of chastity. Her passionate nature has passed down to you. You gain the Lechery Disadvantage."},{"low":"0","description":"Your ancestors were cursed by a gaijin wizard. Your family has been unable to lift the curse despite generations of effort. You gain the Weakness Disadvantage in a Trait chosen by the GM."}],"illustrious":[{"low":"1","description":"You can trace your lineage back to the founding Kami, Lady Shinjo. You may take a Unicorn Ancestor for 2 less Experience Points."},{"low":"2","high":"3","description":"Your ancestor was an Ujik-hai who joined the clan via a blood oath. You may take the Gaijin Gear Advantage for 2 less Experience Points."},{"low":"4","high":"5","description":"Your ancestor fought bravely in a famous battle of his day, and you strive to live up to his glorious example. You gain 0.5 Glory and 1 free Rank in the Battle Skill."},{"low":"6","high":"7","description":"Your ancestor died while protecting a commander in the army of an allied clan. They have not forgotten his sacrifice. You may take a free 3-point Ally from that clan."},{"low":"8","high":"9","description":"Your ancestor died in a successful fi ghting retreat, saving her comrades. Her skills are reborn in you. You may take the Tactician Advantage for 1 less point."},{"low":"0","description":"Your ancestor was a loyal samurai rewarded by his lord for years of dutiful service. His legacy has passed to you. You may purchase the Unicorn Sacred Weapon Advantage for 2 less Experience Points."}],"mixed":[{"low":"1","description":"Your ancestor fell to the Lying Darkness, and your family has fought against it ever since. You gain the Shadow as a Sworn Enemy, but you have a small crystal item (a pendant, earring, or necklace)."},{"low":"2","high":"3","description":"Your ancestor was originally from another clan, but joined the Unicorn through a politically arranged marriage. You may call in a favor from that clan, but once you do you will become Obligated to them."},{"low":"4","high":"5","description":"Your ancestor joined the Kolat, and your bloodline has served the conspiracy ever since. You gain the Advantage Forbidden Knowledge: Kolat but also gain the Disadvantage Dark Secret: Kolat."},{"low":"6","high":"7","description":"Your ancestor was a highly successful merchant in foreign lands. You inherited a strange artifact from him, but no one has any idea what it does."},{"low":"8","high":"9","description":"Your family has struggled financially, and you have been forced to study the ways of coin and craft in order to compensate. You start with 4 less koku in your Outfit, but you gain 1 free Rank in Commerce and 1 free Rank in a Craft Skill of your choice."},{"low":"0","description":"Your ancestor met a jinn while wandering the Burning Sands. They had a long and fruitful affair. You occasionally have strange urges and odd dreams..."}]},"Minor Clans":{"source":"SE","initial":{"shameful":{"low":"1","high":"3","description":"Shameful Past"},"illustrious":{"low":"4","high":"7","description":"Illustrious Past"},"mixed":{"low":"8","high":"0","description":"Mixed Blessing"}},"shameful":[{"low":"1","description":"Your ancestor was a disbeliever and has passed down this lack of belief to his descendants. You begin play with the Disbeliever Disadvantage."},{"low":"2","high":"3","description":"Your ancestor thought he was getting the better end of a deal with a Great Clan merchant patron, only to discover too late that he had been tricked. Your family has been impoverished ever since. Start with two fewer koku in your Outfit."},{"low":"4","high":"5","description":"Your ancestor failed to perform a service for the clan, tarnishing his honor and standing. His failure haunts your line to this day. Your starting Honor is 1.0 lower and your starting Status is 0.1 lower."},{"low":"6","high":"7","description":"Your ancestor was considered one of the ugliest men in Rokugan, and you have his face. Gain the Disturbing Countenance Disadvantage."},{"low":"8","high":"9","description":"Your ancestor got the better of a Great Clan courtier in the Imperial Court. The courtier\u2019s family has held a grudge against yours ever since. You gain the Sworn Enemy Disadvantage."},{"low":"0","description":"Your ancestor was a member of one of the fallen Minor Clans or families (Snake, Boar, Gusai family, etc). Gain the Dark Secret Disadvantage."}],"illustrious":[{"low":"1","description":"A particular kami took an interest in your family line, and it senses a similarity to your ancestor in you. You may take the Friendly Kami Advantage (if you are a shugenja) or the Friend of the Elements Advantage for one less Experience Point."},{"low":"2","high":"3","description":"Your ancestor made political connections with members of a Great Clan, connections which have lasted to this day. You gain a 3-point Ally Advantage in that clan for no Experience Point cost."},{"low":"4","high":"5","description":"Your ancestor was a genius on the battlefield. Due to his actions, others believe you and your family are honorable warriors as well. Gain 1.0 Glory."},{"low":"6","high":"7","description":"Your ancestor was extremely skilled in the ways of your clan, and you have carried on his legacy. Gain one Rank in an iconic School Skill for your school."},{"low":"8","high":"9","description":"One of your ancestors helped establish one of your clan\u2019s original villages. Your family has been caretaker of those lands since that time. Your starting Outfit gains 2 koku and you may take the Gentry Advantage for one less Experience Point."},{"low":"0","description":"Your family has always lived in the heartlands of your clan and you have grown up learning its fields and hills like your own home. You gain the Way of the Land Advantage for your clan\u2019s land."}],"mixed":[{"low":"1","description":"Your family has long maintained a close relationship with the Imperial families, but this has caused you to suffer from the jealousy of Great Clan samurai. You begin play with a free 3-point Ally among the Imperial families (if you are Tortoise, it is a 4-point Ally instead), but you also start with a 3-point Sworn Enemy in a Great Clan."},{"low":"2","high":"3","description":"Your ancestor discovered something very interesting - and very taboo. You may take the Forbidden Knowledge Advantage for one less Experience Point."},{"low":"4","high":"5","description":"Your ancestor saved the life of a paragon from a Great Clan family. That family has looked out for your line since that time and recently arranged for your marriage to a member of the Imperial families. You gain the Imperial Spouse Advantage, but are under a 3-Point Obligation to the family who arranged the marriage."},{"low":"6","high":"7","description":"Due to various mishaps and misfortunes, you are the last of your line and have all your family\u2019s titles and responsibilities resting squarely on your shoulders. Perhaps there is a reason your family members keep dying mysteriously? You gain +1.0 Status but also gain the Bad Fortune (Unknown Enemy) Disadvantage."},{"low":"8","high":"9","description":"Your ancestor was involved with some shady dealings with a member of one of the Great Clans. The deals went in your ancestor\u2019s favor, and the details have been passed on to you. You gain a 3-point Blackmail Advantage against someone in one of the Great Clans, but since they know that you hold the information you also gain the Sworn Enemy Disadvantage with them."},{"low":"0","description":"Your ancestor was a craftsman of singular skills. One of his creations was passed on to you. You gain a single item of superior quality (an Excellent item if using the optional advanced crafting rules in this book); however, the item was originally intended as a gift for a member of a Great Clan, and his family wants it back."}]},"Monk":{"source":"SE","initial":{"shameful":{"low":"1","high":"3","description":"Shameful Past"},"illustrious":{"low":"4","high":"8","description":"Illustrious Past"},"mixed":{"low":"9","high":"0","description":"Mixed Blessing"}},"shameful":[{"low":"1","description":"Your master was a heretic who was devoted to a False Path rather than to following the Tao or the Fortunes. As a result, your own teachings are fatally skewed. You must take the Consumed Disadvantage."},{"low":"2","high":"3","description":"The shrine or temple where you were trained was in an exceptionally impoverished area of the Empire. You begin play with the Ascetic Disadvantage for no points."},{"low":"4","high":"5","description":"Your temple teaches that everyone should always question the world at all times in order to have any chance of Enlightenment. You gain the Contrary Disadvantage for no points."},{"low":"6","high":"7","description":"The temple in which you were trained is home to monks who have little true piety and often engage in improper behavior. Many of them do not really follow the Tao or the Fortunes at all. You gain either the Disbeliever Disadvantage or the Infamy Disadvantage (your choice) for no points."},{"low":"8","high":"9","description":"The temple where you were trained teaches obsessive self-reliance above all else. You gain the Overconfident Disadvantage for no points."},{"low":"0","description":"Something within the temple where you were raised is tainted by darkness. Gain either 1 Rank of the Shadowlands Taint or one Shadow Rank, as chosen by the GM."}],"illustrious":[{"low":"1","description":"The calm of a placid lake flows through all those trained in your temple. You gain the Balance Advantage."},{"low":"2","high":"3","description":"Your temple focuses on physical advancement more than on spiritual study, and thereby promotes bold actions. You gain the Daredevil Advantage."},{"low":"4","high":"5","description":"Your temple was built on a location beloved by the spirits of a particular Element, and all monks of that temple are favored by that Element. You gain the Elemental Blessing Advantage in whichever Element your temple favors."},{"low":"6","high":"7","description":"Your temple has a singular martial tradition which uses a specific weapon to teach unity of body and spirit. You gain 1 free Rank in a Weapon Skill of your choice."},{"low":"8","high":"9","description":"You and your temple have protected a group of villages from harm for generations. Word of the deeds of your temple has spread among the commoners. You gain the Hero of the People Advantage."},{"low":"0","description":"You were taught by an exceptional sensei, perhaps even a descendant of Shinsei himself, and gained deep insight into the world and yourself. You may take the Enlightened Advantage for only 3 points."}],"mixed":[{"low":"1","description":"Your temple is the keeper of knowledge entrusted to it by a powerful samurai, perhaps even the Emperor himself. You gain the Forbidden Knowledge Advantage and a 3-point Obligation to the samurai who entrusted the information to your temple."},{"low":"2","high":"3","description":"Your temple is known to be far more worldly than it should. You gain the Infamous Disadvantage, but add 2 koku to your Outfit."},{"low":"4","high":"5","description":"The temple where you were trained focused upon individual study of the Tao above all else, including human contact. You gain the Sage Advantage but also a 2-point Antisocial Disadvantage.."},{"low":"6","high":"7","description":"One of the Fortunes smiles upon your temple, but this has caused the monks there to focus solely upon the things that Fortune finds important. You gain either the Seven Fortune\u2019s Blessing Advantage or the Inari\u2019s Blessing Advantage, but also gain the Driven Disadvantage in a form connected to the goals of the chosen Fortune."},{"low":"8","high":"9","description":"You were born a samurai, but were forced to join the Brotherhood before completing your gempukku. There are members of your family who are not happy about this fact. You gain the Forced Retirement Disadvantage but also gain a 3-Point Ally Advantage with someone in your former clan."},{"low":"0","description":"Your sensei venerated certain moral values highly, but rejected others as unimportant. You gain the Paragon Advantage for one tenet of Bushido, but also gain the Failure of Bushido Disadvantage for a different tenet. (This overturns the normal restrictions on taking these Advantages\/Disadvantages.)"}]},"Ronin Families":{"source":"SE","initial":{"shameful":{"low":"1","high":"2","description":"Shameful Past"},"illustrious":{"low":"3","high":"5","description":"Illustrious Past"},"mixed":{"low":"6","high":"0","description":"Mixed Blessing"}},"shameful":[{"low":"1","description":"You started your life as a criminal and your deeds haunt you today. You gain the Infamy Disadvantage and have a magistrate and\/or a bounty hunter as a 3-point Sworn Enemy."},{"low":"2","high":"3","description":"You grew up with no permanent home and have no connections to any location. You may not take the Way of the Land, Hero of the People, or Ally Advantages."},{"low":"4","high":"5","description":"Your difficult life up until now has left you with an unfortunate addictive habit. You gain a 3-point Compulsion (alcohol, opium, gambling, etc)."},{"low":"6","high":"7","description":"You or your parents antagonized a clan samurai, and although you managed to escape the consequences at the time, he has not forgotten you. Gain a clan samurai as a 4-point Sworn Enemy."},{"low":"8","high":"9","description":"Your difficult life has given you a hot temper, and you find it hard to restrain yourself even when you know you should. You gain the Brash Disadvantage for no points."},{"low":"0","description":"Your family has rejected Bushido in favor of a more selfish path. You gain the Consumed Disadvantage for no points."}],"illustrious":[{"low":"1","description":"Your family maintains connections to a ronin band or religious order in another part of the Empire. You may learn a higher-Rank ronin Technique of your choice once you attain the appropriate Insight Rank."},{"low":"2","high":"3","description":"You have benefited from extra training, either due to your family\u2019s personal traditions or a connection to an ally. You gain +1 Rank in one Weapon Skill of your choice."},{"low":"4","high":"5","description":"Your family has carefully maintained the patronage of a Great Clan samurai family. You gain a 3-point Ally Advantage in a Great Clan family of your choice."},{"low":"6","high":"7","description":"You are a popular and successful member in a ronin band, allowing you to benefit from both better training and from the friendship and protection of your fellow wave-men. In addition to the normal effects of starting as a member of a ronin band, you also gain the Ally Advantage with two ronin NPCs (2 points each) who are in your band."},{"low":"8","high":"9","description":"You are known as a compassionate ronin who helps the common people. Whether or not this reputation is actually deserved, you gain the Hero of the People Advantage."},{"low":"0","description":"Your family is descended from a Great Clan samurai and has carefully preserved the weapon he once carried. You may purchase the Sacred Weapon Advantage for your ancestor\u2019s Great Clan."}],"mixed":[{"low":"1","description":"You or your parents grew up in a Brotherhood temple which took in orphans, and this religious legacy impacts you in many ways. You may take the Friend of the Elements Advantage for free (or the Friend of the Brotherhood Advantage if you are a shugenja), but also gain the Ascetic Disadvantage."},{"low":"2","high":"3","description":"One of your parents won a notable duel against a clan samurai - and that samurai\u2019s family has not forgotten. You gain +1 Rank in the Iaijutsu Skill, but also gain a 3-point Sworn Enemy from that clan."},{"low":"4","high":"5","description":"You belong or were previously associated with a ronin band which was unusually successful and wealthy. Unfortunately, this was because it engaged in criminal activity. You add 5 koku and one weapon of your choice to your starting Outfit, but also gain the Disadvantage of Dark Secret: Criminal"},{"low":"6","high":"7","description":"You have had - or perhaps are still conducting - a secret love affair with a Great Clan samurai. As a result, you may take both the Kharmic Tie Advantage and the Ally Advantage with that samurai, but also gain either the True Love or the Lost Love Disadvantage (as appropriate) in relation to that same samurai."},{"low":"8","high":"9","description":"Either you or your parents were born as clan samurai but became ronin due to the manipulations of a rival. You retain many connections within your former clan, including friends who would gladly help you avenge yourself. You have a 5-point Sworn Enemy within your former clan but also may purchase up to three Allies (each of a maximum of 3 points) within that clan."},{"low":"0","description":"For whatever reason, your family has often flirted with the powers of darkness. You gain the Advantage of Forbidden Knowledge: Maho, but also gain 1 Rank in the Shadowlands Taint."}]},"Imperial Families":{"source":"SE","initial":{"shameful":{"low":"1","high":"2","description":"Shameful Past"},"illustrious":{"low":"3","high":"7","description":"Illustrious Past"},"mixed":{"low":"8","high":"0","description":"Mixed Blessing"}},"shameful":[{"low":"1","high":"2","description":"Your ancestor committed a very unfortunate act, but your family\u2019s political power allowed it to be covered up... so far. You gain the Dark Secret Disadvantage."},{"low":"3","high":"4","description":"Your ancestor imposed the Imperial will against a troublesome member of the Great Clans, and the act has not been forgotten. You gain a 4-point Sworn Enemy in one of the Great Clans."},{"low":"5","high":"6","description":"Your ancestor was exiled from the courts after an unfortunate failure. You start with 0.0 Glory and Allies cost you 1 additional Experience Point."},{"low":"7","high":"8","description":"Your bloodline has long been associated with minor and obscure aspects of service, and your family seldom even visits the Imperial Court. You may not purchase Social Advantages at character creation."},{"low":"9","high":"0","description":"Your ancestor failed in his duty to the ruling Dynasty, and the shame of that failure remains with your bloodline. Gain the Black Sheep Disadvantage."}],"illustrious":[{"low":"1","high":"2","description":"Your line is known for its piety and all of your ancestors have made regular visits to the Four Temples. You start play with a free 4-point Ally in the Four Temples Order of the Brotherhood of Shinsei."},{"low":"3","high":"4","description":"Your ancestor did a great favor for a clan samurai, and his line remains beholden to you. Any Ally you take from that clan gains +1 Devotion."},{"low":"5","high":"6","description":"Your ancestors protected the Dynasty in one of the great battles of the Empire\u2019s history - perhaps they fought alongside Hantei Fujiwa against the Shadowlands, or joined one of the Imperial Legions during crises such as the return of Iuchiban or the Destroyer War. You gain +1.0 Glory and +1 rank in the Battle Skill."},{"low":"7","high":"8","description":"Your ancestor was a loyal and skilled miharu who protected the Emperor from an assassination attempt. You gain +1.0 Glory and +1 rank in the Defense Skill."},{"low":"9","high":"0","description":"Your ancestors used their connections and Imperial power to gain wealth and influence. You gain the Gentry Advantage and you may purchase the Ally Advantage for one less Experience Point."}],"mixed":[{"low":"1","description":"Your ancestors were among the miharu who overthrew the tyrant Hantei XVI and then committed seppuku to atone for their betrayal of duty. You gain +1.0 Honor, but also start play with the Infamy Disadvantage."},{"low":"2","high":"3","description":"Your ancestors have been part of the Imperial Bureaucracy for generations, and while this duty is obscure it grants you many useful connections. You start play with 0.5 Glory and 0.5 Status, but may purchase the Ally Advantage for 1 less Experience Point."},{"low":"4","high":"5","description":"Your ancestors were involved with the Gozoku conspiracy, but managed to save themselves by switching sides at the right time. You gain the Crafty Advantage but also start with one less Rank of Honor."},{"low":"6","high":"7","description":"Your ancestors helped organize the Imperial system of laws and magistrates during the reign of Hantei Genji, and in the process disrupted the improper activities of other samurai. You gain +1 Rank in the Lore: Law Skill, but also gain a 3-point Sworn Enemy in a clan\/family\/faction of your choice."},{"low":"8","high":"9","description":"Your ancestor was both influential and highly religious, and became deeply involved in a theological dispute which obsessed the Empire at the time. Some within the Brotherhood of Shinsei considered his behavior to be arrogant and improper. You gain +1 Rank of Lore: Theology, but also gain the Cast Out Disadvantage for one major sect in the Brotherhood."},{"low":"0","description":"Your ancestor was known for his great wealth but also for his infamous self-indulgence and luxurious lifestyle. You gain four Ranks in the Wealthy Advantage, but also gain either the Compulsion Disadvantage or the Lechery Disadvantage (your choice)."}]}}
+{
+     "Crab": {
+          "source": "GC",
+          "initial": {
+               "shameful": {
+                    "low": "1",
+                    "high": "3",
+                    "description": "Shameful Past"
+               },
+               "illustrious": {
+                    "low": "4",
+                    "high": "7",
+                    "description": "Illustrious Past"
+               },
+               "mixed": {
+                    "low": "8",
+                    "high": "0",
+                    "description": "Mixed Blessing"
+               }
+          },
+          "shameful": [
+               {
+                    "low": "1",
+                    "description": "Your ancestor summoned a powerful kami during a time of need. Your ancestor made promises to the kami in return for its help, but never followed through. You gain the Disadvantage Wrath of the Kami."
+               },
+               {
+                    "low": "2",
+                    "high": "3",
+                    "description": "Your ancestor was a merchant patron who thought he was getting the better end of a deal, only to discover he’d had the wool pulled over his eyes. Your family has been impoverished ever since. Start with three less koku in your Outfit."
+               },
+               {
+                    "low": "4",
+                    "high": "5",
+                    "description": "Your ancestor fell to the Shadowlands and returned to fi ght his former clan as one of the Lost. His failure haunts you line to this day. You start with 0.1 Taint and your starting Honor is 1.0 lower."
+               },
+               {
+                    "low": "6",
+                    "high": "7",
+                    "description": "A creature from the Shadowlands cursed your line with its dying breath. You start play with the Disadvantage Bad Fortune: Lingering Misfortune."
+               },
+               {
+                    "low": "8",
+                    "high": "9",
+                    "description": "Your ancestor abandoned a comrade to die in the Shadowlands. The other man’s family swore a blood feud against yours. You gain the Sworn Enemy Disadvantage."
+               },
+               {
+                    "low": "0",
+                    "description": "Your ancestor was seduced by the Shadowlands and in the generations since he has taken several of his descendants to join him there. You are next on the list."
+               }
+          ],
+          "illustrious": [
+               {
+                    "low": "1",
+                    "description": "A particular kami took an interest in your family line, and it senses a similarity to your ancestor in you. You may take the Friendly Kami Advantage (if you are a shugenja) or the Friend of the Elements Advantage for one less Experience Point."
+               },
+               {
+                    "low": "2",
+                    "high": "3",
+                    "description": "Your ancestor made many political connections with another clan which have lasted to this day. You gain a 3-point Ally Advantage in that clan for free."
+               },
+               {
+                    "low": "4",
+                    "high": "5",
+                    "description": "Your ancestor single-handedly turned back an enemy sally during a siege. His deeds still bring fame to your family today. Gain 1.0 Glory."
+               },
+               {
+                    "low": "6",
+                    "high": "7",
+                    "description": "Your ancestor died a hero’s death fighting the Shadowlands. His legacy of heroism inspires you today. Gain 1 free Rank in a Weapon Skill of your choice."
+               },
+               {
+                    "low": "8",
+                    "high": "9",
+                    "description": "A visiting dignitary got caught in a Shadowlands attack while touring the Wall. Your ancestor saved his life and in thanks was granted an additional stipend. Your starting Outfit gains 2 koku."
+               },
+               {
+                    "low": "0",
+                    "description": "During a fierce battle with another clan, your ancestor saved the life of one of his enemies. Their descendants remain indebted to your line. You gain a free 3-point Obligation with their clan."
+               }
+          ],
+          "mixed": [
+               {
+                    "low": "1",
+                    "description": "Your family is known for something disreputable - not necessarily undeserved. You gain the Infamous Disadvantage. However, you have learned from your family’s illicit activities and gain one free Rank in a Low Skill."
+               },
+               {
+                    "low": "2",
+                    "high": "3",
+                    "description": "Your ancestor discovered something very interesting - and very taboo. You may take the Forbidden Knowledge Advantage for one less Experience Point."
+               },
+               {
+                    "low": "4",
+                    "high": "5",
+                    "description": "Your family has always had good relations with the Nezumi. You gain a free 2-point Ally who is a Nezumi."
+               },
+               {
+                    "low": "6",
+                    "high": "7",
+                    "description": "Due to various mishaps and misfortunes, you are the last of your line, and have all your family’s titles and responsibilities resting squarely on your shoulders. You gain 0.5 Status but you are also under a 3-point Obligation to the Crab to keep your family line alive."
+               },
+               {
+                    "low": "8",
+                    "high": "9",
+                    "description": "Your ancestor participated in a battle with another clan, where he unexpectedly distinguished himself in a duel. However, the descendants of the samurai he defeated would like re-match. You gain 1.0 Glory but you also have a Sworn Enemy in another clan’s family."
+               },
+               {
+                    "low": "0",
+                    "description": "Your ancestor was a Kaiu craftsman of singular skills. One of his creations was passed on to you. Unfortunately he was afflicted with too much Fire and sometimes didn’t seem himself. You gain the Sacred Weapon: Kaiu Blade Advantage for free, but the blade is afflicted with some manner of curse known only to your GM."
+               }
+          ]
+     },
+     "Crane": {
+          "source": "GC",
+          "initial": {
+               "shameful": {
+                    "low": "1",
+                    "high": "3",
+                    "description": "Shameful Past"
+               },
+               "illustrious": {
+                    "low": "4",
+                    "high": "8",
+                    "description": "Illustrious Past"
+               },
+               "mixed": {
+                    "low": "9",
+                    "high": "0",
+                    "description": "Mixed Blessing"
+               }
+          },
+          "shameful": [
+               {
+                    "low": "1",
+                    "description": "Your ancestor was in charge when a clan treasure vanished. He committed seppuku and your family has worked to rebuild its reputation ever since. You gain the Driven Disadvantage."
+               },
+               {
+                    "low": "2",
+                    "high": "3",
+                    "description": "Your ancestor was mildly obsessed with her looks, and people say you act just like her. You gain a 2-point Compulsion: Always Look Your Best."
+               },
+               {
+                    "low": "4",
+                    "high": "5",
+                    "description": "Your ancestor was a clan magistrate but was rumored to sell justice to the highest bidder. His fl aw has been passed down through the bloodline to you. You gain the Greedy Disadvantage."
+               },
+               {
+                    "low": "6",
+                    "high": "7",
+                    "description": "Your ancestor was a soldier who deserted rather than face the enemies of the Crane. His deeds still stain your family’s reputation. You start with 0.5 less Status and 0.5 less Glory than normal."
+               },
+               {
+                    "low": "8",
+                    "high": "9",
+                    "description": "Your ancestor lost an important duel and his failure still hangs over your line. You start with 1.0 less Honor and 0.5 less Status than normal."
+               },
+               {
+                    "low": "0",
+                    "description": "Your ancestor claimed a rival’s art as his own, winning praise from the Imperial Court. If the deceit is ever discovered, your family will be ruined. You gain the Dark Secret Disadvantage."
+               }
+          ],
+          "illustrious": [
+               {
+                    "low": "1",
+                    "description": "Your ancestor created a work of art that is still admired to this day. You gain 1 free Rank in the appropriate Artisan skill and 0.5 Glory."
+               },
+               {
+                    "low": "2",
+                    "high": "3",
+                    "description": "Your family has ties of marriage or alliance with another clan. You may take the Different School Advantage for 2 less Experience Points."
+               },
+               {
+                    "low": "4",
+                    "high": "6",
+                    "description": "Your ancestor served the clan as a clerk in the Imperial bureaucracy. You may take the Precise Memory Advantage for 2 less points."
+               },
+               {
+                    "low": "7",
+                    "high": "0",
+                    "description": "Your ancestor fought in one of the famous battles of his time, and his courageous deeds are still celebrated in the Crane Clan. You gain 0.5 Glory and a free Rank in either Battle or a Weapon Skill of your choice."
+               },
+               {
+                    "low": "8",
+                    "high": "9",
+                    "description": "Your ancestor nearly single-handedly averted a political catastrophe and turned it into a victory for the Crane. His brilliance is reflected in your own skills. You may take the Clear Thinker Advantage for 1 less Experience Point."
+               },
+               {
+                    "low": "0",
+                    "description": "Your ancestor saved an Asahina Fetish Master from a serious social mishap. In thanks she gave your family a fetish (chosen by the GM) which has since been passed down to you."
+               }
+          ],
+          "mixed": [
+               {
+                    "low": "1",
+                    "description": "At your gempukku you were given an item. It seemed commonplace, but you were told you were to be its keeper and only use it in a time of great need. You were also told no one was sure what it did."
+               },
+               {
+                    "low": "2",
+                    "high": "3",
+                    "description": "Your ancestor slew a major enemy of the Crane in a duel. His descendants remember this as well. You gain 0.5 Glory but also gain a Sworn Enemy in another clan."
+               },
+               {
+                    "low": "4",
+                    "high": "6",
+                    "description": "Your ancestor ignored his duty to the Crane and followed a personal quest to a different school in another clan. He made allies for your family but his obsessive nature has been passed down to you. You may take the Different School Advantage for two less points, but you have the Driven Disadvantage."
+               },
+               {
+                    "low": "7",
+                    "high": "0",
+                    "description": "Your ancestor was a magistrate who revealed another family’s dishonor. You have inherited his uncompromising and perceptive nature. You gain a free Rank in Investigation and the Contrary Disadvantage."
+               },
+               {
+                    "low": "8",
+                    "high": "9",
+                    "description": "Your ancestor was a highly successful merchant patron who cared little about scruples or propriety. You are a true heir to his traditions. You gain an additional 3 koku in your starting Outfi t, but gain the Insensitive Disadvantage."
+               },
+               {
+                    "low": "0",
+                    "description": "Your ancestor was an artist of high renown and you’re expected to follow in his footsteps, perhaps even to surpass him. You may take the Soul of Artistry Advantage for 2 less points, but you gain the Disadvantage Consumed by Perfection."
+               }
+          ]
+     },
+     "Dragon": {
+          "source": "GC",
+          "initial": {
+               "shameful": {
+                    "low": "1",
+                    "high": "2",
+                    "description": "Shameful Past"
+               },
+               "illustrious": {
+                    "low": "3",
+                    "high": "5",
+                    "description": "Illustrious Past"
+               },
+               "mixed": {
+                    "low": "6",
+                    "high": "0",
+                    "description": "Mixed Blessing"
+               }
+          },
+          "shameful": [
+               {
+                    "low": "1",
+                    "description": "Your ancestor gave away vital information about Dragon troop movements. His foolishness still haunts your family’s reputation. You gain the Infamous Disadvantage."
+               },
+               {
+                    "low": "2",
+                    "high": "3",
+                    "description": "Your ancestor was the victim of an elaborate confi dence scheme which ended with his seppuku. Unfortunately, you share his weaknesses and your family’s status has never recovered from his failure. You gain the Gullible Disadvantage and lose 0.5 Status."
+               },
+               {
+                    "low": "4",
+                    "high": "5",
+                    "description": "Your ancestor lacked the courage to face the enemies of the Dragon, fleeing from battle. It is up to you to rebuild your family’s reputation. You start with 0.0 Glory and it will take you twice as long (20 Glory Points) to reach Glory Rank 1."
+               },
+               {
+                    "low": "6",
+                    "high": "7",
+                    "description": "Your mother became pregnant with you after swearing an oath of celibacy to her daimyo. She committed seppuku after giving birth. You start with the Black Sheep disadvantage."
+               },
+               {
+                    "low": "8",
+                    "high": "9",
+                    "description": "Your ancestor successfully pursued a love match within another clan, disrupting others’ marriage plans and earning their eternal hatred. You gain a Nemesis within that clan."
+               },
+               {
+                    "low": "0",
+                    "description": "Your ancestor lost focus during an alchemy experiment, causing it to fail horribly. Ever since then your family has been cursed with Epilepsy, and you are no exception."
+               }
+          ],
+          "illustrious": [
+               {
+                    "low": "1",
+                    "description": "Your ancestor was signifi cantly involved in a famous major battle of his time. Gain a free 2-point Ally from another clan of your choice and 1 rank in the Lore Skill for that clan."
+               },
+               {
+                    "low": "2",
+                    "high": "3",
+                    "description": "Your ancestor performed admirably while occupying a high-profi le position in the Dragon Clan. You gain 1 free Rank in a High Skill of your choice."
+               },
+               {
+                    "low": "4",
+                    "high": "5",
+                    "description": "Your ancestor had a romantic affair during winter court that was the inspiration for many pillow books. Some of that past glory refl ects on you. You gain 0.5 Glory and may take the Advantage Seven Fortunes Blessing: Benten’s Blessing for 1 less Experience Point."
+               },
+               {
+                    "low": "6",
+                    "high": "7",
+                    "description": "Your ancestor played an instrumental role in a small battle. You gain 1 free Rank in a Bugei Skill of your choice."
+               },
+               {
+                    "low": "8",
+                    "high": "9",
+                    "description": "Your ancestor died while carrying the clan banner in battle. His superiors found him still holding it upright the next morning. Your family still reveres his name and his glory redounds to your benefit. You gain 1.0 Glory and 0.5 Honor."
+               },
+               {
+                    "low": "0",
+                    "description": "Your ancestor was a tattooed man famous for his unusual nature - including the fact that he married and had children. You gain 1 free Rank in any one Skill which is not a School Skill for you."
+               }
+          ],
+          "mixed": [
+               {
+                    "low": "1",
+                    "description": "One of your parents was of the Tattooed Order and you were given a tattoo shortly before your gempukku. Unfortunately, your mind was not fully prepared for such power. You gain a Togashi tattoo of the GM’s choice, but you also gain the Enlightened Madness Disadvantage connected to the tattoo."
+               },
+               {
+                    "low": "2",
+                    "high": "3",
+                    "description": "One of your ancestors picked up an item from a battlefi eld on a whim. It has since been passed down to you. Although no one is quite sure what it does, family legend speaks of a spirit that makes its home within..."
+               },
+               {
+                    "low": "4",
+                    "high": "5",
+                    "description": "Your ancestor escalated a minor matter of honor into a duel to the death with a samurai from another clan. He won the duel, fortunately, but it was his temper which brought it on in the fi rst place. You have inherited his nature and legacy. You gain 1.0 Glory and 1 free Rank in the Lore Skill for the clan of the duelist he defeated, but you also gain the Brash Disadvantage."
+               },
+               {
+                    "low": "6",
+                    "high": "7",
+                    "description": "Your family has never been wealthy, but your ascetic lifestyle has helped you on the path to enlightenment. You gain 1 free Rank in the Meditation Skill, but you also have the Ascetic Disadvantage."
+               },
+               {
+                    "low": "8",
+                    "high": "9",
+                    "description": "Your ancestor was a very creative soul, but saw into the Elements too deeply. You gain a +1k0 bonus to all Craft rolls, but you also gain the Frail Mind Disadvantage."
+               },
+               {
+                    "low": "0",
+                    "description": "Your ancestor followed one of the False Paths. You may take the Sage Advantage for 1 less Experience Point, but you also gain the Disbeliever Disadvantage."
+               }
+          ]
+     },
+     "Lion": {
+          "source": "GC",
+          "initial": {
+               "shameful": {
+                    "low": "1",
+                    "high": "2",
+                    "description": "Shameful Past"
+               },
+               "illustrious": {
+                    "low": "3",
+                    "high": "7",
+                    "description": "Illustrious Past"
+               },
+               "mixed": {
+                    "low": "8",
+                    "high": "0",
+                    "description": "Mixed Blessing"
+               }
+          },
+          "shameful": [
+               {
+                    "low": "1",
+                    "description": "Your ancestor was a Deathseeker who never redeemed his name. Your family still labors under his failure. You start with 2.0 less Honor."
+               },
+               {
+                    "low": "2",
+                    "high": "3",
+                    "description": "Your ancestor had a vice, and someone else found out about it. You have the Blackmailed Disadvantage."
+               },
+               {
+                    "low": "4",
+                    "high": "5",
+                    "description": "Your ancestor lacked the courage to stand on the front lines of battle. He ran, leading to a defeat that cost many lives. Your family lives under the shadow of his failure. You start with 0.0 Glory and gain the Disadvantage Phobia: Combat (1 point)."
+               },
+               {
+                    "low": "6",
+                    "high": "7",
+                    "description": "Your ancestor made an enemy in a family from another clan, and they’ve never forgotten it. You gain a Sworn Enemy from that clan."
+               },
+               {
+                    "low": "8",
+                    "high": "9",
+                    "description": "Your ancestor served in an army destined for inglorious defeat. The Lion tend not to talk about this particular battle, but they do give you funny looks. You lose 0.5 Glory and gain the Disadvantage Driven: Prove Self."
+               },
+               {
+                    "low": "0",
+                    "description": "Your ancestor found true love in the arms of a Crane. They were forbidden to see each other again, and being a dutiful Lion your ancestor obeyed- but you have inherited his/her passionate nature. You gain either the True Love or Lost Love Disadvantage (your choice)."
+               }
+          ],
+          "illustrious": [
+               {
+                    "low": "1",
+                    "description": "The blood of your ancestors runs strong in your veins. You may take a Lion Ancestor for 2 less points."
+               },
+               {
+                    "low": "2",
+                    "high": "3",
+                    "description": "You can trace your line directly back to your family’s founder. Honors and gifts from those early years have been passed down to you. You may take the Lion Sacred Weapon Advantage for 2 less points."
+               },
+               {
+                    "low": "4",
+                    "high": "5",
+                    "description": "Your ancestor served honorably and memorably in the Imperial Legions. You gain 0.5 Honor and 0.5 Status."
+               },
+               {
+                    "low": "6",
+                    "high": "7",
+                    "description": "Your ancestor died a hero’s death while fi ghting in one of the major battles of his time. His skills are reborn in you. You gain 1 free Rank in a Weapon Skill of your choice."
+               },
+               {
+                    "low": "8",
+                    "high": "9",
+                    "description": "Your ancestor rose to be a Rikugunshokan, commanding one of the four Lion armies in a great battle of his age. He led well, and his legacy is in your blood. You may take the Advantage Leadership for 2 less Experience Points."
+               },
+               {
+                    "low": "0",
+                    "description": "Your ancestor died defending the Emperor from an assassination attempt. The Emperor proclaimed his line - of which you are the scion - to be Sacrosanct."
+               }
+          ],
+          "mixed": [
+               {
+                    "low": "1",
+                    "description": "Your ancestor was a Kitsu who met a spirit creature he shouldn’t have. You still labor under the effects of that long-ago encounter. You gain the Cursed by the Realm Disadvantage but may take the Inner Gift Advantage for 2 less Experience Points."
+               },
+               {
+                    "low": "2",
+                    "high": "3",
+                    "description": "Your ancestor was a famous Ikoma Bard and you possess a great many of her traits. You may take the Sensation Advantage for 1 less point, but you love the adulation of the audience, and gain the Disadvantage Compulsion: Perform (2 points) as well."
+               },
+               {
+                    "low": "4",
+                    "high": "5",
+                    "description": "Your gempukku took place on the battlefi eld where your ancestor died. He guides your steps, walking beside you ever since. You gain the Haunted Disadvantage but also gain 1 free Rank in a Bugei Skill of your choice."
+               },
+               {
+                    "low": "6",
+                    "high": "7",
+                    "description": "Your ancestor took part in a battle that was a defeat for the Lion, but which is now used to teach students at the War College. You lose 1.0 Glory but gain 0.5 Honor."
+               },
+               {
+                    "low": "8",
+                    "high": "9",
+                    "description": "Your ancestor was one of the Ikoma Lion’s Shadow. His subtle and pragmatic ways have passed down to you. You start with 1.5 less Honor, but you may take either the Crafty or the Silent Advantage for 2 less Experience Points."
+               },
+               {
+                    "low": "0",
+                    "description": "Your ancestor took part in a victorious battle, but the Lion histories consider the battle to have been run ineptly. You lose 1.0 Glory but gain 1 free Rank in a Weapon Skill of your choice."
+               }
+          ]
+     },
+     "Mantis": {
+          "source": "GC",
+          "initial": {
+               "shameful": {
+                    "low": "1",
+                    "high": "4",
+                    "description": "Shameful Past"
+               },
+               "illustrious": {
+                    "low": "5",
+                    "high": "7",
+                    "description": "Illustrious Past"
+               },
+               "mixed": {
+                    "low": "8",
+                    "high": "0",
+                    "description": "Mixed Blessing"
+               }
+          },
+          "shameful": [
+               {
+                    "low": "1",
+                    "description": "Your ancestor thought he was the one in charge of the scam-he was wrong. His weakness is yours as well. You gain the Can’t Lie Disadvantage."
+               },
+               {
+                    "low": "2",
+                    "high": "3",
+                    "description": "Your ancestor fought on the losing side in a famous battle. He was convinced the Mantis would win... right up until the end. You gain the Overconfident Disadvantage."
+               },
+               {
+                    "low": "4",
+                    "high": "5",
+                    "description": "Your line is fi lled with pirates. One ancestor was particularly noted for harassing other clans. You gain a Sworn Enemy in a clan of the GM’s choice."
+               },
+               {
+                    "low": "6",
+                    "high": "7",
+                    "description": "Your ancestor fought and died in a war far from Rokugan’s shores. No one in Rokugan has ever heard of it, nor would they want to. Lose 1.0 Glory."
+               },
+               {
+                    "low": "8",
+                    "high": "9",
+                    "description": "Your family was on the losing side of a commercial dispute and has never recovered. You gain the Disadvantage Seven Fortune’s Curse: Daikoku."
+               },
+               {
+                    "low": "0",
+                    "description": "One of your ancestors committed seppuku to atone for the Gusai family’s treachery. You gain Social Disadvantage: Gusai Ancestor."
+               }
+          ],
+          "illustrious": [
+               {
+                    "low": "1",
+                    "description": "Your ancestor was a merchant patron of some renown within the Empire. You start with 2 extra koku in your Outfi t."
+               },
+               {
+                    "low": "2",
+                    "high": "3",
+                    "description": "Your ancestor proved himself during one of the great battles of his time, and his derring-do is still remembered today. His blood runs true in your veins. You may purchase the Daredevil Advantage for 1 less Experience Point."
+               },
+               {
+                    "low": "4",
+                    "high": "5",
+                    "description": "Your ancestor was a legendary sailor and explorer. You gain 1 free Rank in either the Sailing Skill or the Navigation Skill."
+               },
+               {
+                    "low": "6",
+                    "high": "7",
+                    "description": "You can trace your family line back to Kaimetsu-Uo himself. You may take the Blood of Osano-Wo Advantage for 1 less point."
+               },
+               {
+                    "low": "8",
+                    "high": "9",
+                    "description": "Your ancestor was a mercenary in the early days of the Mantis Clan. He made contacts across the Empire, but became especially good friends while serving in the army of one particular clan. You gain a free 3-point Ally in another clan of your choice."
+               },
+               {
+                    "low": "0",
+                    "description": "Your ancestor won the blessing of the Thunder Dragon during a great storm. You may take a Rank of the Magic Resistance Advantage for 1 less Experience Point."
+               }
+          ],
+          "mixed": [
+               {
+                    "low": "1",
+                    "description": "You are one of the secret descendants of the Gusai family. You gain Dark Secret: Gusai Family but also gain 1.0 Status."
+               },
+               {
+                    "low": "2",
+                    "high": "3",
+                    "description": "Your ancestor was involved in covert trade with gaijin. You may take the Gaijin Gear Advantage for 1 less Experience Point, but you have an Obligation (3 points) to his foreign trading partner."
+               },
+               {
+                    "low": "4",
+                    "high": "5",
+                    "description": "Your ancestor was an ally of the Cornejo family and learned things which no Rokugani should know. You have the Advantage Forbidden Knowledge: Gaijin Pepper."
+               },
+               {
+                    "low": "6",
+                    "high": "7",
+                    "description": "Your ancestor was a prosperous smuggler, and while this enriched your family it also damaged their repute. You start with 1 additional koku in your Outfi t, but lose 0.5 Glory."
+               },
+               {
+                    "low": "8",
+                    "high": "9",
+                    "description": "Your family history is fi lled with scoundrels and misfi ts. You gain 1.0 Infamy but also gain 1 free Rank in the Skill of Lore: Underworld."
+               },
+               {
+                    "low": "0",
+                    "description": "Your ancestor married a komouri shapeshifter spirit. You may purchase the Child of Chikushudo Advantage."
+               }
+          ]
+     },
+     "Phoenix": {
+          "source": "GC",
+          "initial": {
+               "shameful": {
+                    "low": "1",
+                    "high": "3",
+                    "description": "Shameful Past"
+               },
+               "illustrious": {
+                    "low": "4",
+                    "high": "7",
+                    "description": "Illustrious Past"
+               },
+               "mixed": {
+                    "low": "8",
+                    "high": "0",
+                    "description": "Mixed Blessing"
+               }
+          },
+          "shameful": [
+               {
+                    "low": "1",
+                    "description": "Your ancestor was forced to undergo the Forgotten ritual, and remnants of it remain in your bloodline. You gain the Momoku Disadvantage."
+               },
+               {
+                    "low": "2",
+                    "high": "3",
+                    "description": "Your ancestor lost a book containing the only copy of some vital information. He committed seppuku and your family has been committed to finding the knowledge ever since. You gain the Driven Disadvantage."
+               },
+               {
+                    "low": "4",
+                    "high": "5",
+                    "description": "Your ancestor was a yojimbo who failed to protect his charge in battle. The shame of his actions has not yet been purged. You gain 1.0 Infamy."
+               },
+               {
+                    "low": "6",
+                    "high": "7",
+                    "description": "Your ancestor was an Ishiken who got a little too close to the Void. You gain the Touch of the Void Disadvantage."
+               },
+               {
+                    "low": "8",
+                    "high": "9",
+                    "description": "Your ancestor dabbled in maho. He summoned an oni and gave it his name. Ever since, that oni has been haunting your family line."
+               },
+               {
+                    "low": "0",
+                    "description": "While researching powerful new magics, your ancestor disappeared in a flash of light, taking his notes with him. The Kitsu have determined his soul never made it to Meido. No one has been able to duplicate his work or determine where he has gone. Your family is obsessed with hunting for him; you gain the Consumed by Knowledge Disadvantage."
+               }
+          ],
+          "illustrious": [
+               {
+                    "low": "1",
+                    "description": "You can trace your line directly to your family’s founder. You may take a Phoenix Clan Ancestor for 2 less Experience Points."
+               },
+               {
+                    "low": "2",
+                    "high": "3",
+                    "description": "Your ancestor was one of the Elemental Masters and your line is still granted respect for this today. You gain 1.0 Glory and 1.0 Status."
+               },
+               {
+                    "low": "4",
+                    "high": "5",
+                    "description": "This is not your first time around on the kharmic wheel, and you have been lucky enough to be reborn as your own descendant. You may take the Enlightened Advantage for 1 less point."
+               },
+               {
+                    "low": "6",
+                    "high": "7",
+                    "description": "Your ancestor was instrumental in negotiating a peace treaty between two clans. His legacy of virtue and compassion is still carried forward in your line. You gain 1.0 Honor and you may purchase the Advantage Paragon of Compassion for 2 less Experience Points."
+               },
+               {
+                    "low": "8",
+                    "high": "9",
+                    "description": "Your ancestor was a yojimbo who fought and won a glorious duel in defense of his charge. His fame endures and you look to his example for guidance. Gain 1 free Rank in the Iaijutsu Skill and 0.5 Glory."
+               },
+               {
+                    "low": "0",
+                    "description": "Your ancestor achieved one of the great breakthroughs of magic, and you have benefi tted from his work. Gain 1 free Rank in either the Lore: Shugenja Skill or the Spellcraft Skill"
+               }
+          ],
+          "mixed": [
+               {
+                    "low": "1",
+                    "description": "Your ancestor was a shugenja of some renown with her Element, but was absolutely terrible with the opposing Element. You may take the Friend of the Elements (Element of your choice) Advantage for 1 less Experience Point, but also gain Wrath of the Kami in the opposing Element."
+               },
+               {
+                    "low": "2",
+                    "high": "3",
+                    "description": "A kansen tempted your ancestor into using maho, leaving a stain on your family name. The kansen has since found you. It acts as the Friendly Kami advantage, but the bonuses only apply to casting Maho spells."
+               },
+               {
+                    "low": "4",
+                    "high": "5",
+                    "description": "One of your ancestors went missing for several months. No one is sure where he went, but when he returned he had no memories save for a message he claimed was from the Celestial Heavens. You may take the Advantage Chosen by the Oracles for 2 less Experience Points, but you also gain the Disadvantage Lord Moon’s Curse."
+               },
+               {
+                    "low": "6",
+                    "high": "7",
+                    "description": "Your ancestor was repeatedly defeated at something, and your family has made a point of being the best at it ever since. Choose a Skill. You gain the Jealousy Disadvantage in that Skill, but you also gain either 2 free Ranks in that Skill or one free Emphasis in that Skill."
+               },
+               {
+                    "low": "8",
+                    "high": "9",
+                    "description": "Your ancestor was a well-known mediator. In one particularly dangerous situation she took extreme and dishonorable measures to preserve the peace. Her dishonor and success both linger. You start with 1.0 less Honor but also gain a 2-point Ally in another clan."
+               },
+               {
+                    "low": "0",
+                    "description": "Your family has always been one of the guardians of Gisei Toshi. You have access to the sacred knowledge and hidden items within Gisei Toshi should you need them, but you must never tell anyone about the city’s location. Gain Dark Secret: Location of Gisei Toshi."
+               }
+          ]
+     },
+     "Scorpion": {
+          "source": "GC",
+          "initial": {
+               "shameful": {
+                    "low": "1",
+                    "high": "2",
+                    "description": "Shameful Past"
+               },
+               "illustrious": {
+                    "low": "3",
+                    "high": "5",
+                    "description": "Illustrious Past"
+               },
+               "mixed": {
+                    "low": "6",
+                    "high": "0",
+                    "description": "Mixed Blessing"
+               }
+          },
+          "shameful": [
+               {
+                    "low": "1",
+                    "description": "Your ancestor was branded with the name \"junshin\", and you find that you’re junshin too. The clan will probably never trust you with anything important."
+               },
+               {
+                    "low": "2",
+                    "high": "3",
+                    "description": "Your ancestor was played for a fool in the courts for all to see. His weak nature is reborn in you. You gain the Gullible Disadvantage."
+               },
+               {
+                    "low": "4",
+                    "high": "5",
+                    "description": "Your ancestor gave away vital information to the enemy, forever tainting your family’s name as disloyal. You lose 1.0 Glory and 0.5 Status and may never have the Gentry Advantage."
+               },
+               {
+                    "low": "6",
+                    "high": "7",
+                    "description": "Your ancestor was supposed to target and eliminate an enemy-either politically or physically. Regardless, he fell in love with his target instead and never completed his mission. Your family has been fighting his legacy ever since. You lose 0.5 Status and gain the Disadvantage Failure of Bushido: Duty."
+               },
+               {
+                    "low": "8",
+                    "high": "9",
+                    "description": "Your ancestor was in command of a battle that should have been an easy win for the Scorpion. Instead, they were defeated, resulting in many years of lost time for the Scorpion in the courts. You gain the Overconfident Disadvantage."
+               },
+               {
+                    "low": "0",
+                    "description": "You aren’t sure what your ancestor did, but somewhere there’s a tree with his name on it."
+               }
+          ],
+          "illustrious": [
+               {
+                    "low": "1",
+                    "description": "Charisma runs in your blood. Your ancestors were all notable seductresses and seducers. You gain the Dangerous Beauty Advantage."
+               },
+               {
+                    "low": "2",
+                    "high": "3",
+                    "description": "Your ancestor had a winter romance that the Scorpion were able to use to further their agenda. You may take Blackmail on someone in another clan for 2 less Experience Points."
+               },
+               {
+                    "low": "4",
+                    "high": "5",
+                    "description": "Your ancestor was adept at finding others’ weaknesses and twisting them to her benefi t, and you are her true heir. You gain the Heartless Advantage for 1 less Experience Point."
+               },
+               {
+                    "low": "6",
+                    "high": "7",
+                    "description": "Your ancestor without hesitation or question in order to further a larger plot, and his loyalty runs in your veins. You may take the Advantage Paragon of Duty for 2 less Experience Points."
+               },
+               {
+                    "low": "8",
+                    "high": "9",
+                    "description": "Your ancestor was a shinobi who assassinated vital targets. Some of his skills are reborn in you. You gain 1 free Rank in the Stealth Skill."
+               },
+               {
+                    "low": "0",
+                    "description": "Your ancestor performed a mission for the Shosuro Infiltrators, for which they owe your family a debt. You may call on their assistance once in your life and they will help you. (The GM decides exactly how.)"
+               }
+          ],
+          "mixed": [
+               {
+                    "low": "1",
+                    "description": "Your ancestor was a Rikugunshokan in command of the Scorpion army. He was instructed to lose a specific battle, but despite his best efforts he won instead. You may take a Rank in the Luck Advantage for 1 less Experience Point, but you also gain the Infamous Disadvantage."
+               },
+               {
+                    "low": "2",
+                    "high": "3",
+                    "description": "After your gempukku you were given a nemuranai. You were told nothing about its history or nature, only that you are to keep it safe, hidden, and never ever to use it."
+               },
+               {
+                    "low": "4",
+                    "high": "5",
+                    "description": "Your family has always had connections with the criminal underworld, and someone knows about it. You gain either 2 free Ranks of Lore: Underworld or a 2-point Ally in the criminal classes, but you also gain the Blackmailed Disadvantage."
+               },
+               {
+                    "low": "6",
+                    "high": "7",
+                    "description": "Your ancestor died in a duel to prove a point. You share both his nature and his legacy. You may take the Advantage Paragon of Duty for 2 less Experience Points, but you also gain a Nemesis in the appropriate clan."
+               },
+               {
+                    "low": "8",
+                    "high": "9",
+                    "description": "Your ancestor joined the shinobi and a few of the skills he was taught have been passed down. You gain 1 free Rank in the Ninjutsu Skill but you also have the Disadvantage Dark Secret."
+               },
+               {
+                    "low": "0",
+                    "description": "Your ancestor was Shadow Branded. Due to the Shadow’s ongoing influence over your family line, you gain the Silent advantage, but the Shadow is looking for you..."
+               }
+          ]
+     },
+     "Spider": {
+          "source": "GC",
+          "initial": {
+               "shameful": {
+                    "low": "1",
+                    "high": "3",
+                    "description": "Shameful Past"
+               },
+               "illustrious": {
+                    "low": "4",
+                    "high": "8",
+                    "description": "Illustrious Past"
+               },
+               "mixed": {
+                    "low": "9",
+                    "high": "0",
+                    "description": "Mixed Blessing"
+               }
+          },
+          "shameful": [
+               {
+                    "low": "1",
+                    "high": "3",
+                    "description": "Your father was a minor functionary in the entourage of an Imperial Herald. When your lord was killed by bandits, he survived, and the Lost accepted him into their ranks. He meant only to survive, but their acceptance gave him the first true sense of belonging he had ever known. You gain the Perceived Honor Advantage."
+               },
+               {
+                    "low": "4",
+                    "high": "6",
+                    "description": "Your parents were among those who first flocked to Daigotsu’s banner, and you were among the first born in the City of the Lost. You the Fame Advantage and 1 free Rank in a Weapon Skill of your choice."
+               },
+               {
+                    "low": "7",
+                    "high": "9",
+                    "description": "Your mother was consumed by the Lying Darkness, yet somehow managed to give birth to you without passing on her affliction. Or did she? You gain the Crafty Advantage."
+               },
+               {
+                    "low": "0",
+                    "description": "Your parents were members of the Unbroken, a group of Tainted ronin who sought to purge their corruption by killing others that possessed it. You, however, embraced your strength and cast aside their weakness. You gain the Strength of the Earth Advantage."
+               }
+          ],
+          "illustrious": [
+               {
+                    "low": "1",
+                    "high": "2",
+                    "description": "Your family once served the Crab, but an ancestor was corrupted in the line of duty and rather than be consigned to death, he embraced his fate. You gain the Large Advantage and 1 free rank in the Heavy Weapons Skill, but also gain a Sworn Enemy among the Crab."
+               },
+               {
+                    "low": "3",
+                    "high": "4",
+                    "description": "Your family was once part of the Mantis, but a voyage through the Sea of Shadow led to corruption and madness. You gain one rank of the Luck Advantage and 1 free Rank in the Skills of Chain Weapons and Sailing, but gain a Sworn Enemy among the Mantis."
+               },
+               {
+                    "low": "5",
+                    "high": "6",
+                    "description": "Your family once claimed membership among the Phoenix, but your ancestor’s love of secrets and lust for knowledge overwhelmed him, leading him to corruption. You gain the Forbidden Knowledge Advantage and 1 free Rank in a Lore Skill of your choice, but gain a Sworn Enemy among the Phoenix."
+               },
+               {
+                    "low": "7",
+                    "high": "8",
+                    "description": "The Scorpion once considered your family loyal vassals, but study of dark secrets led to your ancestor’s corruption and he was sanctioned by the clan. You gain the Dangerous Beauty Advantage and 1 free Rank in the Stealth Skill, but gain a Sworn Enemy among the Scorpion."
+               },
+               {
+                    "low": "9",
+                    "high": "0",
+                    "description": "Your ancestor was once a Unicorn, but the call of the fallen Moto was unusually strong within his soul and he willingly rode to the Shadowlands. You gain the Gaijin Gear Advantage and 1 free Rank in the Horsemanship Skill, but gain a Sworn Enemy among the Unicorn."
+               }
+          ],
+          "mixed": [
+               {
+                    "low": "1",
+                    "high": "3",
+                    "description": "You were taken from your family as an infant-stolen by the Bloodspeaker Cult, who felt you were a child of prophecy. You never embraced their ways, however, and eagerly betrayed them to the Lost at the first opportunity. You gain the Touch of the Spirit Realm Advantage."
+               },
+               {
+                    "low": "4",
+                    "high": "6",
+                    "description": "You were abandoned at a monastery as a child, an unwelcome burden on your parents. Your years in the monastery were unpleasant and punishing, but the doctrine of strength and power in the Order of the Spider appealed to you, and you were among Roshungi’s fi rst adherents. You gain the Dark Paragon Advantage."
+               },
+               {
+                    "low": "7",
+                    "high": "9",
+                    "description": "As a child you suffered from visions. Others thought you were possessed by demons and eventually you were abandoned by your family. The Lost never questioned your value, however, and let you earn your place among them. You gain the Ishiken-do Advantage."
+               },
+               {
+                    "low": "0",
+                    "description": "The other Lost found you as a child, surviving alone in the Shadowlands. No one understands how this was possible and you have no memory of those years. Sometimes, however, you have half-remembered dreams that give you glimpses of what happened... or what will happen. You gain the Inner Gift Advantage."
+               }
+          ]
+     },
+     "Unicorn": {
+          "source": "GC",
+          "initial": {
+               "shameful": {
+                    "low": "1",
+                    "high": "2",
+                    "description": "Shameful Past"
+               },
+               "illustrious": {
+                    "low": "3",
+                    "high": "6",
+                    "description": "Illustrious Past"
+               },
+               "mixed": {
+                    "low": "7",
+                    "high": "0",
+                    "description": "Mixed Blessing"
+               }
+          },
+          "shameful": [
+               {
+                    "low": "1",
+                    "description": "Your ancestor was a Moto who fell to the Shadowlands, and he would very much like you to join him. You gain the Disadvantage Cursed by Jigoku."
+               },
+               {
+                    "low": "2",
+                    "high": "3",
+                    "description": "As part of an investigation, your ancestor uncovered a dirty secret about another family… and spread the news widely. You gain the Rumormonger Disadvantage."
+               },
+               {
+                    "low": "4",
+                    "high": "5",
+                    "description": "Your ancestor ran from his duties to the Unicorn and became a ronin. Although your family has survived, the shame still stains your reputation. You lose 0.5 Glory and 0.5 Status."
+               },
+               {
+                    "low": "6",
+                    "high": "7",
+                    "description": "Your ancestor was on the losing side during one of the famous battles of her day. You lose 1.0 Glory."
+               },
+               {
+                    "low": "8",
+                    "high": "9",
+                    "description": "Your ancestor was a Battle Maiden who betrayed her oath of chastity. Her passionate nature has passed down to you. You gain the Lechery Disadvantage."
+               },
+               {
+                    "low": "0",
+                    "description": "Your ancestors were cursed by a gaijin wizard. Your family has been unable to lift the curse despite generations of effort. You gain the Weakness Disadvantage in a Trait chosen by the GM."
+               }
+          ],
+          "illustrious": [
+               {
+                    "low": "1",
+                    "description": "You can trace your lineage back to the founding Kami, Lady Shinjo. You may take a Unicorn Ancestor for 2 less Experience Points."
+               },
+               {
+                    "low": "2",
+                    "high": "3",
+                    "description": "Your ancestor was an Ujik-hai who joined the clan via a blood oath. You may take the Gaijin Gear Advantage for 2 less Experience Points."
+               },
+               {
+                    "low": "4",
+                    "high": "5",
+                    "description": "Your ancestor fought bravely in a famous battle of his day, and you strive to live up to his glorious example. You gain 0.5 Glory and 1 free Rank in the Battle Skill."
+               },
+               {
+                    "low": "6",
+                    "high": "7",
+                    "description": "Your ancestor died while protecting a commander in the army of an allied clan. They have not forgotten his sacrifice. You may take a free 3-point Ally from that clan."
+               },
+               {
+                    "low": "8",
+                    "high": "9",
+                    "description": "Your ancestor died in a successful fi ghting retreat, saving her comrades. Her skills are reborn in you. You may take the Tactician Advantage for 1 less point."
+               },
+               {
+                    "low": "0",
+                    "description": "Your ancestor was a loyal samurai rewarded by his lord for years of dutiful service. His legacy has passed to you. You may purchase the Unicorn Sacred Weapon Advantage for 2 less Experience Points."
+               }
+          ],
+          "mixed": [
+               {
+                    "low": "1",
+                    "description": "Your ancestor fell to the Lying Darkness, and your family has fought against it ever since. You gain the Shadow as a Sworn Enemy, but you have a small crystal item (a pendant, earring, or necklace)."
+               },
+               {
+                    "low": "2",
+                    "high": "3",
+                    "description": "Your ancestor was originally from another clan, but joined the Unicorn through a politically arranged marriage. You may call in a favor from that clan, but once you do you will become Obligated to them."
+               },
+               {
+                    "low": "4",
+                    "high": "5",
+                    "description": "Your ancestor joined the Kolat, and your bloodline has served the conspiracy ever since. You gain the Advantage Forbidden Knowledge: Kolat but also gain the Disadvantage Dark Secret: Kolat."
+               },
+               {
+                    "low": "6",
+                    "high": "7",
+                    "description": "Your ancestor was a highly successful merchant in foreign lands. You inherited a strange artifact from him, but no one has any idea what it does."
+               },
+               {
+                    "low": "8",
+                    "high": "9",
+                    "description": "Your family has struggled financially, and you have been forced to study the ways of coin and craft in order to compensate. You start with 4 less koku in your Outfit, but you gain 1 free Rank in Commerce and 1 free Rank in a Craft Skill of your choice."
+               },
+               {
+                    "low": "0",
+                    "description": "Your ancestor met a jinn while wandering the Burning Sands. They had a long and fruitful affair. You occasionally have strange urges and odd dreams..."
+               }
+          ]
+     },
+     "Minor Clans": {
+          "source": "SE",
+          "initial": {
+               "shameful": {
+                    "low": "1",
+                    "high": "3",
+                    "description": "Shameful Past"
+               },
+               "illustrious": {
+                    "low": "4",
+                    "high": "7",
+                    "description": "Illustrious Past"
+               },
+               "mixed": {
+                    "low": "8",
+                    "high": "0",
+                    "description": "Mixed Blessing"
+               }
+          },
+          "shameful": [
+               {
+                    "low": "1",
+                    "description": "Your ancestor was a disbeliever and has passed down this lack of belief to his descendants. You begin play with the Disbeliever Disadvantage."
+               },
+               {
+                    "low": "2",
+                    "high": "3",
+                    "description": "Your ancestor thought he was getting the better end of a deal with a Great Clan merchant patron, only to discover too late that he had been tricked. Your family has been impoverished ever since. Start with two fewer koku in your Outfit."
+               },
+               {
+                    "low": "4",
+                    "high": "5",
+                    "description": "Your ancestor failed to perform a service for the clan, tarnishing his honor and standing. His failure haunts your line to this day. Your starting Honor is 1.0 lower and your starting Status is 0.1 lower."
+               },
+               {
+                    "low": "6",
+                    "high": "7",
+                    "description": "Your ancestor was considered one of the ugliest men in Rokugan, and you have his face. Gain the Disturbing Countenance Disadvantage."
+               },
+               {
+                    "low": "8",
+                    "high": "9",
+                    "description": "Your ancestor got the better of a Great Clan courtier in the Imperial Court. The courtier’s family has held a grudge against yours ever since. You gain the Sworn Enemy Disadvantage."
+               },
+               {
+                    "low": "0",
+                    "description": "Your ancestor was a member of one of the fallen Minor Clans or families (Snake, Boar, Gusai family, etc). Gain the Dark Secret Disadvantage."
+               }
+          ],
+          "illustrious": [
+               {
+                    "low": "1",
+                    "description": "A particular kami took an interest in your family line, and it senses a similarity to your ancestor in you. You may take the Friendly Kami Advantage (if you are a shugenja) or the Friend of the Elements Advantage for one less Experience Point."
+               },
+               {
+                    "low": "2",
+                    "high": "3",
+                    "description": "Your ancestor made political connections with members of a Great Clan, connections which have lasted to this day. You gain a 3-point Ally Advantage in that clan for no Experience Point cost."
+               },
+               {
+                    "low": "4",
+                    "high": "5",
+                    "description": "Your ancestor was a genius on the battlefield. Due to his actions, others believe you and your family are honorable warriors as well. Gain 1.0 Glory."
+               },
+               {
+                    "low": "6",
+                    "high": "7",
+                    "description": "Your ancestor was extremely skilled in the ways of your clan, and you have carried on his legacy. Gain one Rank in an iconic School Skill for your school."
+               },
+               {
+                    "low": "8",
+                    "high": "9",
+                    "description": "One of your ancestors helped establish one of your clan’s original villages. Your family has been caretaker of those lands since that time. Your starting Outfit gains 2 koku and you may take the Gentry Advantage for one less Experience Point."
+               },
+               {
+                    "low": "0",
+                    "description": "Your family has always lived in the heartlands of your clan and you have grown up learning its fields and hills like your own home. You gain the Way of the Land Advantage for your clan’s land."
+               }
+          ],
+          "mixed": [
+               {
+                    "low": "1",
+                    "description": "Your family has long maintained a close relationship with the Imperial families, but this has caused you to suffer from the jealousy of Great Clan samurai. You begin play with a free 3-point Ally among the Imperial families (if you are Tortoise, it is a 4-point Ally instead), but you also start with a 3-point Sworn Enemy in a Great Clan."
+               },
+               {
+                    "low": "2",
+                    "high": "3",
+                    "description": "Your ancestor discovered something very interesting - and very taboo. You may take the Forbidden Knowledge Advantage for one less Experience Point."
+               },
+               {
+                    "low": "4",
+                    "high": "5",
+                    "description": "Your ancestor saved the life of a paragon from a Great Clan family. That family has looked out for your line since that time and recently arranged for your marriage to a member of the Imperial families. You gain the Imperial Spouse Advantage, but are under a 3-Point Obligation to the family who arranged the marriage."
+               },
+               {
+                    "low": "6",
+                    "high": "7",
+                    "description": "Due to various mishaps and misfortunes, you are the last of your line and have all your family’s titles and responsibilities resting squarely on your shoulders. Perhaps there is a reason your family members keep dying mysteriously? You gain +1.0 Status but also gain the Bad Fortune (Unknown Enemy) Disadvantage."
+               },
+               {
+                    "low": "8",
+                    "high": "9",
+                    "description": "Your ancestor was involved with some shady dealings with a member of one of the Great Clans. The deals went in your ancestor’s favor, and the details have been passed on to you. You gain a 3-point Blackmail Advantage against someone in one of the Great Clans, but since they know that you hold the information you also gain the Sworn Enemy Disadvantage with them."
+               },
+               {
+                    "low": "0",
+                    "description": "Your ancestor was a craftsman of singular skills. One of his creations was passed on to you. You gain a single item of superior quality (an Excellent item if using the optional advanced crafting rules in this book); however, the item was originally intended as a gift for a member of a Great Clan, and his family wants it back."
+               }
+          ]
+     },
+     "Monk": {
+          "source": "SE",
+          "initial": {
+               "shameful": {
+                    "low": "1",
+                    "high": "3",
+                    "description": "Shameful Past"
+               },
+               "illustrious": {
+                    "low": "4",
+                    "high": "8",
+                    "description": "Illustrious Past"
+               },
+               "mixed": {
+                    "low": "9",
+                    "high": "0",
+                    "description": "Mixed Blessing"
+               }
+          },
+          "shameful": [
+               {
+                    "low": "1",
+                    "description": "Your master was a heretic who was devoted to a False Path rather than to following the Tao or the Fortunes. As a result, your own teachings are fatally skewed. You must take the Consumed Disadvantage."
+               },
+               {
+                    "low": "2",
+                    "high": "3",
+                    "description": "The shrine or temple where you were trained was in an exceptionally impoverished area of the Empire. You begin play with the Ascetic Disadvantage for no points."
+               },
+               {
+                    "low": "4",
+                    "high": "5",
+                    "description": "Your temple teaches that everyone should always question the world at all times in order to have any chance of Enlightenment. You gain the Contrary Disadvantage for no points."
+               },
+               {
+                    "low": "6",
+                    "high": "7",
+                    "description": "The temple in which you were trained is home to monks who have little true piety and often engage in improper behavior. Many of them do not really follow the Tao or the Fortunes at all. You gain either the Disbeliever Disadvantage or the Infamy Disadvantage (your choice) for no points."
+               },
+               {
+                    "low": "8",
+                    "high": "9",
+                    "description": "The temple where you were trained teaches obsessive self-reliance above all else. You gain the Overconfident Disadvantage for no points."
+               },
+               {
+                    "low": "0",
+                    "description": "Something within the temple where you were raised is tainted by darkness. Gain either 1 Rank of the Shadowlands Taint or one Shadow Rank, as chosen by the GM."
+               }
+          ],
+          "illustrious": [
+               {
+                    "low": "1",
+                    "description": "The calm of a placid lake flows through all those trained in your temple. You gain the Balance Advantage."
+               },
+               {
+                    "low": "2",
+                    "high": "3",
+                    "description": "Your temple focuses on physical advancement more than on spiritual study, and thereby promotes bold actions. You gain the Daredevil Advantage."
+               },
+               {
+                    "low": "4",
+                    "high": "5",
+                    "description": "Your temple was built on a location beloved by the spirits of a particular Element, and all monks of that temple are favored by that Element. You gain the Elemental Blessing Advantage in whichever Element your temple favors."
+               },
+               {
+                    "low": "6",
+                    "high": "7",
+                    "description": "Your temple has a singular martial tradition which uses a specific weapon to teach unity of body and spirit. You gain 1 free Rank in a Weapon Skill of your choice."
+               },
+               {
+                    "low": "8",
+                    "high": "9",
+                    "description": "You and your temple have protected a group of villages from harm for generations. Word of the deeds of your temple has spread among the commoners. You gain the Hero of the People Advantage."
+               },
+               {
+                    "low": "0",
+                    "description": "You were taught by an exceptional sensei, perhaps even a descendant of Shinsei himself, and gained deep insight into the world and yourself. You may take the Enlightened Advantage for only 3 points."
+               }
+          ],
+          "mixed": [
+               {
+                    "low": "1",
+                    "description": "Your temple is the keeper of knowledge entrusted to it by a powerful samurai, perhaps even the Emperor himself. You gain the Forbidden Knowledge Advantage and a 3-point Obligation to the samurai who entrusted the information to your temple."
+               },
+               {
+                    "low": "2",
+                    "high": "3",
+                    "description": "Your temple is known to be far more worldly than it should. You gain the Infamous Disadvantage, but add 2 koku to your Outfit."
+               },
+               {
+                    "low": "4",
+                    "high": "5",
+                    "description": "The temple where you were trained focused upon individual study of the Tao above all else, including human contact. You gain the Sage Advantage but also a 2-point Antisocial Disadvantage.."
+               },
+               {
+                    "low": "6",
+                    "high": "7",
+                    "description": "One of the Fortunes smiles upon your temple, but this has caused the monks there to focus solely upon the things that Fortune finds important. You gain either the Seven Fortune’s Blessing Advantage or the Inari’s Blessing Advantage, but also gain the Driven Disadvantage in a form connected to the goals of the chosen Fortune."
+               },
+               {
+                    "low": "8",
+                    "high": "9",
+                    "description": "You were born a samurai, but were forced to join the Brotherhood before completing your gempukku. There are members of your family who are not happy about this fact. You gain the Forced Retirement Disadvantage but also gain a 3-Point Ally Advantage with someone in your former clan."
+               },
+               {
+                    "low": "0",
+                    "description": "Your sensei venerated certain moral values highly, but rejected others as unimportant. You gain the Paragon Advantage for one tenet of Bushido, but also gain the Failure of Bushido Disadvantage for a different tenet. (This overturns the normal restrictions on taking these Advantages/Disadvantages.)"
+               }
+          ]
+     },
+     "Ronin Families": {
+          "source": "SE",
+          "initial": {
+               "shameful": {
+                    "low": "1",
+                    "high": "2",
+                    "description": "Shameful Past"
+               },
+               "illustrious": {
+                    "low": "3",
+                    "high": "5",
+                    "description": "Illustrious Past"
+               },
+               "mixed": {
+                    "low": "6",
+                    "high": "0",
+                    "description": "Mixed Blessing"
+               }
+          },
+          "shameful": [
+               {
+                    "low": "1",
+                    "description": "You started your life as a criminal and your deeds haunt you today. You gain the Infamy Disadvantage and have a magistrate and/or a bounty hunter as a 3-point Sworn Enemy."
+               },
+               {
+                    "low": "2",
+                    "high": "3",
+                    "description": "You grew up with no permanent home and have no connections to any location. You may not take the Way of the Land, Hero of the People, or Ally Advantages."
+               },
+               {
+                    "low": "4",
+                    "high": "5",
+                    "description": "Your difficult life up until now has left you with an unfortunate addictive habit. You gain a 3-point Compulsion (alcohol, opium, gambling, etc)."
+               },
+               {
+                    "low": "6",
+                    "high": "7",
+                    "description": "You or your parents antagonized a clan samurai, and although you managed to escape the consequences at the time, he has not forgotten you. Gain a clan samurai as a 4-point Sworn Enemy."
+               },
+               {
+                    "low": "8",
+                    "high": "9",
+                    "description": "Your difficult life has given you a hot temper, and you find it hard to restrain yourself even when you know you should. You gain the Brash Disadvantage for no points."
+               },
+               {
+                    "low": "0",
+                    "description": "Your family has rejected Bushido in favor of a more selfish path. You gain the Consumed Disadvantage for no points."
+               }
+          ],
+          "illustrious": [
+               {
+                    "low": "1",
+                    "description": "Your family maintains connections to a ronin band or religious order in another part of the Empire. You may learn a higher-Rank ronin Technique of your choice once you attain the appropriate Insight Rank."
+               },
+               {
+                    "low": "2",
+                    "high": "3",
+                    "description": "You have benefited from extra training, either due to your family’s personal traditions or a connection to an ally. You gain +1 Rank in one Weapon Skill of your choice."
+               },
+               {
+                    "low": "4",
+                    "high": "5",
+                    "description": "Your family has carefully maintained the patronage of a Great Clan samurai family. You gain a 3-point Ally Advantage in a Great Clan family of your choice."
+               },
+               {
+                    "low": "6",
+                    "high": "7",
+                    "description": "You are a popular and successful member in a ronin band, allowing you to benefit from both better training and from the friendship and protection of your fellow wave-men. In addition to the normal effects of starting as a member of a ronin band, you also gain the Ally Advantage with two ronin NPCs (2 points each) who are in your band."
+               },
+               {
+                    "low": "8",
+                    "high": "9",
+                    "description": "You are known as a compassionate ronin who helps the common people. Whether or not this reputation is actually deserved, you gain the Hero of the People Advantage."
+               },
+               {
+                    "low": "0",
+                    "description": "Your family is descended from a Great Clan samurai and has carefully preserved the weapon he once carried. You may purchase the Sacred Weapon Advantage for your ancestor’s Great Clan."
+               }
+          ],
+          "mixed": [
+               {
+                    "low": "1",
+                    "description": "You or your parents grew up in a Brotherhood temple which took in orphans, and this religious legacy impacts you in many ways. You may take the Friend of the Elements Advantage for free (or the Friend of the Brotherhood Advantage if you are a shugenja), but also gain the Ascetic Disadvantage."
+               },
+               {
+                    "low": "2",
+                    "high": "3",
+                    "description": "One of your parents won a notable duel against a clan samurai - and that samurai’s family has not forgotten. You gain +1 Rank in the Iaijutsu Skill, but also gain a 3-point Sworn Enemy from that clan."
+               },
+               {
+                    "low": "4",
+                    "high": "5",
+                    "description": "You belong or were previously associated with a ronin band which was unusually successful and wealthy. Unfortunately, this was because it engaged in criminal activity. You add 5 koku and one weapon of your choice to your starting Outfit, but also gain the Disadvantage of Dark Secret: Criminal"
+               },
+               {
+                    "low": "6",
+                    "high": "7",
+                    "description": "You have had - or perhaps are still conducting - a secret love affair with a Great Clan samurai. As a result, you may take both the Kharmic Tie Advantage and the Ally Advantage with that samurai, but also gain either the True Love or the Lost Love Disadvantage (as appropriate) in relation to that same samurai."
+               },
+               {
+                    "low": "8",
+                    "high": "9",
+                    "description": "Either you or your parents were born as clan samurai but became ronin due to the manipulations of a rival. You retain many connections within your former clan, including friends who would gladly help you avenge yourself. You have a 5-point Sworn Enemy within your former clan but also may purchase up to three Allies (each of a maximum of 3 points) within that clan."
+               },
+               {
+                    "low": "0",
+                    "description": "For whatever reason, your family has often flirted with the powers of darkness. You gain the Advantage of Forbidden Knowledge: Maho, but also gain 1 Rank in the Shadowlands Taint."
+               }
+          ]
+     },
+     "Imperial Families": {
+          "source": "SE",
+          "initial": {
+               "shameful": {
+                    "low": "1",
+                    "high": "2",
+                    "description": "Shameful Past"
+               },
+               "illustrious": {
+                    "low": "3",
+                    "high": "7",
+                    "description": "Illustrious Past"
+               },
+               "mixed": {
+                    "low": "8",
+                    "high": "0",
+                    "description": "Mixed Blessing"
+               }
+          },
+          "shameful": [
+               {
+                    "low": "1",
+                    "high": "2",
+                    "description": "Your ancestor committed a very unfortunate act, but your family’s political power allowed it to be covered up... so far. You gain the Dark Secret Disadvantage."
+               },
+               {
+                    "low": "3",
+                    "high": "4",
+                    "description": "Your ancestor imposed the Imperial will against a troublesome member of the Great Clans, and the act has not been forgotten. You gain a 4-point Sworn Enemy in one of the Great Clans."
+               },
+               {
+                    "low": "5",
+                    "high": "6",
+                    "description": "Your ancestor was exiled from the courts after an unfortunate failure. You start with 0.0 Glory and Allies cost you 1 additional Experience Point."
+               },
+               {
+                    "low": "7",
+                    "high": "8",
+                    "description": "Your bloodline has long been associated with minor and obscure aspects of service, and your family seldom even visits the Imperial Court. You may not purchase Social Advantages at character creation."
+               },
+               {
+                    "low": "9",
+                    "high": "0",
+                    "description": "Your ancestor failed in his duty to the ruling Dynasty, and the shame of that failure remains with your bloodline. Gain the Black Sheep Disadvantage."
+               }
+          ],
+          "illustrious": [
+               {
+                    "low": "1",
+                    "high": "2",
+                    "description": "Your line is known for its piety and all of your ancestors have made regular visits to the Four Temples. You start play with a free 4-point Ally in the Four Temples Order of the Brotherhood of Shinsei."
+               },
+               {
+                    "low": "3",
+                    "high": "4",
+                    "description": "Your ancestor did a great favor for a clan samurai, and his line remains beholden to you. Any Ally you take from that clan gains +1 Devotion."
+               },
+               {
+                    "low": "5",
+                    "high": "6",
+                    "description": "Your ancestors protected the Dynasty in one of the great battles of the Empire’s history - perhaps they fought alongside Hantei Fujiwa against the Shadowlands, or joined one of the Imperial Legions during crises such as the return of Iuchiban or the Destroyer War. You gain +1.0 Glory and +1 rank in the Battle Skill."
+               },
+               {
+                    "low": "7",
+                    "high": "8",
+                    "description": "Your ancestor was a loyal and skilled miharu who protected the Emperor from an assassination attempt. You gain +1.0 Glory and +1 rank in the Defense Skill."
+               },
+               {
+                    "low": "9",
+                    "high": "0",
+                    "description": "Your ancestors used their connections and Imperial power to gain wealth and influence. You gain the Gentry Advantage and you may purchase the Ally Advantage for one less Experience Point."
+               }
+          ],
+          "mixed": [
+               {
+                    "low": "1",
+                    "description": "Your ancestors were among the miharu who overthrew the tyrant Hantei XVI and then committed seppuku to atone for their betrayal of duty. You gain +1.0 Honor, but also start play with the Infamy Disadvantage."
+               },
+               {
+                    "low": "2",
+                    "high": "3",
+                    "description": "Your ancestors have been part of the Imperial Bureaucracy for generations, and while this duty is obscure it grants you many useful connections. You start play with 0.5 Glory and 0.5 Status, but may purchase the Ally Advantage for 1 less Experience Point."
+               },
+               {
+                    "low": "4",
+                    "high": "5",
+                    "description": "Your ancestors were involved with the Gozoku conspiracy, but managed to save themselves by switching sides at the right time. You gain the Crafty Advantage but also start with one less Rank of Honor."
+               },
+               {
+                    "low": "6",
+                    "high": "7",
+                    "description": "Your ancestors helped organize the Imperial system of laws and magistrates during the reign of Hantei Genji, and in the process disrupted the improper activities of other samurai. You gain +1 Rank in the Lore: Law Skill, but also gain a 3-point Sworn Enemy in a clan/family/faction of your choice."
+               },
+               {
+                    "low": "8",
+                    "high": "9",
+                    "description": "Your ancestor was both influential and highly religious, and became deeply involved in a theological dispute which obsessed the Empire at the time. Some within the Brotherhood of Shinsei considered his behavior to be arrogant and improper. You gain +1 Rank of Lore: Theology, but also gain the Cast Out Disadvantage for one major sect in the Brotherhood."
+               },
+               {
+                    "low": "0",
+                    "description": "Your ancestor was known for his great wealth but also for his infamous self-indulgence and luxurious lifestyle. You gain four Ranks in the Wealthy Advantage, but also gain either the Compulsion Disadvantage or the Lechery Disadvantage (your choice)."
+               }
+          ]
+     }
+}
