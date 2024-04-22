@@ -15,9 +15,13 @@ jobs:
         key: ${{ secrets.PANTHEON_SSH_KEY }}
         config: ${{ secrets.SSH_CONFIG }}
         known_hosts: ${{ secrets.KNOWN_HOSTS }}
-    - name: deployer
+    - name: Install Terminus
+      uses: pantheon-systems/terminus-github-actions@v1
+      with:
+        pantheon-machine-token: ${{ secrets.PANTHEON_MACHINE_TOKEN }}
+    - name: Code Deployer
       env:
         pantheon_repo: '${{ secrets.PANTHEON_REPO }}'
       run: |
         git remote add pantheon $pantheon_repo
-        git push pantheon HEAD:master -f
+        git push pantheon HEAD:master
