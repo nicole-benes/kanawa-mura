@@ -28,8 +28,17 @@ jobs:
     - name: Pantheon Workflow Deployer
       env:
         pantheon_site_name: ${{ secrets.PANTHEON_SITE_NAME  }}
+        recaptcha_v3_site_key: ${{ secrets.RECAPTCHA_V3_SITE_KEY }}
+        recaptcha_v3_secret_key: ${{ secrets.RECAPTCHA_V3_SECRET_KEY }}
+        recaptcha_site_key: ${{ secrets.RECAPTCHA_SITE_KEY }}
+        recaptcha_v3_secret_key: ${{ secrets.RECAPTCHA_SECRET_KEY }}
       run: |
         terminus workflow:wait l5r.dev
         commit_message=$(git log -1 --pretty=%B)
         terminus env:deploy $pantheon_site_name.test --note="Automated deploy: $commit_message"
         terminus env:deploy $pantheon_site_name.live --note="Automated deploy: $commit_message"
+        terminus drush $pantheon_site_name.live cr
+        terminus drush $pantheon_site_name.live config:set recaptcha_v3.settings site_key '$recaptcha_v3_site_key'
+        terminus drush $pantheon_site_name.live config:set recaptcha_v3.settings secret_key '$recaptcha_v3_secret_key'
+        terminus drush $pantheon_site_name.live config:set recaptcha.settings site_key '$recaptcha_v3_site_key'
+        terminus drush $pantheon_site_name.live config:set recaptcha.settings secret_key '$recaptcha_secret_key'
