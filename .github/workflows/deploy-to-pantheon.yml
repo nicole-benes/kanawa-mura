@@ -31,7 +31,7 @@ jobs:
         recaptcha_v3_site_key: '${{ secrets.RECAPTCHA_V3_SITE_KEY }}'
         recaptcha_v3_secret_key: '${{ secrets.RECAPTCHA_V3_SECRET_KEY }}'
         recaptcha_site_key: '${{ secrets.RECAPTCHA_SITE_KEY }}'
-        recaptcha_v3_secret_key: '${{ secrets.RECAPTCHA_SECRET_KEY }}'
+        recaptcha_secret_key: '${{ secrets.RECAPTCHA_SECRET_KEY }}'
       run: |
         terminus workflow:wait l5r.dev
         commit_message=$(git log -1 --pretty=%B)
