@@ -1,8 +1,9 @@
-uuid: fdba4cd4-a7cf-41ea-aedc-66e8e2b845e1
+uuid: 211632d7-a741-45cd-b254-f3c92cd160e0
 langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.paragraph.numeric_table
     - field.field.paragraph.tabular_data.field_description
     - field.field.paragraph.tabular_data.field_numerical_table_data
     - field.field.paragraph.tabular_data.field_source_book
@@ -11,10 +12,10 @@ dependencies:
   module:
     - entity_reference_revisions
     - text
-id: paragraph.tabular_data.default
+id: paragraph.tabular_data.numeric_table
 targetEntityType: paragraph
 bundle: tabular_data
-mode: default
+mode: numeric_table
 content:
   field_description:
     type: text_default
@@ -40,13 +41,6 @@ content:
     third_party_settings: {  }
     weight: 0
     region: content
-  field_table_type:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 3
-    region: content
 hidden:
+  field_table_type: true
   search_api_excerpt: true

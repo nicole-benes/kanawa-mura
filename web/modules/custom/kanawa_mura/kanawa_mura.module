@@ -689,6 +689,11 @@ function kanawa_mura_theme($existing, $type, $theme, $path){
 		'inline_technique' => [],
 		'trait_modifier' => [],
           'mastery_abilities' => [],
+          'tabular_data' => [
+               'numeric_table',
+          ],
+          'range' => [
+          ],
 	];
 
 	// Register custom Paragraph bundle templates
@@ -760,6 +765,11 @@ function kanawa_mura_theme_registry_alter(&$theme_registry) {
 		'inline_technique' => [],
 		'trait_modifier' => [],
           'mastery_abilities' => [],
+          'tabular_data' => [
+               'numeric_table',
+          ],
+          'range' => [
+          ],
 	];
 
 	// Is there a generic paragraph template set

@@ -1,0 +1,11 @@
+uuid: 92012b92-4852-484e-a8ab-053bca19124f
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.numeric_table
+label: 'Numeric Table'
+description: ''
+targetEntityType: paragraph
+cache: true

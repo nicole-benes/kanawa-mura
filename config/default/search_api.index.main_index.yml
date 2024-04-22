@@ -35,6 +35,9 @@ dependencies:
     - field.storage.paragraph.field_source_book
     - field.storage.taxonomy_term.field_abbreviation
     - field.storage.node.field_advantage_subtype
+    - field.storage.node.field_table_group
+    - field.storage.node.field_table_type
+    - field.storage.node.field_tabular_data
     - field.storage.node.field_trait
     - field.storage.node.field_advantage_type
     - search_api.server.database_server
@@ -350,8 +353,9 @@ field_settings:
         'entity:paragraph':
           inline_technique: default
           mastery_abilities: default
-          range: ''
+          range: default
           source: default
+          tabular_data: default
           techniques: default
           trait_modifier: default
         'entity:taxonomy_term':
@@ -364,7 +368,7 @@ field_settings:
           skill_type: default
           source_books: default
           supplemental_terms: default
-          table_types: ''
+          table_types: default
   required_advantage:
     label: 'Required Advantage'
     datasource_id: 'entity:node'
@@ -447,6 +451,50 @@ field_settings:
       module:
         - paragraphs
         - taxonomy
+  table_group:
+    label: 'Table Group'
+    datasource_id: 'entity:node'
+    property_path: field_table_group
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_table_group
+  table_group_parent:
+    label: 'Table Group » Taxonomy term » Term Parents'
+    datasource_id: 'entity:node'
+    property_path: 'field_table_group:entity:parent'
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_table_group
+      module:
+        - taxonomy
+  table_type:
+    label: 'Table Type » Taxonomy term » Name'
+    datasource_id: 'entity:node'
+    property_path: 'field_table_type:entity:name'
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_table_type
+      module:
+        - taxonomy
+  table_type_term:
+    label: 'Table Type'
+    datasource_id: 'entity:node'
+    property_path: field_table_type
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_table_type
+  tabular_data:
+    label: 'Tabular Data'
+    datasource_id: 'entity:node'
+    property_path: field_tabular_data
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_tabular_data
   technique_description:
     label: 'School Techniques » Paragraph » Description'
     datasource_id: 'entity:node'
@@ -657,6 +705,7 @@ processor_settings:
       - school_type_name
       - skill_sub_types
       - source
+      - table_type
       - technique_description
       - technique_title
       - technique_type
@@ -699,6 +748,7 @@ processor_settings:
       - school_type_name
       - skill_sub_types
       - source
+      - table_type
       - technique_description
       - technique_title
       - technique_type
@@ -756,6 +806,7 @@ processor_settings:
       - school_type_name
       - skill_sub_types
       - source
+      - table_type
       - technique_description
       - technique_title
       - technique_type

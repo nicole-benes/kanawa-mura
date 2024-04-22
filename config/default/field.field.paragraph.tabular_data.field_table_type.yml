@@ -1,0 +1,29 @@
+uuid: 4c8b6492-61fd-438c-aba0-2a64f4fff57d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_table_type
+    - paragraphs.paragraphs_type.tabular_data
+    - taxonomy.vocabulary.table_types
+id: paragraph.tabular_data.field_table_type
+field_name: field_table_type
+entity_type: paragraph
+bundle: tabular_data
+label: 'Table Type'
+description: 'The type of data this table is for.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      table_types: table_types
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

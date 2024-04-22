@@ -171,7 +171,34 @@
                     padding: 2px 10px;
                }
           }
+
+          .paragraph-tabular-data-numeric {
+               margin-bottom: 3rem;
+     
+               table {
+                    margin-bottom: 3rem;
+               }
+     
+               td {
+                    min-width: 65px;
+     
+                    &:first-child {
+                         text-align: center;
+                    }
+     
+                    svg {
+                         margin: 0 .25rem;
+                    }
+               }
+
+               tr {
+                    &:nth-child( even ) {
+                         background: $gray-200;
+                    }
+               }
+          }          
      }
+
      @include media-breakpoint-down(md) {
           .views-exposed-form {
                .form-actions {

@@ -108,6 +108,10 @@ function km_preprocess_views_view_grouping( &$variables ) {
                $variables[ 'view' ]->minorGrouping = $variables[ 'schoolGrouping' ];
           }
 
+     } else if( $variables['view' ]->id() == 'heritage_tables' ) {
+
+          // Get the title and cut out any debugging text
+          $variables[ 'groupingClan' ] = km_machine_name( $variables[ 'title' ] );
      }
 }    
 
@@ -222,6 +226,15 @@ function km_preprocess_views_view_unformatted( &$variables ) {
 
                $variables[ 'schoolTypeGrouping' ] .= 'paths';
           }
+
+     } else if( $variables[ 'view' ]->id() == 'heritage_tables' ) {
+
+          // Get the title and cut out any debugging text
+          $variables[ 'clan' ] = km_machine_name( $variables[ 'title' ] );
+//dpm( $variables );
+          // Set our template variable for the accordion
+//          $variables[ 'description' ] = $termObject->get( 'description' )->value;
+     
      }
 }
 
@@ -344,7 +357,7 @@ function km_preprocess_views_view_fields( &$variables ) {
  */
 function km_preprocess_views_view_field( &$variables ) {
 
-//     static $view = false; if( !$view ) { dpm( $variables[ 'row' ]->index ); dpm( 'view_field' ); dpm( $variables ); dpm( $variables[ 'field' ] ); $view = true; }sss
+//     static $view = false; if( !$view ) { dpm( $variables[ 'row' ]->index ); dpm( 'view_field' ); dpm( $variables ); dpm( $variables[ 'field' ] ); $view = true; }
 
      if( $variables[ 'view' ]->id() == 'schools' && $variables[ 'field' ]->field == 'school_techniques' ) {
 
@@ -354,9 +367,10 @@ function km_preprocess_views_view_field( &$variables ) {
                $variables[ 'inline_technique' ] = true;
           }
 
+     } else if( $variables[ 'view' ]->id() == 'heritage_tables' && $variables[ 'field' ]->field == 'tabular_data' ) {
+//          dpm( $variables );
      }
 }
-
 
 
 function km_school_template_variables( &$variables ) {

@@ -107,6 +107,9 @@ function last_haiku_import_heritage_tables( $sources ) {
                'field_table_group' => [
                     [ 'target_id' => $clanTerm ],
                ],
+               'field_table_type' => [
+                    [ 'target_id' => last_haiku_import_term_lookup( 'Heritage Table', 'table_types') ],
+               ],
           ]; 
 
           // Check if we do have a source
@@ -138,46 +141,81 @@ function last_haiku_import_heritage_tables( $sources ) {
           // Place to put all the tables we're going to add to this node
           $tables = [];
 
-          // Loop through the initial heritage table
-          foreach( $heritage->initial as $name => $type ) {
+          foreach( $heritage as $table => $content ) {
 
-               // Make a new row
-               $row = Paragraph::create([
-                    'type' => 'range',
-                    'field_description' => $type->description,
-                    'field_range_low' => $type->low,
-                    'field_range_high' => $type->high,
+               // Reset our rows
+               $rows = [];
+
+               // Do nothing for the source property
+               if( $table == 'source' ) {
+
+                    // Move along to the next index
+                    continue;
+               }
+
+               foreach( $content as $name => $type ) {
+                    
+                    // Make a new row
+                    $row = Paragraph::create([
+                         'type' => 'range',
+                         'field_description' => $type->description,
+                         'field_range_low' => $type->low,
+                    ]);
+                    
+                    // Does this row have a high value?
+                    if( property_exists( $type, 'high' ) ) {
+
+                         // Set the high value
+                         $row->set( 'field_range_high', $type->high );
+                    }
+
+                    // Save the row paragraph
+                    $row->save();
+
+                    // Push the relevant data onto our rows array
+                    $rows[] = [
+                         'target_id' => $row->id(),
+                         'target_revision_id' => $row->getRevisionId(),
+                    ];                    
+               }
+
+               // Assume we're not in the initial table block
+               $tableTitle = ucwords( $table ) . ' ' . $clan . ' Past';
+
+               // Set the term to look up for this table type
+               $termName = ucwords( $table ) . ' Past';
+
+               // We are in the initial table block
+               if( $table == 'initial' ) {
+                    $tableTitle = $clan . ' Heritage';
+                    $termName = 'Initial';
+               
+               // Are we in the mixed block
+               } else if( $table == 'mixed' ) {
+                    $tableTitle  = $clan . ' Mixed Blessings';
+                    $termName = 'Mixed Blessings';
+               }
+
+               // Create the table block
+               $tableBlock = Paragraph::create([
+                    'type' => 'tabular_data',
+                    'field_description' => $tableTitle,
+                    'field_numerical_table_data' => $rows,
+                    'field_table_type' => [
+                         [ 'target_id' => last_haiku_import_term_lookup( $termName, 'table_types') ]
+                    ],
+
                ]);
 
-               // Save the row paragraph
-               $row->save();
+               // Save the initial paragraph
+               $tableBlock->save();
 
-               // Push the relevant data onto our rows array
-               $rows[] = [
-                    'target_id' => $row->id(),
-                    'target_revision_id' => $row->getRevisionId(),
+               // Push the initial table onto our tabular data array
+               $tables[] = [
+                    'target_id' => $tableBlock->id(),
+                    'target_revision_id' => $tableBlock->getRevisionId(),               
                ];
-
           }
-          
-          // Create the initial heritage table block
-          $initial = Paragraph::create([
-               'type' => 'tabular_data',
-               'field_description' => $clan . ' Heritage',
-               'field_numerical_table_data' => $rows,
-
-          ]);
-
-          // Save the initial paragraph
-          $initial->save();
-
-          // Push the initial table onto our tabular data array
-          $tables[] = [
-               'target_id' => $initial->id(),
-               'target_revision_id' => $initial->getRevisionId(),               
-          ];
-
-
 
           // Add the initial paragraph to our 
           $node[ 'field_tabular_data' ] = $tables;
@@ -2519,19 +2557,57 @@ function last_haiku_import_create_taxonomies() {
 
 function last_haiku_import_create_table_terms() {
      $types = [
-          'Heritage Table',
+          'Heritage Table' => [
+               'Initial',
+               'Shameful Past',
+               'Illustrious Past',
+               'Mixed Blessings',
+          ],
      ];
 
-     foreach( $types as $type ) {
+     foreach( $types as $key => $type ) {
 
-          $term = Term::create([
-               'vid' => 'table_types',
-               'name' => $type,
-          ]);
+          // Check if this item has children
+          if( !is_array( $type ) ) {
+
+               $term = Term::create([
+                    'vid' => 'table_types',
+                    'name' => $type,
+               ]);
+               
+               $term->enforceIsNew();
+               $term->save(); 
+
+          // This term has sub-categories
+          } else {
+
+               // Make our parent term based on the key
+               $term = Term::create([
+                    'vid' => 'table_types',
+                    'name' => $key,
+               ]);
+               
+               $term->enforceIsNew();
+               $term->save(); 
+               
+               // Get the ID of the term we just made
+               $parent = $term->id();
+
+               // Cycle through the sub-types
+               foreach( $type as $child ) {
           
-          $term->enforceIsNew();
-          $term->save(); 
-     }     
+                    // Make our parent term based on the key
+                    $term = Term::create([
+                         'vid' => 'table_types',
+                         'name' => $child,
+                         'parent' => [ 'target_id' => $parent ],
+                    ]);
+                    
+                    $term->enforceIsNew();
+                    $term->save(); 
+               }
+          }
+     }               
 }
 
 

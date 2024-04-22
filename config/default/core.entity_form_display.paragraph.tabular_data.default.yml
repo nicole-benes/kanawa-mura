@@ -6,6 +6,7 @@ dependencies:
     - field.field.paragraph.tabular_data.field_description
     - field.field.paragraph.tabular_data.field_numerical_table_data
     - field.field.paragraph.tabular_data.field_source_book
+    - field.field.paragraph.tabular_data.field_table_type
     - paragraphs.paragraphs_type.tabular_data
   module:
     - paragraphs
@@ -44,6 +45,16 @@ content:
   field_source_book:
     type: entity_reference_autocomplete
     weight: 0
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_table_type:
+    type: entity_reference_autocomplete
+    weight: 3
     region: content
     settings:
       match_operator: CONTAINS

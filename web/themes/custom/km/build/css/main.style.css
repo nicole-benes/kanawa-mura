@@ -12753,6 +12753,24 @@ main.py-5 {
 .grouped-view .views-row table td, .grouped-view .views-row table th {
   padding: 2px 10px;
 }
+.grouped-view .views-row .paragraph-tabular-data-numeric {
+  margin-bottom: 3rem;
+}
+.grouped-view .views-row .paragraph-tabular-data-numeric table {
+  margin-bottom: 3rem;
+}
+.grouped-view .views-row .paragraph-tabular-data-numeric td {
+  min-width: 65px;
+}
+.grouped-view .views-row .paragraph-tabular-data-numeric td:first-child {
+  text-align: center;
+}
+.grouped-view .views-row .paragraph-tabular-data-numeric td svg {
+  margin: 0 0.25rem;
+}
+.grouped-view .views-row .paragraph-tabular-data-numeric tr:nth-child(even) {
+  background: #eee;
+}
 @media (max-width: 767.98px) {
   .grouped-view .views-exposed-form .form-actions {
     width: 100%;

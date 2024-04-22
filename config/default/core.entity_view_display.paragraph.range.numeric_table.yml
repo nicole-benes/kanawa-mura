@@ -1,18 +1,19 @@
-uuid: e2cb03ac-2bac-4b3c-a179-12a5073ca5e9
+uuid: 8b63dc9d-7c7f-4806-a35b-8cc3f2d8efb3
 langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.paragraph.numeric_table
     - field.field.paragraph.range.field_description
     - field.field.paragraph.range.field_range_high
     - field.field.paragraph.range.field_range_low
     - paragraphs.paragraphs_type.range
   module:
     - text
-id: paragraph.range.default
+id: paragraph.range.numeric_table
 targetEntityType: paragraph
 bundle: range
-mode: default
+mode: numeric_table
 content:
   field_description:
     type: text_default

@@ -26,7 +26,7 @@ if ( $handle ) {
                if( count( $heritage ) > 0 ) {
 
                     // Push the heritage onto the array
-                   $heritages[ $clan ][ $type ][] = $heritage;
+          //         $heritages[ $clan ][ $type ][] = $heritage;
 
                     // Reset all of our variables
                     $clan = '';
