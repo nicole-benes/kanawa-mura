@@ -2413,28 +2413,28 @@ function last_haiku_import_parse_skills( $skills ) {
 			if( strpos( $skill, ' Bugei ' ) !== false ) {
 
 				// Replace the word bugei with a hyperlink
-				$skill = str_replace( 'Bugei ', ' <a href="/skills#bugei">Bugei</a> ', $skill );
+				$skill = str_replace( 'Bugei ', ' <a href="/skills#bugei-skills">Bugei</a> ', $skill );
 			}
 
 			// Link to Low skills
 			if( strpos( strtolower( $skill) , ' low ' ) !== false ) {
 
 				// Replace the word bugei with a hyperlink
-				$skill = str_replace( ' Low ', ' <a href="/skills#low">Bugei</a> ', $skill );
+				$skill = str_replace( ' Low ', ' <a href="/skills#low-skills">Low</a> ', $skill );
 			}
 
 			// Link to High skills
 			if( strpos( strtolower( $skill) , 'high' ) !== false ) {
 
 				// Replace the word bugei with a hyperlink
-				$skill = str_replace( ' High ', ' <a href="/skills#High">High</a> ', $skill );
+				$skill = str_replace( ' High ', ' <a href="/skills#high-skills">High</a> ', $skill );
 			}
 
 			// Link to Bugei skills
 			if( strpos( strtolower( $skill) , 'merchant' ) !== false ) {
 
 				// Replace the word bugei with a hyperlink
-				$skill = str_replace( ' Merchant ', ' <a href="/skills#merchant">Merchant</a> ', $skill );
+				$skill = str_replace( ' Merchant ', ' <a href="/skills#merchant-skills">Merchant</a> ', $skill );
 			}
 
 			// Add to our html

@@ -44,7 +44,7 @@ infantry that needs to move quickly on the battlefield.
 * Cost: 40 koku
 While light armor is frequently worn by scouts or rapid infantry,
 heavy armor is preferred by troops on the front lines or
-those who are expected 10 be in the thickest part of the fighting.
+those who are expected to be in the thickest part of the fighting.
 Heavy armor protects the entire body, including the arms, legs,
 hands, feet, and face, which is protected by a full helm called a
 kabuto. While the wearer's mobility is significantly impacted,
