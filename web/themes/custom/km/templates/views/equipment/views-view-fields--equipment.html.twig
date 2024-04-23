@@ -30,26 +30,20 @@
      {% endif %}
 </div>
 
-{#}
-{% if fields.equipment_type.content == 'Arrows' %}
-
-{% endif %}
-#}
-
 <ul class="equipment-stats">
      {% if fields.bonus_to_armor_tn %}
           <li>
-               <{{ fields.bonus_to_armor_tn.wrapper_element }}{{ fields.bonus_to_armor_tn.wrapper_attributes }}>
-                    <span class="label">Bonus to Armor TN</span><span class="inline-field-value">+{{ fields.bonus_to_armor_tn.content }}</span>
-               </{{ fields.bonus_to_armor_tn.wrapper_element }}>
+               <{{ fields.field_bonus_to_armor_tn.wrapper_element }}{{ fields.field_bonus_to_armor_tn.wrapper_attributes }}>
+                    <span class="label">Bonus to Armor TN</span><span class="inline-field-value">+{{ fields.field_bonus_to_armor_tn.content }}</span>
+               </{{ fields.field_bonus_to_armor_tn.wrapper_element }}>
           </li>
      {% endif %} 
      
-     {% if fields.armor_damage_reduction %}
+     {% if fields.field_armor_damage_reduction %}
           <li>
-               <{{ fields.armor_damage_reduction.wrapper_element }}{{ fields.armor_damage_reduction.wrapper_attributes }}>
-                    <span class="label">Reduction</span><span class="inline-field-value">{{ fields.armor_damage_reduction.content }}</span>
-               </{{ fields.armor_damage_reduction.wrapper_element }}>
+               <{{ fields.field_armor_damage_reduction.wrapper_element }}{{ fields.field_armor_damage_reduction.wrapper_attributes }}>
+                    <span class="label">Reduction</span><span class="inline-field-value">{{ fields.field_armor_damage_reduction.content }}</span>
+               </{{ fields.field_armor_damage_reduction.wrapper_element }}>
           </li>
      {% endif %}      
 

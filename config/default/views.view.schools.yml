@@ -2083,7 +2083,7 @@ display:
           query_tags: {  }
       relationships: {  }
       css_class: grouped-view
-      use_ajax: true
+      use_ajax: false
       header: {  }
       footer: {  }
       display_extenders: {  }
@@ -2124,7 +2124,7 @@ display:
     display_options:
       display_extenders:
         ajax_history:
-          enable_history: true
+          enable_history: false
       path: schools
     cache_metadata:
       max-age: -1

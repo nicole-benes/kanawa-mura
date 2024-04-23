@@ -3,8 +3,6 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_armor_damage_reduction
-    - field.storage.node.field_bonus_to_armor_tn
     - field.storage.node.field_bow_strength
     - field.storage.node.field_clan
     - field.storage.node.field_clan_school
@@ -75,14 +73,6 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.field_advantage_type
-  armor_damage_reduction:
-    label: 'Armor Damage Reduction'
-    datasource_id: 'entity:node'
-    property_path: field_armor_damage_reduction
-    type: integer
-    dependencies:
-      config:
-        - field.storage.node.field_armor_damage_reduction
   benefit:
     label: 'Required Rings'
     datasource_id: 'entity:node'
@@ -91,14 +81,6 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.field_benefit
-  bonus_to_armor_tn:
-    label: 'Bonus to Armor TN'
-    datasource_id: 'entity:node'
-    property_path: field_bonus_to_armor_tn
-    type: integer
-    dependencies:
-      config:
-        - field.storage.node.field_bonus_to_armor_tn
   bow_strength:
     label: 'Bow Strength'
     datasource_id: 'entity:node'
