@@ -1,11 +1,5 @@
 <?php
 
-/*
-function kanawa_mura_search_api_query_alter( $query ) {
-     dpm( $query );
-}
-*/
-
 // Group the clans on the clan select list
 function kanawa_mura_form_alter( &$form, $form_state, $form_id ) {
 
@@ -268,109 +262,8 @@ function kanawa_mura_form_alter( &$form, $form_state, $form_id ) {
      }
 }
 
-/*
-function kanawa_mura_
-
-/*
-namespace Drupal\kanawa_mura\Plugin\search_api\sort;
-
-use Drupal\search_api\Plugin\search_api\Sort\SortPluginBase;
-
-/**
- * Provides a custom sort plugin.
- *
- * @SearchApiSort(
- *   id = "kanawa_mura_school_sort",
- *   label = @Translation( "School Sort" ),
- *   description = @Translation( "Sorts results based on the school type." ),
- *   handler = "\Drupal\kanawa_mura\Plugin\search_api\sort\KanawaMuraSchoolSortHandler",
- *   expose_to_views = true,
- * )
- */
-/*
- class kanawa_mura_school_sort extends SortPluginBase {
-
-}
 
 
-
-/*
-function kanawa_mura_views_pre_view( $view, $display_id, $args ) {
-     dpm( $view );
-     dpm( $display_id );
-     dpm( $args );
-
-     $exposed_input = $view->getExposedInput();
-
-     dpm( $exposed_input );
-}
-*/
-/*
-function kanawa_mura_views_query_alter( $view, $query) {
-
-     // Limit the views we're going to edit
-     if( $view->id() == 'schools' ) {
-          dpm( $view );
-          dpm( $query );
-          foreach ($query->where as &$condition_group) {
-               foreach ($condition_group['conditions'] as &$condition) {
-                    dpm( $condition );
-                    if( $condition[ 'field' ] == 'taxonomy_term_field_data_node__field_clan_school.name = :taxonomy_term_field_data_name' ) {
-                         $condition = [
-                              'field' => 'taxonomy_term_field_data_node__field_clan_school.name',
-                              'value' => [
-                                   'crab',
-                                   'crane',
-                              ],
-                              'operator' => 'in',
-                         ];
-                    }
-               }
-          }               
-     }
-}
-*/
-/*
-function kanawa_mura_views_query_alter( $view, $query) {
-	switch( $view->storage->id() ) {
-	  case 'schools':
-		$query->addField('entity_type', 'id', '', ['function' => 'groupby']);
-		$query->addGroupBy('entity_type.id');
-		break;
-	}
-  }
-*/
-  
-/*
-function kanawa_mura_preprocess_views_view( &$variables ) {
-	
-	$view = $variables[ 'view' ];
-	dpm( $view );
-	if( $view->id() == 'schools' ) {
-		//dpm( $variables[ 'rows' ][ 0 ][ '#rows' ] );
-		$paragraphs =  \Drupal\paragraphs\Entity\Paragraph::loadMultiple( [ 161279 ]);
-		//dpm( $paragraphs );
-	}
-}
-
-*/
-/*
-function kanawa_mura_preprocess( &$variables, $hooks ) {
-	
-	static $view = false;
-
-	if( $hooks == 'views_view_field_benefit' ) {
-		dpm( 'sdfdfdsf');
-	}
-
-	if( !$view ) {
-		dpm( $hooks );
-		dpm( $variables );
-		$view = true;	
-	}
-}
-*/
-   
 function kanawa_mura_views_pre_render( $view ) {
 
      // Spells need some editing
@@ -470,17 +363,6 @@ function kanawa_mura_views_pre_render( $view ) {
      }
 }
 
-/*
-function kanawa_mura_preprocess_views_view_fields( &$variables ) {
-	if( $view->id() == 'schools' ) {
-		static $view = false; if( !$view ) { dpm( $variables ); dpm( $variables[ 'row' ]->_entity ); $view = true; }
-	}
-}
-
-function kanawa_mura_preprocess_paragraph( &$variables ) {
-	static $view = false; if( !$view ) { dpm( $variables ); $view = true; }
-}
-*/
 
 
 function kanawa_mura_views_post_render( $view, &$output, $cache ) {
@@ -612,12 +494,43 @@ function kanawa_mura_views_post_render( $view, &$output, $cache ) {
 
 
 function kanawa_mura_school_clan_sort( $a, $b ) {
+/*
+     if( $a[ 'rows' ][ 'schools' ][ 'rows' ] == null ) {
+          dpm( $a );
+          return 0;
+     
+     }
 
+     if( $b[ 'rows' ][ 'schools' ][ 'rows' ] == null ) {
+          dpm( $b );
+          return 0;
+     }
+*/
+     // Assume we're sorting schools
+     $type = 'schools';
+
+     // Check if we are sorting advanced schools
+     if( array_key_exists( 'advanced_schools', $a[ 'rows' ] ) ) {
+          $type = 'advanced_schools';
+     
+     // Check if we are sorting alternate paths
+     } else if( array_key_exists( 'alternate_paths', $a[ 'rows' ] ) ) {
+          $type = 'alternate_paths';
+     }
+/*
+     if( $a == null && $b == null ) {
+          return 0;
+     } else if( $a == null && $b !== null ) {
+          return -1;
+     } else if( $a != null && $b == null ) {
+          return 1;
+     }
+*/
      // Get the first term of this grouping
-     $aTerm = array_shift( $a[ 'rows' ][ 'schools' ][ 'rows' ] )->{ "entity:node/field_clan_school" }[ 0 ];
+     $aTerm = array_shift( $a[ 'rows' ][ $type ][ 'rows' ] )->{ "entity:node/field_clan_school" }[ 0 ];
 
      // Get the second term of this grouping
-     $bTerm = array_shift( $b[ 'rows' ][ 'schools' ][ 'rows' ] )->{ "entity:node/field_clan_school" }[ 0 ];
+     $bTerm = array_shift( $b[ 'rows' ][ $type ][ 'rows' ] )->{ "entity:node/field_clan_school" }[ 0 ];
 
      // Are these the same weight? This should never happen, but whatever...
      if( $aTerm->getWeight() == $bTerm->getWeight() ) {
