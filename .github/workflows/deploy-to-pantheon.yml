@@ -38,7 +38,7 @@ jobs:
         terminus env:deploy $pantheon_site_name.test --note="Automated deploy: $commit_message"
         terminus env:deploy $pantheon_site_name.live --note="Automated deploy: $commit_message"
         terminus drush $pantheon_site_name.live cr
-        terminus drush $pantheon_site_name.live config:set recaptcha_v3.settings site_key '$recaptcha_v3_site_key' -y
-        terminus drush $pantheon_site_name.live config:set recaptcha_v3.settings secret_key '$recaptcha_v3_secret_key' -y
-        terminus drush $pantheon_site_name.live config:set recaptcha.settings site_key '$recaptcha_v3_site_key' -y
-        terminus drush $pantheon_site_name.live config:set recaptcha.settings secret_key '$recaptcha_secret_key' -y
+        terminus drush $pantheon_site_name.live config:set recaptcha_v3.settings site_key $recaptcha_v3_site_key -y
+        terminus drush $pantheon_site_name.live config:set recaptcha_v3.settings secret_key $recaptcha_v3_secret_key -y
+        terminus drush $pantheon_site_name.live config:set recaptcha.settings site_key $recaptcha_v3_site_key -y
+        terminus drush $pantheon_site_name.live config:set recaptcha.settings secret_key $recaptcha_secret_key -y
