@@ -512,18 +512,39 @@ function kanawa_mura_school_clan_sort( $a, $b ) {
      // Check if we are sorting advanced schools
      if( array_key_exists( 'advanced_schools', $a[ 'rows' ] ) ) {
           $type = 'advanced_schools';
-     
+
+          if( !array_key_exists( 'advanced_schools', $b[ 'rows' ] ) ) {
+               if( !array_key_exists( 'alternate_paths', $b[ 'rows' ] ) ) {
+                    return -1;
+               } else {
+                    return 1;
+               }
+          } 
+
      // Check if we are sorting alternate paths
      } else if( array_key_exists( 'alternate_paths', $a[ 'rows' ] ) ) {
           $type = 'alternate_paths';
+
+          if( !array_key_exists( 'alternate_paths', $b[ 'rows' ] ) ) {
+               return 1;
+          }
      }
 /*
-     if( $a == null && $b == null ) {
+     if( !array_key_exists( 'rows', $a ) || !array_key_exists( $type, $a[ 'rows' ] ) || !array_key_exists( 'rows', $a[ 'rows' ][ $type ] ) ) {
+          dpm( $a );
           return 0;
-     } else if( $a == null && $b !== null ) {
-          return -1;
-     } else if( $a != null && $b == null ) {
-          return 1;
+     }
+
+     if( !array_key_exists( 'rows', $b ) || !array_key_exists( $type, $b[ 'rows' ] ) || !array_key_exists( 'rows', $b[ 'rows' ][ $type ] ) ) {
+          dpm( $type );
+          dpm( $a );
+          dpm( $b );
+          return 0;
+     }
+
+     if( count( $a[ 'rows' ] ) == 0 || count( $a[ 'rows' ][ $type ] ) == 0 || count( $a[ 'rows' ][ $type ][ 'rows' ] ) == 0 ) {
+          dpm( $a );
+          return 0;
      }
 */
      // Get the first term of this grouping
