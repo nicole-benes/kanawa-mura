@@ -481,6 +481,10 @@ function last_haiku_import_make_menu() {
                'uri' => '/about',
                'weight' => 1,
           ],
+          'Contact' => [
+               'uri' => '/contact',
+               'weight' => 2,   
+          ],
      ];
 
 
@@ -491,7 +495,7 @@ function last_haiku_import_make_menu() {
                'link' => ['uri' => 'internal:' . $link[ 'uri' ] ],
                'menu_name' => 'footer',
                'weight' => $link[ 'weight' ],
-          ]);
+          ]);  
 
           $newLink->save();          
      }

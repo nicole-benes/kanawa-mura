@@ -2,17 +2,17 @@
 
 @include media-breakpoint-up(lg) {
      main {
-          min-height: calc( 100vh - 76px - 40px );
+          min-height: calc( 100vh - 76px - 44px );
      }
 
      .toolbar-horizontal {
           main {
-               min-height: calc( 100vh - 76px - 40px - 39px );
+               min-height: calc( 100vh - 76px - 44px - 39px );
           }
 
           &.toolbar-tray-open {
                main {
-                    min-height: calc( 100vh - 76px - 40px - 39px - 44px );
+                    min-height: calc( 100vh - 76px - 44px - 39px - 40px );
                }
           }
      }

@@ -43,7 +43,8 @@
         "drupal/google_analytics": "^4.0",
         "drupal/recaptcha": "^3.2",
         "drupal/webform": "^6.2",
-        "drupal/recaptcha_v3": "^2.0"
+        "drupal/recaptcha_v3": "^2.0",
+        "drupal/sendgrid_integration": "^2.2"
     },
     "require-dev": {
         "drupal/core-dev": "^10"

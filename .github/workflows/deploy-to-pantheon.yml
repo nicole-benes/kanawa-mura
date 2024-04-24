@@ -32,6 +32,7 @@ jobs:
         recaptcha_v3_secret_key: '${{ secrets.RECAPTCHA_V3_SECRET_KEY }}'
         recaptcha_site_key: '${{ secrets.RECAPTCHA_SITE_KEY }}'
         recaptcha_secret_key: '${{ secrets.RECAPTCHA_SECRET_KEY }}'
+        sendgrid_key: '${{ secrets.SENDGRID_KEY }}'
       run: |
         terminus workflow:wait l5r.dev
         commit_message=$(git log -1 --pretty=%B)
@@ -42,3 +43,5 @@ jobs:
         terminus drush $pantheon_site_name.live config:set recaptcha_v3.settings secret_key $recaptcha_v3_secret_key -y
         terminus drush $pantheon_site_name.live config:set recaptcha.settings site_key $recaptcha_v3_site_key -y
         terminus drush $pantheon_site_name.live config:set recaptcha.settings secret_key $recaptcha_secret_key -y
+        terminus drush $pantheon_site_name.live config:set sendgrid_integration.settings apikey $sendgrid_key -y
+        
