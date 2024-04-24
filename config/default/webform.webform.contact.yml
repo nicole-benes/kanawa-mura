@@ -231,13 +231,13 @@ handlers:
     handler_id: email_confirmation
     label: 'Email confirmation'
     notes: ''
-    status: true
+    status: false
     conditions: {  }
     weight: 1
     settings:
       states:
         - completed
-      to_mail: '[current-user:mail]'
+      to_mail: '[webform_submission:values:email:raw]'
       to_options: {  }
       bcc_mail: ''
       bcc_options: {  }
