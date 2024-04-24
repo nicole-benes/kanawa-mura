@@ -9,7 +9,7 @@ third_party_settings:
     available_menus:
       - main
     parent: 'main:'
-name: Homepage
+name: Page
 type: homepage
 description: 'A content type for the homepage of the site.'
 help: ''

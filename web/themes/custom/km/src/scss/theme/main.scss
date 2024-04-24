@@ -1,5 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Comforter+Brush&display=swap');
 
+@include media-breakpoint-up(lg) {
+     main {
+          min-height: calc( 100vh - 76px - 40px );
+     }
+
+     .toolbar-horizontal {
+          main {
+               min-height: calc( 100vh - 76px - 40px - 39px );
+          }
+
+          &.toolbar-tray-open {
+               main {
+                    min-height: calc( 100vh - 76px - 40px - 39px - 44px );
+               }
+          }
+     }
+}
+
 .path-frontpage {
     h1 {
         display: none;;

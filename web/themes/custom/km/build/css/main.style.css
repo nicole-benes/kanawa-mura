@@ -12539,6 +12539,17 @@ label,
   border-top-right-radius: 0;
 }
 
+@media (min-width: 992px) {
+  main {
+    min-height: calc(100vh - 76px - 40px);
+  }
+  .toolbar-horizontal main {
+    min-height: calc(100vh - 76px - 40px - 39px);
+  }
+  .toolbar-horizontal.toolbar-tray-open main {
+    min-height: calc(100vh - 76px - 40px - 39px - 44px);
+  }
+}
 .path-frontpage h1, .path-frontpage .h1 {
   display: none;
 }
@@ -12631,6 +12642,16 @@ main.py-5 {
 
 .toolbar-horizontal .navbar {
   margin-top: 80px;
+}
+
+.page__footer {
+  background-color: #222;
+}
+.page__footer a {
+  color: #fff;
+}
+.page__footer a:hover {
+  color: #6f42c1;
 }
 
 .homepage-header {

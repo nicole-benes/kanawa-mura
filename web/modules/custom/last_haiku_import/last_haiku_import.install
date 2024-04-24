@@ -22,6 +22,9 @@ function last_haiku_import_install() {
      // Create the homepage
      last_haiku_import_homepage();
 
+     // Create the about page
+     last_haiku_import_about();
+
      // Create the taxonomies we need for the site
 	$sources = last_haiku_import_create_taxonomies();
 
@@ -70,6 +73,40 @@ function last_haiku_import_install() {
      // Make the top menu
      last_haiku_import_make_menu();
 }
+
+
+
+function last_haiku_import_about() {
+
+     // Set up our node
+     $node = [
+          'type' => 'homepage',
+          'title' => 'About',
+          'body' => [
+               'value' => file_get_contents( \Drupal::service('extension.list.module')->getPath('last_haiku_import') . '/html/about.html' ),
+               'format' => 'full_html',
+          ],
+     ];
+
+     // Set the node author to the importer
+     $node[ 'uid' ] = 2;
+
+     // Create our node for this school
+     $node = Node::create( $node );
+
+     // Save the node
+     $node->save(); 
+
+     // Make the alias for the node
+     $path_alias = \Drupal\path_alias\Entity\PathAlias::create([
+          'path' => "/node" . "/" . $node->id(),
+          'alias' => '/about',
+     ]);
+     
+     // Save the alias
+     $path_alias->save();       
+}
+
 
 
 function last_haiku_import_honor_table( $sources ) {
@@ -436,8 +473,30 @@ function last_haiku_import_make_menu() {
                     }
                }
           }
-     }     
+     }    
+     
+     // Footer Menu
+     $links = [
+          'About' => [
+               'uri' => '/about',
+               'weight' => 1,
+          ],
+     ];
+
+
+     foreach( $links as $title => $link ) {
+          $newLink = \Drupal\menu_link_content\Entity\MenuLinkContent::create([
+
+               'title' => $title,
+               'link' => ['uri' => 'internal:' . $link[ 'uri' ] ],
+               'menu_name' => 'footer',
+               'weight' => $link[ 'weight' ],
+          ]);
+
+          $newLink->save();          
+     }
 }
+
 
 
 function last_haiku_import_homepage() {
@@ -2634,8 +2693,8 @@ function last_haiku_import_make_redirects() {
      $redirects[ 'advantages-disadvantages/disadvantages' ] = '/advantages-disadvantages?type=disadvantage';
 
      // Equipment redirects
-     $redirects[ 'equipment/armor' ] = '/equipment?type=90';
-     $redirects[ 'equipment/weapons' ] = '/equipment?type=91';
+     $redirects[ 'equipment/armor' ] = '/equipment?type=' . last_haiku_import_term_lookup( 'armor', 'equipment' );
+     $redirects[ 'equipment/weapons' ] = '/equipment?type=' . last_haiku_import_term_lookup( 'weapons', 'equipment' );
 
      // Make all the redirects
      foreach( $redirects as $source => $target ) {
