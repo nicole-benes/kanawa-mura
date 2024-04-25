@@ -1891,10 +1891,6 @@ function last_haiku_import_basic_schools( $sources )  {
 	
 			];
 
-			// Couple of flags so we know if this school is a shugenja or monk
-			$isMonk = false;
-			$isShugenja = false;
-
 			// Schools may be multi type
 			foreach( $school->type as $type ) {
 
@@ -1904,9 +1900,6 @@ function last_haiku_import_basic_schools( $sources )  {
                     // Check if this a shugenja school
 				if( $type == 'Shugenja' ) {
 					
-					// Set our flag
-					$isShugenja = true;
-
 					// See if this is one of the special shugenja
 					if( property_exists( $school, 'affinitySpecial' ) ) {
 						
@@ -1932,9 +1925,6 @@ function last_haiku_import_basic_schools( $sources )  {
 
 				// Check if this a monk school
 				} else if ( $type == 'Monk' ) {
-
-					// Set our flag
-					$isMonk = true;
 
 					// See if this monk school has a devotion
 					if( property_exists( $school, 'devotion' ) ) {
@@ -2048,8 +2038,8 @@ function last_haiku_import_basic_schools( $sources )  {
 				];	
 			}
 
-			// Different paragraphs for different classes technqiues
-			if( $isShugenja || $isMonk ) {
+			// Is this a school with an inline technique?
+			if( count( $school->techniques ) == 1 ) {
 
 				// Shugenja only have the one technique
 				$technique = $school->techniques[ 0 ];
