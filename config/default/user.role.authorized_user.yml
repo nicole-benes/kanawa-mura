@@ -1,0 +1,9 @@
+uuid: f2221f5a-d45a-4533-8394-c82b400f19df
+langcode: en
+status: true
+dependencies: {  }
+id: authorized_user
+label: 'Authorized User'
+weight: -9
+is_admin: null
+permissions: {  }

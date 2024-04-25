@@ -1,0 +1,29 @@
+uuid: 40f26d22-f321-499b-8aa2-4464c5e9d2a5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_keywords
+    - node.type.tattoo
+    - taxonomy.vocabulary.keywords
+id: node.tattoo.field_keywords
+field_name: field_keywords
+entity_type: node
+bundle: tattoo
+label: Keywords
+description: 'The various keywords associated with this item.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      keywords: keywords
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

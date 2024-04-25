@@ -1,4 +1,15 @@
 .grouped-view {
+     &.view-tattoos {
+          .views-field-title {
+               font-weight: bold;
+
+               &:after {
+                    content: ":";
+                    display: inline;;
+               }
+          }
+     }
+
      .accordion {
           .accordion {
                margin-bottom: 3rem;
@@ -163,6 +174,14 @@
                     }     
                }
           }
+
+          &.view-tattoos { 
+               .views-exposed-form {
+                    .form-type-textfield {
+                         width: 90%;
+                    }     
+               }
+          }          
      }
 
      .views-row {

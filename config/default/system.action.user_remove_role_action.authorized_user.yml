@@ -1,0 +1,14 @@
+uuid: aeb42288-4be4-437f-9d5d-4ef255039f02
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.authorized_user
+  module:
+    - user
+id: user_remove_role_action.authorized_user
+label: 'Remove the Authorized User role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: authorized_user

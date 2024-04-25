@@ -338,6 +338,10 @@ function km_preprocess_views_view_fields( &$variables ) {
                               break;
                     }
                     break;
+          
+               case 'tattoos':
+                    $variables[ 'row' ]->link = '/tattoos#' . $title;
+                    break;
 
                default:
                     break;

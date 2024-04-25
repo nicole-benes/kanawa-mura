@@ -12695,6 +12695,13 @@ main.py-5 {
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round'%3e%3cpath d='M2 5L8 11L14 5'/%3e%3c/svg%3e");
 }
 
+.grouped-view.view-tattoos .views-field-title {
+  font-weight: bold;
+}
+.grouped-view.view-tattoos .views-field-title:after {
+  content: ":";
+  display: inline;
+}
 .grouped-view .accordion .accordion {
   margin-bottom: 3rem;
 }
@@ -12782,6 +12789,9 @@ main.py-5 {
   }
   .grouped-view.view-spells .views-exposed-form .form-type-textfield {
     width: 67%;
+  }
+  .grouped-view.view-tattoos .views-exposed-form .form-type-textfield {
+    width: 90%;
   }
 }
 .grouped-view .views-row {

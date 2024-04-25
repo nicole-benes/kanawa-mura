@@ -64,14 +64,110 @@ function last_haiku_import_install() {
      // Import Tables
      last_haiku_import_tables( $sources );
 
-     // Import the honor table
-     last_haiku_import_honor_table( $sources );
+     // Import Tattoos
+     last_haiku_import_tattoos( $sources );
 
      // Run the redirect maker
      last_haiku_import_make_redirects();
 
      // Make the top menu
      last_haiku_import_make_menu();
+}
+
+
+
+function last_haiku_import_tattoos( $sources ) {
+
+ 	// Get the path to the Tattoos file
+      $tattoosFilePath = \Drupal::service('extension.list.module')->getPath('last_haiku_import') . '/json/tattoos.json';
+
+      // Turn the JSON back into a PHP array
+      $tattoosArray = json_decode( file_get_contents( $tattoosFilePath ) );
+ 
+      // Loop through the tattoos
+      foreach( $tattoosArray as $tat ) {
+
+          // Set up our node
+          $node = [
+               'type' => 'tattoo',
+               'title' => $tat->name,
+          ];
+
+          // Do we have a description?
+          if( property_exists( $tat, 'description' ) ) {
+
+               // Set the description, wrapped in paragraph tags
+               $node[ 'body' ] = [
+                    'value' => '<p>' . $tat->description . '</p>',
+                    'format' => 'full_html',
+               ];
+          }
+     
+          // Does this spell have any keywords?
+          if( property_exists( $tat, 'keywords' ) ) {
+
+               // Set up an array to hold the keywords
+               $node[ 'field_keywords' ] = [];
+
+               // Loop through any keywords
+               foreach( $tat->keywords as $keyword ) {
+
+                    // Try to load this keywords TID
+                    $tid = last_haiku_import_term_lookup( $keyword, 'keywords' );
+
+                    // This term doesn't exist yet
+                    if( !$tid ) {
+
+                         // Lets make it!
+                         $keywordTerm = Term::create([
+                              'vid' => 'keywords',
+                              'name' => $keyword,
+                         ]);
+
+                         $keywordTerm->enforceIsNew();
+                         $keywordTerm->save();
+
+                         // Get the ID of the new term
+                         $tid = $keywordTerm->id();
+                    }
+
+                    // Set any keywords
+                    $node[ 'field_keywords' ][] = [ 'target_id' => $tid ];
+               }
+          }  
+          
+          // Check if we do have a source
+          if( property_exists( $tat, 'source' ) ) {
+
+               // Create our source paragraph
+               $source = Paragraph::create([
+                    'type' => 'source',
+                    'field_source_book' => [
+                         [ 'target_id' => $sources[ $tat->source ] ]
+                    ],
+               ]); 
+
+               // Save the source paragraph
+               $source->save();
+
+               // add the source to our node
+               $node[ 'field_source' ] = [
+                    [
+                         'target_id' => $source->id(),
+                         'target_revision_id' => $source->getRevisionId(),			
+                    ],
+               ];
+          } 
+          
+          // Set the node author to the importer
+          $node[ 'uid' ] = 2;
+
+          // Create our node for this item
+          $node = Node::create( $node );
+
+          // Save the node
+          $node->save();  
+     }
 }
 
 
@@ -198,7 +294,7 @@ function last_haiku_import_honor_table( $sources ) {
 
 function last_haiku_import_heritage_tables( $sources ) {
 
- 	// Get the path to the Katafile
+ 	// Get the path to the heritage table
      $heritageFilePath = \Drupal::service('extension.list.module')->getPath('last_haiku_import') . '/json/heritages.json';
 
      // Turn the JSON back into a PHP array
@@ -363,6 +459,9 @@ function last_haiku_import_tables( $sources ) {
 
      // Import heritage tables
      last_haiku_import_heritage_tables( $sources );
+
+     // Import the honor table
+     last_haiku_import_honor_table( $sources );     
 }
 
 
@@ -419,6 +518,10 @@ function last_haiku_import_make_menu() {
                          'uri' => '/honor',
                     ],
                ],
+          ],
+          'Tattoos' => [
+               'uri' => '/tattoos',
+               'description' => 'The various tattoos of the Togashi order of monks.',
           ],
      ];
 

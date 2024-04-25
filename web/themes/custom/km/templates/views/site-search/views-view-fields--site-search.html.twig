@@ -46,6 +46,8 @@
 
           {{ breakpoint() }}
     {% endif %}
+{% elseif fields.type_1.content == 'tattoo' %}
+    {% include '@km/templates/views/tattoos/views-view-fields--tattoos.html.twig' %}
 {% else %}
      Unknown content type result in site search.
 

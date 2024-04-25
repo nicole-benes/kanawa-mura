@@ -1,0 +1,22 @@
+uuid: 479c3783-bbcc-4c2b-a607-b37e6ca67d05
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.tattoo
+id: node.tattoo.promote
+field_name: promote
+entity_type: node
+bundle: tattoo
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

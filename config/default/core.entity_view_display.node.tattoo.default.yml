@@ -1,0 +1,49 @@
+uuid: aadd5260-31f2-4c00-983f-8c57e43d8c41
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.tattoo.body
+    - field.field.node.tattoo.field_keywords
+    - field.field.node.tattoo.field_source
+    - node.type.tattoo
+  module:
+    - entity_reference_revisions
+    - text
+    - user
+id: node.tattoo.default
+targetEntityType: node
+bundle: tattoo
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  field_keywords:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 110
+    region: content
+  field_source:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 103
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  search_api_excerpt: true

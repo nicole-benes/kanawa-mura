@@ -332,6 +332,7 @@ field_settings:
           skills: default
           spells: default
           table: default
+          tattoo: default
         'entity:paragraph':
           inline_technique: default
           mastery_abilities: default

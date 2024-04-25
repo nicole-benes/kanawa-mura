@@ -1,0 +1,14 @@
+uuid: 0cc16dcc-dfa9-4b52-8987-0348206abcd3
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.authorized_user
+  module:
+    - user
+id: user_add_role_action.authorized_user
+label: 'Add the Authorized User role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: authorized_user

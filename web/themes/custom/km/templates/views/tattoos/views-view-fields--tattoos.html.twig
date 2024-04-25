@@ -1,0 +1,28 @@
+<{{ fields.title.wrapper_element }}{{ fields.title.wrapper_attributes }}>
+     <{{ fields.title.element_type }}{{ fields.title.element_attributes }}>
+          {% if row.search_result %}
+               <div class="search-result-row-header">     
+                    <div class="result-title">
+                         <a href="{{ row.link }}" title="{{ fields.title.content }}">{{ fields.title.content }}</a>
+                    </div>
+
+                    <div class="result-type">
+                         <span class="result-icon"><i class="fa-solid fa-pen-fancy"></i></span>Tattoo
+                    </div>
+          {% else %}
+               <a id="{{ fields.title.content }}" class="anchor"></a>{{ fields.title.content }}    
+          {% endif %}
+     </{{ fields.title.element_type }}>
+</{{ fields.title.wrapper_element }}>
+
+{% if row.search_result %}
+     <div class="">
+{% endif %}
+          <{{ fields.body.wrapper_element }}{{ fields.body.wrapper_attributes }}>
+               <span class="inline-field-value">{{ fields.body.content }}</span>
+          </{{ fields.body.wrapper_element }}>          
+{% if row.search_result %}
+     </div>
+{% endif %}
+     
+
