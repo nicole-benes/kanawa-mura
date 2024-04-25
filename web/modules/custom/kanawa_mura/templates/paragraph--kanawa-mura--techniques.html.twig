@@ -29,7 +29,5 @@
 			<h6 class="technique-title">Rank {{ rank }}: {{ paragraph.field_title.value }}</h6>
 			{{ paragraph.field_description.value|raw }}
 		{% endif %}
-
-		<span{{ attributes.addClass(classes) }}></span>
 	{% endblock %}
 {% endblock paragraph %}

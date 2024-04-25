@@ -369,7 +369,8 @@ function km_preprocess_views_view_fields( &$variables ) {
 /**
  * Implements hook_preprocess_HOOK() for Views field templates.
  */
-function km_preprocess_views_view_field( &$variables ) {
+/*
+ function km_preprocess_views_view_field( &$variables ) {
 
 //     static $view = false; if( !$view ) { dpm( $variables[ 'row' ]->index ); dpm( 'view_field' ); dpm( $variables ); dpm( $variables[ 'field' ] ); $view = true; }
 
@@ -385,7 +386,7 @@ function km_preprocess_views_view_field( &$variables ) {
 //          dpm( $variables );
      }
 }
-
+*/
 
 function km_school_template_variables( &$variables ) {
 

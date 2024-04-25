@@ -20,7 +20,7 @@
           font-style: italic;
      }
 
-     .grouping-description {
+	 .grouping-description {
           margin-bottom: 3rem;
      }
 
@@ -32,6 +32,16 @@
                display: inline;
           }
      }
+
+.list-group {
+	border: 0;
+	font-weight: normal;
+	font-size: 1rem;
+
+	h6 {
+		font-weight: bold;;
+	}
+}
 
      .ancestor-group {
           margin-bottom: 3rem;

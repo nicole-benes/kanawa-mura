@@ -2082,6 +2082,12 @@ function last_haiku_import_basic_schools( $sources )  {
 						$description .= '<p>' . $line . '</p>';
 					}
 
+					// Do some link replacements
+					$description = str_replace( '[[[Tattoos]]]', '<a href="/tattoos" title="Tattoos">Tattoos</a>', $description );
+					$description = str_replace( '[[[Kagaku]]]', '<a href="/kagaku" title="Kagaku">Kagaku</a>', $description );
+					$description = str_replace( '[[[Dragon Spells]]]', '<a href="/spells?trait=" title="Dragon Spells">Dragon Spells</a>', $description );
+					$description = str_replace( '[[[advanced fetishes]]]', '<a href="/fetishes" title="Fetishes">advanced fetishes</a>', $description );
+
 					// Create our technique paragraph
 					$t = Paragraph::create([
 						'type' => 'techniques',

@@ -51,7 +51,7 @@ This technique cannot be used during an iaijutsu duel.
 **Rank 5: Fight to the End**
 The final less of the Pragmatist teaches him to prevail no matter what the odds, killing his enemies no matter how severe his own injuries. At the start of your Turn you may spend a Void Point to allow you to make an attack as a Complex Action that ignores your Wound penalties (including Down and Out) and any restrictions or penalties from Status effects or physical Disadvantages you are currently suffering. You gain a +3k1 bonus to your damage roll with this attack.
 
-++ Children of the Lord Sun [Shugenja]
+++ Children of the Lord Sun [Shugenja] [HR]
 Since the war in the heavens, the Shadowlands has stilled, with even random attacks on the wall now extremely uncommon.  Enough time has passed now that many samurai do not believe in the Shadowlands, and even those with reason to know better outside of the Crab are beginning to question the levels of resources that the Crab get from the rest of the empire, until and unless a threat is shown.
 
 During this period of relative peace at the wall, some number of Hida shugenja have been born and have taken up a particular worship of the Lord Sun, leading to the creation of this school. Many adherents of this school believe that the current period of relative weakness from the Shadowlands is directly attributable to a former Crab in such an exalted permission, and that his light will ward off the Shadowlands so long as they keep faith

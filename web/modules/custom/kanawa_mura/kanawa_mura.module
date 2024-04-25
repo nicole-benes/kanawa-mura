@@ -263,6 +263,14 @@ function kanawa_mura_form_alter( &$form, $form_state, $form_id ) {
 }
 
 
+function kanawa_mura_preprocess_views_view_field( &$variables ) {
+	if( $variables[ 'view' ]->id() == 'schools' && $variables[ 'field' ]->field == 'school_techniques' ) {
+		if( strpos( $variables[ 'output' ], 'inline-technique' ) !== false ) {
+			$variables[ 'output' ] = Drupal\Core\Render\Markup::create( trim( strip_tags( $variables[ 'output' ], '<span>' ) ) );
+		}
+	}
+}
+
 
 function kanawa_mura_views_pre_render( $view ) {
 

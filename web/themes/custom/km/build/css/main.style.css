@@ -12718,6 +12718,14 @@ main.py-5 {
   content: ": ";
   display: inline;
 }
+.grouped-view .list-group {
+  border: 0;
+  font-weight: normal;
+  font-size: 1rem;
+}
+.grouped-view .list-group h6, .grouped-view .list-group .h6 {
+  font-weight: bold;
+}
 .grouped-view .ancestor-group {
   margin-bottom: 3rem;
 }
@@ -12876,6 +12884,9 @@ main.py-5 {
 .view-site-search .result-type .result-icon::after {
   content: " ";
   display: inline;
+}
+.view-site-search .school-techniques li {
+  list-style-type: none;
 }
 .view-site-search .view-empty {
   display: none;
