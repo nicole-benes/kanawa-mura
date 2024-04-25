@@ -1,0 +1,24 @@
+uuid: 57a2c061-12c8-40a2-9f82-e1efe9c5c0fc
+langcode: en
+status: true
+dependencies: {  }
+id: G-V0XJJN94Y1.662acd0488ed96.30028656
+label: G-V0XJJN94Y1
+weight: 0
+tag_container_ids:
+  - G-V0XJJN94Y1
+advanced_settings:
+  consent_mode: true
+dimensions_metrics: {  }
+conditions: {  }
+events:
+  generate_lead:
+    value: ''
+    currency: ''
+  search: {  }
+  webform_purchase: {  }
+  custom: {  }
+  login:
+    method: CMS
+  sign_up:
+    method: CMS

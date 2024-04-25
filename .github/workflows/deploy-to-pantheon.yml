@@ -24,7 +24,7 @@ jobs:
         pantheon_repo: '${{ secrets.PANTHEON_REPO }}'
       run: |
         git remote add pantheon $pantheon_repo
-        git push pantheon HEAD:master
+        git push pantheon HEAD:master -f
     - name: Pantheon Workflow Deployer
       env:
         pantheon_site_name: '${{ secrets.PANTHEON_SITE_NAME  }}'
@@ -44,6 +44,4 @@ jobs:
         terminus drush $pantheon_site_name.live config:set recaptcha.settings site_key $recaptcha_v3_site_key -y
         terminus drush $pantheon_site_name.live config:set recaptcha.settings secret_key $recaptcha_secret_key -y
         terminus drush $pantheon_site_name.live config:set sendgrid_integration.settings apikey $sendgrid_key -y
-        terminus drush $pantheon_site_name.live en google_analytics -y
-        terminus drush $pantheon_site_name.live config:set google_analytics.settings "G-V0XJJN94Y1" -y
         
