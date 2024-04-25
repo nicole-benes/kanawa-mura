@@ -29,3 +29,8 @@ drush cr
 ```
 
 This does a fresh install of Drupal then imports all of the configuration settings. Next, it enables the import which then makes all of the nodes and taxonomy terms. I then run the config importer again, which has the effect of uninstalling last_haiku_import since it's not needed anymore. Then I clear the caches (because clearig the caches is always good!).
+
+# THIS IS A DUMB WAY TO DO A SITE #
+Note, this is not how I'd recommend making a site. I made Kanawa-Mura as a hobby project, and don't expect anyone other than a very small group of people to be interested in making edits. Completely trashing the content every time to make an update in the wiki files is really not something that's sustainable on an actual production site. Any content changes made in Drupal would be lost as soon as I run the install. Writing the code for the import it was easier to just make new content every time I wrote some code. This ended up creating a lot of orphaned paragraph entities and also messed up all the entity counts. It got up to something like 100,000 entity IDs used even though each import only pulled in (at the time) 500 node or so. So, I decied to just embrace the "wipe and go" process and assume that there is no content in the Drupal system and make it on install without bothering to see if such content already exists.
+
+Like I said, a dumb way to make a site. But whatever, it works.
