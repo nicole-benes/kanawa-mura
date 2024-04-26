@@ -1,7 +1,7 @@
 diff --git a/components/dropdown-menu/dropdown-menu.twig b/components/dropdown-menu/dropdown-menu.twig
 index 1d63661..6079ab7 100644
 --- a/components/dropdown-menu/dropdown-menu.twig
-+++ b/radix/components/dropdown-menu/dropdown-menu.twig
++++ b/components/dropdown-menu/dropdown-menu.twig
 @@ -6,7 +6,7 @@
  #}
  

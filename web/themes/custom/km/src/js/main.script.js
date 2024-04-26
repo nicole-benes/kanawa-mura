@@ -1,4 +1,13 @@
 // * Bootstrap libraries
 import "./_bootstrap";
 
-// * Any other global site-wide JavaScript should be placed here.
+
+(function($) {
+     $( '.navbar-toggler' ).click( function() {
+          if( $( this ).hasClass( 'collapsed' ) ) {
+               $( '.navbar.fixed-top' ).removeClass( 'menu-expanded' );
+          } else {
+               $( '.navbar.fixed-top' ).addClass( 'menu-expanded' );               
+          }
+     });
+})(jQuery);

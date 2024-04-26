@@ -1,16 +1,64 @@
 .navbar-expand-lg {
+     overflow-y: scroll; 
+
+     &.menu-expanded {
+          bottom: 0;
+     }
+
+     @include media-breakpoint-up(lg) {
+          overflow-y: visible;
+     }
+
      .navbar-nav {
           li {
                &:hover {
+
+                    &.dropdown {
+                         a {
+                              color: $purple;
+                         }
+                    }
+
                     .dropdown-menu {
                          background-color: $gray-900;
+                         border: 0;
                          display: block;
+                         margin: 0;
+                         margin-left: 1.5rem;
+                         padding: 0;
+
+                         a {
+                              color: $gray-100;
+
+                              &:hover {
+                                   color: $purple;
+                              }
+                         }
+
+                         &.child-dropdown {
+                              margin-left: 2rem;
+                         }
 
                          .dropdown-item {
                               &:hover, &.active {
                                    background-color: $gray-900;
                               }
                          }
+
+                         @include media-breakpoint-up(lg) {
+                              margin-left: -.5rem;
+
+                              &.child-dropdown {
+                                   margin-left: 2rem;
+                                   padding: 0;
+                                   position: relative;
+
+                                   a {
+                                        font-size: .75rem;
+                                        padding: 0;  
+                                   }                                 
+                              }
+                         }                         
                     }
                }
           }

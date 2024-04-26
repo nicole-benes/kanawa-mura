@@ -3053,8 +3053,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _bootstrap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./_bootstrap */ "./src/js/_bootstrap.js");
 // * Bootstrap libraries
 
-
-// * Any other global site-wide JavaScript should be placed here.
+(function ($) {
+  $('.navbar-toggler').click(function () {
+    if ($(this).hasClass('collapsed')) {
+      $('.navbar.fixed-top').removeClass('menu-expanded');
+    } else {
+      $('.navbar.fixed-top').addClass('menu-expanded');
+    }
+  });
+})(jQuery);
 
 /***/ }),
 
