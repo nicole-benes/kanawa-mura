@@ -57,8 +57,8 @@ D10 Roll result
 
 * 1 Your ancestor created a work of art that is still admired to this day. You gain 1 free Rank in the appropriate Artisan skill and 0.5 Glory.
 * 2-3 Your family has ties of marriage or alliance with another clan. You may take the Different School Advantage for 2 less Experience Points.
-* 4-6 Your ancestor served the clan as a clerk in the Imperial bureaucracy. You may take the Precise Memory Advantage for 2 less points.
-* 7-0 Your ancestor fought in one of the famous battles of his time, and his courageous deeds are still celebrated in the Crane Clan. You gain 0.5 Glory and a free Rank in either Battle or a Weapon Skill of your choice.
+* 4-5 Your ancestor served the clan as a clerk in the Imperial bureaucracy. You may take the Precise Memory Advantage for 2 less points.
+* 6-7 Your ancestor fought in one of the famous battles of his time, and his courageous deeds are still celebrated in the Crane Clan. You gain 0.5 Glory and a free Rank in either Battle or a Weapon Skill of your choice.
 * 8-9 Your ancestor nearly single-handedly averted a political catastrophe and turned it into a victory for the Crane. His brilliance is reflected in your own skills. You may take the Clear Thinker Advantage for 1 less Experience Point.
 * 0 Your ancestor saved an Asahina Fetish Master from a serious social mishap. In thanks she gave your family a fetish (chosen by the GM) which has since been passed down to you.
 
