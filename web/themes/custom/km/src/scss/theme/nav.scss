@@ -1,4 +1,5 @@
 .navbar-expand-lg {
+/*
      overflow-y: scroll; 
 
      &.menu-expanded {
@@ -8,7 +9,7 @@
      @include media-breakpoint-up(lg) {
           overflow-y: visible;
      }
-
+*/
      .navbar-nav {
           li {
                &:hover {

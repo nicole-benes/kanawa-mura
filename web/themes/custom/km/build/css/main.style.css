@@ -12679,15 +12679,17 @@ main.py-5 {
 }
 
 .navbar-expand-lg {
-  overflow-y: scroll;
-}
-.navbar-expand-lg.menu-expanded {
-  bottom: 0;
-}
-@media (min-width: 992px) {
-  .navbar-expand-lg {
-    overflow-y: visible;
-  }
+  /*
+       overflow-y: scroll; 
+
+       &.menu-expanded {
+            bottom: 0;
+       }
+
+       @include media-breakpoint-up(lg) {
+            overflow-y: visible;
+       }
+  */
 }
 .navbar-expand-lg .navbar-nav li:hover.dropdown a {
   color: #6f42c1;

@@ -469,14 +469,6 @@ function last_haiku_import_make_menu() {
      
      // Links to create
      $links = [
-          'Advantages & Disadvantages' => [
-               'description' => 'Abilities, relationships, or possesions that go above and beyond other mechanical representations.',
-               'uri' => '/advantages-disadvantages',
-          ],
-          'Ancestors' => [ 
-               'description' => 'All the Ancestors which are available for purchase.',
-               'uri' => '/ancestors',
-          ],
           'Equipment' => [
                'description' => 'The equipment available for purchase and use in Rokugon.',
                'uri' => '/equipment',
@@ -509,6 +501,14 @@ function last_haiku_import_make_menu() {
                'description' => 'Lesser used areas of the rules.',
                'uri' => '/search',
                'children' => [
+                    'Advantages & Disadvantages' => [
+                         'description' => 'Abilities, relationships, or possesions that go above and beyond other mechanical representations.',
+                         'uri' => '/advantages-disadvantages',
+                    ],
+                    'Ancestors' => [ 
+                         'description' => 'All the Ancestors which are available for purchase.',
+                         'uri' => '/ancestors',
+                    ],          
                     'Tables' => [
                          'description' => 'Various tables which may be useful to reference at times.',
                          'uri' => '/search?type=table',
