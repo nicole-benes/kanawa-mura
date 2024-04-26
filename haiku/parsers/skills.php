@@ -1,10 +1,16 @@
 <?php
 
+// Include common functions
+require_once( 'includes/functions.php' );
+
 // Try to load my dump of the families pages
 $handle = fopen("source/skills.wiki", "r");
 
 // Set up a placeholder for our skills array
 $skills = [];
+
+// Counting..
+$skillCount = 0;
 
 // Ensure we loaded the file
 if ( $handle ) {
@@ -90,6 +96,9 @@ if ( $handle ) {
 			// Set the type of the skill too
 			$skill[ 'type' ] = $type;
 
+               // Up that skill counter
+               $skillCount++;
+
 		// Is this the subtype line?
 		} else if( strpos( $line, '**Sub-types:**' ) !== false ) {
 
@@ -165,7 +174,41 @@ if ( $handle ) {
 	fclose( $handle );
 }
 
-//print_r( $skills[ 0 ] );
-
 // Write this out as JSON
 file_put_contents( '../web/modules/custom/last_haiku_import/json/skills.json', json_encode( $skills ) );
+
+echo colorize([
+     [ 
+          'string' => 'Parsing file: ',
+          'color' => '',
+     ],
+     [ 
+          'string' => "skills.wiki\n",
+          'color' => 'bold_cyan',
+     ],
+
+     [
+          'string' => "     \u{029F} Parsed ",
+          'color' => '',
+     ],
+     [
+          'string' => "$skillCount skills",
+          'color' => 'cyan',
+     ],
+     [    
+          'string' => ".\n",
+          'color' => '',
+     ],
+     [    
+          'string' => "     \u{029F} Saved to ",
+          'color' => '',
+     ],          
+     [
+          'string' => "../web/modules/custom/last_haiku_import/json/skills.json",
+          'color' => 'dark_gray',
+     ],
+     [    
+          'string' => ".\n\n",
+          'color' => '',
+     ],          
+]);

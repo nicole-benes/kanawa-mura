@@ -1,10 +1,16 @@
 <?php
 
+// Include common functions
+require_once( 'includes/functions.php' );
+
 // Try to load my dump of the families pages
 $handle = fopen("source/heritage.wiki", "r");
 
 // Set up a placeholder for our heritages
 $heritages = [];
+
+// Counting
+$tableCount = 0;
 
 // Ensure we loaded the file
 if ( $handle ) {
@@ -47,6 +53,9 @@ if ( $handle ) {
 
                // Pull out the source
                $heritages[ $clan ][ 'source' ] = substr( $line, $sourceStart + 1, -1 );
+
+               // Increase the counter
+               $tableCount++;
 
           // Is this a roll result header
           } else if( strpos( strtolower( $line ), 'd10 roll result' ) !== false ) {
@@ -187,5 +196,44 @@ if ( $handle ) {
      }
 
      // Write our json file
-	file_put_contents( '../web/modules/custom/last_haiku_import/json/heritages.json', json_encode( $heritages ) ); 
+	file_put_contents( '../web/modules/custom/last_haiku_import/json/heritages.json', json_encode( $heritages ) );
+
+     echo colorize([
+          [ 
+               'string' => 'Parsing file: ',
+               'color' => '',
+          ],
+          [ 
+               'string' => "heretage.wiki",
+               'color' => 'blue',
+          ],
+          [    
+               'string' => ".\n",
+               'color' => '',
+          ],     
+          [
+               'string' => "     \u{029F} Parsed ",
+               'color' => '',
+          ],
+          [
+               'string' => "$tableCount heritage tables",
+               'color' => 'bold_blue',
+          ],
+          [    
+               'string' => ".\n",
+               'color' => '',
+          ],
+          [    
+               'string' => "     \u{029F} Saved to: ",
+               'color' => '',
+          ],          
+          [
+               'string' => "../web/modules/custom/last_haiku_import/json/heritages.json",
+               'color' => 'dark_gray',
+          ],
+          [    
+               'string' => ".\n\n",
+               'color' => '',
+          ],     
+     ]);
 }

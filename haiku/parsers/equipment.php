@@ -1,10 +1,17 @@
 <?php
 
+// Include common functions
+require_once( 'includes/functions.php' );
+
 // Try to load my dump of the equipment page
 $handle = fopen("source/equipment.wiki", "r");
 
 // Set up a placeholder for our 
 $equipment = [];
+
+// Counting is fun!
+$armorCount = 0;
+$weaponCount = 0;
 
 // Ensure we loaded the file
 if ( $handle ) {
@@ -39,6 +46,7 @@ if ( $handle ) {
 
                // Pull out the category
                $itemCategory = trim( substr( $line, 4 ) );
+
 
           // Is this a new type within the cateogry?
           } else if( strpos( $line, '++ ' ) !== false ) {
@@ -80,6 +88,14 @@ if ( $handle ) {
                     // Reset the item array
                     $item = [];
                }
+
+               // Counting is fun!
+               if( $itemCategory == 'Armor' ) {
+                    $armorCount++;
+               } else {
+                    $weaponCount++;
+               }
+
 
                // Get the position of the source
                $sourcePosition = strpos( $line, '[' );
@@ -186,15 +202,49 @@ if ( $handle ) {
      $equipment[ $itemCategory ][ $itemType ][] = $item;
 
 	// Write our json file
-	file_put_contents( '../web/modules/custom/last_haiku_import/json/equipment.json', json_encode( $equipment ) );     
-}
+	file_put_contents( '../web/modules/custom/last_haiku_import/json/equipment.json', json_encode( $equipment ) ); 
+     
+     echo colorize([
+          [ 
+               'string' => 'Parsing file: ',
+               'color' => '',
+          ],
+          [ 
+               'string' => "equipment.wiki\n",
+               'color' => 'brown',
+          ],
 
-
-
-// The inconsistency finally got to me, time to simplfy this
-function parseLine( $line, $word ) {
-
-	// Look at this consistency!
-	return trim( str_ireplace( [ "* **$word:**", "* **$word:", "* $word:", "**$word:**", "*  $word:" ], '', $line ) );
-
+          [
+               'string' => "     \u{029F} Parsed ",
+               'color' => '',
+          ],
+          [
+               'string' => "$armorCount armors",
+               'color' => 'yellow',
+          ],
+          [    
+               'string' => " and ",
+               'color' => '',
+          ],
+          [    
+               'string' =>  "$weaponCount weapons",
+               'color' => 'yellow',
+          ],
+          [    
+               'string' => ".\n",
+               'color' => '',
+          ],
+          [    
+               'string' => "     \u{029F} Saved to ",
+               'color' => '',
+          ],          
+          [
+               'string' => "../web/modules/custom/last_haiku_import/json/equipment.json",
+               'color' => 'dark_gray',
+          ],
+          [    
+               'string' => ".\n\n",
+               'color' => '',
+          ],          
+     ]);        
 }

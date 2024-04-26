@@ -1,5 +1,8 @@
 <?php
 
+// Include common functions
+require_once( 'includes/functions.php' );
+
 // Array to hold our lines from the file
 $rawArray = [
      'advantage' => [],
@@ -13,6 +16,8 @@ $rawArray[ 'disadvantage' ] = load_file( 'disadvantages' );
 // Set up scope for our parsed advantages and disadvantages
 $parsed = [];
 
+$advantages = 0;
+$disadvantages = 0;
 // From this point forward, I'm going to just call everything an advantage
 
 // Loop through the array
@@ -78,6 +83,12 @@ foreach( $rawArray as $type => $fileRow ) {
 
                // Set the type
                $advantage[ 'type' ] = $type;
+
+               if( $type == 'advantage' ) {
+                    $advantages++;
+               } else {
+                    $disadvantages++;
+               }
 
                // Do some cleanup on the line
                $line = substr( trim( $line ), 2, strlen( $line ) - 5 );
@@ -325,8 +336,56 @@ foreach( $rawArray as $type => $fileRow ) {
      $parse[] = $advantage;
 }
 
+
 // Write our json file
 file_put_contents( '../web/modules/custom/last_haiku_import/json/advantages-disadvantages.json', json_encode( $parse ) );
+
+echo colorize([
+     [ 
+          'string' => 'Parsing file: ',
+          'color' => '',
+     ],
+     [ 
+          'string' => 'advantages.wiki,',
+          'color' => 'bold_green',
+     ],
+     [
+          'string' => " disadvantages.wiki",
+          'color' => 'bold_red',
+     ],
+     [    
+          'string' => ".\n",
+          'color' => '',
+     ],
+     [
+          'string' => "     \u{029F} Parsed ",
+          'color' => '',
+     ],
+     [
+          'string' => " $advantages advantages ",
+          'color' => 'green',
+     ],
+     [
+          'string' => 'and ',
+          'color' => '',
+     ],
+     [
+          'string' => "$disadvantages disadvantages.\n",
+          'color' => 'red',
+     ],
+     [    
+          'string' => "     \u{029F} Saved to ",
+          'color' => '',
+     ],
+     [
+          'string' => "../web/modules/custom/last_haiku_import/json/advantages-disadvantages.json",
+          'color' => 'dark_gray',
+     ],
+     [    
+          'string' => ".\n\n",
+          'color' => '',
+     ],  
+]);
 
 
 function parseCost( $costString, $name ) {
@@ -504,13 +563,4 @@ function load_file( $file ) {
 	fclose( $handle );
 
      return $lines;
-}
-
-
-// The inconsistency finally got to me, time to simplfy this
-function parseLine( $line, $word ) {
-
-	// Look at this consistency!
-	return trim( str_ireplace( [ "* **$word:**", "* **$word:", "* $word:", "**$word:**", "*  $word:" ], '', $line ) );
-
 }

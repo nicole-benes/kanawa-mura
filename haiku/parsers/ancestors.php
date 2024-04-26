@@ -1,10 +1,16 @@
 <?php
 
+// Include common functions
+require_once( 'includes/functions.php' );
+
 // Try to load my dump of the families pages
 $handle = fopen("source/ancestors.wiki", "r");
 
 // Set up a placeholder for our 
 $ancestors = [];
+
+// Variable to count how many ancestors
+$ancestorCount = 0;
 
 // Ensure we loaded the file
 if ( $handle ) {
@@ -46,6 +52,9 @@ if ( $handle ) {
 
                     // Add this ancestor to the array
                     $ancestors[ $clan ][] = $ancestor;
+
+                    // Incriment the ancestor counter
+                    $ancestorCount++;
 
                     // Reset and set up the ancestory array
                     $ancestor = [
@@ -116,14 +125,39 @@ if ( $handle ) {
 
      // Write our json file
 	file_put_contents( '../web/modules/custom/last_haiku_import/json/ancestors.json', json_encode( $ancestors ) );
-}
 
-
-
-// The inconsistency finally got to me, time to simplfy this
-function parseLine( $line, $word ) {
-
-	// Look at this consistency!
-	return trim( str_ireplace( [ "* **$word:**", "* **$word:", "* $word:", "**$word:**", "*  $word:" ], '', $line ) );
-
+     echo colorize([
+          [ 
+               'string' => 'Parsing file: ',
+               'color' => '',
+          ],
+          [ 
+               'string' => "ancestors.wiki",
+               'color' => 'white',
+          ],
+          [    
+               'string' => ".\n",
+               'color' => '',
+          ],
+          [
+               'string' => "     \u{029F} Parsed ",
+               'color' => '',
+          ],
+          [
+               'string' => "$ancestorCount ancestors.\n",
+               'color' => 'dark_gray',
+          ],
+          [    
+               'string' => "     \u{029F} Saved to ",
+               'color' => '',
+          ],
+          [
+               'string' => "../web/modules/custom/last_haiku_import/json/ancestors.json",
+               'color' => 'dark_gray',
+          ],
+          [    
+               'string' => ".\n\n",
+               'color' => '',
+          ],          
+     ]);     
 }

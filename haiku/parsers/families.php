@@ -1,10 +1,17 @@
 <?php
 
+// Include common functions
+require_once( 'includes/functions.php' );
+
 // Try to load my dump of the families pages
 $handle = fopen("source/families.wiki", "r");
 
 // Set up an array to hold the clans and families
 $familyArray = [];
+
+// 1, 2, 3, counting!
+$clanCount = 0;
+$familyCount = 0;
 
 // Ensure we loaded the file
 if ( $handle ) {
@@ -44,6 +51,11 @@ if ( $handle ) {
 			// Pull out the large grouping name
 			$parent = trim( substr( $line, 3 ) );
 
+               // Increase our clan count unless it's one of the major groupings
+               if( $parent !== 'Great Clans' || $parent !== 'Minor Clans' || $parent !== 'Lost Clans' ) {
+                    $clanCount++;
+               }
+
 		// Check if this is a line denoting a new clan
 		} else if( strpos( $line, '++' ) !== false ) {
 
@@ -65,6 +77,9 @@ if ( $handle ) {
 	
 			// Empty the clan array
 			$memberFamilies = [];
+
+               // Increase our clan count
+               $clanCount++;
 
 		// Check if this is a line denoting the family
 		} else if( strpos( $line, '+ __' ) !== false ) {
@@ -146,6 +161,9 @@ if ( $handle ) {
 				'description' => [],
 			];
 
+               // Increase our family counter
+               $familyCount++;
+
                // Did we find a source?
                if( $source !== false ) {
 
@@ -193,4 +211,50 @@ if ( $handle ) {
 
 file_put_contents( '../web/modules/custom/last_haiku_import/json/clans-families.json', json_encode( $familyArray ) );
 
+echo colorize([
+     [ 
+          'string' => 'Parsing file: ',
+          'color' => '',
+     ],
+     [ 
+          'string' => "families.wiki",
+          'color' => 'purple',
+     ],
+     [    
+          'string' => ".\n",
+          'color' => '',
+     ],     
+     [
+          'string' => "     \u{029F} Parsed ",
+          'color' => '',
+     ],
+     [
+          'string' => "$clanCount clans",
+          'color' => 'bold_purple',
+     ],
+     [    
+          'string' => " and ",
+          'color' => '',
+     ],
+     [    
+          'string' =>  "$familyCount families",
+          'color' => 'bold_purple',
+     ],
+     [    
+          'string' => ".\n",
+          'color' => '',
+     ],
+     [    
+          'string' => "     \u{029F} Saved to: ",
+          'color' => '',
+     ],          
+     [
+          'string' => "../web/modules/custom/last_haiku_import/json/clans-families.json",
+          'color' => 'dark_gray',
+     ],
+     [    
+          'string' => ".\n\n",
+          'color' => '',
+     ],     
+]);
 ?>

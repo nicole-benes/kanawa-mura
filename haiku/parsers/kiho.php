@@ -1,10 +1,16 @@
 <?php
 
+// Include common functions
+require_once( 'includes/functions.php' );
+
 // Try to load my dump of the families pages
 $handle = fopen("source/kiho.wiki", "r");
 
 // Set up a placeholder for our 
 $kihos = [];
+
+// More counting
+$kihoCount = 0;
 
 // Ensure we loaded the file
 if ( $handle ) {
@@ -38,6 +44,9 @@ if ( $handle ) {
 				$kihos[ $name ] = $kiho;
 			
 			}					
+
+               // Add another one!
+               $kihoCount++;
 
 			// Pull out the name
 			$name = substr( $line, 2, -3 );
@@ -133,10 +142,38 @@ if ( $handle ) {
 	file_put_contents( '../web/modules/custom/last_haiku_import/json/kiho.json', json_encode( $kihos ) );
 }
 
-// The inconsistency finally got to me, time to simplfy this
-function parseLine( $line, $word ) {
+echo colorize([
+     [ 
+          'string' => 'Parsing file: ',
+          'color' => '',
+     ],
+     [ 
+          'string' => "kiho.wiki\n",
+          'color' => 'bold_red',
+     ],
 
-	// Look at this consistency!
-	return trim( str_ireplace( [ "* **$word:**", "* **$word:", "* $word:", "**$word:**", "*  $word:" ], '', $line ) );
-
-}
+     [
+          'string' => "     \u{029F} Parsed ",
+          'color' => '',
+     ],
+     [
+          'string' => "$kihoCount kiho",
+          'color' => 'red',
+     ],
+     [    
+          'string' => ".\n",
+          'color' => '',
+     ],
+     [    
+          'string' => "     \u{029F} Saved to ",
+          'color' => '',
+     ],          
+     [
+          'string' => "../web/modules/custom/last_haiku_import/json/kiho.json",
+          'color' => 'dark_gray',
+     ],
+     [    
+          'string' => ".\n\n",
+          'color' => '',
+     ],          
+]);

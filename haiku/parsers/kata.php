@@ -1,10 +1,16 @@
 <?php
 
+// Include common functions
+require_once( 'includes/functions.php' );
+
 // Try to load my dump of the families pages
 $handle = fopen("source/kata.wiki", "r");
 
 // Set up a placeholder for our 
 $katas = [];
+
+// You guessed it, more counting
+$kataCount = 0;
 
 // Ensure we loaded the file
 if ( $handle ) {
@@ -41,6 +47,9 @@ if ( $handle ) {
 
 			// Pull out the name
 			$name = substr( $line, 2, -3 );
+
+               // One more kata to the list
+               $kataCount++;
 
 			// Make a new kata array
 			$kata = [
@@ -170,10 +179,38 @@ if ( $handle ) {
 	file_put_contents( '../web/modules/custom/last_haiku_import/json/kata.json', json_encode( $katas ) );
 }
 
-// The inconsistency finally got to me, time to simplfy this
-function parseLine( $line, $word ) {
+echo colorize([
+     [ 
+          'string' => 'Parsing file: ',
+          'color' => '',
+     ],
+     [ 
+          'string' => "kata.wiki\n",
+          'color' => 'yellow',
+     ],
 
-	// Look at this consistency!
-	return trim( str_ireplace( [ "* **$word:**", "* **$word:", "* $word:", "**$word:**", "*  $word:" ], '', $line ) );
-
-}
+     [
+          'string' => "     \u{029F} Parsed ",
+          'color' => '',
+     ],
+     [
+          'string' => "$kataCount kata",
+          'color' => 'brown',
+     ],
+     [    
+          'string' => ".\n",
+          'color' => '',
+     ],
+     [    
+          'string' => "     \u{029F} Saved to ",
+          'color' => '',
+     ],          
+     [
+          'string' => "../web/modules/custom/last_haiku_import/json/kata.json",
+          'color' => 'dark_gray',
+     ],
+     [    
+          'string' => ".\n\n",
+          'color' => '',
+     ],          
+]);

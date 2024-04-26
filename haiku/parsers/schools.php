@@ -1,15 +1,13 @@
 <?php
 
+// Include common functions
+require_once( 'includes/functions.php' );
+
 // Try to load my dump of the families pages
 $handle = fopen("source/schools.wiki", "r");
 
 // Set up a placeholder for our 
 $array = [];
-
-// Push our column headers onto the array
-$array[] = [ 
-
-];
 
 // Ensure we loaded the file
 if ( $handle ) {
@@ -176,6 +174,29 @@ if ( $handle ) {
 	file_put_contents( '../web/modules/custom/last_haiku_import/json/basic-schools.json', json_encode( $basicSchools ) );
 	file_put_contents( '../web/modules/custom/last_haiku_import/json/advanced-schools.json', json_encode( $advSchools ) );
 	file_put_contents( '../web/modules/custom/last_haiku_import/json/alternate-paths.json', json_encode( $altPaths ) );
+
+     // Counting time - it's 3:41am and for some reason this is being difficult so I'm doing it this way cause FML
+     $schoolCount = 0;
+     $advancedCount = 0;
+     $alternateCount = 0;
+     
+     // Count each school
+     foreach( $basicSchools as $clan ) {
+          $schoolCount += count( $clan );
+     }
+
+     // Count each advanced school
+     foreach( $advSchools as $clan ) {
+          $advancedCount += count( $clan );
+     }
+
+     // Count each alternate path
+     foreach( $altPaths as $clan ) {
+          $alternateCount += count( $clan );
+     }
+
+     // Output is fun
+     displayOutput( $schoolCount, $advancedCount, $alternateCount );
 }
 
 
@@ -1156,13 +1177,6 @@ function basicSchoolsParse( $clan, $block ) {
 	return $schools;
 }
 
-// The inconsistency finally got to me, time to simplfy this
-function parseLine( $line, $word ) {
-
-	// Look at this consistency!
-	return trim( str_replace( [ "* **$word:**", "* **$word:", "* $word:", "**$word:**" ], '', $line ) );
-
-}
 
 function error( $line ) {
 	return "!!! ERROR !!! !!! ERROR !!! !!! ERROR !!! !!! ERROR !!!\n" .
@@ -1354,6 +1368,93 @@ function isAdvancedSchool( $school ) {
 	}
 
 	return false;
+}
+
+
+
+function displayOutput( $schoolCount, $advancedCount, $alternateCount ) {
+     echo colorize([
+          [ 
+               'string' => 'Parsing file: ',
+               'color' => '',
+          ],
+          [ 
+               'string' => "schools.wiki\n",
+               'color' => 'brown',
+          ],
+          [
+               'string' => "     \u{029F} Parsed ",
+               'color' => '',
+          ],
+          [
+               'string' => "$schoolCount basic schools",
+               'color' => 'yellow',
+          ],
+          [    
+               'string' => ".\n",
+               'color' => '',
+          ],
+          [    
+               'string' => "     \u{029F} Saved to ",
+               'color' => '',
+          ],          
+          [
+               'string' => "../web/modules/custom/last_haiku_import/json/basic-schools.json",
+               'color' => 'dark_gray',
+          ],
+          [    
+               'string' => ".\n",
+               'color' => '',
+          ],
+          [
+               'string' => "     \u{029F} Parsed ",
+               'color' => '',
+          ],     
+          [    
+               'string' =>  "$advancedCount advanced schools",
+               'color' => 'yellow',
+          ],
+          [    
+               'string' => ".\n",
+               'color' => '',
+          ],
+          [    
+               'string' => "     \u{029F} Saved to ",
+               'color' => '',
+          ],          
+          [
+               'string' => "../web/modules/custom/last_haiku_import/json/advanced-schools.json",
+               'color' => 'dark_gray',
+          ],    
+          [    
+               'string' => ".\n",
+               'color' => '',
+          ],      
+          [
+               'string' => "     \u{029F} Parsed ",
+               'color' => '',
+          ],       
+          [    
+               'string' =>  "$alternateCount alternate paths",
+               'color' => 'yellow',
+          ],
+          [    
+               'string' => ".\n",
+               'color' => '',
+          ],
+          [    
+               'string' => "     \u{029F} Saved to ",
+               'color' => '',
+          ],          
+          [
+               'string' => "../web/modules/custom/last_haiku_import/json/alternate-paths.json",
+               'color' => 'dark_gray',
+          ],
+          [    
+               'string' => ".\n\n",
+               'color' => '',
+          ],          
+     ]);     
 }
 
 ?>

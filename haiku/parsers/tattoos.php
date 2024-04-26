@@ -1,5 +1,8 @@
 <?php
 
+// Include common functions
+require_once( 'includes/functions.php' );
+
 // Try to load my dump of the equipment page
 $handle = fopen("source/tattoos.wiki", "r");
 
@@ -54,3 +57,39 @@ if ( $handle ) {
 	// Write our json file
 	file_put_contents( '../web/modules/custom/last_haiku_import/json/tattoos.json', json_encode( $tats ) );      
 }
+
+echo colorize([
+     [ 
+          'string' => 'Parsing file: ',
+          'color' => '',
+     ],
+     [ 
+          'string' => "tattoos.wiki\n",
+          'color' => 'bold_purple',
+     ],
+
+     [
+          'string' => "     \u{029F} Parsed ",
+          'color' => '',
+     ],
+     [
+          'string' => count( $tats ) . " tattoos",
+          'color' => 'purple',
+     ],
+     [    
+          'string' => ".\n",
+          'color' => '',
+     ],
+     [    
+          'string' => "     \u{029F} Saved to ",
+          'color' => '',
+     ],          
+     [
+          'string' => "../web/modules/custom/last_haiku_import/json/tattoos.json",
+          'color' => 'dark_gray',
+     ],
+     [    
+          'string' => ".\n\n",
+          'color' => '',
+     ],          
+]);

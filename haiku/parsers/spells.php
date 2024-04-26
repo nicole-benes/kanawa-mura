@@ -1,5 +1,8 @@
 <?php
 
+// Include common functions
+require_once( 'includes/functions.php' );
+
 // Try to load my dump of the families pages
 $handle = fopen("source/spells.wiki", "r");
 
@@ -235,14 +238,164 @@ if ( $handle ) {
 	file_put_contents( '../web/modules/custom/last_haiku_import/json/spells.json', json_encode( $spells ) );
 }
 
+// Figure out how many total spells we had
+$totalSpells = 0;
+$spellCounts = [];
 
+foreach( $spells as $name => $ring ) {
 
-// The inconsistency finally got to me, time to simplfy this
-function parseLine( $line, $word ) {
+     $ringCount = 0;
 
-	// Look at this consistency!
-	return trim( str_ireplace( [ "* **$word:**", "* **$word:", "* $word:", "**$word:**", "*  $word:" ], '', $line ) );
+     foreach( $ring as $mastery ) {
+          $totalSpells += count( $mastery );
+          $ringCount++;
+     }
 
+     $spellCounts[ $name ] = $ringCount;
 }
+
+echo colorize([
+     [ 
+          'string' => 'Parsing file: ',
+          'color' => '',
+     ],
+     [ 
+          'string' => "spells.wiki\n",
+          'color' => 'brown',
+     ],
+
+     [
+          'string' => "     \u{029F} Parsed ",
+          'color' => '',
+     ],
+     [
+          'string' => "$totalSpells spells",
+          'color' => 'yellow',
+     ],
+     [    
+          'string' => " (",
+          'color' => '',
+     ],
+     [    
+          'string' =>  $spellCounts[ 'Universal' ] . " universal",
+          'color' => 'green',
+     ],
+     [    
+          'string' => ", ",
+          'color' => '',
+     ],
+     [    
+          'string' =>  $spellCounts[ 'Air' ] . " air",
+          'color' => 'white',
+     ],
+     [    
+          'string' => ", ",
+          'color' => '',
+     ],
+     [    
+          'string' =>  $spellCounts[ 'Earth' ] . " earth",
+          'color' => 'brown',
+     ],
+     [    
+          'string' => ", ",
+          'color' => '',
+     ],
+     [    
+          'string' =>  $spellCounts[ 'Fire' ] . " fire",
+          'color' => 'bold_red',
+     ],
+     [    
+          'string' => ", ",
+          'color' => '',
+     ],
+     [    
+          'string' =>  $spellCounts[ 'Water' ] . " water",
+          'color' => 'bold_blue',
+     ],
+     [    
+          'string' => ", ",
+          'color' => '',
+     ],     
+     [    
+          'string' =>  $spellCounts[ 'Maho' ] . " maho",
+          'color' => 'dark_gray',
+     ],
+     [    
+          'string' => ", ",
+          'color' => '',
+     ],
+     [    
+          'string' =>  $spellCounts[ 'Fire' ] . " ",
+          'color' => 'bold_red',
+     ],  
+     [    
+          'string' => "m",
+          'color' => 'bold_green',
+     ],
+     [    
+          'string' => "u",
+          'color' => 'yellow',
+     ],
+     [    
+          'string' => "l",
+          'color' => 'bold_blue',
+     ],
+     [    
+          'string' => "t",
+          'color' => 'bold_purple',
+     ],
+     [    
+          'string' => "i",
+          'color' => 'bold_cyan',
+     ],
+     [    
+          'string' => "-",
+          'color' => 'white',
+     ],
+     [    
+          'string' => "e",
+          'color' => 'black',
+     ],
+     [    
+          'string' => "l",
+          'color' => 'red',
+     ],
+     [    
+          'string' => "e",
+          'color' => 'green',
+     ],
+     [    
+          'string' => "m",
+          'color' => 'brown',
+     ],
+     [    
+          'string' => "e",
+          'color' => 'blue',
+     ],
+     [    
+          'string' => "n",
+          'color' => 'purple',
+     ],
+     [    
+          'string' => "t",
+          'color' => 'cyan',
+     ],
+     [    
+          'string' => ").\n",
+          'color' => '',
+     ],
+     [    
+          'string' => "     \u{029F} Saved to ",
+          'color' => '',
+     ],          
+     [
+          'string' => "../web/modules/custom/last_haiku_import/json/spells.json",
+          'color' => 'dark_gray',
+     ],
+     [    
+          'string' => ".\n\n",
+          'color' => '',
+     ],          
+]);
 
 ?>
