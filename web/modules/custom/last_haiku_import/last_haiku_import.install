@@ -505,79 +505,36 @@ function last_haiku_import_make_menu() {
                'description' => 'The invocations used by Shugenja and other less honorable magic.',
                'uri' => '/spells',
           ],
-          'Tables' => [
-               'description' => 'Various tables which may be useful to reference at times.',
-               'uri' => '/search?type=table',
+          'Miscellaneous' => [
+               'description' => 'Lesser used areas of the rules.',
+               'uri' => '/search',
                'children' => [
-                    'Heritage Tables' => [
-                         'description' => 'Various heritage options for new characters.',
-                         'uri' => '/heritages',
+                    'Tables' => [
+                         'description' => 'Various tables which may be useful to reference at times.',
+                         'uri' => '/search?type=table',
+                         'children' => [
+                              'Heritage Tables' => [
+                                   'description' => 'Various heritage options for new characters.',
+                                   'uri' => '/heritages',
+                              ],
+                              'Honor Table' => [
+                                   'description' => 'Gains/Losses by Honor Rank',
+                                   'uri' => '/honor',
+                              ],
+                         ],
                     ],
-                    'Honor Table' => [
-                         'description' => 'Gains/Losses by Honor Rank',
-                         'uri' => '/honor',
+                    'Tattoos' => [
+                         'uri' => '/tattoos',
+                         'description' => 'The various tattoos of the Togashi order of monks.',
                     ],
                ],
           ],
-          'Tattoos' => [
-               'uri' => '/tattoos',
-               'description' => 'The various tattoos of the Togashi order of monks.',
-          ],
      ];
 
-     $weight = 0;
-     
-     // Get the current links from the main menu
-     $menuLinks = \Drupal::entityTypeManager()->getStorage( 'menu_link_content' )->loadByProperties( [ 'menu_name' => 'main' ] );
+     // Generate the main menu
+     last_haiku_import_build_menu( 'main', $links, 0 );
 
-     foreach( $links as $title => $link ) {
-
-          $found = false;
-          
-          foreach( $menuLinks as $menuLink ) {
-
-               if( $title == $menuLink->getTitle() ) {
-
-                    $found = true;
-               }
-          }
-
-          if( !$found ) {
-
-               $newLink = \Drupal\menu_link_content\Entity\MenuLinkContent::create([
-
-                    'title' => $title,
-                    'link' => ['uri' => 'internal:' . $link[ 'uri' ] ],
-                    'menu_name' => 'main',
-                    'weight' => $weight,
-               ]);
-
-               $newLink->save();
-
-               $weight++;
-
-               if( array_key_exists( 'children', $link ) ) {
-
-                    $childWeight = 0;
-
-                    foreach( $link[ 'children' ] as $childTitle => $childLink ) {
-                         $childLink = \Drupal\menu_link_content\Entity\MenuLinkContent::create([
-
-                              'title' => $childTitle,
-                              'link' => ['uri' => 'internal:' . $childLink[ 'uri' ] ],
-                              'menu_name' => 'main',
-                              'weight' => $childWeight,
-                              'parent' => 'menu_link_content:' . $newLink->uuid(),
-                         ]);
-          
-                         $childLink->save();
-          
-                         $childWeight++;
-                    }
-               }
-          }
-     }    
-     
+   
      // Footer Menu
      $links = [
           'About' => [
@@ -590,18 +547,8 @@ function last_haiku_import_make_menu() {
           ],
      ];
 
-
-     foreach( $links as $title => $link ) {
-          $newLink = \Drupal\menu_link_content\Entity\MenuLinkContent::create([
-
-               'title' => $title,
-               'link' => ['uri' => 'internal:' . $link[ 'uri' ] ],
-               'menu_name' => 'footer',
-               'weight' => $link[ 'weight' ],
-          ]);  
-
-          $newLink->save();          
-     }
+     // Generate the footer menu
+     last_haiku_import_build_menu( 'footer', $links, 0 );
 }
 
 
@@ -3379,4 +3326,38 @@ function last_haiku_import_create_clans_families( $sources ) {
                }
           }
      }
+}
+
+
+
+function last_haiku_import_build_menu( $menu, $links, $weight, $parentId = null ) {
+     
+     // Loop through the links
+     foreach( $links as $title => $link ) {
+          $newLink = \Drupal\menu_link_content\Entity\MenuLinkContent::create([
+               'title' => $title,
+               'link' => ['uri' => 'internal:' . $link[ 'uri' ] ],
+               'menu_name' => $menu,
+               'weight' => $weight,
+          ]);
+
+          // This link has a parent
+          if( $parentId != null ) {
+               $newLink->set( 'parent', 'menu_link_content:' . $parentId );
+          } 
+
+          // Save the new menu item
+          $newLink->save();
+
+          // Incriment the weight
+          $weight++;
+          
+          // Does this link have childreun?
+          if( array_key_exists( 'children', $link ) ) {
+               $weight = last_haiku_import_build_menu( $menu, $link[ 'children' ], $weight, $newLink->uuid() );
+          }
+     }
+
+     // Return the current value of weight     
+     return $weight;
 }

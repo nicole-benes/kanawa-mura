@@ -280,6 +280,7 @@ function km_preprocess_views_view_fields( &$variables ) {
           // We shouldn't hit this
           } else {
                dpm( 'Cannot determine type in km_preprocess_view_views_fields!' );
+               dpm( $variables[ 'fields' ][ 'entity_type' ]->content );
                dpm( $variables );
           }
 

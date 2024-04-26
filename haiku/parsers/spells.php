@@ -248,7 +248,7 @@ foreach( $spells as $name => $ring ) {
 
      foreach( $ring as $mastery ) {
           $totalSpells += count( $mastery );
-          $ringCount++;
+          $ringCount += count( $mastery );
      }
 
      $spellCounts[ $name ] = $ringCount;
@@ -325,7 +325,7 @@ echo colorize([
           'color' => '',
      ],
      [    
-          'string' =>  $spellCounts[ 'Fire' ] . " ",
+          'string' =>  ( $spellCounts[ 'Mutltielement-Universal' ] + $spellCounts[ 'Multielement-Advanced'] ) . " ",
           'color' => 'bold_red',
      ],  
      [    
@@ -354,7 +354,7 @@ echo colorize([
      ],
      [    
           'string' => "e",
-          'color' => 'black',
+          'color' => 'dark_gray',
      ],
      [    
           'string' => "l",
