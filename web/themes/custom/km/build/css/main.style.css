@@ -12691,39 +12691,53 @@ main.py-5 {
        }
   */
 }
-.navbar-expand-lg .navbar-nav li:hover.dropdown a {
+.navbar-expand-lg .navbar-nav li a:focus {
   color: #6f42c1;
 }
-.navbar-expand-lg .navbar-nav li:hover .dropdown-menu {
+.navbar-expand-lg .navbar-nav li a.show {
+  color: #6f42c1;
+}
+.navbar-expand-lg .navbar-nav li:hover .dropdown-menu,
+.navbar-expand-lg .navbar-nav li .show .dropdown-menu {
+  display: block;
+}
+.navbar-expand-lg .navbar-nav li .dropdown-menu {
   background-color: #222;
   border: 0;
-  display: block;
   margin: 0;
   margin-left: 1.5rem;
   padding: 0;
 }
-.navbar-expand-lg .navbar-nav li:hover .dropdown-menu a {
+.navbar-expand-lg .navbar-nav li .dropdown-menu a {
   color: #f8f9fa;
 }
-.navbar-expand-lg .navbar-nav li:hover .dropdown-menu a:hover {
+@media (min-width: 992px) {
+  .navbar-expand-lg .navbar-nav li .dropdown-menu a:first-child {
+    display: none;
+  }
+}
+.navbar-expand-lg .navbar-nav li .dropdown-menu a:hover {
   color: #6f42c1;
 }
-.navbar-expand-lg .navbar-nav li:hover .dropdown-menu.child-dropdown {
+.navbar-expand-lg .navbar-nav li .dropdown-menu.child-dropdown {
   margin-left: 2rem;
 }
-.navbar-expand-lg .navbar-nav li:hover .dropdown-menu .dropdown-item:hover, .navbar-expand-lg .navbar-nav li:hover .dropdown-menu .dropdown-item.active {
+.navbar-expand-lg .navbar-nav li .dropdown-menu.child-dropdown a {
+  display: block;
+}
+.navbar-expand-lg .navbar-nav li .dropdown-menu .dropdown-item:hover, .navbar-expand-lg .navbar-nav li .dropdown-menu .dropdown-item.active {
   background-color: #222;
 }
 @media (min-width: 992px) {
-  .navbar-expand-lg .navbar-nav li:hover .dropdown-menu {
+  .navbar-expand-lg .navbar-nav li .dropdown-menu {
     margin-left: -0.5rem;
   }
-  .navbar-expand-lg .navbar-nav li:hover .dropdown-menu.child-dropdown {
+  .navbar-expand-lg .navbar-nav li .dropdown-menu.child-dropdown {
     margin-left: 2rem;
     padding: 0;
     position: relative;
   }
-  .navbar-expand-lg .navbar-nav li:hover .dropdown-menu.child-dropdown a {
+  .navbar-expand-lg .navbar-nav li .dropdown-menu.child-dropdown a {
     font-size: 0.75rem;
     padding: 0;
   }
@@ -12900,6 +12914,9 @@ main.py-5 {
   margin-bottom: 3rem;
   margin-top: 3rem;
 }
+.view-site-search.view-display-id-block_1 .view-empty {
+  display: none;
+}
 .view-site-search .accordion .accordion-button {
   background-color: transparent;
   border: 0;
@@ -12930,9 +12947,6 @@ main.py-5 {
 }
 .view-site-search .school-techniques li {
   list-style-type: none;
-}
-.view-site-search .view-empty {
-  display: none;
 }
 @media (min-width: 992px) {
   .view-site-search .views-exposed-form .form-type-textfield {

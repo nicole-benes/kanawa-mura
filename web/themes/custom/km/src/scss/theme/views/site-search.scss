@@ -2,6 +2,12 @@
      margin-bottom: 3rem;
      margin-top: 3rem;
 
+     &.view-display-id-block_1 {
+          .view-empty {
+               display: none;
+          }
+     }
+
      .accordion {
           .accordion-button {
                background-color: transparent;
@@ -46,10 +52,6 @@
           li {
                list-style-type: none;
           }
-     }
-
-     .view-empty {
-          display: none;
      }
 
      @include media-breakpoint-up(lg) {

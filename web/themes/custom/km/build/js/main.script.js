@@ -3061,6 +3061,11 @@ __webpack_require__.r(__webpack_exports__);
       $('.navbar.fixed-top').addClass('menu-expanded');
     }
   });
+  $('.navbar-nav li.dropdown a').click(function () {
+    if (!$('.navbar-collapse').hasClass('show')) {
+      window.location.href = $(this).attr('href');
+    }
+  });
 })(jQuery);
 
 /***/ }),

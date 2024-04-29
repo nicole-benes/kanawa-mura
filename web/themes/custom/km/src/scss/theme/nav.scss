@@ -12,55 +12,73 @@
 */
      .navbar-nav {
           li {
-               &:hover {
+               a {
+                    &:focus {
+                         color: $purple;
+                    }
 
-                    &.dropdown {
-                         a {
+                    &.show {
+                         color: $purple;
+                    }
+               }
+               
+
+               &:hover,
+               .show {
+                    .dropdown-menu {
+                         display: block;
+                    }
+               }
+
+               .dropdown-menu {
+                    background-color: $gray-900;
+                    border: 0;
+                    margin: 0;
+                    margin-left: 1.5rem;
+                    padding: 0;
+
+                    a {
+                         color: $gray-100;
+
+                         &:first-child {
+                              @include media-breakpoint-up(lg) {
+                                   display: none;
+                              }
+                         }
+
+                         &:hover {
                               color: $purple;
                          }
                     }
 
-                    .dropdown-menu {
-                         background-color: $gray-900;
-                         border: 0;
-                         display: block;
-                         margin: 0;
-                         margin-left: 1.5rem;
-                         padding: 0;
+                    &.child-dropdown {
+                         margin-left: 2rem;
 
                          a {
-                              color: $gray-100;
-
-                              &:hover {
-                                   color: $purple;
-                              }
+                              display: block;;
                          }
+                    }
+
+                    .dropdown-item {
+                         &:hover, &.active {
+                              background-color: $gray-900;
+                         }
+                    }
+
+                    @include media-breakpoint-up(lg) {
+                         margin-left: -.5rem;
 
                          &.child-dropdown {
                               margin-left: 2rem;
+                              padding: 0;
+                              position: relative;
+
+                              a {
+                                   font-size: .75rem;
+                                   padding: 0;  
+                              }                                 
                          }
-
-                         .dropdown-item {
-                              &:hover, &.active {
-                                   background-color: $gray-900;
-                              }
-                         }
-
-                         @include media-breakpoint-up(lg) {
-                              margin-left: -.5rem;
-
-                              &.child-dropdown {
-                                   margin-left: 2rem;
-                                   padding: 0;
-                                   position: relative;
-
-                                   a {
-                                        font-size: .75rem;
-                                        padding: 0;  
-                                   }                                 
-                              }
-                         }                         
-                    }
+                    }                         
                }
           }
      }

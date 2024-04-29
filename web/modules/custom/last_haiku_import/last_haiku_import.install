@@ -489,6 +489,9 @@ function last_haiku_import_make_menu() {
                'description' => 'All basic, advanced, and alternate paths available to Samuri in Rokugon.',
                'uri' => '/schools',
                'children' => [
+                    'All Schools' => [
+                         'uri' => '/schools',
+                    ],
                     'Great Clans' => [
                          'uri' => '/schools/great clans',
                          'children' => [
@@ -545,6 +548,9 @@ function last_haiku_import_make_menu() {
                'description' => 'The skills which make up the world of Rokugon.',
                'uri' => '/skills',
                'children' => [
+                    'All Skills' => [
+                         'uri' => '/skills',
+                    ],
                     'High Skills' => [
                          'uri' => '/skills/high',
                     ],
@@ -563,6 +569,9 @@ function last_haiku_import_make_menu() {
                'description' => 'The invocations used by Shugenja and other less honorable magic.',
                'uri' => '/spells',
                'children' => [
+                    'All Spells' => [
+                         'uri' => '/spells',
+                    ],
                     'Air' => [
                          'uri' => '/spells/air',
                     ],
@@ -593,6 +602,9 @@ function last_haiku_import_make_menu() {
                'description' => 'Lesser used areas of the rules.',
                'uri' => '/search',
                'children' => [
+                    'Search' => [
+                         'uri' => '/search',
+                    ],
                     'Advantages & Disadvantages' => [
                          'description' => 'Abilities, relationships, or possesions that go above and beyond other mechanical representations.',
                          'uri' => '/advantages-disadvantages',
