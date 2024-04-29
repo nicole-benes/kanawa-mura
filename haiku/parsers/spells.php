@@ -60,6 +60,16 @@ if ( $handle ) {
 		// New mastery level
           } else if( strpos( $line, '+ Mastery Level' ) !== false ) {
 
+               // Is there already a spell parsed?
+               if( count( $spell ) > 0 ) {
+
+                    // Put this spell on the array
+                    $spells[ $ring ][ $rank ][] = $spell;
+
+                    // Reset the array
+                    $spell = [];
+               }
+
                // Figure out the rank of these spells
                $rank = trim( str_replace( '+ Mastery Level', '', $line ) );
 

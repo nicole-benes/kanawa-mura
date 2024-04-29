@@ -488,14 +488,106 @@ function last_haiku_import_make_menu() {
           'Schools' => [
                'description' => 'All basic, advanced, and alternate paths available to Samuri in Rokugon.',
                'uri' => '/schools',
+               'children' => [
+                    'Great Clans' => [
+                         'uri' => '/schools/great clans',
+                         'children' => [
+                              'Crab' => [
+                                   'uri' => '/schools/crab',
+                              ],
+                              'Crane' => [
+                                   'uri' => '/schools/crane',
+                              ],
+                              'Dragon' => [
+                                   'uri' => '/schools/dragon',
+                              ],
+                              'Lion' => [
+                                   'uri' => '/schools/lion',
+                              ],
+                              'Mantis' => [
+                                   'uri' => '/schools/mantis',
+                              ],
+                              'Phoenix' => [
+                                   'uri' => '/schools/phoenix',
+                              ],
+                              'Scorpion' => [
+                                   'uri' => '/schools/scorpion',
+                              ],
+                              'Spider' => [
+                                   'uri' => '/schools/spider',
+                              ],
+                              'Unicorn' => [
+                                   'uri' => '/schools/unicorn',
+                              ],
+                         ],
+                    ],
+                    'Minor Clans' => [
+                         'uri' => '/schools/minor clans',
+                    ],
+                    'Imperial Families' => [
+                         'uri' => '/schools/imperial families',
+                    ],
+                    'Monk Schools' => [
+                         'uri' => '/schools/monk schools',
+                    ],
+                    'Ronin Schools' => [
+                         'uri' => '/schools/ronin schools',
+                    ],
+                    'Miscellaneous Schools' => [
+                         'uri' => '/schools/miscellaneous',
+                    ],
+                    'Lost Clans' => [
+                         'uri' => '/schools/lost clans',
+                    ],
+                ],
           ],
           'Skills' => [
                'description' => 'The skills which make up the world of Rokugon.',
                'uri' => '/skills',
+               'children' => [
+                    'High Skills' => [
+                         'uri' => '/skills/high',
+                    ],
+                    'Merchant Skills' => [
+                         'uri' => '/skills/merchant',
+                    ],
+                    'Bugei Skills' => [
+                         'uri' => '/skills/bugei',
+                    ],
+                    'Low Skills' => [
+                         'uri' => '/skill/low',
+                    ],                    
+               ],
           ],
           'Spells' => [
                'description' => 'The invocations used by Shugenja and other less honorable magic.',
                'uri' => '/spells',
+               'children' => [
+                    'Air' => [
+                         'uri' => '/spells/air',
+                    ],
+                    'Earth' => [
+                         'uri' => '/spells/earth',
+                    ],
+                    'Fire' => [
+                         'uri' => '/spells/fire',
+                    ],
+                    'Water' => [
+                         'uri' => '/spells/water',
+                    ],
+                    'Void' => [
+                         'uri' => '/spells/void',
+                    ],
+                    'Universal' => [
+                         'uri' => '/spells/universal',
+                    ],
+                    'Multi-Element' => [
+                         'uri' => '/spells/mutli-element',
+                    ],
+                    'Maho' => [
+                         'uri' => '/spells/maho',
+                    ],
+               ],
           ],
           'Miscellaneous' => [
                'description' => 'Lesser used areas of the rules.',
