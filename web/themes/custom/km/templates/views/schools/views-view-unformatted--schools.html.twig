@@ -1,6 +1,6 @@
 <div class="schools-type-group accordion">
      <div class="accordion-item">
-          <h2 class="accordion-header">
+          <h2 class="accordion-header sticky-top">
                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#{{ schoolTypeGrouping }}-accordion" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
                     {{ title }}
                </button>
@@ -12,7 +12,7 @@
                          {% for row in rows %}
                               {% 
                               set row_classes = [
-                                   default_row_class ? 'views-row school school-{{ schoolTypeGrouping }}',
+                                   default_row_class ? 'views-row school school-' ~ schoolTypeGrouping,
                               ]|merge(row_utility_classes ? row_utility_classes : []) 
                               %}
                               

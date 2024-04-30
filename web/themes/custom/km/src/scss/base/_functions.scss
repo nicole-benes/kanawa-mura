@@ -1,2 +1,12 @@
 // Global Sass @function declarations
 // -----------------------------------------------------------------------------
+@mixin clanAccordion( $clan, $color ) {
+     #{$clan} {
+          .accordion-item {
+               .accordion-button {
+                    background-color: $color;
+                    border-color: darken( $color, 20 );
+               }
+          }    
+     } 
+}

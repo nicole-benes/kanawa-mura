@@ -12678,18 +12678,8 @@ main.py-5 {
   }
 }
 
-.navbar-expand-lg {
-  /*
-       overflow-y: scroll; 
-
-       &.menu-expanded {
-            bottom: 0;
-       }
-
-       @include media-breakpoint-up(lg) {
-            overflow-y: visible;
-       }
-  */
+.navbar-expand-lg.fixed-top {
+  z-index: 1200;
 }
 .navbar-expand-lg .navbar-nav li a:focus {
   color: #6f42c1;
@@ -12761,6 +12751,16 @@ main.py-5 {
 }
 .grouped-view .accordion .accordion {
   margin-bottom: 3rem;
+}
+.grouped-view .accordion .accordion-button {
+  background-color: #495057;
+  border-color: #333;
+}
+.grouped-view .accordion .accordion-header {
+  z-index: 1050;
+}
+.grouped-view .accordion .accordion-header.sticky-top {
+  top: 75px;
 }
 .grouped-view .inline-technique-title {
   font-style: italic;
@@ -12890,6 +12890,41 @@ main.py-5 {
   background: #eee;
 }
 @media (max-width: 767.98px) {
+  .grouped-view .accordion-item {
+    border: 0;
+  }
+  .grouped-view .accordion-body {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .grouped-view .accordion-header.sticky-top {
+    margin-left: -12px;
+    margin-right: -12px;
+  }
+  .grouped-view .accordion .accordion .accordion-header {
+    top: 125px;
+  }
+  .grouped-view .accordion .accordion .accordion-header button {
+    padding-left: 2rem;
+  }
+  .grouped-view .accordion .accordion .accordion .accordion-header {
+    top: 175px;
+  }
+  .grouped-view .accordion .accordion .accordion .accordion-header button {
+    padding-left: 3rem;
+  }
+  .grouped-view .accordion .imperial-families .accordion-header,
+  .grouped-view .accordion .miscellaneous .accordion-header,
+  .grouped-view .accordion .monk .accordion-header,
+  .grouped-view .accordion .ronin-families .accordion-header {
+    top: 75px;
+  }
+  .grouped-view .accordion .imperial-families .accordion .accordion-header,
+  .grouped-view .accordion .miscellaneous .accordion .accordion-header,
+  .grouped-view .accordion .monk .accordion .accordion-header,
+  .grouped-view .accordion .ronin-families .accordion .accordion-header {
+    top: 125px;
+  }
   .grouped-view .views-exposed-form .form-actions {
     width: 100%;
   }
@@ -12908,6 +12943,42 @@ main.py-5 {
   .grouped-view .views-exposed-form .form-item {
     width: 100%;
   }
+}
+.grouped-view .great-clans .crab .accordion-item .accordion-button {
+  background-color: #2B5DA8;
+  border-color: #163057;
+}
+.grouped-view .great-clans .crane .accordion-item .accordion-button {
+  background-color: #81BEE7;
+  border-color: #2b92d7;
+}
+.grouped-view .great-clans .dragon .accordion-item .accordion-button {
+  background-color: #4BAA6C;
+  border-color: #2c633f;
+}
+.grouped-view .great-clans .lion .accordion-item .accordion-button {
+  background-color: #D2AE5B;
+  border-color: #9c7a2b;
+}
+.grouped-view .great-clans .mantis .accordion-item .accordion-button {
+  background-color: #0C452C;
+  border-color: black;
+}
+.grouped-view .great-clans .phoenix .accordion-item .accordion-button {
+  background-color: #EC644E;
+  border-color: #bf2c15;
+}
+.grouped-view .great-clans .scorpion .accordion-item .accordion-button {
+  background-color: #B72533;
+  border-color: #62141b;
+}
+.grouped-view .great-clans .spider .accordion-item .accordion-button {
+  background-color: #222;
+  border-color: black;
+}
+.grouped-view .great-clans .unicorn .accordion-item .accordion-button {
+  background-color: #5D4490;
+  border-color: #30234b;
 }
 
 .view-site-search {

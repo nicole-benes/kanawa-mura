@@ -1,15 +1,9 @@
 .navbar-expand-lg {
-/*
-     overflow-y: scroll; 
-
-     &.menu-expanded {
-          bottom: 0;
+     &.fixed-top {
+          z-index: 1200;
      }
 
-     @include media-breakpoint-up(lg) {
-          overflow-y: visible;
-     }
-*/
+
      .navbar-nav {
           li {
                a {

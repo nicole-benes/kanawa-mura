@@ -14,6 +14,19 @@
           .accordion {
                margin-bottom: 3rem;
           }
+
+          .accordion-button {
+               background-color: $gray-700;
+               border-color: $gray-800;
+          }
+
+          .accordion-header {
+               z-index: 1050;
+
+               &.sticky-top {
+                    top: 75px;
+               }
+          }
      }
 
      .inline-technique-title {
@@ -237,6 +250,60 @@
      }
 
      @include media-breakpoint-down(md) {
+          .accordion-item {
+               border: 0;
+          }
+
+          .accordion-body {
+               padding-left: 0;
+               padding-right: 0;
+          }
+
+          .accordion-header {
+               &.sticky-top {
+                    margin-left: -12px;
+                    margin-right: -12px;
+               }
+          }
+
+          .accordion {
+               .accordion {
+                    .accordion-header {
+                         top: 125px;
+                         
+                         button { 
+                              padding-left: 2rem;
+                         }
+                    }
+
+                    .accordion {
+                         .accordion-header {
+                              top: 175px;
+
+                              button {
+                                   padding-left: 3rem;
+                              }
+                         }
+                    }
+               }
+
+               .imperial-families,
+               .miscellaneous,
+               .monk,
+               .ronin-families {
+                    .accordion-header {
+                         top: 75px;
+                    }
+
+                    .accordion {
+                         .accordion-header {
+                              top: 125px;
+                         }
+                    }
+               }
+          }
+
+
           .views-exposed-form {
                .form-actions {
                     width: 100%;
@@ -262,6 +329,25 @@
                     width: 100%;
                }
           }          
+     }
+
+     .great-clans {
+          .accordion {
+               .accordion-button {
+
+               }
+          }
+
+          @include clanAccordion( ".crab", $crab );
+          @include clanAccordion( ".crane", $crane );
+          @include clanAccordion( ".dragon", $dragon );
+          @include clanAccordion( ".lion", $lion );
+          @include clanAccordion( ".mantis", $mantis );
+          @include clanAccordion( ".phoenix", $phoenix );
+          @include clanAccordion( ".scorpion", $scorpion );
+          @include clanAccordion( ".spider", $spider );
+          @include clanAccordion( ".unicorn", $unicorn );
+
      }
 }
 
