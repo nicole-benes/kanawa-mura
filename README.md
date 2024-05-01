@@ -34,6 +34,7 @@ This does a fresh install of Drupal then imports all of the configuration settin
 
 ### settings.local.php ###
 ```php
+<?php
 // Set up the database connection
 $databases = [];
 
