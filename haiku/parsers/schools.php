@@ -41,7 +41,7 @@ if ( $handle ) {
 		// Check if we have hit the basic schools block
 		} else if( strpos( $line, '+ Basic Schools' ) !== false ) {
 			
-			// Set that we are in the basic skills sblock
+			// Set that we are in the basic skills block
 			$basicSchools = true;
 
 		// Check if we have hit the advanced schools block
@@ -136,7 +136,7 @@ if ( $handle ) {
 		'Shark',
 		'Tanuki',
 	
-		// These last two aren't clans, but are seperate for whatever reason
+		// These last two aren't clans, but are separate for whatever reason
 		'Monk',
 		'Miscellaneous'
 	];
@@ -163,7 +163,7 @@ if ( $handle ) {
 			$advSchools[ $clan ] = advancedSchoolsParse( $clan, $advBlock[ $clan ] );
 		}
 
-		// Make sure this clan has altenrate paths
+		// Make sure this clan has alternate paths
 		if( array_key_exists( $clan, $altBlock ) ) {
 
 			// Parse out the advanced schools for this clan
@@ -290,7 +290,7 @@ function alternatePathsParse( $clan, $block ) {
 			// Probably don't need this here, but just in case indicate we are done with the header
 			$pathHeader = false;
 			
-			// I still don't trust last Haikus formatting to be consistent
+			// I still don't trust last Haiku's formatting to be consistent
 			$line = parseLine( $line, 'Rank' );
 
 			// Is our line a number or something more?
@@ -334,7 +334,7 @@ function alternatePathsParse( $clan, $block ) {
 			// Probably don't need this here, but just in case indicate we are done with the header
 			$pathHeader = false;
 
-			// I still don't trust last Haikus formatting to be consistent
+			// I still don't trust last Haiku's formatting to be consistent
 			$line = parseLine( $line, 'Technique Rank' );
 
 			// This line is more complicated than just a number
@@ -357,7 +357,7 @@ function alternatePathsParse( $clan, $block ) {
 						// Is this a number?
 						if( is_numeric( $part ) ) {
 
-							// Push that nuber onto the path array
+							// Push that number onto the path array
 							$path[ 'rank' ][ 'basic' ][] = $part;
 						}
 					}
@@ -414,7 +414,7 @@ function alternatePathsParse( $clan, $block ) {
 				// Loop through each school
 				foreach( $replacedSchools as $school ) {
 
-					// Ensure we got a school, handles cases like "blah 4, or blech 3"
+					// Ensure we got a school, handles cases like "blah 4, or blah 3"
 					if( strlen( $school ) > 0 ) {
 
 						// Figure out the numeric value of this school
@@ -446,7 +446,7 @@ function alternatePathsParse( $clan, $block ) {
 			// Just in case
 			$pathHeader = false;
 
-			// I don't trust last Haikus formatting to be consistent
+			// I don't trust last Haiku's formatting to be consistent
 			$line = parseLine( $line, 'Benefit' );
 
 			// Split off the amount and the actual trait
@@ -462,7 +462,7 @@ function alternatePathsParse( $clan, $block ) {
 			// Just in case something is out of order
 			$pathHeader = false;
 
-			// I still don't trust last Haikus formatting to be consistent
+			// I still don't trust last Haiku's formatting to be consistent
 			$line = parseLine( $line, 'Skills' );
 
 			// Explode the skills into an array
@@ -476,7 +476,7 @@ function alternatePathsParse( $clan, $block ) {
 			// Just in case something is out of order
 			$schoolHeader = false;
 			
-			// I really don't trust last Haikus formatting to be consistent
+			// I really don't trust last Haiku's formatting to be consistent
 			$line = parseLine( $line, 'Honor' );
 			
 			// Honor is easy
@@ -512,8 +512,8 @@ function alternatePathsParse( $clan, $block ) {
 		// Requirements for the path
 		} else if( strpos( $line, 'Requirements:' ) !== false || strpos( $line, 'Requires:' ) !== false ) {
 
-			// I feel like at this point I should of made a function like "last_haikus_consistency_is_non_existant"
-			// 	- Update: I did infact make a function because dear god
+			// I feel like at this point I should of made a function like "last_haiku's_consistency_is_non_existent"
+			// 	- Update: I did in fact make a function because dear god
 			$line = parseLine( $line, 'Requirements' );
 			$line = parseLine( $line, 'Requires' );
 
@@ -722,10 +722,10 @@ function advancedSchoolsParse( $clan, $block ) {
 			// Just in case something is out of order
 			$schoolHeader = false;
 
-			// I still don't trust last Haikus formatting to be consistent
+			// I still don't trust last Haiku's formatting to be consistent
 			$line = parseLine( $line, 'Skills' );
 
-			// I still don't trust last Haikus formatting to be consistent
+			// I still don't trust last Haiku's formatting to be consistent
 			$line = parseLine( $line, 'Skills' );
 
 			// Parse out the skills into an overly complex array
@@ -1245,7 +1245,7 @@ function parseSkills( $remainder ) {
 			// No colon, it's just a pick from a category
 			} else {
 
-				$skills[ 'any' ] = trim( $portion );
+				$skills[ 'any' ][] = trim( $portion );
 			}
 
 		// This is a skill with only one emphasis
