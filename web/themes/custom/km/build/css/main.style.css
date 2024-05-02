@@ -12663,6 +12663,12 @@ main.py-5 {
   font-family: "Comforter Brush", cursive;
   font-size: 115px;
 }
+.homepage-header .construction {
+  color: #333;
+  margin-top: 1rem;
+  font-size: 14px;
+  font-style: italic;
+}
 .homepage-header .description {
   color: #6f42c1;
   font-style: italic;
