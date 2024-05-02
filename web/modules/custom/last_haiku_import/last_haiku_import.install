@@ -52,7 +52,7 @@ function last_haiku_import_install() {
      // Import ancestors
      last_haiku_import_ancestors( $sources );
 
-	// Import Katas
+	// Import Kata
 	last_haiku_import_kata( $sources );
 
 	// Import Kiho
@@ -252,7 +252,7 @@ function last_haiku_import_honor_table( $sources ) {
           'target_revision_id' => $tableBlock->getRevisionId(),               
      ];     
 
-     // Crea[te our source paragraph
+     // Create our source paragraph
      $source = Paragraph::create([
           'type' => 'source',
           'field_source_book' => [
@@ -470,11 +470,11 @@ function last_haiku_import_make_menu() {
      // Links to create
      $links = [
           'Equipment' => [
-               'description' => 'The equipment available for purchase and use in Rokugon.',
+               'description' => 'The equipment available for purchase and use in Rokugan.',
                'uri' => '/equipment',
           ],
           'Families' => [
-               'description' => 'The families which make up Rokugon.',
+               'description' => 'The families which make up Rokugan.',
                'uri' => '/families',
           ],
           'Kata' => [
@@ -482,11 +482,11 @@ function last_haiku_import_make_menu() {
                'uri' => '/kata',
           ],
           'Kiho' => [
-               'description' => 'The various mystical abilities known to Rokugons monastic orders.',
+               'description' => 'The various mystical abilities known to Rokugan\'s monastic orders.',
                'uri' => '/kiho',
           ],
           'Schools' => [
-               'description' => 'All basic, advanced, and alternate paths available to Samuri in Rokugon.',
+               'description' => 'All basic, advanced, and alternate paths available to Samurai in Rokugan.',
                'uri' => '/schools',
                'children' => [
                     'All Schools' => [
@@ -545,7 +545,7 @@ function last_haiku_import_make_menu() {
                 ],
           ],
           'Skills' => [
-               'description' => 'The skills which make up the world of Rokugon.',
+               'description' => 'The skills which make up the world of Rokugan.',
                'uri' => '/skills',
                'children' => [
                     'All Skills' => [
@@ -591,7 +591,7 @@ function last_haiku_import_make_menu() {
                          'uri' => '/spells/universal',
                     ],
                     'Multi-Element' => [
-                         'uri' => '/spells/mutli-element',
+                         'uri' => '/spells/multi-element',
                     ],
                     'Maho' => [
                          'uri' => '/spells/maho',
@@ -606,7 +606,7 @@ function last_haiku_import_make_menu() {
                          'uri' => '/search',
                     ],
                     'Advantages & Disadvantages' => [
-                         'description' => 'Abilities, relationships, or possesions that go above and beyond other mechanical representations.',
+                         'description' => 'Abilities, relationships, or possessions that go above and beyond other mechanical representations.',
                          'uri' => '/advantages-disadvantages',
                     ],
                     'Ancestors' => [ 
@@ -1274,7 +1274,7 @@ function last_haiku_import_advantages_and_disadvantages( $sources ) {
                               // Start the body
                               $description .= '<tbody>';
 
-                              // Figure out the bodyr
+                              // Figure out the body
                               foreach( $line->table->rows as $row ) {
 
                                    // Start a new row
@@ -1702,10 +1702,10 @@ function last_haiku_import_alternate_paths( $sources ) {
 
 			$node[ 'field_path_technique_rank' ] = $techniqueRank;
 
-			// Save that technqiue paragraph
+			// Save that technique paragraph
 			$t->save(); 
 
-			// add the technqiue to our node
+			// add the technique to our node
 			$node[ 'field_school_techniques' ][] = $t;			
 
 			// Not every node has a replaces
@@ -1856,7 +1856,7 @@ function last_haiku_import_advanced_schools( $sources ) {
 				]; 
 			}
 			
-			// Anhy "other" requirements?
+			// Any "other" requirements?
 			if( property_exists( $school->requirements, 'other' ) ) {
 				
 				// Set the other field
@@ -1866,7 +1866,7 @@ function last_haiku_import_advanced_schools( $sources ) {
 				];				
 			}
 
-			// Anhy advantage requirements?
+			// Any advantage requirements?
 			if( property_exists( $school->requirements, 'advantages' ) ) {
 
 				// We're going to link to the advantage
@@ -1902,10 +1902,10 @@ function last_haiku_import_advanced_schools( $sources ) {
 					'field_title' => $technique->name,
 				]); 
 
-				// Save that technqiue paragraph
+				// Save that technique paragraph
 				$t->save(); 
 
-				// add the technqiue to our node
+				// add the technique to our node
 				$node[ 'field_school_techniques' ][] = $t;			
 			}
 
@@ -1996,7 +1996,7 @@ function last_haiku_import_basic_schools( $sources )  {
 			// Not every school has a benefit
 			if( property_exists( $school, 'benefitTrait' ) ) {
 
-				// Create our trait modifer paragraph
+				// Create our trait modifier paragraph
 				$benefit = Paragraph::create([
 					'type' => 'trait_modifier',
 					'field_trait_modified' => [
@@ -2075,7 +2075,7 @@ function last_haiku_import_basic_schools( $sources )  {
 			// Not every school has a starting honor
 			if( property_exists( $school, 'honor' ) ) {
 
-				// This scholl does, so set it
+				// This school does, so set it
 				$node[ 'field_school_honor' ] = $school->honor;
 			}
 
@@ -2113,10 +2113,10 @@ function last_haiku_import_basic_schools( $sources )  {
 					'field_title' => $technique->name,
 				]); 
 
-				// Save that technqiue paragraph
+				// Save that technique paragraph
 				$t->save(); 
 
-				// add the technqiue to our node
+				// add the technique to our node
 				$node[ 'field_school_techniques' ][] = $t;	
                     
 			// Standard - bushi, courtier, etc
@@ -2150,10 +2150,10 @@ function last_haiku_import_basic_schools( $sources )  {
 						'field_title' => $technique->name,
 					]); 
 
-					// Save that technqiue paragraph
+					// Save that technique paragraph
 					$t->save(); 
 
-					// add the technqiue to our node
+					// add the technique to our node
 					$node[ 'field_school_techniques' ][] = $t;			
 				}
 			}
@@ -2529,7 +2529,7 @@ function last_haiku_import_generate_clans() {
 
 function last_haiku_import_parse_school_spells( $spells ) {
 
-	// Replace the unviersal spells with links to the spells
+	// Replace the universal spells with links to the spells
 	$spells = str_replace( 'Summon', '<a href="/spells/universal#Summon">Summon</a>', $spells );
 	$spells = str_replace( 'Sense', '<a href="/spells/universal#Sense">Sense</a>', $spells );
 	$spells = str_replace( 'Commune', '<a href="/spells/universal#Commune">Commune</a>', $spells );
@@ -2612,46 +2612,57 @@ function last_haiku_import_parse_skills( $skills ) {
 		// Just some "pick any" text"
 		} else if( $key == 'any' ) {
 
-			// Is this a pick any one or two skills?
-			if( strpos( $skill, 'any one Skill' ) !== false || strpos( $skill, 'any two Skills' ) !== false ) {
+               // There's a few schools with multiple pick anys
+               foreach( $skill as $any ) {
 
-				// Figure out where the word skill is
-				$position = strpos( $skill, 'Skill' );
+                    // Is this a pick any one or two skills?
+                    if( strpos( $any, 'any one Skill' ) !== false || strpos( $any, 'any two Skills' ) !== false ) {
 
-				// Make skill(s) hyperlinked
-				$skill = substr( $skill, 0, $position ) . '<a href="/skills">' . substr( $skill, $position ) . '</a>, ';
-			}
+                         // Figure out where the word skill is
+                         $position = strpos( $any, 'Skill' );
 
-			// Link to Bugei skills
-			if( strpos( $skill, ' Bugei ' ) !== false ) {
+                         // Make skill(s) hyperlinked
+                         $any = substr( $any, 0, $position ) . '<a href="/skills">' . substr( $any, $position ) . '</a>, ';
+                    }
 
-				// Replace the word bugei with a hyperlink
-				$skill = str_replace( 'Bugei ', ' <a href="/skills#bugei-skills">Bugei</a> ', $skill );
-			}
+                    // Link to Lore skills
+                    if( strpos( $any, ' Lore ' ) !== false ) {
+ 
+                         // Replace the word lore with a hyperlink
+                         $any = str_replace( 'Lore ', ' <a href="/skills#Lore">Lore</a> ', $any );
+                    }
 
-			// Link to Low skills
-			if( strpos( strtolower( $skill) , ' low ' ) !== false ) {
+                    // Link to Bugei skills
+                    if( strpos( $any, ' Bugei ' ) !== false ) {
 
-				// Replace the word bugei with a hyperlink
-				$skill = str_replace( ' Low ', ' <a href="/skills#low-skills">Low</a> ', $skill );
-			}
+                         // Replace the word bugei with a hyperlink
+                         $any = str_replace( 'Bugei ', ' <a href="/skills#bugei-skills">Bugei</a> ', $any );
+                    }
 
-			// Link to High skills
-			if( strpos( strtolower( $skill) , 'high' ) !== false ) {
+                    // Link to Low skills
+                    if( strpos( strtolower( $any ) , ' low ' ) !== false ) {
 
-				// Replace the word bugei with a hyperlink
-				$skill = str_replace( ' High ', ' <a href="/skills#high-skills">High</a> ', $skill );
-			}
+                         // Replace the word bugei with a hyperlink
+                         $any = str_replace( ' Low ', ' <a href="/skills#low-skills">Low</a> ', $any );
+                    }
 
-			// Link to Bugei skills
-			if( strpos( strtolower( $skill) , 'merchant' ) !== false ) {
+                    // Link to High skills
+                    if( strpos( strtolower( $any ) , 'high' ) !== false ) {
 
-				// Replace the word bugei with a hyperlink
-				$skill = str_replace( ' Merchant ', ' <a href="/skills#merchant-skills">Merchant</a> ', $skill );
-			}
+                         // Replace the word bugei with a hyperlink
+                         $any = str_replace( ' High ', ' <a href="/skills#high-skills">High</a> ', $any );
+                    }
 
-			// Add to our html
-			$schoolSkills .= $skill . ', ';
+                    // Link to Bugei skills
+                    if( strpos( strtolower( $any ) , 'merchant' ) !== false ) {
+
+                         // Replace the word bugei with a hyperlink
+                         $any = str_replace( ' Merchant ', ' <a href="/skills#merchant-skills">Merchant</a> ', $any );
+                    }
+
+                    // Add to our html
+                    $schoolSkills .= $any . ', ';
+               }
 
 		// If we got here, it's gotta be a skill with an emphasis
 		} else {
@@ -2692,7 +2703,7 @@ function last_haiku_import_parse_stats( $stats ) {
 			'field_trait_modifier' => $stat->rank,
 		]); 	
 
-		// Save that technqiue paragraph
+		// Save that technique paragraph
 		$requirement->save(); 
 	
 		// Add this to our block of requirements
@@ -3100,7 +3111,7 @@ function last_haiku_import_create_advantage_and_disadvantage_subtypes() {
      $subtypes = [
           'Physical' => "These represent an ability or disability inherent to the character's body in some way. They may not be purchased after character creation without extenuating circumstances, and conversely they may sometimes be awarded without deliberate purchase (losing a limb results in Missing Limb, for example).",
           'Mental' => "These abilities represent part of a character's mental or psychological make-up in some way, and cannot be purchased after character creation unless approved by the GM.",
-          'Social' => "Social Advantages and Disadvantages represent a character's ability or inability to interact with others in a successful manner. They may be purchased during play with GM approval if the circumstnces are appropriate (a character should only purchase the Allies Advantage if he actually has allies, and so on.",
+          'Social' => "Social Advantages and Disadvantages represent a character's ability or inability to interact with others in a successful manner. They may be purchased during play with GM approval if the circumstances are appropriate (a character should only purchase the Allies Advantage if he actually has allies, and so on.",
           'Material' => "These abilities represent possession of a physical item. They are riskier than other Advantages or Disadvantages because such an item can be stolen or destroyed, depriving the character of the mechanical benefit for which Experience Points were spent. These may be purchased during play with approval from the GM.",
           'Spiritual' => "These abilities represent a link between the character and something else that is not normally experienced by the average person. This might be a bond with a creature from a spirit realm, or even just a kharmic tie with another person in some way. These may only be purchased after character creation if the GM judges the circumstances dictate the character would in fact have this relationship.",
           'Varies' => '',
@@ -3363,7 +3374,7 @@ function last_haiku_import_create_clans_families( $sources ) {
 
                     }
 
-                    // Create our trait modifer paragraph
+                    // Create our trait modifier paragraph
                     $benefit = Paragraph::create([
                          'type' => 'trait_modifier',
                          'field_trait_modified' => [
@@ -3453,10 +3464,10 @@ function last_haiku_import_build_menu( $menu, $links, $weight, $parentId = null 
           // Save the new menu item
           $newLink->save();
 
-          // Incriment the weight
+          // Increment the weight
           $weight++;
           
-          // Does this link have childreun?
+          // Does this link have children?
           if( array_key_exists( 'children', $link ) ) {
                $weight = last_haiku_import_build_menu( $menu, $link[ 'children' ], $weight, $newLink->uuid() );
           }
