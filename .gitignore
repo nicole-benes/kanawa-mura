@@ -96,3 +96,6 @@
 # Ignore .env files as they are personal
 #/.env
 /db
+
+# Ignore OS files
+**/.DS_Store
