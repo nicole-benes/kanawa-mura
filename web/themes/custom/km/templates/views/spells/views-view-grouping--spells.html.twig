@@ -20,6 +20,12 @@
      <div class="accordion-item">
           <h2 class="accordion-header">
                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#{{ spellType }}" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+                    {% if spellType == 'air' %}
+                         <div id="air-ring" class="ring-icon">
+                              <img src="{{ directory }}/images/rings/air.png">
+                         </div>
+                    {% endif %}
+
                     {{ title }}
                </button>
           </h2>
