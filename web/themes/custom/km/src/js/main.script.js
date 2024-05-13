@@ -1,4 +1,5 @@
 // * Bootstrap libraries
+import ScrollSpy from "bootstrap/js/dist/scrollspy";
 import "./_bootstrap";
 
 
@@ -15,5 +16,35 @@ import "./_bootstrap";
           if( !$( '.navbar-collapse' ).hasClass( 'show' ) ) {
                window.location.href = $( this ).attr( 'href' );
           } 
+     });
+
+     const scrollSpyWrapper  = document.getElementById( 'scrollspy-wrapper' );
+
+     const spy = new ScrollSpy( scrollSpyWrapper, {
+          target: '#null',
+          threshold: [ 0, 0, 0 ],
+          smoothScroll: true
+     });
+     
+     let oldRing = '';
+
+     scrollSpyWrapper.addEventListener( 'activate.bs.scrollspy', function( event ) {
+          if( event.relatedTarget.hash.includes( 'mastery' ) ) {
+               let hash = event.relatedTarget.hash;
+
+               $( '.side-pane-mastery-link' ).removeClass( 'active' );
+               $( '.side-pane-mastery-link[href="' + hash + '"]' ).addClass( 'active' );
+
+               const ring = hash.substring( hash.indexOf( '#' ) + 1, hash.indexOf( '-' ) );
+
+               if( oldRing != ring ) {
+                    $( '.side-pane-navigation-ring-wrapper' ).removeClass( 'active' );
+                    $( '#side-pane-navigation-' + ring ).addClass( 'active' );
+                    console.log( 'new ring' );
+               }
+
+               console.log( ring );
+
+          }
      });
 })(jQuery);

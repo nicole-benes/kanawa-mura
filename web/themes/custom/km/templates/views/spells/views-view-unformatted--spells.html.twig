@@ -1,4 +1,4 @@
-<div class="spells-group accordion">
+<div id="{{ mastery_grouping }}" class="spells-group accordion">
      <div class="accordion-item">
           <h2 class="accordion-header">
                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#{{ mastery_grouping }}-accordion" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
@@ -26,7 +26,7 @@
                                    {{- row.content -}}
                               </div>
                          {% endfor %}
-                    {% endblock %}     
+                    {% endblock %}      
                </div>
           </div>
      </div>

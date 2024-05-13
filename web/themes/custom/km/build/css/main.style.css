@@ -12739,6 +12739,54 @@ main.py-5 {
   }
 }
 
+.side-navigation-pane {
+  display: none;
+}
+
+#simple-list-example {
+  position: fixed;
+  top: 25%;
+  left: 0;
+}
+#simple-list-example a.active {
+  font-weight: bold;
+}
+
+@media (min-width: 992px) {
+  .side-navigation-pane {
+    display: block;
+    position: fixed;
+    top: 25%;
+    left: 2rem;
+    width: 200px;
+  }
+  .side-navigation-pane a {
+    text-decoration: none;
+  }
+  .side-navigation-pane h6, .side-navigation-pane .h6 {
+    font-size: 1.25rem;
+    margin: 0;
+    padding: 0;
+  }
+  .side-navigation-pane .side-pane-navigation-ring-wrapper {
+    display: block;
+    margin: 1rem 0;
+    padding-left: 55px;
+    position: relative;
+  }
+  .side-navigation-pane .side-pane-navigation-ring-wrapper img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 50px;
+  }
+  .side-navigation-pane .side-pane-navigation-ring-wrapper.active h6, .side-navigation-pane .side-pane-navigation-ring-wrapper.active .h6 {
+    font-weight: bold;
+  }
+  .side-navigation-pane .side-pane-navigation-ring-wrapper .side-pane-mastery-link.active {
+    font-weight: bold;
+  }
+}
 .accordion .accordion-button {
   background-color: #6f42c1;
   border-color: #6610f2;

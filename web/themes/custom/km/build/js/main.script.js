@@ -3050,8 +3050,11 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _bootstrap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./_bootstrap */ "./src/js/_bootstrap.js");
+/* harmony import */ var bootstrap_js_dist_scrollspy__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! bootstrap/js/dist/scrollspy */ "./node_modules/bootstrap/js/dist/scrollspy.js");
+/* harmony import */ var bootstrap_js_dist_scrollspy__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(bootstrap_js_dist_scrollspy__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _bootstrap__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./_bootstrap */ "./src/js/_bootstrap.js");
 // * Bootstrap libraries
+
 
 (function ($) {
   $('.navbar-toggler').click(function () {
@@ -3064,6 +3067,27 @@ __webpack_require__.r(__webpack_exports__);
   $('.navbar-nav li.dropdown a').click(function () {
     if (!$('.navbar-collapse').hasClass('show')) {
       window.location.href = $(this).attr('href');
+    }
+  });
+  var scrollSpyWrapper = document.getElementById('scrollspy-wrapper');
+  var spy = new (bootstrap_js_dist_scrollspy__WEBPACK_IMPORTED_MODULE_0___default())(scrollSpyWrapper, {
+    target: '#null',
+    threshold: [0, 0, 0],
+    smoothScroll: true
+  });
+  var oldRing = '';
+  scrollSpyWrapper.addEventListener('activate.bs.scrollspy', function (event) {
+    if (event.relatedTarget.hash.includes('mastery')) {
+      var hash = event.relatedTarget.hash;
+      $('.side-pane-mastery-link').removeClass('active');
+      $('.side-pane-mastery-link[href="' + hash + '"]').addClass('active');
+      var ring = hash.substring(hash.indexOf('#') + 1, hash.indexOf('-'));
+      if (oldRing != ring) {
+        $('.side-pane-navigation-ring-wrapper').removeClass('active');
+        $('#side-pane-navigation-' + ring).addClass('active');
+        console.log('new ring');
+      }
+      console.log(ring);
     }
   });
 })(jQuery);

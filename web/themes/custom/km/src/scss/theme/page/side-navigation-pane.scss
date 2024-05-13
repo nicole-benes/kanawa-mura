@@ -1,0 +1,60 @@
+.side-navigation-pane {
+     display: none;
+}
+
+#simple-list-example {
+     position: fixed;
+     top: 25%;
+     left: 0;
+
+     a.active {
+          font-weight: bold;;
+     }
+}
+
+@include media-breakpoint-up(lg) {
+     .side-navigation-pane {
+          display: block;
+          position: fixed;
+          top: 25%;
+          left: 2rem;
+          width: 200px;
+
+          a {
+               text-decoration: none;
+          }
+
+          h6 {
+               font-size: 1.25rem;
+               margin: 0;
+               padding: 0;
+          }
+
+          .side-pane-navigation-ring-wrapper {
+               display: block;
+               margin: 1rem 0;
+               padding-left: 55px;
+               position: relative;
+
+               img {
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    width: 50px;
+               }
+
+               &.active {
+                    h6 {
+                         font-weight: bold;
+
+                    }
+               }
+
+               .side-pane-mastery-link {
+                    &.active {
+                         font-weight: bold;
+                    }
+               }
+          }
+     }
+}
