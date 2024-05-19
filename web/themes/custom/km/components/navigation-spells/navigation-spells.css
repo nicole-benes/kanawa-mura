@@ -4,7 +4,7 @@
     -webkit-animation: rotation 2s infinite linear;
             animation: rotation 2s infinite linear;
   }
-  .spell-navigation .side-ring-wrapper.universal {
+  .spell-navigation .side-ring-wrapper.universal img {
     opacity: 0.75;
   }
 }
@@ -28,5 +28,3 @@
             transform: rotate(359deg);
   }
 }
-
-/*# sourceMappingURL=navigation-spells.css.map*/

@@ -2,7 +2,6 @@
 import ScrollSpy from "bootstrap/js/dist/scrollspy";
 import "../../src/js/_bootstrap";
 
-
 (function($) {
      const scrollSpyWrapper  = document.getElementById( 'scrollspy-wrapper' );
 

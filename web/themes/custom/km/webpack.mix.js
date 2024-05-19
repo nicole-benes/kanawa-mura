@@ -20,9 +20,6 @@ require('laravel-mix-copy-watched');
 */
 mix
 	.sourceMaps()
-	.webpackConfig({
-		devtool: 'source-map',
-	})
 	.disableNotifications()
 	.options({
 		processCssUrls: false,

@@ -12758,15 +12758,6 @@ main.py-5 {
   display: none;
 }
 
-#simple-list-example {
-  position: fixed;
-  top: 25%;
-  left: 0;
-}
-#simple-list-example a.active {
-  font-weight: bold;
-}
-
 @media (min-width: 992px) {
   .side-navigation-pane-wrapper {
     display: block;
@@ -13108,5 +13099,3 @@ main.py-5 {
   padding-bottom: 0;
   border: 0;
 }
-
-/*# sourceMappingURL=main.style.css.map*/

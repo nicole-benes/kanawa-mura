@@ -11,7 +11,9 @@
                }     
 
                &.universal {
-                    opacity: .75;
+                    img {
+                         opacity: .75;
+                    }
                }               
           }
      }

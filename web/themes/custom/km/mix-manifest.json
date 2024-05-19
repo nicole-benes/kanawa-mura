@@ -1,11 +1,11 @@
 {
     "/build/js/main.script.js": "/build/js/main.script.js",
+    "/components/navigation-spells/navigation-spells.js": "/components/navigation-spells/navigation-spells.js",
     "/build/css/main.style.css": "/build/css/main.style.css",
     "/components/page-footer/page-footer.css": "/components/page-footer/page-footer.css",
     "/components/offcanvas/_offcanvas.css": "/components/offcanvas/_offcanvas.css",
     "/components/navigation-spells/navigation-spells.css": "/components/navigation-spells/navigation-spells.css",
     "/components/navbar/navbar.css": "/components/navbar/navbar.css",
     "/components/page/page.css": "/components/page/page.css",
-    "/components/page-navigation/page-navigation.css": "/components/page-navigation/page-navigation.css",
-    "/components/navigation-spells/navigation-spells.js": "/components/navigation-spells/navigation-spells.js"
+    "/components/page-navigation/page-navigation.css": "/components/page-navigation/page-navigation.css"
 }
