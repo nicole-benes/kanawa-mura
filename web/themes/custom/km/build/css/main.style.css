@@ -12780,6 +12780,8 @@ main.py-5 {
   }
   .side-navigation-pane .side-pane-navigation-ring-wrapper.multi-element img {
     top: 10px;
+    -webkit-animation: rotation 5s infinite linear;
+            animation: rotation 5s infinite linear;
   }
   .side-navigation-pane .side-pane-navigation-ring-wrapper img {
     position: absolute;
@@ -12799,6 +12801,26 @@ main.py-5 {
   .side-navigation-pane .side-pane-navigation-sublinks a {
     display: inline-block;
     padding-right: 0.25rem;
+  }
+}
+@-webkit-keyframes rotation {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(359deg);
+            transform: rotate(359deg);
+  }
+}
+@keyframes rotation {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(359deg);
+            transform: rotate(359deg);
   }
 }
 .accordion .accordion-button {
