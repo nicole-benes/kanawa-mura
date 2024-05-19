@@ -48,6 +48,10 @@
                     left: 0;
                     top: -2px;
                     width: 50px;
+
+                    &.universal {
+                         opacity: .75;
+                    }
                }
 
                &.active {

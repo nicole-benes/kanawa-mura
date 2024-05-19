@@ -490,6 +490,15 @@ function kanawa_mura_views_post_render( $view, &$output, $cache ) {
 
           // Loop through the output
           foreach( $rows as $row ) {
+               
+               // We need to re-order the multi-element spells
+               if( $row[ '#title' ] == 'Multi-Element' ) {
+                    $row[ '#rows' ][ 0 ] = $row[ '#rows' ][ 11 ];
+                    $row[ '#rows' ][ 1 ] = $row[ '#rows' ][ 12 ];
+
+                    unset( $row[ '#rows' ][ 11 ] );
+                    unset( $row[ '#rows' ][ 12 ] );
+               }
 
                // Figure out the index of this ring
                $output[ '#rows' ][ kanawa_mura_spell_sort( $row[ '#title' ] ) ] = $row;
@@ -502,18 +511,7 @@ function kanawa_mura_views_post_render( $view, &$output, $cache ) {
 
 
 function kanawa_mura_school_clan_sort( $a, $b ) {
-/*
-     if( $a[ 'rows' ][ 'schools' ][ 'rows' ] == null ) {
-          dpm( $a );
-          return 0;
-     
-     }
 
-     if( $b[ 'rows' ][ 'schools' ][ 'rows' ] == null ) {
-          dpm( $b );
-          return 0;
-     }
-*/
      // Assume we're sorting schools
      $type = 'schools';
 
@@ -537,24 +535,7 @@ function kanawa_mura_school_clan_sort( $a, $b ) {
                return 1;
           }
      }
-/*
-     if( !array_key_exists( 'rows', $a ) || !array_key_exists( $type, $a[ 'rows' ] ) || !array_key_exists( 'rows', $a[ 'rows' ][ $type ] ) ) {
-          dpm( $a );
-          return 0;
-     }
 
-     if( !array_key_exists( 'rows', $b ) || !array_key_exists( $type, $b[ 'rows' ] ) || !array_key_exists( 'rows', $b[ 'rows' ][ $type ] ) ) {
-          dpm( $type );
-          dpm( $a );
-          dpm( $b );
-          return 0;
-     }
-
-     if( count( $a[ 'rows' ] ) == 0 || count( $a[ 'rows' ][ $type ] ) == 0 || count( $a[ 'rows' ][ $type ][ 'rows' ] ) == 0 ) {
-          dpm( $a );
-          return 0;
-     }
-*/
      // Get the first term of this grouping
      $aTerm = array_shift( $a[ 'rows' ][ $type ][ 'rows' ] )->{ "entity:node/field_clan_school" }[ 0 ];
 
