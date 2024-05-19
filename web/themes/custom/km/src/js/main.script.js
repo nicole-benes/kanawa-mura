@@ -17,6 +17,18 @@ import "./_bootstrap";
                window.location.href = $( this ).attr( 'href' );
           } 
      });
+/*
+     $( '.dropdown-toggle' ).click( function() {
+          if( $( '.navbar-collapse' ).hasClass( 'show' ) ) {
+               if( $( this ).hasClass( 'show' ) ) {
+                    $( '.navbar-collapse' ).addClass( 'expanded' );
+               } else {
+                    $( '.navbar-collapse' ).removeClass( 'expanded' );
+               }
+               console.log( 'dsffdfsd' );
+          }
+     });
+*/     
 
      const scrollSpyWrapper  = document.getElementById( 'scrollspy-wrapper' );
 
@@ -40,11 +52,7 @@ import "./_bootstrap";
                if( oldRing != ring ) {
                     $( '.side-pane-navigation-ring-wrapper' ).removeClass( 'active' );
                     $( '#side-pane-navigation-' + ring ).addClass( 'active' );
-                    console.log( 'new ring' );
                }
-
-               console.log( ring );
-
           }
      });
 })(jQuery);

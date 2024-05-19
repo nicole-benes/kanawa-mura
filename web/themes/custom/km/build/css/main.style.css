@@ -12696,9 +12696,13 @@ main.py-5 {
 .navbar-expand-lg .navbar-nav li a.show {
   color: #6f42c1;
 }
-.navbar-expand-lg .navbar-nav li:hover .dropdown-menu,
 .navbar-expand-lg .navbar-nav li .show .dropdown-menu {
   display: block;
+}
+@media (min-width: 992px) {
+  .navbar-expand-lg .navbar-nav li:hover .dropdown-menu {
+    display: block;
+  }
 }
 .navbar-expand-lg .navbar-nav li .dropdown-menu {
   background-color: #222;
@@ -12742,6 +12746,19 @@ main.py-5 {
   }
 }
 
+/*
+@include media-breakpoint-down(md) {
+     .navbar-nav {
+          max-height: 100vh;
+          overflow-y: scroll;
+
+          li {
+               display: block;
+               width: 100%;
+          }
+     }
+}
+*/
 .side-navigation-pane {
   display: none;
 }
