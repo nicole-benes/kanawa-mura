@@ -135,6 +135,12 @@
 
           <div id="side-navigation-pane" class="side-navigation-pane ring-icons">
                <div id="side-pane-navigation-universal" class="side-pane-navigation-ring-wrapper">
+                    <div class="side-pane-navigation-ring-wrapper-image">
+                         <a href="#universal-mastery-1">
+                              <img src="{{ directory }}/images/rings/universal.png">
+                         </a>
+                    </div>
+
                     <div class="side-pane-navigation-ring">
                          <a href="#universal-mastery-1">
                               <h6>
@@ -164,7 +170,7 @@
                          </a>
                     </div>
 
-                    <div class="side-pane-navigation-masteries">
+                    <div class="side-pane-navigation-masteries side-pane-navigation-sublinks">
                          <a class="side-pane-mastery-link" href="#air-mastery-1">1</a>
                          <a class="side-pane-mastery-link" href="#air-mastery-2">2</a>
                          <a class="side-pane-mastery-link" href="#air-mastery-3">3</a>
@@ -190,7 +196,7 @@
                          </a>
                     </div>
 
-                    <div class="side-pane-navigation-masteries">
+                    <div class="side-pane-navigation-masteries side-pane-navigation-sublinks">
                          <a class="side-pane-mastery-link" href="#earth-mastery-1">1</a>
                          <a class="side-pane-mastery-link" href="#earth-mastery-2">2</a>
                          <a class="side-pane-mastery-link" href="#earth-mastery-3">3</a>
@@ -215,7 +221,7 @@
                          </a>
                     </div>
 
-                    <div class="side-pane-navigation-masteries">
+                    <div class="side-pane-navigation-masteries side-pane-navigation-sublinks">
                          <a class="side-pane-mastery-link" href="#fire-mastery-1">1</a>
                          <a class="side-pane-mastery-link" href="#fire-mastery-2">2</a>
                          <a class="side-pane-mastery-link" href="#fire-mastery-3">3</a>
@@ -240,7 +246,7 @@
                          </a>
                     </div>
 
-                    <div class="side-pane-navigation-masteries">
+                    <div class="side-pane-navigation-masteries side-pane-navigation-sublinks">
                          <a class="side-pane-mastery-link" href="#water-mastery-1">1</a>
                          <a class="side-pane-mastery-link" href="#water-mastery-2">2</a>
                          <a class="side-pane-mastery-link" href="#water-mastery-3">3</a>
@@ -265,7 +271,7 @@
                          </a>
                     </div>
 
-                    <div class="side-pane-navigation-masteries">
+                    <div class="side-pane-navigation-masteries side-pane-navigation-sublinks">
                          <a class="side-pane-mastery-link" href="#void-mastery-1">1</a>
                          <a class="side-pane-mastery-link" href="#void-mastery-2">2</a>
                          <a class="side-pane-mastery-link" href="#void-mastery-3">3</a>
@@ -275,7 +281,13 @@
                     </div>
                </div>
 
-               <div id="side-pane-navigation-multi-element"  class="side-pane-navigation-ring-wrapper">
+               <div id="side-pane-navigation-multi-element"  class="side-pane-navigation-ring-wrapper multi-element">
+                    <div class="side-pane-navigation-ring-wrapper-image">
+                         <a href="#multi-element-mastery-11">
+                              <img src="{{ directory }}/images/rings/multi.png">
+                         </a>
+                    </div>
+
                     <div class="side-pane-navigation-ring">
                          <a href="#multi-element-mastery-11">
                               <h6>
@@ -284,7 +296,7 @@
                          </a>
                     </div>
 
-                    <div class="side-pane-navigation-masteries">
+                    <div class="side-pane-navigation-masteries side-pane-navigation-sublinks">
                          <a class="side-pane-mastery-link" href="#multi-element-mastery-11">Universal</a>
                          <a class="side-pane-mastery-link" href="#multi-element-mastery-12">Advanced</a>
                     </div>
@@ -299,7 +311,7 @@
                          </a>
                     </div>
 
-                    <div class="side-pane-navigation-masteries">
+                    <div class="side-pane-navigation-masteries side-pane-navigation-sublinks">
                          <a class="side-pane-mastery-link" href="#maho-mastery-1">1</a>
                          <a class="side-pane-mastery-link" href="#maho-mastery-2">2</a>
                          <a class="side-pane-mastery-link" href="#maho-mastery-3">3</a>
@@ -381,62 +393,3 @@
           {% endblock %}
      {% endblock %}
 </div>
-
-{#
-<div id="scrollspy-wrapper" class="row">
-     <div class="col-4">
-       <div id="simple-list-example" class="d-flex flex-column gap-2 simple-list-example-scrollspy text-center">
-         <a class="p-1 rounded" href="#simple-list-item-1">Item 1</a>
-         <a class="p-1 rounded" href="#simple-list-item-2">Item 2</a>
-         <a class="p-1 rounded" href="#simple-list-item-3">Item 3</a>
-         <a class="p-1 rounded" href="#simple-list-item-4">Item 4</a>
-         <a class="p-1 rounded" href="#simple-list-item-5">Item 5</a>
-       </div>
-     </div>
-     <div class="col-8">
-       <div>
-         <h4 id="simple-list-item-1">Item 1</h4>
-
-         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque non sem consectetur, egestas nisi a, blandit tellus. Vivamus in est vitae turpis sodales aliquam eget sit amet dui. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Donec at dignissim dolor. Vestibulum suscipit, elit in molestie tincidunt, arcu nisi dapibus erat, rutrum sodales massa mauris at nisi. Donec nisl nisl, gravida vel pulvinar a, eleifend non augue. Etiam at tempor dolor. Vestibulum vitae tortor a dolor dignissim feugiat. Cras vel justo ut neque varius dapibus.
-
-          Ut auctor felis nec urna placerat facilisis vitae ac est. Cras nulla leo, sollicitudin non hendrerit sed, viverra eu nisl. Phasellus gravida sapien eros, sit amet laoreet lorem gravida a. Sed condimentum, leo a lobortis molestie, dolor diam vulputate nunc, vitae pulvinar lectus erat eget libero. Integer bibendum lectus vel erat interdum fermentum. Suspendisse at est vel est feugiat hendrerit vel a elit. Vestibulum mattis et enim et mattis. Donec vitae metus quis tortor euismod ornare. Etiam leo orci, rutrum faucibus molestie ut, imperdiet consectetur mi. Aenean ut neque ligula. Ut mollis neque vel odio fermentum aliquam. Integer lacinia accumsan massa, vitae tristique ligula posuere eget. Morbi ipsum leo, vestibulum sit amet magna in, pellentesque fermentum leo. Sed quam nibh, congue eget felis quis, porttitor placerat velit. Integer ac magna in ligula viverra elementum.
-          
-          Aliquam erat volutpat. Vestibulum ultricies eu augue sed scelerisque. Maecenas vulputate neque quis quam convallis, non vulputate nulla semper. Ut et nisi bibendum, rutrum magna sed, ornare risus. Morbi lacinia ligula felis, in vehicula leo elementum sed. Donec efficitur, lacus ac venenatis sodales, purus massa laoreet nulla, non tincidunt nulla orci sed sem. Etiam eleifend nulla nec libero feugiat hendrerit. Sed scelerisque erat urna, nec tempor tellus lacinia quis. Suspendisse volutpat luctus turpis, quis consequat ligula fermentum at. Proin a metus varius, molestie ante et, congue magna. Etiam non molestie eros, a auctor sem. Maecenas consequat bibendum metus. Praesent eu gravida ipsum.
-          
-          Phasellus vel est quis massa interdum maximus. Aenean id tincidunt arcu. Nulla sollicitudin tincidunt elit. In risus nunc, ultrices a magna id, finibus auctor turpis. Sed tellus dui, tempus in ipsum id, consectetur tempus eros. Aliquam pellentesque mattis eleifend. Suspendisse bibendum ultrices ullamcorper. Sed pretium fringilla finibus. In ligula ipsum, malesuada vitae lorem sed, pellentesque mollis neque.</p>
-         <h4 id="simple-list-item-2">Item 2</h4>
-         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque non sem consectetur, egestas nisi a, blandit tellus. Vivamus in est vitae turpis sodales aliquam eget sit amet dui. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Donec at dignissim dolor. Vestibulum suscipit, elit in molestie tincidunt, arcu nisi dapibus erat, rutrum sodales massa mauris at nisi. Donec nisl nisl, gravida vel pulvinar a, eleifend non augue. Etiam at tempor dolor. Vestibulum vitae tortor a dolor dignissim feugiat. Cras vel justo ut neque varius dapibus.
-
-          Ut auctor felis nec urna placerat facilisis vitae ac est. Cras nulla leo, sollicitudin non hendrerit sed, viverra eu nisl. Phasellus gravida sapien eros, sit amet laoreet lorem gravida a. Sed condimentum, leo a lobortis molestie, dolor diam vulputate nunc, vitae pulvinar lectus erat eget libero. Integer bibendum lectus vel erat interdum fermentum. Suspendisse at est vel est feugiat hendrerit vel a elit. Vestibulum mattis et enim et mattis. Donec vitae metus quis tortor euismod ornare. Etiam leo orci, rutrum faucibus molestie ut, imperdiet consectetur mi. Aenean ut neque ligula. Ut mollis neque vel odio fermentum aliquam. Integer lacinia accumsan massa, vitae tristique ligula posuere eget. Morbi ipsum leo, vestibulum sit amet magna in, pellentesque fermentum leo. Sed quam nibh, congue eget felis quis, porttitor placerat velit. Integer ac magna in ligula viverra elementum.
-          
-          Aliquam erat volutpat. Vestibulum ultricies eu augue sed scelerisque. Maecenas vulputate neque quis quam convallis, non vulputate nulla semper. Ut et nisi bibendum, rutrum magna sed, ornare risus. Morbi lacinia ligula felis, in vehicula leo elementum sed. Donec efficitur, lacus ac venenatis sodales, purus massa laoreet nulla, non tincidunt nulla orci sed sem. Etiam eleifend nulla nec libero feugiat hendrerit. Sed scelerisque erat urna, nec tempor tellus lacinia quis. Suspendisse volutpat luctus turpis, quis consequat ligula fermentum at. Proin a metus varius, molestie ante et, congue magna. Etiam non molestie eros, a auctor sem. Maecenas consequat bibendum metus. Praesent eu gravida ipsum.
-          
-          Phasellus vel est quis massa interdum maximus. Aenean id tincidunt arcu. Nulla sollicitudin tincidunt elit. In risus nunc, ultrices a magna id, finibus auctor turpis. Sed tellus dui, tempus in ipsum id, consectetur tempus eros. Aliquam pellentesque mattis eleifend. Suspendisse bibendum ultrices ullamcorper. Sed pretium fringilla finibus. In ligula ipsum, malesuada vitae lorem sed, pellentesque mollis neque.</p>
-         <h4 id="simple-list-item-3">Item 3</h4>
-         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque non sem consectetur, egestas nisi a, blandit tellus. Vivamus in est vitae turpis sodales aliquam eget sit amet dui. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Donec at dignissim dolor. Vestibulum suscipit, elit in molestie tincidunt, arcu nisi dapibus erat, rutrum sodales massa mauris at nisi. Donec nisl nisl, gravida vel pulvinar a, eleifend non augue. Etiam at tempor dolor. Vestibulum vitae tortor a dolor dignissim feugiat. Cras vel justo ut neque varius dapibus.
-
-          Ut auctor felis nec urna placerat facilisis vitae ac est. Cras nulla leo, sollicitudin non hendrerit sed, viverra eu nisl. Phasellus gravida sapien eros, sit amet laoreet lorem gravida a. Sed condimentum, leo a lobortis molestie, dolor diam vulputate nunc, vitae pulvinar lectus erat eget libero. Integer bibendum lectus vel erat interdum fermentum. Suspendisse at est vel est feugiat hendrerit vel a elit. Vestibulum mattis et enim et mattis. Donec vitae metus quis tortor euismod ornare. Etiam leo orci, rutrum faucibus molestie ut, imperdiet consectetur mi. Aenean ut neque ligula. Ut mollis neque vel odio fermentum aliquam. Integer lacinia accumsan massa, vitae tristique ligula posuere eget. Morbi ipsum leo, vestibulum sit amet magna in, pellentesque fermentum leo. Sed quam nibh, congue eget felis quis, porttitor placerat velit. Integer ac magna in ligula viverra elementum.
-          
-          Aliquam erat volutpat. Vestibulum ultricies eu augue sed scelerisque. Maecenas vulputate neque quis quam convallis, non vulputate nulla semper. Ut et nisi bibendum, rutrum magna sed, ornare risus. Morbi lacinia ligula felis, in vehicula leo elementum sed. Donec efficitur, lacus ac venenatis sodales, purus massa laoreet nulla, non tincidunt nulla orci sed sem. Etiam eleifend nulla nec libero feugiat hendrerit. Sed scelerisque erat urna, nec tempor tellus lacinia quis. Suspendisse volutpat luctus turpis, quis consequat ligula fermentum at. Proin a metus varius, molestie ante et, congue magna. Etiam non molestie eros, a auctor sem. Maecenas consequat bibendum metus. Praesent eu gravida ipsum.
-          
-          Phasellus vel est quis massa interdum maximus. Aenean id tincidunt arcu. Nulla sollicitudin tincidunt elit. In risus nunc, ultrices a magna id, finibus auctor turpis. Sed tellus dui, tempus in ipsum id, consectetur tempus eros. Aliquam pellentesque mattis eleifend. Suspendisse bibendum ultrices ullamcorper. Sed pretium fringilla finibus. In ligula ipsum, malesuada vitae lorem sed, pellentesque mollis neque.</p>
-         <h4 id="simple-list-item-4">Item 4</h4>
-         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque non sem consectetur, egestas nisi a, blandit tellus. Vivamus in est vitae turpis sodales aliquam eget sit amet dui. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Donec at dignissim dolor. Vestibulum suscipit, elit in molestie tincidunt, arcu nisi dapibus erat, rutrum sodales massa mauris at nisi. Donec nisl nisl, gravida vel pulvinar a, eleifend non augue. Etiam at tempor dolor. Vestibulum vitae tortor a dolor dignissim feugiat. Cras vel justo ut neque varius dapibus.
-
-          Ut auctor felis nec urna placerat facilisis vitae ac est. Cras nulla leo, sollicitudin non hendrerit sed, viverra eu nisl. Phasellus gravida sapien eros, sit amet laoreet lorem gravida a. Sed condimentum, leo a lobortis molestie, dolor diam vulputate nunc, vitae pulvinar lectus erat eget libero. Integer bibendum lectus vel erat interdum fermentum. Suspendisse at est vel est feugiat hendrerit vel a elit. Vestibulum mattis et enim et mattis. Donec vitae metus quis tortor euismod ornare. Etiam leo orci, rutrum faucibus molestie ut, imperdiet consectetur mi. Aenean ut neque ligula. Ut mollis neque vel odio fermentum aliquam. Integer lacinia accumsan massa, vitae tristique ligula posuere eget. Morbi ipsum leo, vestibulum sit amet magna in, pellentesque fermentum leo. Sed quam nibh, congue eget felis quis, porttitor placerat velit. Integer ac magna in ligula viverra elementum.
-          
-          Aliquam erat volutpat. Vestibulum ultricies eu augue sed scelerisque. Maecenas vulputate neque quis quam convallis, non vulputate nulla semper. Ut et nisi bibendum, rutrum magna sed, ornare risus. Morbi lacinia ligula felis, in vehicula leo elementum sed. Donec efficitur, lacus ac venenatis sodales, purus massa laoreet nulla, non tincidunt nulla orci sed sem. Etiam eleifend nulla nec libero feugiat hendrerit. Sed scelerisque erat urna, nec tempor tellus lacinia quis. Suspendisse volutpat luctus turpis, quis consequat ligula fermentum at. Proin a metus varius, molestie ante et, congue magna. Etiam non molestie eros, a auctor sem. Maecenas consequat bibendum metus. Praesent eu gravida ipsum.
-          
-          Phasellus vel est quis massa interdum maximus. Aenean id tincidunt arcu. Nulla sollicitudin tincidunt elit. In risus nunc, ultrices a magna id, finibus auctor turpis. Sed tellus dui, tempus in ipsum id, consectetur tempus eros. Aliquam pellentesque mattis eleifend. Suspendisse bibendum ultrices ullamcorper. Sed pretium fringilla finibus. In ligula ipsum, malesuada vitae lorem sed, pellentesque mollis neque.</p>
-         <h4 id="simple-list-item-5">Item 5</h4>
-         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque non sem consectetur, egestas nisi a, blandit tellus. Vivamus in est vitae turpis sodales aliquam eget sit amet dui. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Donec at dignissim dolor. Vestibulum suscipit, elit in molestie tincidunt, arcu nisi dapibus erat, rutrum sodales massa mauris at nisi. Donec nisl nisl, gravida vel pulvinar a, eleifend non augue. Etiam at tempor dolor. Vestibulum vitae tortor a dolor dignissim feugiat. Cras vel justo ut neque varius dapibus.
-
-          Ut auctor felis nec urna placerat facilisis vitae ac est. Cras nulla leo, sollicitudin non hendrerit sed, viverra eu nisl. Phasellus gravida sapien eros, sit amet laoreet lorem gravida a. Sed condimentum, leo a lobortis molestie, dolor diam vulputate nunc, vitae pulvinar lectus erat eget libero. Integer bibendum lectus vel erat interdum fermentum. Suspendisse at est vel est feugiat hendrerit vel a elit. Vestibulum mattis et enim et mattis. Donec vitae metus quis tortor euismod ornare. Etiam leo orci, rutrum faucibus molestie ut, imperdiet consectetur mi. Aenean ut neque ligula. Ut mollis neque vel odio fermentum aliquam. Integer lacinia accumsan massa, vitae tristique ligula posuere eget. Morbi ipsum leo, vestibulum sit amet magna in, pellentesque fermentum leo. Sed quam nibh, congue eget felis quis, porttitor placerat velit. Integer ac magna in ligula viverra elementum.
-          
-          Aliquam erat volutpat. Vestibulum ultricies eu augue sed scelerisque. Maecenas vulputate neque quis quam convallis, non vulputate nulla semper. Ut et nisi bibendum, rutrum magna sed, ornare risus. Morbi lacinia ligula felis, in vehicula leo elementum sed. Donec efficitur, lacus ac venenatis sodales, purus massa laoreet nulla, non tincidunt nulla orci sed sem. Etiam eleifend nulla nec libero feugiat hendrerit. Sed scelerisque erat urna, nec tempor tellus lacinia quis. Suspendisse volutpat luctus turpis, quis consequat ligula fermentum at. Proin a metus varius, molestie ante et, congue magna. Etiam non molestie eros, a auctor sem. Maecenas consequat bibendum metus. Praesent eu gravida ipsum.
-          
-          Phasellus vel est quis massa interdum maximus. Aenean id tincidunt arcu. Nulla sollicitudin tincidunt elit. In risus nunc, ultrices a magna id, finibus auctor turpis. Sed tellus dui, tempus in ipsum id, consectetur tempus eros. Aliquam pellentesque mattis eleifend. Suspendisse bibendum ultrices ullamcorper. Sed pretium fringilla finibus. In ligula ipsum, malesuada vitae lorem sed, pellentesque mollis neque.</p>
-       </div>
-     </div>
-   </div>
-#}

@@ -1,6 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Comforter+Brush&display=swap');
 
 @include media-breakpoint-up(lg) {
+     body {
+          margin-top: calc( 77px + 3rem );
+     }
+
      main {
           min-height: calc( 100vh - 76px - 44px );
      }
