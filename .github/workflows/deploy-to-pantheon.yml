@@ -44,4 +44,5 @@ jobs:
         terminus drush $pantheon_site_name.live config:set recaptcha.settings site_key $recaptcha_v3_site_key -y
         terminus drush $pantheon_site_name.live config:set recaptcha.settings secret_key $recaptcha_secret_key -y
         terminus drush $pantheon_site_name.live config:set sendgrid_integration.settings apikey $sendgrid_key -y
+        terminus drush $pantheon_site_name.live cr -y
         
