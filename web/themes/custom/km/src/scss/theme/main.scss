@@ -22,6 +22,16 @@
      }
 }
 
+@include media-breakpoint-down(md) {
+     body {
+          padding-top: calc( 3rem + 77px);
+     }
+
+     main {
+          padding-bottom: 3rem;
+     }
+}
+
 .path-frontpage {
     h1 {
         display: none;;

@@ -12553,6 +12553,14 @@ label,
     min-height: calc(100vh - 76px - 44px - 39px - 40px);
   }
 }
+@media (max-width: 767.98px) {
+  body {
+    padding-top: calc(3rem + 77px);
+  }
+  main {
+    padding-bottom: 3rem;
+  }
+}
 .path-frontpage h1, .path-frontpage .h1 {
   display: none;
 }
