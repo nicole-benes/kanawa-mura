@@ -1,0 +1,27 @@
+@import "../../src/scss/init";
+
+@include media-breakpoint-up(lg) {
+     .spell-navigation {
+          .side-ring-wrapper {
+               &.multi-element {
+                    img {
+                         top: 10px;
+                         animation: rotation 2s infinite linear;
+                    }
+               }     
+
+               &.universal {
+                    opacity: .75;
+               }               
+          }
+     }
+}
+
+@keyframes rotation {
+     from {
+          transform: rotate(0deg);
+     }
+     to {
+          transform: rotate(359deg);
+     }
+}

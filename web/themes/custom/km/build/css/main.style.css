@@ -12754,19 +12754,6 @@ main.py-5 {
   }
 }
 
-/*
-@include media-breakpoint-down(md) {
-     .navbar-nav {
-          max-height: 100vh;
-          overflow-y: scroll;
-
-          li {
-               display: block;
-               width: 100%;
-          }
-     }
-}
-*/
 .side-navigation-pane {
   display: none;
 }
@@ -12781,71 +12768,43 @@ main.py-5 {
 }
 
 @media (min-width: 992px) {
-  .side-navigation-pane {
+  .side-navigation-pane-wrapper {
     display: block;
     position: fixed;
     top: 25%;
     left: 2rem;
     width: 200px;
   }
-  .side-navigation-pane a {
+  .side-navigation-pane-wrapper a {
     color: #333;
     text-decoration: none;
   }
-  .side-navigation-pane h6, .side-navigation-pane .h6 {
+  .side-navigation-pane-wrapper h6, .side-navigation-pane-wrapper .h6 {
     font-size: 1.25rem;
     margin: 0;
     padding: 0;
   }
-  .side-navigation-pane .side-pane-navigation-ring-wrapper {
+  .side-navigation-pane-wrapper .side-navigation-pane-item {
     display: block;
     margin: 1rem 0;
     padding-left: 55px;
     position: relative;
   }
-  .side-navigation-pane .side-pane-navigation-ring-wrapper.multi-element img {
-    top: 10px;
-    -webkit-animation: rotation 5s infinite linear;
-            animation: rotation 5s infinite linear;
-  }
-  .side-navigation-pane .side-pane-navigation-ring-wrapper img {
+  .side-navigation-pane-wrapper .side-navigation-pane-item img {
     position: absolute;
     left: 0;
     top: -2px;
     width: 50px;
   }
-  .side-navigation-pane .side-pane-navigation-ring-wrapper img.universal {
-    opacity: 0.75;
-  }
-  .side-navigation-pane .side-pane-navigation-ring-wrapper.active h6, .side-navigation-pane .side-pane-navigation-ring-wrapper.active .h6 {
+  .side-navigation-pane-wrapper .side-navigation-pane-item.active h6, .side-navigation-pane-wrapper .side-navigation-pane-item.active .h6 {
     font-weight: bold;
   }
-  .side-navigation-pane .side-pane-navigation-ring-wrapper .side-pane-mastery-link.active {
+  .side-navigation-pane-wrapper .side-navigation-pane-item .side-pane-navigation-sublinks .active {
     font-weight: bold;
   }
-  .side-navigation-pane .side-pane-navigation-sublinks a {
+  .side-navigation-pane-wrapper .side-pane-navigation-sublinks a {
     display: inline-block;
     padding-right: 0.25rem;
-  }
-}
-@-webkit-keyframes rotation {
-  from {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
-  }
-  to {
-    -webkit-transform: rotate(359deg);
-            transform: rotate(359deg);
-  }
-}
-@keyframes rotation {
-  from {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
-  }
-  to {
-    -webkit-transform: rotate(359deg);
-            transform: rotate(359deg);
   }
 }
 .accordion .accordion-button {

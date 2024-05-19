@@ -13,7 +13,7 @@
 }
 
 @include media-breakpoint-up(lg) {
-     .side-navigation-pane {
+     .side-navigation-pane-wrapper {
           display: block;
           position: fixed;
           top: 25%;
@@ -31,28 +31,17 @@
                padding: 0;
           }
           
-          .side-pane-navigation-ring-wrapper {
+          .side-navigation-pane-item {
                display: block;
                margin: 1rem 0;
                padding-left: 55px;
                position: relative;
-
-               &.multi-element {
-                    img {
-                         top: 10px;
-                         animation: rotation 5s infinite linear;
-                    }
-               }
 
                img {
                     position: absolute;
                     left: 0;
                     top: -2px;
                     width: 50px;
-
-                    &.universal {
-                         opacity: .75;
-                    }
                }
 
                &.active {
@@ -62,8 +51,8 @@
                     }
                }
 
-               .side-pane-mastery-link {
-                    &.active {
+               .side-pane-navigation-sublinks {
+                    .active {
                          font-weight: bold;
                     }
                }
@@ -75,14 +64,5 @@
                     padding-right: 0.25rem;               
                }
           }
-     }
-}
-
-@keyframes rotation {
-     from {
-          transform: rotate(0deg);
-     }
-     to {
-          transform: rotate(359deg);
      }
 }
