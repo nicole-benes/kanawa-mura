@@ -11,8 +11,8 @@
      }
 
      .accordion {
-          .accordion {
-               margin-bottom: 3rem;
+          .accordion-body {
+               padding: 0;
           }
 
           .accordion-button {
@@ -79,13 +79,6 @@
           }
      }
 
-     .view-content {
-          & > div {
-               margin-bottom: 3rem; 
-
-          }
-     }
-
      .views-exposed-form {
           margin-bottom: 3rem;
 
@@ -105,106 +98,6 @@
           .form-type-textfield {
                width: 100%;
           }
-     }
-
-     @include media-breakpoint-up(lg) {
-          &.view-advantages-disadvantages { 
-               .views-exposed-form {
-                    .form-type-textfield {
-                         width: 43%;
-
-                         &.form-item-point-value-value {
-                              width: 8%;
-                         }
-                    }     
-               }
-          }     
-
-          &.view-ancestors {
-               .views-exposed-form {
-                    .form-type-textfield {
-                         width: 68%;
-                    }
-               }
-          }
-
-          &.view-equipment {
-               .views-exposed-form {
-                    .form-type-textfield {
-                         width: 75%;
-                    }
-               }
-          }
-
-          &.view-families {
-               .views-exposed-form {
-                    .form-type-textfield {
-                         width: 77%;
-                    }
-               }
-          }
-
-          &.view-heritage-tables {
-               .views-exposed-form {
-                    .form-type-textfield {
-                         width: 65%;
-                    }
-               }
-          }
-
-          &.view-kata { 
-               .views-exposed-form {
-                    .form-type-textfield {
-                         width: 82%;
-                    }     
-               }
-          }
-
-          &.view-kiho { 
-               .views-exposed-form {
-                    .form-type-textfield {
-                         width: 76%;
-                    }     
-               }
-          }
-
-          &.view-site-search {
-               .form--views-exposed-form-site-search-block-1 {
-                    margin-bottom: 1rem;
-               }
-          }
-
-          &.view-schools { 
-               .views-exposed-form {
-                    .form-type-textfield {
-                         width: 50%;
-                    }     
-               }
-          }
-
-          &.view-skills { 
-               .views-exposed-form {
-                    .form-type-textfield {
-                         width: 78%;
-                    }     
-               }
-          }
-
-          &.view-spells { 
-               .views-exposed-form {
-                    .form-type-textfield {
-                         width: 67%;
-                    }     
-               }
-          }
-
-          &.view-tattoos { 
-               .views-exposed-form {
-                    .form-type-textfield {
-                         width: 90%;
-                    }     
-               }
-          }          
      }
 
      .views-row {
@@ -338,16 +231,153 @@
                }
           }
 
-          @include clanAccordion( ".crab", $crab );
-          @include clanAccordion( ".crane", $crane );
-          @include clanAccordion( ".dragon", $dragon );
-          @include clanAccordion( ".lion", $lion );
-          @include clanAccordion( ".mantis", $mantis );
-          @include clanAccordion( ".phoenix", $phoenix );
-          @include clanAccordion( ".scorpion", $scorpion );
-          @include clanAccordion( ".spider", $spider );
-          @include clanAccordion( ".unicorn", $unicorn );
+          @include colorizeAccordion( ".crab", $crab );
+          @include colorizeAccordion( ".crane", $crane );
+          @include colorizeAccordion( ".dragon", $dragon );
+          @include colorizeAccordion( ".lion", $lion );
+          @include colorizeAccordion( ".mantis", $mantis );
+          @include colorizeAccordion( ".phoenix", $phoenix );
+          @include colorizeAccordion( ".scorpion", $scorpion );
+          @include colorizeAccordion( ".spider", $spider );
+          @include colorizeAccordion( ".unicorn", $unicorn );
+     }
 
+     &.view-spells {
+          @include colorizeAccordion( '.air', $air );
+          @include colorizeAccordion( '.earth', $earth );
+          @include colorizeAccordion( '.fire', $fire );
+          @include colorizeAccordion( '.water', $water );
+          @include colorizeAccordion( '.void', $void );
+     }
+}
+
+@include media-breakpoint-up(lg) {
+     .grouped-view {
+          &.view-advantages-disadvantages { 
+               .views-exposed-form {
+                    .form-type-textfield {
+                         width: 43%;
+
+                         &.form-item-point-value-value {
+                              width: 8%;
+                         }
+                    }     
+               }
+          }     
+
+          &.view-ancestors {
+               .views-exposed-form {
+                    .form-type-textfield {
+                         width: 68%;
+                    }
+               }
+          }
+
+          &.view-equipment {
+               .views-exposed-form {
+                    .form-type-textfield {
+                         width: 75%;
+                    }
+               }
+          }
+
+          &.view-families {
+               .views-exposed-form {
+                    .form-type-textfield {
+                         width: 77%;
+                    }
+               }
+          }
+
+          &.view-heritage-tables {
+               .views-exposed-form {
+                    .form-type-textfield {
+                         width: 65%;
+                    }
+               }
+          }
+
+          &.view-kata { 
+               .views-exposed-form {
+                    .form-type-textfield {
+                         width: 82%;
+                    }     
+               }
+          }
+
+          &.view-kiho { 
+               .views-exposed-form {
+                    .form-type-textfield {
+                         width: 76%;
+                    }     
+               }
+          }
+
+          &.view-site-search {
+               .form--views-exposed-form-site-search-block-1 {
+                    margin-bottom: 1rem;
+               }
+          }
+
+          &.view-schools { 
+               .views-exposed-form {
+                    .form-type-textfield {
+                         width: 50%;
+                    }     
+               }
+          }
+
+          &.view-skills { 
+               .views-exposed-form {
+                    .form-type-textfield {
+                         width: 78%;
+                    }     
+               }
+          }
+
+          &.view-spells { 
+               .views-exposed-form {
+                    .form-type-textfield {
+                         width: 67%;
+                    }     
+               }
+          }
+
+          &.view-tattoos { 
+               .views-exposed-form {
+                    .form-type-textfield {
+                         width: 90%;
+                    }     
+               }
+          }
+          
+          .accordion {
+               .accordion {
+                    margin-bottom: 3rem;
+
+                    .accordion {
+                         margin-bottom: 3rem;
+                    }
+               }
+
+               .accordion-body {
+                    padding: var(--bs-accordion-body-padding-y) var(--bs-accordion-body-padding-x);                    
+               }
+
+               .accordion-header {
+                    &.sticky-top {
+                         position: relative;
+                         top: 0;
+                    }
+               }
+          }
+
+          .view-content {
+               & > div {
+                    margin-bottom: 3rem; 
+     
+               }
+          }
      }
 }
 

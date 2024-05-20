@@ -3,7 +3,7 @@
 }
 
 @include media-breakpoint-up(lg) {
-     .side-navigation-pane-wrapper {
+     .side-navigation-pane {
           display: block;
           position: fixed;
           top: 25%;

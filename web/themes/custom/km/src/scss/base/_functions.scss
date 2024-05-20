@@ -1,7 +1,7 @@
 // Global Sass @function declarations
 // -----------------------------------------------------------------------------
-@mixin clanAccordion( $clan, $color ) {
-     #{$clan} {
+@mixin colorizeAccordion( $class, $color ) {
+     #{ $class } {
           .accordion-item {
                .accordion-button {
                     background-color: $color;
