@@ -1,3 +1,5 @@
+import "../../src/js/_bootstrap";
+
 (function($) {
      $( '.navbar-toggler' ).click( function() {
           if( $( this ).hasClass( 'collapsed' ) ) {
