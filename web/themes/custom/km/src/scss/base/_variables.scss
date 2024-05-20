@@ -30,20 +30,8 @@ $green:   #43ac6a !default;
 $teal:    #20c997 !default;
 $cyan:    #5bc0de !default;
 
-// Clan Colors
-$crab:         #2B5DA8;
-$crane:        #81BEE7;
-$dragon:       #4BAA6C;
-$lion:         #D2AE5B;
-$mantis:       #0C452C;
-$phoenix:      #EC644E;
-$scorpion:     #B72533;
-$spider:       $gray-900;
-$unicorn:      #5D4490;
-
-//$primary:       $blue !default;
-//$primary:       $indigo !default;
-$primary:       $crab;
+// Crab primary color for now
+$primary:       $crab !default;
 $secondary:     $gray-200 !default;
 $success:       $green !default;
 $info:          $cyan !default;
