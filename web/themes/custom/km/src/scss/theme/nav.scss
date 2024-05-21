@@ -1,6 +1,7 @@
 .navbar-expand-lg {
      &.fixed-top {
           z-index: 1200;
+          max-height: 100vh;
      }
 
      @include media-breakpoint-up(lg) {
@@ -27,7 +28,7 @@
 
                @include media-breakpoint-up(lg) {
                     &:hover {
-                         .dropdown-menu {
+                         & > .dropdown-menu {
                               display: block;
                          }
                     }

@@ -2794,13 +2794,19 @@ function last_haiku_import_make_redirects() {
 
      foreach( $clans as $clan ) {
 
-          $redirects[ 'families/' . strtolower( $clan ) ] = '/families?clan[]=' . last_haiku_import_term_lookup( $clan, 'clans' );
+          $clanTerm = last_haiku_import_term_lookup( $clan, 'clans' );
+
+          $redirects[ 'families/' . strtolower( $clan ) ] = '/families?clan[]=' . $clanTerm;
 
           if( $clan == 'Ronin Families' ) {
                $clan = 'Ronin Schools';
           }
 
-          $redirects[ 'schools/' . strtolower( $clan ) ] = '/schools?clan[]=' . last_haiku_import_term_lookup( $clan, 'clans' );
+          $redirects[ 'schools/' . strtolower( $clan ) ] = '/schools?clan[]=' . $clanTerm;
+
+          $redirects[ 'schools/' . strtolower( $clan ) . '/basic' ] = '/schools?clan[]=' . $clanTerm . '&type=schools';
+          $redirects[ 'schools/' . strtolower( $clan ) . '/advanced' ] = '/schools?clan[]=' . $clanTerm . '&type=advanced_schools';
+          $redirects[ 'schools/' . strtolower( $clan ) . '/paths' ] = '/schools?clan[]=' . $clanTerm . '&type=alternate_paths';
      }
 
      $redirects[ 'families/falcon' ] = '/families?clan[]=' . last_haiku_import_term_lookup( 'Crab', 'clans' ) . '#Toritaka';

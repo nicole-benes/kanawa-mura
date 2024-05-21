@@ -12697,6 +12697,7 @@ main.py-5 {
 
 .navbar-expand-lg.fixed-top {
   z-index: 1200;
+  max-height: 100vh;
 }
 @media (min-width: 992px) {
   .navbar-expand-lg {
@@ -12713,7 +12714,7 @@ main.py-5 {
   display: block;
 }
 @media (min-width: 992px) {
-  .navbar-expand-lg .navbar-nav li:hover .dropdown-menu {
+  .navbar-expand-lg .navbar-nav li:hover > .dropdown-menu {
     display: block;
   }
 }
