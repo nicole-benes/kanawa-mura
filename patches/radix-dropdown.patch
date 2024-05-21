@@ -2,27 +2,41 @@ diff --git a/components/dropdown-menu/dropdown-menu.twig b/components/dropdown-m
 index 1d63661..6079ab7 100644
 --- a/components/dropdown-menu/dropdown-menu.twig
 +++ b/components/dropdown-menu/dropdown-menu.twig
-@@ -6,7 +6,7 @@
- #}
+@@ -7,19 +7,26 @@
+ {% apply spaceless %}
  
  {% if (items|length) > 0 %}
 -  <div class="dropdown-menu">
-+  <div class="dropdown-menu{% if child %} child-dropdown{% endif %}">
++  <ul class="dropdown-menu{% if child %} child-dropdown{% endif %}">
      {% for item in items %}
-       {% set nav_link_classes = ['dropdown-item', item.in_active_trail ? 'active' : ''] %}
+-      {% set nav_link_classes = ['dropdown-item', item.in_active_trail ? 'active' : ''] %}
++     <li class="{{ nav_link_classes|join(' ') }}">
++        {% set nav_link_classes = ['dropdown-item', item.in_active_trail ? 'active' : ''] %}
  
-@@ -15,8 +15,13 @@
-       {% elseif item.url.options.attributes.class %}
-         {% set nav_link_classes = nav_link_classes|merge([item.url.options.attributes.class]) %}
-       {% endif %}
+-      {% if item.url.options.attributes.class is iterable %}
+-        {% set nav_link_classes = nav_link_classes|merge(item.url.options.attributes.class) %}
+-      {% elseif item.url.options.attributes.class %}
+-        {% set nav_link_classes = nav_link_classes|merge([item.url.options.attributes.class]) %}
+-      {% endif %}
 -
-       <a href="{{ item.url }}" class="{{ nav_link_classes|join(' ') }}">{{ item.title }}</a>
-+      {% if item.below %}
-+        {% include 'radix:dropdown-menu' with {
-+          items: item.below,
-+          child: true
-+        } %}
-+      {% endif %}
-     {% endfor %}
-   </div>
+-      <a href="{{ item.url }}" class="{{ nav_link_classes|join(' ') }}">{{ item.title }}</a>
+-    {% endfor %}
+-  </div>
++        {% if item.url.options.attributes.class is iterable %}
++          {% set nav_link_classes = nav_link_classes|merge(item.url.options.attributes.class) %}
++        {% elseif item.url.options.attributes.class %}
++          {% set nav_link_classes = nav_link_classes|merge([item.url.options.attributes.class]) %}
++        {% endif %}
++        <a href="{{ item.url }}">{{ item.title }}</a>
++        {% if item.below %}
++          {% include 'radix:dropdown-menu' with {
++            items: item.below,
++            child: true
++          } %}
++        {% endif %}
++      {% endfor %}
++     </li>
++  </ul>
  {% endif %}
+ 
+ {% endapply %}

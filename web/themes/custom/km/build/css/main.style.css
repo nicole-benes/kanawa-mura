@@ -12725,15 +12725,16 @@ main.py-5 {
   margin-left: 1.5rem;
   padding: 0;
 }
-.navbar-expand-lg .navbar-nav li .dropdown-menu a {
-  color: #f8f9fa;
-}
 @media (min-width: 992px) {
-  .navbar-expand-lg .navbar-nav li .dropdown-menu a:first-child {
+  .navbar-expand-lg .navbar-nav li .dropdown-menu li:first-child {
     display: none;
   }
 }
-.navbar-expand-lg .navbar-nav li .dropdown-menu a:hover {
+.navbar-expand-lg .navbar-nav li .dropdown-menu li a {
+  color: #f8f9fa;
+  text-decoration: none;
+}
+.navbar-expand-lg .navbar-nav li .dropdown-menu li a:hover {
   color: #6f42c1;
 }
 .navbar-expand-lg .navbar-nav li .dropdown-menu.child-dropdown {
@@ -12755,7 +12756,6 @@ main.py-5 {
     position: relative;
   }
   .navbar-expand-lg .navbar-nav li .dropdown-menu.child-dropdown a {
-    font-size: 0.75rem;
     padding: 0;
   }
 }

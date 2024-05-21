@@ -497,6 +497,11 @@ function last_haiku_import_make_menu() {
                          'children' => [
                               'Crab' => [
                                    'uri' => '/schools/crab',
+                                   'children' => [
+                                        'Basic' => '/schools/crab/basic',
+                                        'Advanced' => '/schools/crab/advanced',
+                                        'Alternate Paths' => '/schools/crab/paths',
+                                   ],
                               ],
                               'Crane' => [
                                    'uri' => '/schools/crane',

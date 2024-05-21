@@ -41,17 +41,20 @@
                     margin-left: 1.5rem;
                     padding: 0;
 
-                    a {
-                         color: $gray-100;
-
+                    li {
                          &:first-child {
                               @include media-breakpoint-up(lg) {
                                    display: none;
                               }
                          }
 
-                         &:hover {
-                              color: $purple;
+                         a {
+                              color: $gray-100;
+                              text-decoration: none;;
+
+                              &:hover {
+                                   color: $purple;
+                              }
                          }
                     }
 
@@ -78,7 +81,7 @@
                               position: relative;
 
                               a {
-                                   font-size: .75rem;
+                         //          font-size: .75rem;
                                    padding: 0;  
                               }                                 
                          }
