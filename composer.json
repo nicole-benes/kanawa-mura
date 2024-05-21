@@ -30,7 +30,7 @@
          "drupal/delete_all": "^3.0",
          "drupal/module_filter": "^4.1",
          "drupal/fontawesome": "^2.26",
-         "drupal/radix": "6.0.x-dev@dev",
+         "drupal/radix": "^6.0@beta",
          "drupal/views_data_export": "^1.4",
          "drupal/taxonomy_manager": "^2.0",
          "drupal/search_api": "^1.31",

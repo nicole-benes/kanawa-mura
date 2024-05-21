@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "cad3e909cde615fd37c1abd70d19359e",
+    "content-hash": "16fb1fae42e5781a1904b9686371a366",
     "packages": [
         {
             "name": "ajgl/breakpoint-twig-extension",
@@ -129,16 +129,16 @@
         },
         {
             "name": "chi-teck/drupal-code-generator",
-            "version": "3.5.0",
+            "version": "3.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Chi-teck/drupal-code-generator.git",
-                "reference": "74c2dc687e124bfc4001e73e9346b33067e2ec2b"
+                "reference": "7794c268309a6fd7aeecfd1246a01238c14384c4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Chi-teck/drupal-code-generator/zipball/74c2dc687e124bfc4001e73e9346b33067e2ec2b",
-                "reference": "74c2dc687e124bfc4001e73e9346b33067e2ec2b",
+                "url": "https://api.github.com/repos/Chi-teck/drupal-code-generator/zipball/7794c268309a6fd7aeecfd1246a01238c14384c4",
+                "reference": "7794c268309a6fd7aeecfd1246a01238c14384c4",
                 "shasum": ""
             },
             "require": {
@@ -183,9 +183,9 @@
             "description": "Drupal code generator",
             "support": {
                 "issues": "https://github.com/Chi-teck/drupal-code-generator/issues",
-                "source": "https://github.com/Chi-teck/drupal-code-generator/tree/3.5.0"
+                "source": "https://github.com/Chi-teck/drupal-code-generator/tree/3.6.0"
             },
-            "time": "2024-04-11T11:23:44+00:00"
+            "time": "2024-05-20T12:50:42+00:00"
         },
         {
             "name": "composer/installers",
@@ -2992,11 +2992,17 @@
         },
         {
             "name": "drupal/radix",
-            "version": "dev-6.0.x",
+            "version": "6.0.0-beta18",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/radix.git",
-                "reference": "c1215c44cd1e8d3ebe9b87fc69df28d107a9ed34"
+                "reference": "6.0.0-beta18"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/radix-6.0.0-beta18.zip",
+                "reference": "6.0.0-beta18",
+                "shasum": "d9f417332a8d7d7fa27e6a9d1b9147570bbfbff2"
             },
             "require": {
                 "drupal/core": "^10.1"
@@ -3006,15 +3012,12 @@
             },
             "type": "drupal-theme",
             "extra": {
-                "branch-alias": {
-                    "dev-6.0.x": "6.0.x-dev"
-                },
                 "drupal": {
-                    "version": "6.0.0-beta18+7-dev",
-                    "datestamp": "1715948432",
+                    "version": "6.0.0-beta18",
+                    "datestamp": "1715509922",
                     "security-coverage": {
                         "status": "not-covered",
-                        "message": "Dev releases are not covered by Drupal security advisories."
+                        "message": "Beta releases are not covered by Drupal security advisories."
                     }
                 },
                 "drush": {
@@ -13627,16 +13630,16 @@
         },
         {
             "name": "squizlabs/php_codesniffer",
-            "version": "3.9.2",
+            "version": "3.10.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHPCSStandards/PHP_CodeSniffer.git",
-                "reference": "aac1f6f347a5c5ac6bc98ad395007df00990f480"
+                "reference": "57e09801c2fbae2d257b8b75bebb3deeb7e9deb2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHPCSStandards/PHP_CodeSniffer/zipball/aac1f6f347a5c5ac6bc98ad395007df00990f480",
-                "reference": "aac1f6f347a5c5ac6bc98ad395007df00990f480",
+                "url": "https://api.github.com/repos/PHPCSStandards/PHP_CodeSniffer/zipball/57e09801c2fbae2d257b8b75bebb3deeb7e9deb2",
+                "reference": "57e09801c2fbae2d257b8b75bebb3deeb7e9deb2",
                 "shasum": ""
             },
             "require": {
@@ -13703,7 +13706,7 @@
                     "type": "open_collective"
                 }
             ],
-            "time": "2024-04-23T20:25:34+00:00"
+            "time": "2024-05-20T08:11:32+00:00"
         },
         {
             "name": "symfony/browser-kit",
@@ -14331,7 +14334,7 @@
     "stability-flags": {
         "pantheon-upstreams/upstream-configuration": 20,
         "drupal/views_field_view": 10,
-        "drupal/radix": 20
+        "drupal/radix": 10
     },
     "prefer-stable": true,
     "prefer-lowest": false,
