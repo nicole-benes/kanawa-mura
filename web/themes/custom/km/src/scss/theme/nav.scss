@@ -3,6 +3,10 @@
           z-index: 1200;
      }
 
+     @include media-breakpoint-up(lg) {
+          overflow: visible;
+     }
+
      .navbar-nav {
           li {
                a {
@@ -15,7 +19,6 @@
                     }
                }
                
-
                .show {
                     .dropdown-menu {
                          display: block;

@@ -12698,6 +12698,11 @@ main.py-5 {
 .navbar-expand-lg.fixed-top {
   z-index: 1200;
 }
+@media (min-width: 992px) {
+  .navbar-expand-lg {
+    overflow: visible;
+  }
+}
 .navbar-expand-lg .navbar-nav li a:focus {
   color: #6f42c1;
 }
