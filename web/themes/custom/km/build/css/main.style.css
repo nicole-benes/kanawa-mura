@@ -12717,6 +12717,9 @@ main.py-5 {
   .navbar-expand-lg .navbar-nav li:hover > .dropdown-menu {
     display: block;
   }
+  .navbar-expand-lg .navbar-nav li:hover > .dropdown-menu .child-dropdown {
+    display: none;
+  }
 }
 .navbar-expand-lg .navbar-nav li .dropdown-menu {
   background-color: #222;
@@ -12757,6 +12760,9 @@ main.py-5 {
   }
   .navbar-expand-lg .navbar-nav li .dropdown-menu.child-dropdown a {
     padding: 0;
+  }
+  .navbar-expand-lg .navbar-nav li .dropdown-menu.child-dropdown .child-dropdown {
+    display: none;
   }
 }
 

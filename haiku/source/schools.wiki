@@ -201,15 +201,14 @@ __**Techniques**__
 **Rank 1: The Falcon's Eyes**
 A Toritaka must be aware of his surroundings at all times, for his enemies can appear anywhere. You add +1k0 to all Skill and raw Trait rolls involving the Perception Trait. Additionally, when striking a creature from another Spirit Realm (including oni from Jigoku and hungry dead from Gaki-do), you add +1k0 to all damage rolls.
 
-**Rank 2: The Falcon Takes Flight**Through his training, the Toritaka can sense the emanations of nearby spirits as they cross over into the mortal realm. You may attempt to detect the presence of any creatures from
-other Spirit Realms by making a Perception Trait Roll against a TN equal to the creature’s Air Ring x 5.
+**Rank 2: The Falcon Takes Flight**
+Through his training, the Toritaka can sense the emanations of nearby spirits as they cross over into the mortal realm. You may attempt to detect the presence of any creatures from other Spirit Realms by making a Perception Trait Roll against a TN equal to the creature’s Air Ring x 5.
 
 **Rank 3: The Falcon's Wings**
 The Toritaka strikes with precision, constantly keeping his enemies at bay. You may make attacks as a Simple Action instead of a Complex Action while wielding a spear or a weapon with the Samurai keyword.
 
 **Rank 4: Vigilant and Strong**
-Monsters may have tricks to confuse their enemies, but the Toritaka learns to see the truth through the fog. You may spend a Void Point to negate any darkness or blinding penalties. This
-effect lasts until the Reactions Phase two Rounds later.
+Monsters may have tricks to confuse their enemies, but the Toritaka learns to see the truth through the fog. You may spend a Void Point to negate any darkness or blinding penalties. This effect lasts until the Reactions Phase two Rounds later.
 
 **Rank 5: Claws of the Falcon**
 Nothing will stop the Toritaka’s attack from hitting its target. Your attacks ignore up to 5 points of your opponent’s Reduction (if he has any). Against creatures from other Spirit Realms, you may spend a Void Point as a Free Action to reduce the creature’s Reduction by 10 for one Round.

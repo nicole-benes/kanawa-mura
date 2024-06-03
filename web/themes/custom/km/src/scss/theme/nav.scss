@@ -30,6 +30,10 @@
                     &:hover {
                          & > .dropdown-menu {
                               display: block;
+
+                              .child-dropdown {
+                                   display: none;
+                              }
                          }
                     }
                }
@@ -83,7 +87,11 @@
                               a {
                          //          font-size: .75rem;
                                    padding: 0;  
-                              }                                 
+                              }
+                              
+                              .child-dropdown {
+                                   display: none;
+                              }
                          }
                     }                         
                }

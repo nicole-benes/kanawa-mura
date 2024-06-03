@@ -498,34 +498,128 @@ function last_haiku_import_make_menu() {
                               'Crab' => [
                                    'uri' => '/schools/crab',
                                    'children' => [
-                                        'Basic' => '/schools/crab/basic',
-                                        'Advanced' => '/schools/crab/advanced',
-                                        'Alternate Paths' => '/schools/crab/paths',
+                                        'Basic' => [
+                                             'uri' => '/schools/crab/basic',
+                                        ],
+                                        'Advanced' => [
+                                             'uri' => '/schools/crab/advanced',
+                                        ],
+                                        'Alternate Paths' => [
+                                             'uri' => '/schools/crab/paths',
+                                        ],
                                    ],
                               ],
                               'Crane' => [
                                    'uri' => '/schools/crane',
+                                   'children' => [
+                                        'Basic' => [
+                                             'uri' => '/schools/crane/basic',
+                                        ],
+                                        'Advanced' => [
+                                             'uri' => '/schools/crane/advanced',
+                                        ],
+                                        'Alternate Paths' => [
+                                             'uri' => '/schools/crane/paths',
+                                        ],
+                                   ],                                   
                               ],
                               'Dragon' => [
                                    'uri' => '/schools/dragon',
+                                   'children' => [
+                                        'Basic' => [
+                                             'uri' => '/schools/dragon/basic',
+                                        ],
+                                        'Advanced' => [
+                                             'uri' => '/schools/dragon/advanced',
+                                        ],
+                                        'Alternate Paths' => [
+                                             'uri' => '/schools/dragon/paths',
+                                        ],
+                                   ],                                   
                               ],
                               'Lion' => [
                                    'uri' => '/schools/lion',
+                                   'children' => [
+                                        'Basic' => [
+                                             'uri' => '/schools/lion/basic',
+                                        ],
+                                        'Advanced' => [
+                                             'uri' => '/schools/lion/advanced',
+                                        ],
+                                        'Alternate Paths' => [
+                                             'uri' => '/schools/lion/paths',
+                                        ],
+                                   ],
                               ],
                               'Mantis' => [
                                    'uri' => '/schools/mantis',
+                                   'children' => [
+                                        'Basic' => [
+                                             'uri' => '/schools/mantis/basic',
+                                        ],
+                                        'Advanced' => [
+                                             'uri' => '/schools/mantis/advanced',
+                                        ],
+                                        'Alternate Paths' => [
+                                             'uri' => '/schools/mantis/paths',
+                                        ],
+                                   ],                                   
                               ],
                               'Phoenix' => [
                                    'uri' => '/schools/phoenix',
+                                   'children' => [
+                                        'Basic' => [
+                                             'uri' => '/schools/phoenix/basic',
+                                        ],
+                                        'Advanced' => [
+                                             'uri' => '/schools/phoenix/advanced',
+                                        ],
+                                        'Alternate Paths' => [
+                                             'uri' => '/schools/phoenix/paths',
+                                        ],
+                                   ],                                   
                               ],
                               'Scorpion' => [
                                    'uri' => '/schools/scorpion',
+                                   'children' => [
+                                        'Basic' => [
+                                             'uri' => '/schools/scorpion/basic',
+                                        ],
+                                        'Advanced' => [
+                                             'uri' => '/schools/scorpion/advanced',
+                                        ],
+                                        'Alternate Paths' => [
+                                             'uri' => '/schools/scorpion/paths',
+                                        ],
+                                   ],
                               ],
                               'Spider' => [
                                    'uri' => '/schools/spider',
+                                   'children' => [
+                                        'Basic' => [
+                                             'uri' => '/schools/spider/basic',
+                                        ],
+                                        'Advanced' => [
+                                             'uri' => '/schools/spider/advanced',
+                                        ],
+                                        'Alternate Paths' => [
+                                             'uri' => '/schools/spider/paths',
+                                        ],
+                                   ],                                   
                               ],
                               'Unicorn' => [
                                    'uri' => '/schools/unicorn',
+                                   'children' => [
+                                        'Basic' => [
+                                             'uri' => '/schools/unicorn/basic',
+                                        ],
+                                        'Advanced' => [
+                                             'uri' => '/schools/unicorn/advanced',
+                                        ],
+                                        'Alternate Paths' => [
+                                             'uri' => '/schools/unicorn/paths',
+                                        ],
+                                   ],                                   
                               ],
                          ],
                     ],
