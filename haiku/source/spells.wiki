@@ -563,7 +563,7 @@ This spell infuses Earth spirits into the hands and feet of the caster, allowing
 * Raises: Range (+10’ per Raise), Area of Effect (+1 creature per two Raises), Duration (+1 day per two Raises)
   This spell calls on the Earth kami to remove all protection of Jurojin, the Fortune of Health and Longevity, from the target. For the duration of the spell, the target’s Earth is considered to be 3 Ranks lower (to a minimum of 1) for the purpose of healing injuries and resisting disease or poison.
 
-**RiteS of Preservation**
+**Rites of Preservation**
 * Ring/Mastery: Earth 2 (Imperial)
 * Range: 10’
 * Area of Effect: One human corpse
