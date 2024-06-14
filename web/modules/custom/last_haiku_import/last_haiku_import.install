@@ -624,22 +624,22 @@ function last_haiku_import_make_menu() {
                          ],
                     ],
                     'Minor Clans' => [
-                         'uri' => '/schools/minor clans',
+                         'uri' => '/schools/minor',
                     ],
                     'Imperial Families' => [
-                         'uri' => '/schools/imperial families',
+                         'uri' => '/schools/imperial',
                     ],
                     'Monk Schools' => [
-                         'uri' => '/schools/monk schools',
+                         'uri' => '/schools/monk',
                     ],
                     'Ronin Schools' => [
-                         'uri' => '/schools/ronin schools',
+                         'uri' => '/schools/ronin',
                     ],
                     'Miscellaneous Schools' => [
                          'uri' => '/schools/miscellaneous',
                     ],
                     'Lost Clans' => [
-                         'uri' => '/schools/lost clans',
+                         'uri' => '/schools/lost',
                     ],
                 ],
           ],
@@ -2898,10 +2898,16 @@ function last_haiku_import_make_redirects() {
           $redirects[ 'families/' . strtolower( $clan ) ] = '/families?clan[]=' . $clanTerm;
 
           if( $clan == 'Ronin Families' ) {
-               $clan = 'Ronin Schools';
+               $clan = 'Ronin';
+          } else if( $clan == 'Imperial Families' ) {
+               $clan = 'Imperial';
+          } else if( $clan == 'Minor Clans' ) {
+               $clan = 'Minor';
+          } else if( $clan == 'Lost Clans' ) {
+               $clan = 'Lost';
           }
 
-          $redirects[ 'schools/' . strtolower( $clan ) ] = '/schools?clan[]=' . $clanTerm;
+	  $redirects[ 'schools/' . strtolower( $clan ) ] = '/schools?clan[]=' . $clanTerm;
 
           $redirects[ 'schools/' . strtolower( $clan ) . '/basic' ] = '/schools?clan[]=' . $clanTerm . '&type=schools';
           $redirects[ 'schools/' . strtolower( $clan ) . '/advanced' ] = '/schools?clan[]=' . $clanTerm . '&type=advanced_schools';
