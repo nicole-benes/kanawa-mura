@@ -71,13 +71,13 @@ armor. but only so long as the wearer is on horseback.
 +-+ Weapons
 
 ++ Arrows
-**Armor-piercing [CR]**
+**Armor Piercing [CR]**
 * Damage rating: 1k1
 * Special: Ignores Bonus to Armor TN from armor.
 * Cost: 2 bu.
 These arrows replace the broader
 head of the Willow Leaf with a narrow spike intended
-to punch through am10red plates. They are effective
+to punch through armored plates. They are effective
 in penetrating armor, but sacrifice some of the damage
 inflicted.
 
@@ -89,7 +89,7 @@ These arrows have broader, sometimes
 barbed, heads intended to inflict tremendous damage
 on unarmored targets. They are almost useless against
 armored targets and cannot be fired as far as a standard
-Willow leaf arrow, but against unam1ored targets
+Willow leaf arrow, but against unarmored targets
 they are devastatingly effective.
 
 **Humming Bulb [CR]**
