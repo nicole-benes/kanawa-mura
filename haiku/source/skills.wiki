@@ -404,7 +404,7 @@ When a forgery is created, the result of your Forgery / Agility Skill Roll shoul
 * Rank 5: The character gains a bonus of +1k0 on any roll to detect a forgery made by someone else.
 * Rank 7: The character gains a bonus of +0k1 (for a total of +1k1) to his Forgery Skill Roll result for the purposes of establishing the TN of an Investigation / Perception Skill Roll to detect it.
 
-+ Intimidation (Willpower)
++ Intimidation (Awareness)
 **Sub-types:** Social Skill
 **Emphases:** Bullying, Control, Torture
 **Description:** The manipulation of others through the use of threats, both stated and implied, is an oft-employed tool for those who have left their honor behind. Even bushi who are generally honorable but have a strong sense of pragmatism will occasionally abandon decorum and threaten those who refuse to cooperate. It is a shameful act, but one that many are willing to commit (and promptly forget) in order to ensure the successful completion of their duty.
