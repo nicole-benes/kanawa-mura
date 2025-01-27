@@ -1,8 +1,10 @@
 name: Deploy to Pantheon
 on:
-  push:
-    branches:
-      - 'main'
+  workflow_run:
+    workflows:
+      - 'playwright'
+    types:
+      - completed
   workflow_dispatch: 
 jobs:
   build:
