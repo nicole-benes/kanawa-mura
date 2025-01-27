@@ -61,3 +61,13 @@ test('Skills Accordions', async ({ page }) => {
   // Check if Hunting (Perception) is visible
   await expect( page.getByRole('heading', { name: 'Hunting (Perception)' })).toBeVisible();  
 });
+
+test('Search for a school', async ({ page }) => {
+  await page.goto('http://km.test/');
+  await page.getByRole('textbox', { name: 'Search' }).click();
+  await page.getByRole('textbox', { name: 'Search' }).fill('berserker');
+  await page.getByLabel('Type').selectOption('schools');
+  await page.getByRole('button', { name: 'Search' }).click();
+  await page.getByRole('link', { name: 'Matsu Berserker' }).click();
+  await expect( page.getByRole('heading', { name: 'Rank Three: The Lion\'s Charge' })).toBeVisible();
+});

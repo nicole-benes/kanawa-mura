@@ -47,3 +47,9 @@ $settings['config_sync_directory'] = '../config/default';$databases['default']['
   'autoload' => 'core/modules/mysql/src/Driver/Database/mysql/',
 );
 $settings['hash_salt'] = 'lxXc1lVwyepSYo1ITmdZ6EzQTm2j--PeR6x_YyEbyjk5m4tCCKH7KDAfxqbjLHd4K8L0-xq7BA';
+
+// Automatically generated include for settings managed by ddev.
+$ddev_settings = __DIR__ . '/settings.ddev.php';
+if (getenv('IS_DDEV_PROJECT') == 'true' && is_readable($ddev_settings)) {
+  require $ddev_settings;
+}
