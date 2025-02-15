@@ -1,12 +1,9 @@
 name: Deploy to Pantheon
 on:
-#  
-#  workflow_run:
-#    workflows:
-#      - 'playwright'
-#    types:
-#      - completed
-  workflow_dispatch: 
+  push:
+    branches:
+      - 'main'
+  workflow_dispatch:
 jobs:
   build:
     runs-on: ubuntu-latest
