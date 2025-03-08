@@ -197,7 +197,7 @@ become more popular to use large spherical weights instead.
 
 
 ++ Heavy Weapons
-**Dai-tsuchi [CR]**
+**Dai tsuchi [CR]**
 * Keywords: Large
 * Damage rating: 5k2
 * Cost: 15 koku.
@@ -205,7 +205,7 @@ A massive two-handed war hammer popular in the Crab Clan,
 the dai tsuchi is one of the more effective tools rhe samurai
 of Rokugan have against the large, well-armored creatures
 of the Shadowlands that occasionally threaten the Empire. In
-trained hands, the dai rsuchi focus?s its force in a very srnal1
+trained hands, the dai tsuchi focuses its force in a very small
 area and can shatter armor or the thick hide of demons without
 great difficulty.
 
