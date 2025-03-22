@@ -490,7 +490,7 @@ function kanawa_mura_views_post_render( $view, &$output, $cache ) {
 
           // Loop through the output
           foreach( $rows as $row ) {
-               
+/*               
                // We need to re-order the multi-element spells
                if( $row[ '#title' ] == 'Multi-Element' ) {
                     $row[ '#rows' ][ 0 ] = $row[ '#rows' ][ 11 ];
@@ -499,7 +499,7 @@ function kanawa_mura_views_post_render( $view, &$output, $cache ) {
                     unset( $row[ '#rows' ][ 11 ] );
                     unset( $row[ '#rows' ][ 12 ] );
                }
-
+*/
                // Figure out the index of this ring
                $output[ '#rows' ][ kanawa_mura_spell_sort( $row[ '#title' ] ) ] = $row;
           }

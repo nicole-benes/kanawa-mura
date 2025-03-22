@@ -14,13 +14,14 @@ dependencies:
     - field.storage.node.field_trait
     - field.storage.taxonomy_term.field_abbreviation
     - search_api.index.main_index
+    - taxonomy.vocabulary.keywords
     - taxonomy.vocabulary.rings_traits
   content:
-    - 'taxonomy_term:rings_traits:0bcfa6e4-2062-40a1-9396-8cea01bc3e3d'
-    - 'taxonomy_term:rings_traits:20fab7b0-b729-469c-989e-6c1b814d3ffc'
-    - 'taxonomy_term:rings_traits:43ccfd46-edbd-4137-aa4f-5da64c509954'
-    - 'taxonomy_term:rings_traits:80821ccc-cfda-4c32-975d-330efd2cb427'
-    - 'taxonomy_term:rings_traits:9eb6812f-626d-4e11-882b-0bc9fca75799'
+    - 'taxonomy_term:rings_traits:15d22373-1b56-4086-81f5-5888cb6869c3'
+    - 'taxonomy_term:rings_traits:5ed44df0-ac9e-47e6-8926-df8e8593219f'
+    - 'taxonomy_term:rings_traits:80b96c38-35ae-466a-8345-a0db7003fb40'
+    - 'taxonomy_term:rings_traits:d6805908-88d5-41b0-81c7-5993383f66a0'
+    - 'taxonomy_term:rings_traits:dafe17bc-7a6e-4f89-9907-6d3473b1f620'
   module:
     - rest
     - search_api
@@ -1224,6 +1225,291 @@ display:
     display_plugin: page
     position: 1
     display_options:
+      filters:
+        type:
+          id: type
+          table: search_api_index_main_index
+          field: type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_options
+          operator: or
+          value:
+            spells: spells
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+        search_api_fulltext:
+          id: search_api_fulltext
+          table: search_api_index_main_index
+          field: search_api_fulltext
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_fulltext
+          operator: and
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: search_api_fulltext_op
+            label: Search
+            description: ''
+            use_operator: false
+            operator: search_api_fulltext_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: terms
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              content_editor: '0'
+              administrator: '0'
+            expose_fields: false
+            placeholder: ''
+            searched_fields_id: search_api_fulltext_searched_fields
+            value_maxlength: 128
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          parse_mode: terms
+          min_length: null
+          fields: {  }
+        keywords:
+          id: keywords
+          table: search_api_index_main_index
+          field: keywords
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_term
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: keywords_op
+            label: Keywords
+            description: ''
+            use_operator: false
+            operator: keywords_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: keywords
+            required: false
+            remember: false
+            multiple: true
+            remember_roles:
+              authenticated: authenticated
+              authorized_user: '0'
+              anonymous: '0'
+              content_editor: '0'
+              administrator: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          vid: keywords
+          type: textfield
+          hierarchy: false
+          limit: true
+          error_message: true
+        trait:
+          id: trait
+          table: search_api_index_main_index
+          field: trait
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_term
+          operator: or
+          value:
+            19: 19
+            22: 22
+            25: 25
+            31: 31
+            28: 28
+          group: 1
+          exposed: true
+          expose:
+            operator_id: trait_op
+            label: Trait(s)
+            description: ''
+            use_operator: false
+            operator: trait_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: trait
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              content_editor: '0'
+              administrator: '0'
+            reduce: true
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          vid: rings_traits
+          type: select
+          hierarchy: false
+          limit: true
+          error_message: true
+        rank:
+          id: rank
+          table: search_api_index_main_index
+          field: rank
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_numeric
+          operator: '='
+          value:
+            min: ''
+            max: ''
+            value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: rank_op
+            label: Rank
+            description: null
+            use_operator: false
+            operator: rank_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: rank
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            min_placeholder: null
+            max_placeholder: null
+            placeholder: null
+          is_grouped: true
+          group_info:
+            label: Rank
+            description: ''
+            identifier: rank
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items:
+              1:
+                title: 'Mastery Rank 1'
+                operator: '='
+                value:
+                  min: ''
+                  max: ''
+                  value: '1'
+              2:
+                title: 'Mastery Rank 2'
+                operator: '='
+                value:
+                  min: ''
+                  max: ''
+                  value: '2'
+              3:
+                title: 'Mastery Rank 3'
+                operator: '='
+                value:
+                  min: ''
+                  max: ''
+                  value: '3'
+              4:
+                title: 'Mastery Rank 4'
+                operator: '='
+                value:
+                  min: ''
+                  max: ''
+                  value: '4'
+              5:
+                title: 'Mastery Rank 5'
+                operator: '='
+                value:
+                  min: ''
+                  max: ''
+                  value: '5'
+              6:
+                title: 'Mastery Rank 6'
+                operator: '='
+                value:
+                  min: ''
+                  max: ''
+                  value: '6'
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+      defaults:
+        filters: false
+        filter_groups: false
       display_extenders:
         ajax_history:
           enable_history: true

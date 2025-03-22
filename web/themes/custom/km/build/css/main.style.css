@@ -13066,10 +13066,16 @@ main.py-5 {
     width: 50%;
   }
   .grouped-view.view-skills .views-exposed-form .form-type-textfield {
-    width: 78%;
+    width: 58%;
+  }
+  .grouped-view.view-spells .views-exposed-form .form-actions {
+    margin-top: 4px;
+  }
+  .grouped-view.view-spells .views-exposed-form .form-type-entity-autocomplete {
+    width: 16.5%;
   }
   .grouped-view.view-spells .views-exposed-form .form-type-textfield {
-    width: 67%;
+    width: 52%;
   }
   .grouped-view.view-tattoos .views-exposed-form .form-type-textfield {
     width: 90%;

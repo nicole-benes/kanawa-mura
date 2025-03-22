@@ -2265,7 +2265,7 @@ Fire's most basic power is destruction, and summoned Fire spirits can easily be 
 
 Fire spirits can be driven away by the proper invocation, a very useful ability in Rokugani towns and cities where the construction is all wood and paper. The spell dismisses the active Fire kami in the area. All non-magical fire in the area of effect is immediately snuffed out, and any damage dealt by fire (magical or not) reduces its DR by 1k1 until the start of the next round.
 
-**Fire Kami’s Blessing**
+**Fire Kami's Blessing**
 * Ring/Mastery: Fire 1
 * Range: Touch
 * Area of Effect: One target creature (may be caster)
