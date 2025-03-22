@@ -19,8 +19,10 @@ function km_form_alter( &$form, $form_state, $form_id ) {
      if( $form_id == 'views_exposed_form' ) {
           $form[ 'actions' ]['reset' ][ '#attributes' ][ 'class' ][] = 'btn-warning';
 
+          if( array_key_exists( 'keywords', $form ) ) {
+               $form[ 'keywords' ][ '#placeholder' ] = 'Keywords';
+          }
      }
-     //     edit-reset
 }
 
 
