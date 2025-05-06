@@ -1,4 +1,4 @@
-name: Changelog Update
+name: Corecon Changelog Update
 on:
   milestone:
     types: [closed]
@@ -7,8 +7,8 @@ on:
 jobs:
     build-changelog:
         runs-on: ubuntu-latest
-
+        environment: Changelog Update
         steps:
           - uses: actions/checkout@v3
           - run: echo "The ${{ github.repository }} repository has been cloned."
-          - run: php scripts/changelog.php
+          - run: php scripts/changelog.php --username ${{ secrets.GH_USERNAME }}
