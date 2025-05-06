@@ -1,0 +1,14 @@
+name: Changelog Update
+on:
+  milestone:
+    types: [closed]
+    
+
+jobs:
+    build-changelog:
+        runs-on: ubuntu-latest
+
+        steps:
+          - uses: actions/checkout@v3
+          - run: echo "The ${{ github.repository }} repository has been cloned."
+                
