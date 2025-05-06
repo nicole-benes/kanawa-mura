@@ -44,7 +44,8 @@
          "drupal/webform": "^6.2",
          "drupal/recaptcha_v3": "^2.0",
          "drupal/sendgrid_integration": "^2.2",
-         "drupal/google_tag": "^2.0"
+         "drupal/google_tag": "^2.0",
+          "firebase/php-jwt": "^6.11"
      },
      "require-dev": {
          "drupal/core-dev": "^10"

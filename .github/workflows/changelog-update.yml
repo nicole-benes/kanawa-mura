@@ -11,4 +11,4 @@ jobs:
         steps:
           - uses: actions/checkout@v3
           - run: echo "The ${{ github.repository }} repository has been cloned."
-          - run: php scripts/changelog.php ${{ secrets.GH_USERNAME }} $(jq '.milestone.id' "$GITHUB_EVENT_PATH") $(jq '.repository.name' $GITHUB_EVENT_PATH) $(jq '.repository.owner.login' $GITHUB_EVENT_PATH)
+          - run: php scripts/changelog.php ${{ secrets.GH_USERNAME }} $(jq '.milestone.id' "$GITHUB_EVENT_PATH") $(jq '.repository.name' "$GITHUB_EVENT_PATH") $(jq '.repository.owner.login' "$GITHUB_EVENT_PATH")
