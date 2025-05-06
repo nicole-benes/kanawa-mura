@@ -1,0 +1,3 @@
+<?php
+
+echo "File run!";
