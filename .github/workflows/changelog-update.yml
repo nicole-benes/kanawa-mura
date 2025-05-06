@@ -12,3 +12,4 @@ jobs:
           - uses: actions/checkout@v3
           - run: echo "The ${{ github.repository }} repository has been cloned."
           - run: php scripts/changelog.php ${{ secrets.GH_USERNAME }}
+          - run: cat "$GITHUB_EVENT_PATH"
