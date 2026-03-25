@@ -44,7 +44,8 @@
          "drupal/webform": "^6.2",
          "drupal/recaptcha_v3": "^2.0",
          "drupal/sendgrid_integration": "^2.2",
-         "drupal/google_tag": "^2.0"
+         "drupal/google_tag": "^2.0",
+          "drupal/upgrade_status": "^4.3"
      },
      "require-dev": {
          "drupal/core-dev": "^10"
@@ -84,9 +85,6 @@
          },
          "enable-patching": true,
          "patches": {
-              "drupal/radix": {
-                 "Issue: Allow dropdowns to have dropdowns": "./patches/radix-dropdown.patch"
-              }
           }
      },
      "autoload": {
@@ -103,13 +101,14 @@
              "php": "8.1.13"
          },
          "allow-plugins": {
-             "composer/installers": true,
-             "cweagans/composer-patches": true,
-             "drupal/core-composer-scaffold": true,
-             "dealerdirect/phpcodesniffer-composer-installer": true,
-             "phpstan/extension-installer": true,
-             "php-http/discovery": true,
-             "drupal/core-project-message": true
-         }
+               "composer/installers": true,
+               "cweagans/composer-patches": true,
+               "drupal/core-composer-scaffold": true,
+               "dealerdirect/phpcodesniffer-composer-installer": true,
+               "phpstan/extension-installer": true,
+               "php-http/discovery": true,
+               "drupal/core-project-message": true,
+               "tbachert/spi": true
+          }
      }
  }
