@@ -2,7 +2,7 @@
 ### A Drupal based resource for the 4th edition of Legend of the Five Rings role-playing game.
 
 ## Overview
-Big thanks to all the wiki editors who made Last Haiku [Last Haiku](https://lasthaiku.wikidot.com/ "Last Haiku"). Without their work, this site wouldn't exist.
+Big thanks to all the wiki editors who made [Last Haiku](https://lasthaiku.wikidot.com/ "Last Haiku"). Without their work, this site wouldn't exist.
 
 ### Installing
 1. Have a working LAMP stack
@@ -24,7 +24,7 @@ Assuming you have a LAMP stack, the steps I run when I want to make an update ar
 **You will need to have a correct settings.local.php file in /web/sites/default - see below for an example**.
 
 ```bash
-drush si --account-name="<nme>" --account-mail="<email>" --account-pass="<password>" --site-name="<site name>" --existing-config -y
+drush si --account-name="<name>" --account-mail="<email>" --account-pass="<password>" --site-name="<site name>" --existing-config -y
 drush en last_haiku_import -y
 drush cim -y
 drush cr
