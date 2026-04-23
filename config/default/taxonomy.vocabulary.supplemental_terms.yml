@@ -6,3 +6,4 @@ name: 'Supplemental Terms'
 vid: supplemental_terms
 description: "Some uses of a vocabulary are insufficient , such as a clan's school (Monks, Miscellaneous) or spells (Universal spells)."
 weight: 0
+new_revision: false

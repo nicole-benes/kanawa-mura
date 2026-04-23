@@ -6,3 +6,4 @@ name: 'Skill Type'
 vid: skill_type
 description: 'The category of the skill.'
 weight: 0
+new_revision: false

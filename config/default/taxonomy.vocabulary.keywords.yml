@@ -6,3 +6,4 @@ name: Keywords
 vid: keywords
 description: 'Various keywords associated with spells, equipment, etc'
 weight: 0
+new_revision: false

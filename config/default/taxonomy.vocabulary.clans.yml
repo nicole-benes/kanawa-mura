@@ -6,3 +6,4 @@ name: Clans
 vid: clans
 description: 'The clans of Rokugan'
 weight: 0
+new_revision: false

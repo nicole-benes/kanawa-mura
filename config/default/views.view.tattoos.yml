@@ -280,10 +280,7 @@ display:
             required: false
             remember: false
             multiple: false
-            remember_roles:
-              anonymous: '0'
-              content_editor: '0'
-              administrator: '0'
+            remember_roles: {  }
             expose_fields: false
             placeholder: 'Enter search terms...'
             searched_fields_id: search_api_fulltext_searched_fields

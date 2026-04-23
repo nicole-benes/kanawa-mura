@@ -8,7 +8,6 @@ _core:
   default_config_hash: ructO0IOsghR3CIbNd-0QfLTDiUo8gIJ7mB_nxSil4o
 id: block-layout
 label: 'Block Layout Page'
-module: block
 routes:
   -
     route_name: block.admin_display

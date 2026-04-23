@@ -6,3 +6,4 @@ name: 'Source Books'
 vid: source_books
 description: 'The various sources from which content is originally from.'
 weight: 0
+new_revision: false

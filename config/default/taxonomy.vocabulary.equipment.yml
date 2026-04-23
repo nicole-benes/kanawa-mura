@@ -6,3 +6,4 @@ name: 'Equipment Types'
 vid: equipment
 description: 'A taxonomy to hold the various types of equipment found in L5R.'
 weight: 0
+new_revision: false

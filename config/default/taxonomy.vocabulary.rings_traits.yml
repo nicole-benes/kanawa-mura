@@ -6,3 +6,4 @@ name: 'Rings & Traits'
 vid: rings_traits
 description: 'The core character rings and traits.'
 weight: 0
+new_revision: false

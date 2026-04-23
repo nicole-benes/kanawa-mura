@@ -1,14 +1,13 @@
 name: km
 screenshot: screenshot.png
 'alt text': 'radix_starterkit theme screenshot'
-core_version_requirement: ^10
+core_version_requirement: ^10 || ^11
 version: 1.0.0
 engine: twig
 type: theme
 'base theme': radix
 starterkit: true
 dependencies:
-  - 'drupal:sdc'
   - 'drupal:serialization'
 'interface translation project': km
 'interface translation server pattern': themes/custom/km/translations/%language.po
