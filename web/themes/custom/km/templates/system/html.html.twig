@@ -23,4 +23,48 @@
  * @see template_preprocess_html()
  */
 #}
-{% include "radix:html" %}
+{%
+  set body_classes = [
+    root_path ? 'path-' ~ root_path|clean_class : 'path-frontpage',
+    language ? 'language--' ~ language|clean_class,
+  ]|merge(body_utility_classes ?: [])
+%}
+
+<!DOCTYPE html>
+<html {{html_attributes}}>
+  <head>
+    {% block head_start %}
+      {{ head_start }}
+    {% endblock %}
+    <head-placeholder token="{{ placeholder_token }}">
+    <title>{{ head_title|safe_join(' | ') }}</title>
+    <css-placeholder token="{{ placeholder_token }}">
+    <js-placeholder token="{{ placeholder_token }}">
+    {% block head_end %}
+      {{ head_end }}
+    {% endblock %}
+  </head>
+  <body {{attributes.addClass(body_classes)}}>
+    {% block body_start %}
+      {{ body_start }}
+    {% endblock %}
+    {#
+      This hyperlink facilitates keyboard navigation, allowing users to
+      easily skip to the main content section defined in 'page.html.twig'.
+    #}
+    <a href="#main-content" class="visually-hidden focusable">
+      {{ 'Skip to main content'|t }}
+    </a>
+
+    {{ page_top }}
+    {{ page }}
+    {{ page_bottom }}
+
+    <js-bottom-placeholder token="{{ placeholder_token }}">
+    {% block body_end %}
+      {{ body_end }}
+    {% endblock %}
+
+    <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "418289bf25c44c3e8241c86023df7c88"}'></script><!-- End Cloudflare Web Analytics -->
+    </body>
+</html>
